@@ -1,0 +1,14 @@
+VINCULAR O FRETE COM A OBRA
+- Na tela de criação de Frete
+- Ao escolher a Obra, gerar uma Despesa Realizada para a obra selecionada
+- Abrir a tela de geração de OP para esse frete, vinculado a essa despesa da obra
+
+Dessa forma, quando baixar essa OP, na tela dessa obra vai aparecer que a OP já foi paga
+
+==================================================
+
+FRETE RATEADO ENTRE OBRAS DIFERENTES
+- Na tela de lançamento de frete, ao invés de escolher a obra no combo, ir adicionando na grid a obra e o valor para cada obra
+- Quando gravar, lançar as despesas para cada obra
+Gerar a OP normalmente
+

@@ -1,0 +1,13 @@
+- Gera autorização para abastecimento vinculado a um centro de custo (layout do mockup, em 2 vias um quadro ao lado do outro)
+- É criado um lançamento de despesa para a obra(se for o caso)
+- Quinzenalmente é gerada uma OP para o posto, selecionando as autorizações de abastecimento
+- Vincular a autorização com o ID da OP
+- Quando baixar a OP, mostrar a autorização de pago
+
+Na tela de Lançamento de abastecimento, fazer uma tela de consulta
+	Na grid mostrar o número da OP*, e o status (Sem OP, OP gerada, PAGO)
+
+=============================================
+
+* Criar um número de OP
+Incremental / Ano de emissão - 1/2014, 1/2015....
