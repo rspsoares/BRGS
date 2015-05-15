@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD43DF86-AB65-49DC-AA0A-A7AD5A3328A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BRGS.Domain</RootNamespace>
+    <AssemblyName>BRGS.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abastecimento.cs" />
+    <Compile Include="Atividade.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CentroCusto.cs" />
+    <Compile Include="CentroCustoDespesa.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteContaBancaria.cs" />
+    <Compile Include="ClienteContato.cs" />
+    <Compile Include="Custo.cs" />
+    <Compile Include="Despesa.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="EmpresaContaBancaria.cs" />
+    <Compile Include="Fase.cs" />
+    <Compile Include="Feriado.cs" />
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="FornecedorContaBancaria.cs" />
+    <Compile Include="FornecedorContato.cs" />
+    <Compile Include="Frete.cs" />
+    <Compile Include="FreteObra.cs" />
+    <Compile Include="FretePagamento.cs" />
+    <Compile Include="GastoPrevisto.cs" />
+    <Compile Include="GastoRealizado.cs" />
+    <Compile Include="LogErro.cs" />
+    <Compile Include="Manutencao.cs" />
+    <Compile Include="Motorista.cs" />
+    <Compile Include="Multa.cs" />
+    <Compile Include="MultaGravidade.cs" />
+    <Compile Include="MultaOcorrencia.cs" />
+    <Compile Include="NFServico.cs" />
+    <Compile Include="NFServicoItem.cs" />
+    <Compile Include="NFServicoItens.cs" />
+    <Compile Include="NotaFiscal.cs" />
+    <Compile Include="NotaFiscalOperacao.cs" />
+    <Compile Include="NotaFiscaltem.cs" />
+    <Compile Include="NotaFiscalTipo.cs" />
+    <Compile Include="Obra.cs" />
+    <Compile Include="ObraFase.cs" />
+    <Compile Include="ObraFollowUp.cs" />
+    <Compile Include="ObraGastoPrevisto.cs" />
+    <Compile Include="ObraGastoRealizado.cs" />
+    <Compile Include="OrdemPagamento.cs" />
+    <Compile Include="OrdemPagamentoItem.cs" />
+    <Compile Include="OrdemPagamentoItemParcela.cs" />
+    <Compile Include="Parametrizacao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UEN.cs" />
+    <Compile Include="UENCentroCusto.cs" />
+    <Compile Include="UnidadeEstrategicaNegocio.cs" />
+    <Compile Include="UsoVeiculo.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioCentroCusto.cs" />
+    <Compile Include="UsuarioDespesa.cs" />
+    <Compile Include="UsuarioLogado.cs" />
+    <Compile Include="UsuarioPermissoes.cs" />
+    <Compile Include="UsuarioUEN.cs" />
+    <Compile Include="Veiculo.cs" />
+    <Compile Include="VeiculoAbastecimento.cs" />
+    <Compile Include="_Auditoria.cs" />
+    <Compile Include="_FiltroRelatorio.cs" />
+    <Compile Include="_Transacao.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

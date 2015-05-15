@@ -1,0 +1,5 @@
+C:\_Rodrigo\BRGS\BRGS\bin\BRGS.Infrastructure.dll
+C:\_Rodrigo\BRGS\BRGS\bin\BRGS.Infrastructure.pdb
+C:\_Rodrigo\BRGS\BRGS\BRGS.Infrastructure\obj\Debug\BRGS.Infrastructure.csprojResolveAssemblyReference.cache
+C:\_Rodrigo\BRGS\BRGS\BRGS.Infrastructure\obj\Debug\BRGS.Infrastructure.dll
+C:\_Rodrigo\BRGS\BRGS\BRGS.Infrastructure\obj\Debug\BRGS.Infrastructure.pdb

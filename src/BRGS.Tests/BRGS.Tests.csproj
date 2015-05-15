@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4B3BC4D3-1180-459A-B0D7-7A1A41E2721C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BRGS.Tests</RootNamespace>
+    <AssemblyName>BRGS.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="TestUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLogErro.cs" />
+    <Compile Include="TestNotaFiscal.cs" />
+    <Compile Include="TestDespesa.cs" />
+    <Compile Include="TestObra.cs" />
+    <Compile Include="TestCentroCusto.cs" />
+    <Compile Include="TestUEN.cs" />
+    <Compile Include="TestCliente.cs" />
+    <Compile Include="TestParametrizacao.cs" />
+    <Compile Include="TestOrdemPagamento.cs" />
+    <Compile Include="TestAtividade.cs" />
+    <Compile Include="TestCategoria.cs" />
+    <Compile Include="TestFase.cs" />
+    <Compile Include="TestFeriado.cs" />
+    <Compile Include="TestFornecedor.cs" />
+    <Compile Include="TestVeiculo.cs" />
+    <Compile Include="TestMotorista.cs" />
+    <Compile Include="TestFrete.cs" />
+    <Compile Include="TestEmpresa.cs" />
+    <Compile Include="TestFuncionario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BRGS.Application\BRGS.Application.csproj">
+      <Project>{dc14edbf-2e09-4b2d-bba2-2babb25a531b}</Project>
+      <Name>BRGS.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRGS.BIZ\BRGS.BIZ.csproj">
+      <Project>{7e644cee-9071-48ec-b0a4-1301a374b366}</Project>
+      <Name>BRGS.BIZ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRGS.Domain\BRGS.Domain.csproj">
+      <Project>{fd43df86-ab65-49dc-aa0a-a7ad5a3328a8}</Project>
+      <Name>BRGS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRGS.Entity\BRGS.Entity.csproj">
+      <Project>{a80d874b-391c-431e-998e-fc7e15bd6562}</Project>
+      <Name>BRGS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRGS.Util\BRGS.Util.csproj">
+      <Project>{57942519-d461-4bce-aa20-ddb5dd599612}</Project>
+      <Name>BRGS.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_OrderedTest1.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsComparativoGastos" targetNamespace="http://tempuri.org/dsComparativoGastos.xsd" xmlns:mstns="http://tempuri.org/dsComparativoGastos.xsd" xmlns="http://tempuri.org/dsComparativoGastos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsComparativoGastos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsComparativoGastos" msprop:Generator_UserDSName="dsComparativoGastos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtRetorno" msprop:Generator_TableClassName="dtRetornoDataTable" msprop:Generator_TableVarName="tabledtRetorno" msprop:Generator_RowChangedName="dtRetornoRowChanged" msprop:Generator_TablePropName="dtRetorno" msprop:Generator_RowDeletingName="dtRetornoRowDeleting" msprop:Generator_RowChangingName="dtRetornoRowChanging" msprop:Generator_RowEvHandlerName="dtRetornoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtRetornoRowDeleted" msprop:Generator_RowClassName="dtRetornoRow" msprop:Generator_UserTableName="dtRetorno" msprop:Generator_RowEvArgName="dtRetornoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="valorContrato" msprop:Generator_ColumnVarNameInTable="columnvalorContrato" msprop:Generator_ColumnPropNameInRow="valorContrato" msprop:Generator_ColumnPropNameInTable="valorContratoColumn" msprop:Generator_UserColumnName="valorContrato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tipoGasto" msprop:Generator_ColumnVarNameInTable="columntipoGasto" msprop:Generator_ColumnPropNameInRow="tipoGasto" msprop:Generator_ColumnPropNameInTable="tipoGastoColumn" msprop:Generator_UserColumnName="tipoGasto" type="xs:string" minOccurs="0" />
+              <xs:element name="valorGasto" msprop:Generator_ColumnVarNameInTable="columnvalorGasto" msprop:Generator_ColumnPropNameInRow="valorGasto" msprop:Generator_ColumnPropNameInTable="valorGastoColumn" msprop:Generator_UserColumnName="valorGasto" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
