@@ -21,31 +21,25 @@ DataGrid agrupável
 	http://www.codeproject.com/Articles/28276/DataGridView-with-hierarchical-data-binding
 ******************************************
 
+Simples >> 300,00 
+Intermediária >> 600,00 
+Complexa >> 1200,00
+
+****************************************
 
 ATUALIZAÇÕES
 
 * BD *
+SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS
 
 
 * FEATURES *
-
-
-**********************************************
-** PRIORIDADE ALTA **	
-
-
-[ok] Tarefa 33 - Bloquear campo
-[ok] MÓDULO FINANCEIRO - Contas à Pagar - Bloquear ao campo (Etapa Obra), de forma que ninguém consiga abrir OP vinculada a obra, neste módulo. Fica apenas como informativo (esmaecido). Obs.: Isso obriga a abrir somente OPs administrativas nesse módulo.
-
-
 Tarefa 34 - Ordem de Pagamento
 Tirar da OP o resumo de OPs Pagas na obra. Está gerando muitas páginas. Adicionar um resumo no rodapé, conforme anexo no desktop (Rodapé - OPS.jpg)
 
 
-
-
-
-
+**********************************************
+** PRIORIDADE ALTA **	
 
 
 

@@ -809,8 +809,11 @@ namespace BRGS.UI
 
                 dtOP = helper.AdicionarLogotipoDataTable(dtOP, logotipo);
                 op = new OrdemPagamentoEmissao();
-                op.SetDataSource(dtOP);
-                op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
+                op.Database.Tables[0].SetDataSource(dtOP);
+                op.Database.Tables[1].SetDataSource(dtObras);
+                
+                //op.SetDataSource(dtOP);
+                //op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
 
                 Relatorio relat = new Relatorio(op);
                 relat.Text = tituloAba;

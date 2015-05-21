@@ -12,7 +12,6 @@ namespace BRGS.BIZ
     {
         private Helper helper = new Helper();
         private BIZLogErro bizLogErro = new BIZLogErro();
-
         private Dictionary<string, string> MontarParametrosExecutarOrdemPagamento(OrdemPagamento ordemPagamento)
         {
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
@@ -650,6 +649,7 @@ namespace BRGS.BIZ
                     dtOP = ds.Tables[0];                    
                 }
                
+                lstParametros = new Dictionary<string, string>();
                 lstParametros.Add("@idObraEtapa", opSelecionada.idObraEtapa.ToString());
                 using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS", lstParametros))
                 {
