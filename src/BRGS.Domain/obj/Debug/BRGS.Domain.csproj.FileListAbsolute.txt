@@ -1,5 +1,0 @@
-C:\_Rodrigo\BRGS\BRGS\bin\BRGS.Domain.dll
-C:\_Rodrigo\BRGS\BRGS\bin\BRGS.Domain.pdb
-C:\_Rodrigo\BRGS\BRGS\BRGS.Domain\obj\Debug\BRGS.Domain.csprojResolveAssemblyReference.cache
-C:\_Rodrigo\BRGS\BRGS\BRGS.Domain\obj\Debug\BRGS.Domain.dll
-C:\_Rodrigo\BRGS\BRGS\BRGS.Domain\obj\Debug\BRGS.Domain.pdb
