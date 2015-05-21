@@ -293,7 +293,7 @@ namespace BRGS.BIZ
                         obraEtapaItem.dataInicio = DateTime.Parse(dr["DataInicio"].ToString());
                         obraEtapaItem.dataTermino = DateTime.Parse(dr["DataTermino"].ToString());                        
                         obraEtapaItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
-                        obraEtapaItem.lstPlanejamentos = this.PesquisarPlanejamento(new ObraEtapaPlanejamento() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
+                        //obraEtapaItem.lstPlanejamentos = this.PesquisarPlanejamento(new ObraEtapaPlanejamento() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
                         obraEtapaItem.lstGastosPrevistos = this.PesquisarGastosPrevistos(new ObraEtapaGastoPrevisto() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
                         obraEtapaItem.lstGastosRealizados = this.PesquisarGastosRealizados(new ObraEtapaGastoRealizado() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
                         obraEtapaItem.lstFases = this.PesquisarObraEtapaFases(new ObraEtapaFase() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
@@ -496,8 +496,11 @@ namespace BRGS.BIZ
                         idObraEtapa = int.Parse(dr[0].ToString());
                     }
 
-                    lstComandos.AddRange(this.IncluirPlanejamento(idObraEtapa, obraEtapa.lstPlanejamentos));
-
+                  //  lstComandos.AddRange(this.IncluirPlanejamento(idObraEtapa, obraEtapa.lstPlanejamentos));
+                    lstComandos.AddRange(this.IncluirGastosPrevistos(idObraEtapa, obraEtapa.lstGastosPrevistos));
+                    lstComandos.AddRange(this.IncluirGastosRealizados(idObraEtapa, obraEtapa.lstGastosRealizados));
+                    lstComandos.AddRange(this.IncluirFases(idObraEtapa, obraEtapa.lstFases));
+                    lstComandos.AddRange(this.IncluirFollowUp(idObraEtapa, obraEtapa.lstFollowUps));
                     dao.ExecutarTransacao(lstComandos);
                 }
             }
@@ -521,60 +524,59 @@ namespace BRGS.BIZ
             return Msg;
         }
 
-        public string AlterarObraEtapaPlanejamento(ObraEtapa obraEtapa)
-        {
-            DataAccess dao = new DataAccess();
-            List<_Transacao> lstComandos = new List<_Transacao>();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            Dictionary<string, string> lstExclusao = new Dictionary<string, string>();
+        //public string AlterarObraEtapaPlanejamento(ObraEtapa obraEtapa)
+        //{
+        //    DataAccess dao = new DataAccess();
+        //    List<_Transacao> lstComandos = new List<_Transacao>();
+        //    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+        //    Dictionary<string, string> lstExclusao = new Dictionary<string, string>();
 
-            string Msg = string.Empty;
+        //    string Msg = string.Empty;
 
-            try
-            {
-                Msg = ValidarCamposObrigatoriosEtapa(obraEtapa);
+        //    try
+        //    {
+        //        Msg = ValidarCamposObrigatoriosEtapa(obraEtapa);
 
-                if (Msg == string.Empty)
-                {
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_OBRASETAPAS_ALTERAR",
-                        lstParametros = MontarParametrosExecutarObraEtapa(obraEtapa)
-                    });
+        //        if (Msg == string.Empty)
+        //        {
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_OBRASETAPAS_ALTERAR",
+        //                lstParametros = MontarParametrosExecutarObraEtapa(obraEtapa)
+        //            });
 
-                    lstExclusao.Add("@idObraEtapa", obraEtapa.idObraEtapa.ToString());
+        //            lstExclusao.Add("@idObraEtapa", obraEtapa.idObraEtapa.ToString());
 
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIR",
-                        lstParametros = lstExclusao
-                    });
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIR",
+        //                lstParametros = lstExclusao
+        //            });
 
-                    lstComandos.AddRange(this.IncluirPlanejamento(obraEtapa.idObraEtapa, obraEtapa.lstPlanejamentos));                   
+        //            lstComandos.AddRange(this.IncluirPlanejamento(obraEtapa.idObraEtapa, obraEtapa.lstPlanejamentos));                   
 
-                    dao.ExecutarTransacao(lstComandos);
-                }
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+        //            dao.ExecutarTransacao(lstComandos);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string parametrosSQL = string.Empty;
+        //        parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
 
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_OBRASETAPAS_ALTERAR",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
+        //        LogErro log = new LogErro()
+        //        {
+        //            procedureSQL = "SP_OBRASETAPAS_ALTERAR",
+        //            parametrosSQL = parametrosSQL,
+        //            mensagemErro = ex.ToString()
+        //        };
 
-                bizLogErro.IncluirLogErro(log);
+        //        bizLogErro.IncluirLogErro(log);
 
-                throw ex;
-            }
+        //        throw ex;
+        //    }
 
-            return Msg;
-        }
-        
+        //    return Msg;
+        //}        
         
         public string AlterarObraEtapa(ObraEtapa obraEtapa)
         {
@@ -599,11 +601,11 @@ namespace BRGS.BIZ
 
                     lstExclusao.Add("@idObraEtapa", obraEtapa.idObraEtapa.ToString());
 
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIR",
-                        lstParametros = lstExclusao
-                    });
+                    //lstComandos.Add(new _Transacao()
+                    //{
+                    //    nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIR",
+                    //    lstParametros = lstExclusao
+                    //});
 
                     lstComandos.Add(new _Transacao()
                     {
@@ -635,7 +637,7 @@ namespace BRGS.BIZ
                         lstParametros = lstExclusao
                     });
 
-                    lstComandos.AddRange(this.IncluirPlanejamento(obraEtapa.idObraEtapa, obraEtapa.lstPlanejamentos));
+                   // lstComandos.AddRange(this.IncluirPlanejamento(obraEtapa.idObraEtapa, obraEtapa.lstPlanejamentos));
                     lstComandos.AddRange(this.IncluirGastosPrevistos(obraEtapa.idObraEtapa, obraEtapa.lstGastosPrevistos));
                     lstComandos.AddRange(this.IncluirGastosRealizados(obraEtapa.idObraEtapa, obraEtapa.lstGastosRealizados));
                     lstComandos.AddRange(this.IncluirFases(obraEtapa.idObraEtapa, obraEtapa.lstFases));
@@ -1295,122 +1297,122 @@ namespace BRGS.BIZ
 
         #endregion
         
-        #region Planejamento
+        //#region Planejamento
 
-        private Dictionary<string, string> MontarParametrosExecutarPlanejamento(ObraEtapaPlanejamento planejamento)
-        {
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            lstParametros.Add("@idPlanejamento", planejamento.idPlanejamento.ToString());
-            lstParametros.Add("@idObraEtapa", planejamento.idObraEtapa.ToString());
-            lstParametros.Add("@idUEN", planejamento.idUEN.ToString());
-            lstParametros.Add("@ValorPrevisto", planejamento.valorPrevisto.ToString());
-            lstParametros.Add("@UnitTest", planejamento.UnitTest.ToString());
+        //private Dictionary<string, string> MontarParametrosExecutarPlanejamento(ObraEtapaPlanejamento planejamento)
+        //{
+        //    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+        //    lstParametros.Add("@idPlanejamento", planejamento.idPlanejamento.ToString());
+        //    lstParametros.Add("@idObraEtapa", planejamento.idObraEtapa.ToString());
+        //    lstParametros.Add("@idUEN", planejamento.idUEN.ToString());
+        //    lstParametros.Add("@ValorPrevisto", planejamento.valorPrevisto.ToString());
+        //    lstParametros.Add("@UnitTest", planejamento.UnitTest.ToString());
 
-            return lstParametros;
-        }
+        //    return lstParametros;
+        //}
 
-        private Dictionary<string, string> MontarParametrosPesquisarPlanejamento(ObraEtapaPlanejamento planejamento)
-        {
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            lstParametros.Add("@idObraEtapa", planejamento.idObraEtapa.Equals(0) ? null : planejamento.idObraEtapa.ToString());
-            lstParametros.Add("@UnitTest", planejamento.UnitTest.Equals(0) ? null : planejamento.UnitTest.ToString());
+        //private Dictionary<string, string> MontarParametrosPesquisarPlanejamento(ObraEtapaPlanejamento planejamento)
+        //{
+        //    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+        //    lstParametros.Add("@idObraEtapa", planejamento.idObraEtapa.Equals(0) ? null : planejamento.idObraEtapa.ToString());
+        //    lstParametros.Add("@UnitTest", planejamento.UnitTest.Equals(0) ? null : planejamento.UnitTest.ToString());
 
-            return lstParametros;
-        }
+        //    return lstParametros;
+        //}
 
-        public List<ObraEtapaPlanejamento> PesquisarPlanejamento(ObraEtapaPlanejamento planejamento)
-        {
-            DataAccess dao = new DataAccess();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
+        //public List<ObraEtapaPlanejamento> PesquisarPlanejamento(ObraEtapaPlanejamento planejamento)
+        //{
+        //    DataAccess dao = new DataAccess();
+        //    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+        //    List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
 
-            try
-            {
-                lstParametros = MontarParametrosPesquisarPlanejamento(planejamento);
+        //    try
+        //    {
+        //        lstParametros = MontarParametrosPesquisarPlanejamento(planejamento);
 
-                using (DataSet ds = dao.Pesquisar("SP_OBRASETAPAS_PLANEJAMENTO_CONSULTAR", lstParametros))
-                {
-                    foreach (DataRow dr in ds.Tables[0].Rows)
-                    {
-                        ObraEtapaPlanejamento planejamentoItem = new ObraEtapaPlanejamento();
-                        planejamentoItem.idObraEtapa = int.Parse(dr["idObraEtapa"].ToString());
-                        planejamentoItem.descricaoEtapa = dr["DescricaoEtapa"].ToString();
-                        planejamentoItem.idUEN = int.Parse(dr["idUEN"].ToString());
-                        planejamentoItem.descricaoUEN = dr["DescricaoUEN"].ToString();
-                        planejamentoItem.valorPrevisto = decimal.Parse(dr["ValorPrevisto"].ToString());                        
-                        planejamentoItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
+        //        using (DataSet ds = dao.Pesquisar("SP_OBRASETAPAS_PLANEJAMENTO_CONSULTAR", lstParametros))
+        //        {
+        //            foreach (DataRow dr in ds.Tables[0].Rows)
+        //            {
+        //                ObraEtapaPlanejamento planejamentoItem = new ObraEtapaPlanejamento();
+        //                planejamentoItem.idObraEtapa = int.Parse(dr["idObraEtapa"].ToString());
+        //                planejamentoItem.descricaoEtapa = dr["DescricaoEtapa"].ToString();
+        //                planejamentoItem.idUEN = int.Parse(dr["idUEN"].ToString());
+        //                planejamentoItem.descricaoUEN = dr["DescricaoUEN"].ToString();
+        //                planejamentoItem.valorPrevisto = decimal.Parse(dr["ValorPrevisto"].ToString());                        
+        //                planejamentoItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
 
-                        lstPlanejamentos.Add(planejamentoItem);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+        //                lstPlanejamentos.Add(planejamentoItem);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string parametrosSQL = string.Empty;
+        //        parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
 
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_OBRASETAPAS_PLANEJAMENTO_CONSULTAR",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
+        //        LogErro log = new LogErro()
+        //        {
+        //            procedureSQL = "SP_OBRASETAPAS_PLANEJAMENTO_CONSULTAR",
+        //            parametrosSQL = parametrosSQL,
+        //            mensagemErro = ex.ToString()
+        //        };
 
-                bizLogErro.IncluirLogErro(log);
+        //        bizLogErro.IncluirLogErro(log);
 
-                throw ex;
-            }
+        //        throw ex;
+        //    }
 
-            return lstPlanejamentos;
-        }
+        //    return lstPlanejamentos;
+        //}
 
-        public List<_Transacao> IncluirPlanejamento(int idObraEtapa, List<ObraEtapaPlanejamento> lstPlanejamento)
-        {
-            DataAccess dao = new DataAccess();
-            List<_Transacao> lstComandos = new List<_Transacao>();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+        ////public List<_Transacao> IncluirPlanejamento(int idObraEtapa, List<ObraEtapaPlanejamento> lstPlanejamento)
+        ////{
+        ////    DataAccess dao = new DataAccess();
+        ////    List<_Transacao> lstComandos = new List<_Transacao>();
+        ////    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             
-            foreach (ObraEtapaPlanejamento planejamento in lstPlanejamento)
-            {
-                planejamento.idObraEtapa = idObraEtapa;
-                lstParametros = MontarParametrosExecutarPlanejamento(planejamento);
+        ////    foreach (ObraEtapaPlanejamento planejamento in lstPlanejamento)
+        ////    {
+        ////        planejamento.idObraEtapa = idObraEtapa;
+        ////        lstParametros = MontarParametrosExecutarPlanejamento(planejamento);
 
-                lstComandos.Add(new _Transacao()
-                {
-                    nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_INCLUIR",
-                    lstParametros = lstParametros
-                });
-            }
+        ////        lstComandos.Add(new _Transacao()
+        ////        {
+        ////            nomeProcedure = "SP_OBRASETAPAS_PLANEJAMENTO_INCLUIR",
+        ////            lstParametros = lstParametros
+        ////        });
+        ////    }
 
-            return lstComandos;            
-        }
+        ////    return lstComandos;            
+        ////}
 
-        public void ExcluirPlanejamentoTeste()
-        {
-            DataAccess dao = new DataAccess();
+        //public void ExcluirPlanejamentoTeste()
+        //{
+        //    DataAccess dao = new DataAccess();
 
-            try
-            {
-                dao.Executar("SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIRTESTE", new Dictionary<string, string>());
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+        //    try
+        //    {
+        //        dao.Executar("SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIRTESTE", new Dictionary<string, string>());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string parametrosSQL = string.Empty;
+        //        parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
 
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIRTESTE",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
+        //        LogErro log = new LogErro()
+        //        {
+        //            procedureSQL = "SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIRTESTE",
+        //            parametrosSQL = parametrosSQL,
+        //            mensagemErro = ex.ToString()
+        //        };
 
-                bizLogErro.IncluirLogErro(log);
+        //        bizLogErro.IncluirLogErro(log);
 
-                throw ex;
-            }
-        }
+        //        throw ex;
+        //    }
+        //}
 
-        #endregion
+        //#endregion
     }
 }

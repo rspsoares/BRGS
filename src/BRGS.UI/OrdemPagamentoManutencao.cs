@@ -47,7 +47,7 @@ namespace BRGS.UI
             tbDataCriacao.Value = opSelecionada.dataCriacao.Date == DateTime.MinValue ? DateTime.Today : opSelecionada.dataCriacao.Date;
 
             cbObra.SelectedValue = opSelecionada.idObraEtapa;
-            cbObra.Enabled = opSelecionada.idObraEtapa == 0;
+            //cbObra.Enabled = opSelecionada.idObraEtapa == 0;
             
             cbEmpresa.SelectedValue = opSelecionada.idEmpresa;
             cbEmpresa.Enabled = opSelecionada.idObraEtapa == 0;
@@ -107,7 +107,7 @@ namespace BRGS.UI
             tbDataCriacao.Value = DateTime.Today;
             cbEmpresa.SelectedIndex = 0;
             cbObra.SelectedIndex = 0;
-            cbObra.Enabled = true;
+          //  cbObra.Enabled = true;
             cbFavorecido.SelectedIndex = 0;
             cbDadosBancarios.Text = string.Empty;            
             opSelecionada.idSolicitante = UsuarioLogado.idUsuario;

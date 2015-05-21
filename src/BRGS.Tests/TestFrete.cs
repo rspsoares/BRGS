@@ -100,7 +100,7 @@ namespace BRGS.Tests
             frete.lstPagamentos.Add(new FretePagamento()
             {
                 idFrete = 7,
-                idOP = new BIZOrdemPagamento().PesquisarOrdemPagamento(new OrdemPagamento())[0].idOrdemPagamento,            
+                idOP = 10,
                 UnitTest = 1
             });
             frete.lstObras = new List<FreteObra>();

@@ -169,28 +169,28 @@ namespace BRGS.Tests
             Assert.AreEqual(true, lstObras.Count == 0);         
         }
         
-        [TestMethod]
-        public void ObraEtapaPlanejamentoPesquisar()
-        {
-            string Msg = string.Empty;
-            List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
+        //[TestMethod]
+        //public void ObraEtapaPlanejamentoPesquisar()
+        //{
+        //    string Msg = string.Empty;
+        //    List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
 
-            lstPlanejamentos = bizObra.PesquisarPlanejamento(new ObraEtapaPlanejamento() { UnitTest = 1 });
+        //    lstPlanejamentos = bizObra.PesquisarPlanejamento(new ObraEtapaPlanejamento() { UnitTest = 1 });
 
-            Assert.AreEqual(true, lstPlanejamentos.Count > 0);
-        }
+        //    Assert.AreEqual(true, lstPlanejamentos.Count > 0);
+        //}
 
-        [TestMethod]
-        public void ObraEtapaPlanejamentoExcluir()
-        {
-            List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
+        //[TestMethod]
+        //public void ObraEtapaPlanejamentoExcluir()
+        //{
+        //    List<ObraEtapaPlanejamento> lstPlanejamentos = new List<ObraEtapaPlanejamento>();
             
-            bizObra.ExcluirPlanejamentoTeste();
+        //    bizObra.ExcluirPlanejamentoTeste();
 
-            lstPlanejamentos = bizObra.PesquisarPlanejamento(new ObraEtapaPlanejamento() { UnitTest = 1 });
+        //    lstPlanejamentos = bizObra.PesquisarPlanejamento(new ObraEtapaPlanejamento() { UnitTest = 1 });
 
-            Assert.AreEqual(true, lstPlanejamentos.Count == 0);
-        }
+        //    Assert.AreEqual(true, lstPlanejamentos.Count == 0);
+        //}
 
         private Obra PreencherCamposOrigatoriosObra()
         {         
@@ -277,22 +277,22 @@ namespace BRGS.Tests
                 UnitTest = 1
             });
 
-            obraEtapa.lstPlanejamentos = new List<ObraEtapaPlanejamento>();
-            obraEtapa.lstPlanejamentos.Add(new ObraEtapaPlanejamento()
-            {
-                idObraEtapa = obraEtapa.idObraEtapa,
-                idUEN = UEN.idUEN,
-                valorPrevisto = 99,                
-                UnitTest = 1
-            });
+            //obraEtapa.lstPlanejamentos = new List<ObraEtapaPlanejamento>();
+            //obraEtapa.lstPlanejamentos.Add(new ObraEtapaPlanejamento()
+            //{
+            //    idObraEtapa = obraEtapa.idObraEtapa,
+            //    idUEN = UEN.idUEN,
+            //    valorPrevisto = 99,                
+            //    UnitTest = 1
+            //});
 
-            obraEtapa.lstPlanejamentos.Add(new ObraEtapaPlanejamento()
-            {
-                idObraEtapa = obraEtapa.idObraEtapa,
-                idUEN = UEN.idUEN,
-                valorPrevisto = 88,
-                UnitTest = 1
-            });
+            //obraEtapa.lstPlanejamentos.Add(new ObraEtapaPlanejamento()
+            //{
+            //    idObraEtapa = obraEtapa.idObraEtapa,
+            //    idUEN = UEN.idUEN,
+            //    valorPrevisto = 88,
+            //    UnitTest = 1
+            //});
 
             obraEtapa.UnitTest = 1;
             

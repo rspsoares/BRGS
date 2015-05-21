@@ -22,180 +22,32 @@ DataGrid agrupável
 ******************************************
 
 
-Pegar o banco de produção
-
-Rodar testes unitário
-
-Testar tela de obras
-
-
-
-
-
-
-
-
-
-
-
-
-
 ATUALIZAÇÕES
 
 * BD *
 
----- HOMOLOGAÇÃO ----
-ObrasEtapas_Planejamento
-SP_OBRASETAPAS_PLANEJAMENTO_INCLUIR
-SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIR
-SP_OBRASETAPAS_PLANEJAMENTO_EXCLUIRTESTE
-SP_OBRASETAPAS_PLANEJAMENTO_CONSULTAR
-
-_TelasSistema
-	Atualizar os registros com idControlePai = 222
-
-
-update _TelasSistema set idControlePai = 222 where idControlePai = 56
-delete from _TelasSistema where idControle = 56
-update _TelasSistema set NomeFormulario = 'ObraManutencao' where NomeFormulario = 'ObraEtapaManutencao'
-delete from _TelasSistema where idControle = 143
-delete from _TelasSistema where idControle = 227
-delete from _TelasSistema where idControle = 228
-
-Abrir tabela _TelasSistema em modo Edit e alterar a sequencia dos controles
-SELECT        TOP (200) idControle, idControlePai, NomeFormulario, Sequencia, NomeControle, DescricaoControle, ObjetoTela
-FROM            _TelasSistema
-WHERE        (idControlePai = 222)
-ORDER BY idControle
-
 
 * FEATURES *
-Baseado no Protótipo da tela de Obras
+
 
 **********************************************
 ** PRIORIDADE ALTA **	
 
 
-SP_OBRAS_RELATORIO_CONSOLIDADO
-
-Relatório
-	Design
-
-Criar Permisão
-
------------------------------------
-
-Além de controlar o acesso aos botões, vou tb fazer acesso aos quadros... se não tiver acesso, o quadro fica fechado
-
-Finalizar a Obra, e não a Etapa
-
-Quadro Totais da Obra
-	Atualizar os cálculos
-	
---------------------------------------------------------------------
+[ok] Tarefa 33 - Bloquear campo
+[ok] MÓDULO FINANCEIRO - Contas à Pagar - Bloquear ao campo (Etapa Obra), de forma que ninguém consiga abrir OP vinculada a obra, neste módulo. Fica apenas como informativo (esmaecido). Obs.: Isso obriga a abrir somente OPs administrativas nesse módulo.
 
 
-Relatório de Fretes (nem sempre é associado a uma Obra)
-	Dando valor negativo no Valor a Pagar para o Filtro: Fretista: FRETE - SERGIO PEREIRA DE SOUZA
-		Frete Número 16/2014
-			Um frete para duas obras (NomeEvento)
-				CAMARIM MONGAGUÁ II - ISMAEL
-				CARNAVAL MONGAGUÁ 2014 - ISMAEL
-		
-		Está pegando o valor das Op's do frete, mas deve pegar as ops de cada obra separado
-
-		** Se o frete for para uma obra, filtrar por Obra também **
-
-
-			
-
-		
+Tarefa 34 - Ordem de Pagamento
+Tirar da OP o resumo de OPs Pagas na obra. Está gerando muitas páginas. Adicionar um resumo no rodapé, conforme anexo no desktop (Rodapé - OPS.jpg)
 
 
 
--------------------------------------------------------------------
-
-** Arquitetura **
-
-Migrar para DDD + Façades
-
-------------------------------------
-
-Criar serviços WCF para as filiais acessarem
-	Uma interface WCF para cada façade
-	http://www.c-sharpcorner.com/Blogs/12411/how-to-use-a-web-service-in-windows-form-application.aspx
-
-	http://mostlytech.blogspot.com.br/2007/11/programmatically-enumerate-wcf.html
-
-	http://stackoverflow.com/questions/5151077/wcf-change-endpoint-address-at-runtime
-
-	Quando fizer login, atualizar um campo na tabela de usuário com um GUID da seção atual
-	Nos métodos WCF, mandar esse GUID para validação
 
 
---------------------------------------------------------
 
 
-inclusive, ia te pedir para adicionar um campo no planejamento de obras. que contenha um contato de telefone, email e nome
-sobre o contato, na realidade , o fluxo do processo é o seguinte
-[10:29:03] José Roberto: o comercial cadastra a obra e põe o contato do leiloeiro
-[10:29:10] José Roberto: nome, telefone e email
-[10:29:28] José Roberto: quando o Planejamento de Obra entrar em ação, eles ligam apra o leiloeiro
-[10:29:40] José Roberto: e o mesmo passa um nome, telefone e email de contato para a obra efetiva
-[10:29:44] José Roberto: em 2 fases entende
-[10:29:58] José Roberto: se der para ilustrar isso em algum lugar no cabeçalho da obra
-[10:30:06] José Roberto: é só texto mesmo
 
-
--------------------------------------------------------
-
-Bater os relatório de OP para o cliente com o relatório de Obras para o cliente
-	exercito brasileiro - engenharia de combate
-
-
-Criar relatório de Custos Fixos com gráfico
-
-------------------------------------
-
-Funcionalidade #21 - Enviar email (usar uma conta de e-mail da BRGS)
-Quando o gestor de transportes, abrir uma solicitação de frete, além do envio de pop-ups com as informações da NF, mandar emails redundantes confirmando essa solicitação, para:
-
-NF DE OBRAS DA FRONT - ana.cristina@frontestruturas.com / vladimir.araujo@frontestruturas.com
-NF DE OBRAS DA BRGS - ana.cristina@brgs.com.br / vladimir.araujo@brgs.com.br
-
--------------------------------------
-
-Implementar o logo novo da BRGS
-
------------------------------------------
-Confirmar se precisa criar relatório com esse select - Modelo Consolidado Obras.pdf (Desktop)
-select
-	 C.Nome	 
-	 ,O.idObra
-	,O.NumeroLicitacao
-	,O.NomeEvento
-	,O.ValorContrato
-	,(SELECT ISNULL(SUM(xOPI.Valor),0) FROM OrdemPagamento xOP inner join OrdemPagamentoItens xOPI on xOP.idOrdemPagamento = xOPI.idOrdemPagamento where xOPI.DataPagamento = '1753-01-01 00:00:00.000' AND xOP.Status <> 'CANCELADA' AND xOP.idObra = O.idObra) AS 'DespesasAberto'	
-	,(SELECT ISNULL(SUM(xOPI.Valor),0) FROM OrdemPagamento xOP inner join OrdemPagamentoItens xOPI on xOP.idOrdemPagamento = xOPI.idOrdemPagamento where xOPI.DataPagamento != '1753-01-01 00:00:00.000' AND xOP.idObra = O.idObra) AS 'DespesasPagas'	
-	,(SELECT O.ValorContrato - ISNULL(SUM(xOPI.ValorPago),0) FROM OrdemPagamento xOP inner join OrdemPagamentoItens xOPI on xOP.idOrdemPagamento = xOPI.idOrdemPagamento where xOP.Status = 'PAGA' AND xOP.idObra = O.idObra) AS 'SaldoObra'			
-from Obras O
-	INNER JOIN Clientes C on O.idCliente = C.idCliente 
-ORDER BY C.Nome
-
-
-----------------------------------------------------------------------------
-
-MIGRAR PARA AS FAÇADES! :-)
-	Refazer façade de Obras
-
-----------------------------------------------------------------------------
-Poder escolher o banco de dados de Homologação ou Produção
-
------------------------------------------------------------------------------
-Poder desativar um motorista que não existe mais
-	eu posso criar uma flag de Ativo / inativo
-	ele aparece nos relatórios, mas não no combo de motoristas
-	
 
 **********************************************
 ** PRIORIDADE MÉDIA **
@@ -244,10 +96,6 @@ Auditoria (Modelo: Atividade)
 
 	Gerar script para popular as tabelas de log com os registros que já existem
 
-
-* Monitorar se acontece novamente os erros:
-System.Data.SqlClient.SqlException (0x80131904): Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression.     at BRGS.BIZ.DataAccess.Pesquisar(String proc, Dictionary`2 parametros)     at BRGS.BIZ.BIZUsuario.PesquisarPermissoesUsuario(UsuarioPermissoes usuarioPermissoes)
-
 SELECT idUsuario, idControle,Habilitado, COUNT(idControle) as 'Qtd'
 FROM UsuariosPermissoes
 group by idUsuario,idControle,Habilitado
@@ -257,9 +105,6 @@ order by idUsuario
 Menu Sobre com informações de Contato
 	
 ***************************************************************************
-http://brgs2014.m.redmine.org
-	rodrigo
-	rodrigo2014
 
 Listar todas as tabelas do banco
 	SELECT '['+SCHEMA_NAME(schema_id)+'].['+name+']' AS SchemaTable

@@ -35,6 +35,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbAutorizado = new System.Windows.Forms.ComboBox();
             this.cbDadosBancarios = new System.Windows.Forms.ComboBox();
             this.tbDataCriacao = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -95,7 +96,6 @@
             this.cbUEN = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btGravar = new System.Windows.Forms.Button();
-            this.cbAutorizado = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -180,6 +180,17 @@
             this.groupBox2.Size = new System.Drawing.Size(795, 412);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            // 
+            // cbAutorizado
+            // 
+            this.cbAutorizado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbAutorizado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbAutorizado.FormattingEnabled = true;
+            this.cbAutorizado.Location = new System.Drawing.Point(6, 191);
+            this.cbAutorizado.Name = "cbAutorizado";
+            this.cbAutorizado.Size = new System.Drawing.Size(783, 21);
+            this.cbAutorizado.TabIndex = 8;
+            this.cbAutorizado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbAutorizado_KeyDown);
             // 
             // cbDadosBancarios
             // 
@@ -361,6 +372,7 @@
             // 
             this.cbObra.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbObra.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbObra.Enabled = false;
             this.cbObra.FormattingEnabled = true;
             this.cbObra.Location = new System.Drawing.Point(384, 72);
             this.cbObra.Name = "cbObra";
@@ -787,17 +799,6 @@
             this.btGravar.Text = "Gravar";
             this.btGravar.UseVisualStyleBackColor = true;
             this.btGravar.Click += new System.EventHandler(this.btGravar_Click);
-            // 
-            // cbAutorizado
-            // 
-            this.cbAutorizado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbAutorizado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbAutorizado.FormattingEnabled = true;
-            this.cbAutorizado.Location = new System.Drawing.Point(6, 191);
-            this.cbAutorizado.Name = "cbAutorizado";
-            this.cbAutorizado.Size = new System.Drawing.Size(783, 21);
-            this.cbAutorizado.TabIndex = 8;
-            this.cbAutorizado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbAutorizado_KeyDown);
             // 
             // OrdemPagamentoManutencao
             // 

@@ -27,7 +27,7 @@ namespace BRGS.Entity
         public List<ObraEtapaGastoRealizado> lstGastosRealizados { get; set; }
         public List<ObraEtapaFase> lstFases { get; set; }
         public List<ObraEtapaFollowUp> lstFollowUps { get; set; }
-        public List<ObraEtapaPlanejamento> lstPlanejamentos { get; set; }
+        //public List<ObraEtapaPlanejamento> lstPlanejamentos { get; set; }
         public int UnitTest { get; set; }
     }
 }

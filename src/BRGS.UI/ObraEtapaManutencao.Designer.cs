@@ -854,7 +854,7 @@
             this.tbDescricao.MaxLength = 50;
             this.tbDescricao.Name = "tbDescricao";
             this.tbDescricao.Size = new System.Drawing.Size(443, 20);
-            this.tbDescricao.TabIndex = 17;
+            this.tbDescricao.TabIndex = 5;
             this.tbDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDescricao_KeyDown);
             // 
             // label43
@@ -873,7 +873,7 @@
             this.chkFinalizada.Location = new System.Drawing.Point(1068, 74);
             this.chkFinalizada.Name = "chkFinalizada";
             this.chkFinalizada.Size = new System.Drawing.Size(73, 17);
-            this.chkFinalizada.TabIndex = 15;
+            this.chkFinalizada.TabIndex = 8;
             this.chkFinalizada.Text = "Finalizada";
             this.chkFinalizada.UseVisualStyleBackColor = true;
             // 
@@ -883,7 +883,7 @@
             this.tbDataTermino.Location = new System.Drawing.Point(929, 72);
             this.tbDataTermino.Name = "tbDataTermino";
             this.tbDataTermino.Size = new System.Drawing.Size(131, 20);
-            this.tbDataTermino.TabIndex = 14;
+            this.tbDataTermino.TabIndex = 7;
             // 
             // tbDataInicio
             // 
@@ -891,7 +891,7 @@
             this.tbDataInicio.Location = new System.Drawing.Point(792, 71);
             this.tbDataInicio.Name = "tbDataInicio";
             this.tbDataInicio.Size = new System.Drawing.Size(131, 20);
-            this.tbDataInicio.TabIndex = 13;
+            this.tbDataInicio.TabIndex = 6;
             // 
             // label42
             // 
@@ -950,7 +950,7 @@
             this.tbValorContrato.MaxLength = 20;
             this.tbValorContrato.Name = "tbValorContrato";
             this.tbValorContrato.Size = new System.Drawing.Size(127, 20);
-            this.tbValorContrato.TabIndex = 4;
+            this.tbValorContrato.TabIndex = 3;
             this.tbValorContrato.Text = "0,00";
             this.tbValorContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbValorContrato.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbValorContrato_KeyDown);
@@ -974,7 +974,7 @@
             this.tbNomeEvento.MaxLength = 100;
             this.tbNomeEvento.Name = "tbNomeEvento";
             this.tbNomeEvento.Size = new System.Drawing.Size(330, 20);
-            this.tbNomeEvento.TabIndex = 3;
+            this.tbNomeEvento.TabIndex = 4;
             this.tbNomeEvento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbNomeEvento_KeyDown);
             // 
             // label3
@@ -1436,7 +1436,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.Controls.Add(this.lbResultadoBruto, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoOperacional, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoTributario, 1, 2);
@@ -1645,7 +1645,7 @@
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1045, 5);
+            this.label27.Location = new System.Drawing.Point(1046, 5);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(48, 13);
             this.label27.TabIndex = 17;
@@ -1745,7 +1745,7 @@
             this.lbSaldoEstande.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoEstande.AutoSize = true;
             this.lbSaldoEstande.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoEstande.Location = new System.Drawing.Point(1127, 27);
+            this.lbSaldoEstande.Location = new System.Drawing.Point(1129, 27);
             this.lbSaldoEstande.Name = "lbSaldoEstande";
             this.lbSaldoEstande.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoEstande.TabIndex = 26;
@@ -1757,7 +1757,7 @@
             this.lbSaldoCoberturas.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoCoberturas.AutoSize = true;
             this.lbSaldoCoberturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1127, 49);
+            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1129, 49);
             this.lbSaldoCoberturas.Name = "lbSaldoCoberturas";
             this.lbSaldoCoberturas.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoCoberturas.TabIndex = 27;
@@ -1769,7 +1769,7 @@
             this.lbSaldoTubulares.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoTubulares.AutoSize = true;
             this.lbSaldoTubulares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoTubulares.Location = new System.Drawing.Point(1127, 71);
+            this.lbSaldoTubulares.Location = new System.Drawing.Point(1129, 71);
             this.lbSaldoTubulares.Name = "lbSaldoTubulares";
             this.lbSaldoTubulares.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoTubulares.TabIndex = 28;
@@ -1781,7 +1781,7 @@
             this.lbSaldoGerenciamentoObra.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoGerenciamentoObra.AutoSize = true;
             this.lbSaldoGerenciamentoObra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1127, 93);
+            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1129, 93);
             this.lbSaldoGerenciamentoObra.Name = "lbSaldoGerenciamentoObra";
             this.lbSaldoGerenciamentoObra.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoGerenciamentoObra.TabIndex = 29;
@@ -2017,7 +2017,7 @@
             this.lbSaldoModulosHabitacionais.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoModulosHabitacionais.AutoSize = true;
             this.lbSaldoModulosHabitacionais.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1127, 115);
+            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1129, 115);
             this.lbSaldoModulosHabitacionais.Name = "lbSaldoModulosHabitacionais";
             this.lbSaldoModulosHabitacionais.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoModulosHabitacionais.TabIndex = 47;
@@ -2029,7 +2029,7 @@
             this.lbSaldoLogisticaTransporte.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoLogisticaTransporte.AutoSize = true;
             this.lbSaldoLogisticaTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1127, 137);
+            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1129, 137);
             this.lbSaldoLogisticaTransporte.Name = "lbSaldoLogisticaTransporte";
             this.lbSaldoLogisticaTransporte.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoLogisticaTransporte.TabIndex = 48;
@@ -2041,7 +2041,7 @@
             this.lbSaldoMatriz.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoMatriz.AutoSize = true;
             this.lbSaldoMatriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoMatriz.Location = new System.Drawing.Point(1127, 159);
+            this.lbSaldoMatriz.Location = new System.Drawing.Point(1129, 159);
             this.lbSaldoMatriz.Name = "lbSaldoMatriz";
             this.lbSaldoMatriz.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoMatriz.TabIndex = 49;
