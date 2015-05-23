@@ -780,12 +780,13 @@ namespace BRGS.UI
             ReportClass op = new ReportClass();
             DataTable dtOP = new DataTable();
             DataTable dtObras = new DataTable();
+            DataTable dtTotaisObra = new DataTable();
             string tituloAba = string.Empty;
             Image logotipo = null;
 
             try
             {
-                dtOP = bizOP.GerarOrdemPagamento(opSelecionada, out dtObras);
+                dtOP = bizOP.GerarOrdemPagamento(opSelecionada, out dtObras, out dtTotaisObra);
 
                 switch (cbEmpresa.Text)
                 {
@@ -809,11 +810,11 @@ namespace BRGS.UI
 
                 dtOP = helper.AdicionarLogotipoDataTable(dtOP, logotipo);
                 op = new OrdemPagamentoEmissao();
-                op.Database.Tables[0].SetDataSource(dtOP);
-                op.Database.Tables[1].SetDataSource(dtObras);
+                op.Database.Tables["DataTable1"].SetDataSource(dtOP);
+                op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
                 
                 //op.SetDataSource(dtOP);
-                //op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
+                op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
 
                 Relatorio relat = new Relatorio(op);
                 relat.Text = tituloAba;

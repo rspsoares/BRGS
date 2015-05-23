@@ -30,19 +30,39 @@ Complexa >> 1200,00
 ATUALIZAÇÕES
 
 * BD *
+
 SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS
+SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+
 
 
 * FEATURES *
-Tarefa 34 - Ordem de Pagamento
-Tirar da OP o resumo de OPs Pagas na obra. Está gerando muitas páginas. Adicionar um resumo no rodapé, conforme anexo no desktop (Rodapé - OPS.jpg)
-
 
 **********************************************
 ** PRIORIDADE ALTA **	
 
+Tarefa 34 - Ordem de Pagamento
+Tirar da OP o resumo de OPs Pagas na obra. Está gerando muitas páginas. Adicionar um resumo no rodapé, conforme anexo no desktop (Rodapé - OPS.jpg)
+	Valor do contrato está batendo, mas o resto não. Conferir com os valores dos relatórios de obra
+	Os relatórios q eu digo, são os do módulo Relatórios -  financeiro - contas a pagar
+	
+	[ok] Contrato
+	[ok] Valor Aberto
+	[ok] Pagos
+	[ok] o Allan me falou q a sobra q tem na OP tem como imprimir , tipo as 10 primeiras OPs pagas mais recentes ?
 
-
+	
+	Cliente: ELETROBRAS TERMONUCLEAR S.A. - ELETRONUCLEAR.	
+	Obra: PARADA TÉCNICA 1P21 USINA ANGRA 1
+	Licitação: 328/2014		
+	OP: 1005/2015
+	
+	
+	Cliente: EXERCITO BRASILEIRO - 23° CIA DE ENGENHARIA DE COMBATE
+	Obra: ORGANIZAÇÕES MILITARES
+	Licitação: 8/2013
+	OP: 65/2015	
+	
 **********************************************
 ** PRIORIDADE MÉDIA **
 

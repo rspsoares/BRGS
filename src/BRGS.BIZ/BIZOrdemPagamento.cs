@@ -634,12 +634,13 @@ namespace BRGS.BIZ
             }
         }
 
-        public DataTable GerarOrdemPagamento(OrdemPagamento opSelecionada, out DataTable dtObras)
+        public DataTable GerarOrdemPagamento(OrdemPagamento opSelecionada, out DataTable dtObras, out DataTable dtTotaisObra)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             DataTable dtOP = new DataTable();         
             dtObras = new DataTable();
+            dtTotaisObra = new DataTable();
 
             try
             {
@@ -649,12 +650,18 @@ namespace BRGS.BIZ
                     dtOP = ds.Tables[0];                    
                 }
                
-                lstParametros = new Dictionary<string, string>();
                 lstParametros.Add("@idObraEtapa", opSelecionada.idObraEtapa.ToString());
                 using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS", lstParametros))
                 {
                     dtObras = ds.Tables[0];
-                }                
+                }
+
+                lstParametros = new Dictionary<string, string>();
+                lstParametros.Add("@idObraEtapa", opSelecionada.idObraEtapa.ToString());
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS", lstParametros))
+                {
+                    dtTotaisObra = ds.Tables[0];
+                }
             }
             catch (Exception ex)
             {

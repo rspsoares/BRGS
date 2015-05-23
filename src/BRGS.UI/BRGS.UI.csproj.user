@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ReferencePath>C:\Program Files\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\;C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\;C:\Arquivos de programas\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\</ReferencePath>
-    <PublishUrlHistory>C:\_Rodrigo\BRGS\BRGS\Publish\|D:\_Rodrigo\BRGS\BRGS\Publish\|C:\Rodrigo\BRGS\BRGS\Publish\|C:\_Rodrigo\Rodrigo\Projetos\BRGS\BRGS\Publish\|C:\Rodrigo\Projetos\BRGS\BRGS\Publish\</PublishUrlHistory>
+    <PublishUrlHistory>C:\_Rodrigo\Repositorios\GIT\BRGS\src\Publish\|C:\_Rodrigo\BRGS\BRGS\Publish\|D:\_Rodrigo\BRGS\BRGS\Publish\|C:\Rodrigo\BRGS\BRGS\Publish\|C:\_Rodrigo\Rodrigo\Projetos\BRGS\BRGS\Publish\</PublishUrlHistory>
     <InstallUrlHistory>http://drivehq.com/rspsoares/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory>\\JRoberto-PC\Install\|\\192.168.0.29\Install\|\\192.168.0.18\brgs\Install\|\\Jroberto-pc\brgs\Install\|\\VBOXSVR\Shared_VM\BRGS\</UpdateUrlHistory>

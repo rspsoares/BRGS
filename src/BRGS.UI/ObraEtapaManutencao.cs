@@ -1518,16 +1518,16 @@ namespace BRGS.UI
 
         private void VerificarEtapaFinalizada()
         {
-            if (previsaoEtapa != null)
-            {            
-                grpPrevistos.Enabled = previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
-                grpRealizados.Enabled = !previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
-            }
-            else
-            {
+            //if (previsaoEtapa != null)
+            //{            
+            //    grpPrevistos.Enabled = previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
+            //    grpRealizados.Enabled = !previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
+            //}
+            //else
+            //{
                 grpPrevistos.Enabled = etapaSelecionada.Finalizada == 0;
                 grpRealizados.Enabled = etapaSelecionada.Finalizada == 0;
-            }
+            //}
 
             grpFases.Enabled = etapaSelecionada.Finalizada == 0;
             grpFollowUp.Enabled = etapaSelecionada.Finalizada == 0;            
