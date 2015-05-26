@@ -240,7 +240,7 @@ namespace BRGS.BIZ
             lstParametros.Add("@ValorContrato", obraEtapa.valorContrato.ToString());
             lstParametros.Add("@DataInicio", obraEtapa.dataInicio.Date.ToString());
             lstParametros.Add("@DataTermino", obraEtapa.dataTermino.Date.ToString());
-            lstParametros.Add("@Finalizada", "0");    
+            lstParametros.Add("@Finalizada", obraEtapa.Finalizada.ToString());    
             lstParametros.Add("@UnitTest", obraEtapa.UnitTest.ToString());
 
             return lstParametros;
@@ -291,7 +291,8 @@ namespace BRGS.BIZ
                         obraEtapaItem.nomeEvento = dr["NomeEvento"].ToString();
                         obraEtapaItem.valorContrato = decimal.Parse(dr["ValorContrato"].ToString());
                         obraEtapaItem.dataInicio = DateTime.Parse(dr["DataInicio"].ToString());
-                        obraEtapaItem.dataTermino = DateTime.Parse(dr["DataTermino"].ToString());                        
+                        obraEtapaItem.dataTermino = DateTime.Parse(dr["DataTermino"].ToString());
+                        obraEtapaItem.Finalizada = int.Parse(dr["Finalizada"].ToString());
                         obraEtapaItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
                         //obraEtapaItem.lstPlanejamentos = this.PesquisarPlanejamento(new ObraEtapaPlanejamento() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
                         obraEtapaItem.lstGastosPrevistos = this.PesquisarGastosPrevistos(new ObraEtapaGastoPrevisto() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });

@@ -168,8 +168,8 @@ namespace BRGS.UI
                         itemObra.dataInicio.Date,
                         itemObra.dataTermino.Date,                         
                         decimal.Parse(helper.FormatarValorMoeda(itemObra.saldoEtapa.ToString())),
-                        decimal.Parse(helper.FormatarValorMoeda(itemObra.valorContrato.ToString()))//,
-                      //  itemObra.Finalizada == 0 ? "Aberta" : "Fechada"
+                        decimal.Parse(helper.FormatarValorMoeda(itemObra.valorContrato.ToString())),
+                        itemObra.Finalizada == 0 ? "Aberta" : "Fechada"
                     });
                 }
             }

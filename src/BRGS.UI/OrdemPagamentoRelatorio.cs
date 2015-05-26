@@ -216,9 +216,9 @@ namespace BRGS.UI
                     filtroSQL += " AND I.DataPagamento = '1753-01-01 00:00:00.000'";
             }
 
-            filtroSQL += " AND USU.idUsuario = " + UsuarioLogado.idUsuario + 
-                " AND Uc.idUsuario = " + UsuarioLogado.idUsuario + 
-                " AND Ud.idUsuario =  " + UsuarioLogado.idUsuario;
+            //filtroSQL += " AND USU.idUsuario = " + UsuarioLogado.idUsuario + 
+            //    " AND Uc.idUsuario = " + UsuarioLogado.idUsuario + 
+            //    " AND Ud.idUsuario =  " + UsuarioLogado.idUsuario;
     
             return filtroSQL;
         }

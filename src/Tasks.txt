@@ -35,7 +35,6 @@ SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS
 SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
 
 
-
 * FEATURES *
 
 **********************************************
@@ -45,23 +44,65 @@ Tarefa 34 - Ordem de Pagamento
 Tirar da OP o resumo de OPs Pagas na obra. Está gerando muitas páginas. Adicionar um resumo no rodapé, conforme anexo no desktop (Rodapé - OPS.jpg)
 	Valor do contrato está batendo, mas o resto não. Conferir com os valores dos relatórios de obra
 	Os relatórios q eu digo, são os do módulo Relatórios -  financeiro - contas a pagar
-	
-	[ok] Contrato
-	[ok] Valor Aberto
-	[ok] Pagos
 	[ok] o Allan me falou q a sobra q tem na OP tem como imprimir , tipo as 10 primeiras OPs pagas mais recentes ?
 
 	
 	Cliente: ELETROBRAS TERMONUCLEAR S.A. - ELETRONUCLEAR.	
 	Obra: PARADA TÉCNICA 1P21 USINA ANGRA 1
 	Licitação: 328/2014		
-	OP: 1005/2015
-	
+	OP: 1005/2015	
 	
 	Cliente: EXERCITO BRASILEIRO - 23° CIA DE ENGENHARIA DE COMBATE
 	Obra: ORGANIZAÇÕES MILITARES
 	Licitação: 8/2013
 	OP: 65/2015	
+	
+	Cliente: URBANIZADORA MUNICIPAL S.A.
+	Nome Obra / Evento: ANDAIME FACHADEIRO E TUBULAR
+	Nº Pregão: 081/2013
+	Número OP: 4399/2014	
+
+	
+	-*****-*-*-*-*-*-*-*-*-
+	
+	
+		
+	
+SP_ORDEMPAGAMENTO_RELATORIO_EMITIDAS
+SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+
+	
+	
+	
+	
+	Cliente: FIOCRUZ - FUNDACAO OSWALDO CRUZ
+	Nome Obra / Evento: AQUISIÇÃO DE 08 MÓDULOS DE CONTANIER
+	Nº Pregão: 101/2014 - INI
+	Número OP: 1690/2015
+	
+	
+	Cliente: NUCLEP - NUCLEBRÁS EQUIPAMENTOS PESADOS
+	Nome Obra / Evento: 02 ESTRUTURAS MODULARES HABITÁVEIS
+	Nº Pregão: 041/14
+	Número OP: 1468/2015
+	
+	
+	
+	
+	
+	
+	
+	
+[14:16:31] José Roberto: só para deixa tu inteirado. Não está finalizando obras
+[14:16:31] José Roberto: seleciono Finalizar e salvo
+[14:16:40] José Roberto: saio e salvo a tela anteior
+[14:16:44] José Roberto: mas não salva
+[14:16:50] José Roberto: abre novamente
+[14:32:15] Rodrigo Soares: mas o Flag de Finalizada aparece marcado, depois q vc salva, fecha a tela e abre novamente?
+	
+	
+	
+
 	
 **********************************************
 ** PRIORIDADE MÉDIA **
