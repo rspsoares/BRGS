@@ -463,6 +463,9 @@ namespace BRGS.UI
             if (tbValorPagto.Text == string.Empty || tbValorPagto.Text == "0,00")
                 msgRetorno += Environment.NewLine + "Favor informar o Valor";
 
+            if (gvObras.RowCount > 0)
+                msgRetorno += Environment.NewLine + "A Ordem de Pagamento deve ser gerada através de cada obra associada a esse frete.";
+
             return msgRetorno;
         }
 
