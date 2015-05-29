@@ -203,19 +203,37 @@ namespace BRGS.BIZ
             return lstOPAbastecimento;
         }
 
-        public DataTable GerarRelatorioOrdemPagamentoEmitida(string filtroSQL, string filtroRelatorio)
+        public DataTable GerarRelatorioOrdemPagamentoEmitida(string filtroSQL, string filtroRelatorio, int idObraEtapa, out DataTable dtTotaisObra)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             DataTable dtOP = new DataTable();
+            dtTotaisObra = new DataTable();
 
             try
             {
                 lstParametros.Add("@filtro", filtroSQL);                
                 DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_RELATORIO_EMITIDAS", lstParametros);
                 dtOP = ds.Tables[0];
-
                 dtOP = helper.AdicionarColunaFiltroRelatorio(filtroRelatorio, dtOP);
+
+                if (idObraEtapa > 0)
+                {
+                    lstParametros = new Dictionary<string, string>();
+                    lstParametros.Add("@idObraEtapa", idObraEtapa.ToString());
+                    using (DataSet dsTotais = dao.Pesquisar("SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS", lstParametros))
+                    {
+                        dtTotaisObra = dsTotais.Tables[0];
+                    }
+                }
+                else
+                {
+                    dtTotaisObra.Columns.Add("idObraEtapa", typeof(int));
+                    dtTotaisObra.Columns.Add("ValorContrato", typeof(double));
+                    dtTotaisObra.Columns.Add("TotalPago", typeof(double));
+                    dtTotaisObra.Columns.Add("TotalAberto", typeof(double));
+                    dtTotaisObra.Rows.Add(0, 0, 0, 0);
+                }                    
             }
             catch (Exception ex)
             {

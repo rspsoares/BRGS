@@ -61,11 +61,13 @@ namespace BRGS.UI
         private void btVisualizar_Click(object sender, EventArgs e)
         {
             ReportClass op = new ReportClass();
-            DataTable dt = new DataTable();
+            DataTable dtOP = new DataTable();
+            DataTable dtTotaisObra = new DataTable();
             string filtroSQL = string.Empty;
             string ordenacao = string.Empty;
             string msgRetorno = string.Empty;
             string filtroRelatorio = string.Empty;
+            int idObraEtapa = 0;
 
             msgRetorno = this.ValidarFiltro();
 
@@ -76,14 +78,21 @@ namespace BRGS.UI
                 filtroSQL = this.MontarFiltroSQL();
                 filtroRelatorio = this.MontarFiltroRelatorio();
 
-                dt = bizOP.GerarRelatorioOrdemPagamentoEmitida(filtroSQL, filtroRelatorio);
+                if (chkLicitacao.Checked && int.Parse(cbLicitacao.SelectedValue.ToString()) > 0)
+                    idObraEtapa = int.Parse(cbLicitacao.SelectedValue.ToString());
 
-                dt = VerificarOrdenacao(dt, rbAgrupado.Checked);
+                dtOP = bizOP.GerarRelatorioOrdemPagamentoEmitida(filtroSQL, filtroRelatorio, idObraEtapa, out dtTotaisObra);
+
+                dtOP = VerificarOrdenacao(dtOP, rbAgrupado.Checked);
 
                 if (rbAgrupado.Checked)
                 {   
                     op = new OrdemPagamentoEmitidas();
-                    op.SetDataSource(dt);
+                    
+                    //op.SetDataSource(dt);
+                    op.Database.Tables["DataTable1"].SetDataSource(dtOP);
+                    op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
+
                     Relatorio opEmitidas = new Relatorio(op);
                     opEmitidas.Text = "Relatório de Ordens de Pagamentos Emitidas";                  
                     opEmitidas.ShowDialog();                   
@@ -91,7 +100,7 @@ namespace BRGS.UI
                 else
                 {                    
                     op = new OrdemPagamentoEmitidas_Resumido();                    
-                    op.SetDataSource(dt);
+                    op.SetDataSource(dtOP);
                     Relatorio opEmitidas = new Relatorio(op);
                     opEmitidas.Text = "Relatório de Ordens de Pagamentos Emitidas - Resumido";                   
                     opEmitidas.ShowDialog();

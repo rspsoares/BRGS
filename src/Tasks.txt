@@ -39,11 +39,52 @@ ATUALIZAÇÕES
 
 **********************************************
 ** PRIORIDADE ALTA **	
-SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+
+SP_ORDEMPAGAMENTO_RELATORIO_EMITIDAS
+
+Tarefa 30 - Intermediária
+
+Relatório de OP's Geradas - Agrupado
+Alterar as colunas de acordo com o layout 
+	Emissor = Usuário que emitiu a OP
+	
+[ok] Proc
+[ok] DataSet
+Report
+	Só mostar o quadro de gasto de obra se selecionar um cliente e uma licitação
+		[ok] DataSet
+		[ok] Popular Dataset	
+		[ok] Incluir no relatório
+		[ok] Design
+		[ok] Tratar para só exibir o quadro qdo tiver o que mostrar
+
+Atualizar em Homologação
 
 
-[ok] OP:  inverter a posição do top 10 com o quadro de totais de obra
 
+
+
+-----------------------------------------------------------------
+
+Criar vínculo Cliente X UEN
+	Na tela de Clientes > incluir uma aba onde seria exibida quais UEN's esse cliente já usou nas obras dele
+	Aplicar esse filtro na tela de Relatório de Obras
+		Ao selecionar uma UEN, só trazer os clientes que já usaram essa UEN.
+		Ao selecionar um cliente, só trazer as UEN's que esse cliente já usou.
+		
+
+SELECT distinct OEG.idUEN, U.Descricao 
+FROM Obras O
+	inner join Clientes C on O.idCliente = C.idCliente
+	inner join ObrasEtapas OE on O.idObra = OE.idObra
+	inner join ObrasEtapas_GastosRealizados OEG on OE.idObraEtapa = OEG.idObraEtapa
+	inner join UEN U on OEG.idUEN = U.idUEN
+where C.idCliente = 192
+order by U.Descricao
+
+
+		
+-------------------------------------------------------------------------------
 Associar a obra nas seguintes OP's (via update)
 idObraEtapa = 183
 
@@ -51,10 +92,6 @@ idObraEtapa = 183
 1827/2015 R$ 2.500, 00 - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
 1828/2015 R$ 1.000,00 PAGA - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
 1816/2015 R$ 600,00 PAGA - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
-
-[ok] o módulo de frete só geraria OP se não fosse associada a Obra
-[OK] No quadro de totais da obra que sai na OP, descontar 20% do Valor do contrato da etapa da obra
-
 
 
 
