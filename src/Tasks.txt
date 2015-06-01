@@ -41,24 +41,14 @@ ATUALIZAÇÕES
 ** PRIORIDADE ALTA **	
 
 SP_ORDEMPAGAMENTO_RELATORIO_EMITIDAS
+SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+
 
 Tarefa 30 - Intermediária
 
 Relatório de OP's Geradas - Agrupado
-Alterar as colunas de acordo com o layout 
-	Emissor = Usuário que emitiu a OP
-	
-[ok] Proc
-[ok] DataSet
-Report
-	Só mostar o quadro de gasto de obra se selecionar um cliente e uma licitação
-		[ok] DataSet
-		[ok] Popular Dataset	
-		[ok] Incluir no relatório
-		[ok] Design
-		[ok] Tratar para só exibir o quadro qdo tiver o que mostrar
 
-Atualizar em Homologação
+>> Atualizar em Produção
 
 
 
