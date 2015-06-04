@@ -736,9 +736,7 @@ namespace BRGS.Util
         }
 
         public void VerificaPermissaoAcessoObjetosMenu(MenuStrip menu, List<UsuarioPermissoes> lstPermissoesMenu)
-        {
-            bool itemHabilitado = true;
-
+        {   
             foreach (UsuarioPermissoes itemPermissao in lstPermissoesMenu.Where(x => x.nomeControle != string.Empty))
             {
                 ToolStripItem itemMenu = menu.Items.Find(itemPermissao.nomeControle, true).FirstOrDefault();

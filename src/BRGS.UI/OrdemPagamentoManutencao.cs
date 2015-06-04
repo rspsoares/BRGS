@@ -100,7 +100,7 @@ namespace BRGS.UI
                 }
             }
         }
-
+        
         private void LimparCampos()
         {            
             tbNumeroOP.Text = string.Empty;

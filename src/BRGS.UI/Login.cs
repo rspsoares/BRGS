@@ -11,6 +11,8 @@ using BRGS.BIZ;
 using System.Data.SqlClient;
 using BRGS.Util;
 using System.Security.Cryptography;
+using System.Reflection;
+using System.Deployment.Application;
 
 namespace BRGS.UI
 {
@@ -43,6 +45,8 @@ namespace BRGS.UI
         private void btLogin_Click(object sender, EventArgs e)
         {            
             string Msg = string.Empty;
+            Version versaoAtual;
+
             this.Cursor = Cursors.WaitCursor;
 
             try
@@ -68,7 +72,7 @@ namespace BRGS.UI
                         UsuarioSenha frmSenha = new UsuarioSenha(usuarioLogin);
                         frmSenha.ShowDialog();
                         return;
-                    }
+                    }                    
 
                     UsuarioLogado.idUsuario = usuarioLogin.idUsuario;
                     UsuarioLogado.Nome = usuarioLogin.Nome;
@@ -78,6 +82,14 @@ namespace BRGS.UI
                     UsuarioLogado.lstDespesas = usuarioLogin.lstDespesas;
 
                     bizUsuario.AtualizarUltimoAcesso(new Usuario() { idUsuario = UsuarioLogado.idUsuario, ultimoAcesso = DateTime.Now }, UsuarioLogado.idUsuario);
+
+                    if (ApplicationDeployment.IsNetworkDeployed)
+                    {
+                        versaoAtual = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                        UsuarioLogado.dataPublicacao = bizUsuario.AtualizarHistoricoVersao(versaoAtual.ToString());
+                    }
+                    else
+                        UsuarioLogado.dataPublicacao = DateTime.MinValue;
 
                     bizParametrizacao.ObterParametrizacao();
 

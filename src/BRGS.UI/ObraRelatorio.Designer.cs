@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btVisualizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbLicitacao = new System.Windows.Forms.ComboBox();
+            this.chkLicitacao = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.gvEventosSelecionados = new BRGS.Util.SortedDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +51,7 @@
             this.cbUEN = new System.Windows.Forms.ComboBox();
             this.chkCliente = new System.Windows.Forms.CheckBox();
             this.chkUEN = new System.Windows.Forms.CheckBox();
-            this.cbLicitacao = new System.Windows.Forms.ComboBox();
-            this.chkLicitacao = new System.Windows.Forms.CheckBox();
+            this.lbClientesFiltrados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbClientesFiltrados);
             this.groupBox2.Controls.Add(this.cbLicitacao);
             this.groupBox2.Controls.Add(this.chkLicitacao);
             this.groupBox2.Controls.Add(this.groupBox4);
@@ -98,6 +100,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtro";
             // 
+            // cbLicitacao
+            // 
+            this.cbLicitacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbLicitacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbLicitacao.Enabled = false;
+            this.cbLicitacao.FormattingEnabled = true;
+            this.cbLicitacao.Location = new System.Drawing.Point(148, 69);
+            this.cbLicitacao.Name = "cbLicitacao";
+            this.cbLicitacao.Size = new System.Drawing.Size(351, 21);
+            this.cbLicitacao.TabIndex = 33;
+            // 
+            // chkLicitacao
+            // 
+            this.chkLicitacao.AutoSize = true;
+            this.chkLicitacao.Enabled = false;
+            this.chkLicitacao.Location = new System.Drawing.Point(33, 71);
+            this.chkLicitacao.Name = "chkLicitacao";
+            this.chkLicitacao.Size = new System.Drawing.Size(109, 17);
+            this.chkLicitacao.TabIndex = 32;
+            this.chkLicitacao.Text = "Número Licitação";
+            this.chkLicitacao.UseVisualStyleBackColor = true;
+            this.chkLicitacao.CheckedChanged += new System.EventHandler(this.chkLicitacao_CheckedChanged);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.gvEventosSelecionados);
@@ -113,8 +138,8 @@
             this.gvEventosSelecionados.AllowUserToAddRows = false;
             this.gvEventosSelecionados.AllowUserToDeleteRows = false;
             this.gvEventosSelecionados.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvEventosSelecionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvEventosSelecionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvEventosSelecionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvEventosSelecionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -178,8 +203,8 @@
             this.gvEventosCadastrados.AllowUserToAddRows = false;
             this.gvEventosCadastrados.AllowUserToDeleteRows = false;
             this.gvEventosCadastrados.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvEventosCadastrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvEventosCadastrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.gvEventosCadastrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvEventosCadastrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idObra,
@@ -236,7 +261,7 @@
             this.cbClientes.FormattingEnabled = true;
             this.cbClientes.Location = new System.Drawing.Point(70, 44);
             this.cbClientes.Name = "cbClientes";
-            this.cbClientes.Size = new System.Drawing.Size(761, 21);
+            this.cbClientes.Size = new System.Drawing.Size(648, 21);
             this.cbClientes.TabIndex = 3;
             this.cbClientes.SelectedIndexChanged += new System.EventHandler(this.cbClientes_SelectedIndexChanged);
             this.cbClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbClientes_KeyDown);
@@ -251,6 +276,7 @@
             this.cbUEN.Name = "cbUEN";
             this.cbUEN.Size = new System.Drawing.Size(761, 21);
             this.cbUEN.TabIndex = 1;
+            this.cbUEN.SelectedIndexChanged += new System.EventHandler(this.cbUEN_SelectedIndexChanged);
             this.cbUEN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbUEN_KeyDown);
             // 
             // chkCliente
@@ -275,28 +301,16 @@
             this.chkUEN.UseVisualStyleBackColor = true;
             this.chkUEN.CheckedChanged += new System.EventHandler(this.chkUEN_CheckedChanged);
             // 
-            // cbLicitacao
+            // lbClientesFiltrados
             // 
-            this.cbLicitacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbLicitacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbLicitacao.Enabled = false;
-            this.cbLicitacao.FormattingEnabled = true;
-            this.cbLicitacao.Location = new System.Drawing.Point(148, 69);
-            this.cbLicitacao.Name = "cbLicitacao";
-            this.cbLicitacao.Size = new System.Drawing.Size(351, 21);
-            this.cbLicitacao.TabIndex = 33;
-            // 
-            // chkLicitacao
-            // 
-            this.chkLicitacao.AutoSize = true;
-            this.chkLicitacao.Enabled = false;
-            this.chkLicitacao.Location = new System.Drawing.Point(33, 71);
-            this.chkLicitacao.Name = "chkLicitacao";
-            this.chkLicitacao.Size = new System.Drawing.Size(109, 17);
-            this.chkLicitacao.TabIndex = 32;
-            this.chkLicitacao.Text = "Número Licitação";
-            this.chkLicitacao.UseVisualStyleBackColor = true;
-            this.chkLicitacao.CheckedChanged += new System.EventHandler(this.chkLicitacao_CheckedChanged);
+            this.lbClientesFiltrados.AutoSize = true;
+            this.lbClientesFiltrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesFiltrados.ForeColor = System.Drawing.Color.Red;
+            this.lbClientesFiltrados.Location = new System.Drawing.Point(724, 47);
+            this.lbClientesFiltrados.Name = "lbClientesFiltrados";
+            this.lbClientesFiltrados.Size = new System.Drawing.Size(107, 13);
+            this.lbClientesFiltrados.TabIndex = 34;
+            this.lbClientesFiltrados.Text = "Filtrado pela UEN";
             // 
             // ObraRelatorio
             // 
@@ -342,5 +356,6 @@
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.ComboBox cbLicitacao;
         private System.Windows.Forms.CheckBox chkLicitacao;
+        private System.Windows.Forms.Label lbClientesFiltrados;
     }
 }

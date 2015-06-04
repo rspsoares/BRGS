@@ -31,7 +31,8 @@ ATUALIZAÇÕES
 
 * BD *
 
-
+__PublishHistory
+SP_LOGVERSAO_ALTERAR
 
 
 
@@ -40,55 +41,23 @@ ATUALIZAÇÕES
 **********************************************
 ** PRIORIDADE ALTA **	
 
-SP_ORDEMPAGAMENTO_RELATORIO_EMITIDAS
-SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+Ver erro Erro Relatório Obras Consolidado do doc
+	Recriar a proc?
 
-
-Tarefa 30 - Intermediária
-
-Relatório de OP's Geradas - Agrupado
-
->> Atualizar em Produção
-
-
-
-
-
------------------------------------------------------------------
+----------------------------------------------
 
 Criar vínculo Cliente X UEN
-	Na tela de Clientes > incluir uma aba onde seria exibida quais UEN's esse cliente já usou nas obras dele
-	Aplicar esse filtro na tela de Relatório de Obras
-		Ao selecionar uma UEN, só trazer os clientes que já usaram essa UEN.
-		Ao selecionar um cliente, só trazer as UEN's que esse cliente já usou.
-		
+	[ok] Na tela de Clientes > incluir uma aba onde seria exibida quais UEN's esse cliente já usou nas obras dele
+	[ok] Aplicar esse filtro na tela de Relatório de Obras
+		[ok] Ao selecionar uma UEN, só trazer os clientes que já usaram essa UEN.
 
-SELECT distinct OEG.idUEN, U.Descricao 
-FROM Obras O
-	inner join Clientes C on O.idCliente = C.idCliente
-	inner join ObrasEtapas OE on O.idObra = OE.idObra
-	inner join ObrasEtapas_GastosRealizados OEG on OE.idObraEtapa = OEG.idObraEtapa
-	inner join UEN U on OEG.idUEN = U.idUEN
-where C.idCliente = 192
-order by U.Descricao
+[ok] Qdo o usuário logar
+	[ok] Verificar se a versão já está cadastrada na tabela de histórico de versão. se não tiver, insert
+	[ok] trazer essa data do campo da tabela para o atributo dataExecutável (UsuarioLogado)
 
+Criar trigger por essa data	
 
-		
--------------------------------------------------------------------------------
-Associar a obra nas seguintes OP's (via update)
-idObraEtapa = 183
-
-1826/2015 R$ 2.500,00 - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
-1827/2015 R$ 2.500, 00 - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
-1828/2015 R$ 1.000,00 PAGA - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
-1816/2015 R$ 600,00 PAGA - FUNDAÇÃO UNIVERSIDADE FEDERAL DE SERGIPE / SE - 57/2014 - CAMPUS ITABAIANA - MODILOS - FRETE
-
-
-
-	
-	
-	
-	
+Atualizar em Produção
 
 	
 **********************************************

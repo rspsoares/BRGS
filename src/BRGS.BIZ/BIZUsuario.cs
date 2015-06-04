@@ -756,5 +756,45 @@ namespace BRGS.BIZ
         }
 
         #endregion
+
+        #region Controle de versão
+
+        public DateTime AtualizarHistoricoVersao(string versaoAtual)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            DateTime dataPublicacao = new DateTime();
+
+            try
+            {
+                lstParametros.Add("@Versao", versaoAtual);
+
+                using (DataSet ds = dao.Pesquisar("SP_LOGVERSAO_ALTERAR", lstParametros))
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    dataPublicacao = DateTime.Parse(dr[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_LOGVERSAO_ALTERAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return dataPublicacao;
+        }
+
+        #endregion
     }
 }

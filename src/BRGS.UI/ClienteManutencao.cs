@@ -171,7 +171,7 @@ namespace BRGS.UI
                 cbStatus.Text = clienteSelecionado.Status;
                 this.CarregarContatos();
                 this.CarregarContasBancarias();
-                this.CarregarObras();                               
+                this.CarregarObras();                
             }
             catch (SqlException)
             {
@@ -188,6 +188,7 @@ namespace BRGS.UI
         private void CarregarObras()
         {
             List<ObraEtapa> lstObras = new List<ObraEtapa>();
+            List<ObraEtapaGastoRealizado> lstGastosRealizados = new List<ObraEtapaGastoRealizado>();
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -195,7 +196,7 @@ namespace BRGS.UI
             {
                 lstObras = bizObra.PesquisarObraEtapa(new ObraEtapa() { idCliente = int.Parse(lbCodigo.Text)}).OrderBy(obr => obr.nomeEvento).ToList();
 
-                LimparGrid();
+                LimparGridObras();
 
                 foreach (ObraEtapa itemObra in lstObras)
                 {
@@ -206,6 +207,18 @@ namespace BRGS.UI
                         itemObra.numeroLicitacao,                         
                         itemObra.nomeEvento,
                         helper.FormatarValorMoeda(itemObra.valorContrato.ToString()) 
+                    });
+
+                    lstGastosRealizados.AddRange(itemObra.lstGastosRealizados);
+                }                
+
+                LimparGridUENs();
+                
+                foreach (string uenObra in lstGastosRealizados.Select(x => x.descricaoUEN).Distinct().OrderBy(descricaoUEN => descricaoUEN).ToList())
+                {
+                    gvUEN.Rows.Add(new object[] 
+                    {                        
+                        uenObra
                     });
                 }
             }
@@ -221,10 +234,16 @@ namespace BRGS.UI
             this.Cursor = Cursors.Default;
         }
         
-        private void LimparGrid()
+        private void LimparGridObras()
         {
             while (gvObras.Rows.Count > 0)
                 gvObras.Rows.RemoveAt(0);
+        }
+
+        private void LimparGridUENs()
+        {
+            while (gvUEN.Rows.Count > 0)
+                gvUEN.Rows.RemoveAt(0);
         }
 
         private void CarregarEstados()

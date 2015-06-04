@@ -29,7 +29,7 @@
     <PublisherName>BRGS</PublisherName>
     <MinimumRequiredVersion>1.0.0.3</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>43</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>2.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1089,10 +1089,6 @@
     <ProjectReference Include="..\BRGS.Util\BRGS.Util.csproj">
       <Project>{57942519-D461-4BCE-AA20-DDB5DD599612}</Project>
       <Name>BRGS.Util</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BRGS.Util\MakarovDev.ExpandCollapsePanel\MakarovDev.ExpandCollapsePanel.csproj">
-      <Project>{BE76A6FE-225F-4287-9CA0-231F5AF4CDC1}</Project>
-      <Name>MakarovDev.ExpandCollapsePanel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

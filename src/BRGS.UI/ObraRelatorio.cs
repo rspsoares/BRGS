@@ -23,6 +23,7 @@ namespace BRGS.UI
         private List<Obra> lstObrasSelecionadas = new List<Obra>();
         private List<ObraEtapa> lstLicitacoesCliente = new List<ObraEtapa>();
         private List<ObraEtapa> lstObrasEtapas = new List<ObraEtapa>();
+        private List<Cliente> lstClientes = new List<Cliente>();
 
         public ObraRelatorio()
         {
@@ -84,23 +85,36 @@ namespace BRGS.UI
 
         private void CarregarCombos()
         {
-            this.CarregarComboUEN();
-            this.CarregarComboClientes();
+            this.CarregarComboUEN(0);
+            this.CarregarComboClientes(0);
         }
 
-        private void CarregarComboClientes()
+        private void CarregarComboClientes(int idUEN)
         {
-            BIZCliente bizCliente = new BIZCliente();
-            List<Cliente> lstClientes = new List<Cliente>();
+            List<Cliente> lstClientesCombo = new List<Cliente>();            
 
             this.Cursor = Cursors.WaitCursor;
 
             try
             {
-                lstClientes.Add(new Cliente() { idCliente = 0, Nome = "--Selecione--" });
-                lstClientes.AddRange(bizCliente.PesquisarCliente(new Cliente()).OrderBy(u => u.Nome));
+                lstClientesCombo.Add(new Cliente() { idCliente = 0, Nome = "--Selecione--" });
+                
+                if(idUEN > 0)
+                {
+                    foreach (ObraEtapa etapa in lstObrasEtapas.OrderBy(x => x.nomeCliente).ToList())
+                    {
+                        if (etapa.lstGastosRealizados.Exists(x => x.idUEN == idUEN) && lstClientesCombo.Exists(x => x.idCliente == etapa.idCliente) == false)
+                            lstClientesCombo.Add(new Cliente() { idCliente = etapa.idCliente, Nome = etapa.nomeCliente });
+                    }    
+               
+                    
+                }
+                else
+                    lstClientesCombo.AddRange(lstClientes);
 
-                cbClientes.DataSource = lstClientes;
+                lbClientesFiltrados.Visible = idUEN > 0;
+
+                cbClientes.DataSource = lstClientesCombo;
                 cbClientes.DisplayMember = "Nome";
                 cbClientes.ValueMember = "idCliente";
             }
@@ -116,7 +130,7 @@ namespace BRGS.UI
             this.Cursor = Cursors.Default;
         }
 
-        private void CarregarComboUEN()
+        private void CarregarComboUEN(int idCliente)
         {
             List<UEN> lstUEN = new List<UEN>();
             BIZUEN bizUEN = new BIZUEN();
@@ -165,6 +179,12 @@ namespace BRGS.UI
         private void chkUEN_CheckedChanged(object sender, EventArgs e)
         {
             cbUEN.Enabled = chkUEN.Checked;
+
+            if (chkUEN.Checked == false)
+            {
+                cbUEN.SelectedIndex = 0;
+                CarregarComboClientes(0);
+            }
         }
 
         private void chkCliente_CheckedChanged(object sender, EventArgs e)
@@ -228,10 +248,10 @@ namespace BRGS.UI
         {
             string msgRetorno = string.Empty;
 
-            if (chkUEN.Checked && cbUEN.FindStringExact(cbUEN.Text) == -1)
+            if (chkUEN.Checked && (cbUEN.FindStringExact(cbUEN.Text) == -1 || cbUEN.SelectedIndex == 0))
                 msgRetorno += Environment.NewLine + "Favor selecionar uma UEN válida";
 
-            if (chkCliente.Checked && cbClientes.FindStringExact(cbClientes.Text) == -1)
+            if (chkCliente.Checked && (cbClientes.FindStringExact(cbClientes.Text) == -1 || cbClientes.SelectedIndex == 0))
                 msgRetorno += Environment.NewLine + "Favor selecionar um Cliente válido";            
 
             return msgRetorno;
@@ -347,10 +367,33 @@ namespace BRGS.UI
         {
             this.Cursor = Cursors.WaitCursor;
 
+            this.CarregarClientes();
             this.CarregarObras();
             this.CarregarObrasEtapas();
             this.CarregarGridObrasCadastradas(lstObrasCadastradas);
             this.CarregarCombos();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void CarregarClientes()
+        {
+            BIZCliente bizCliente = new BIZCliente();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lstClientes = bizCliente.PesquisarCliente(new Cliente()).OrderBy(u => u.Nome).ToList();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             this.Cursor = Cursors.Default;
         }
@@ -361,7 +404,7 @@ namespace BRGS.UI
         }
 
         private void cbClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {             
+        {
             if(cbClientes.SelectedIndex == 0)
             {
                 cbLicitacao.DataSource = null;
@@ -384,6 +427,12 @@ namespace BRGS.UI
             cbLicitacao.DataSource = lstLicitacoesCliente;
             cbLicitacao.DisplayMember = "numeroLicitacao";
             cbLicitacao.ValueMember = "idObraEtapa";    
+        }
+
+        private void cbUEN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (chkUEN.Checked)            
+                CarregarComboClientes(int.Parse(cbUEN.SelectedValue.ToString()));                
         }        
     }
 }

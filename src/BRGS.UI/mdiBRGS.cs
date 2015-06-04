@@ -28,7 +28,7 @@ namespace BRGS.UI
         }       
 
         private void mdiBRGS_Load(object sender, EventArgs e)
-        {           
+        {
             try
             {              
                 if (this.ObterStringConnection())
@@ -44,11 +44,11 @@ namespace BRGS.UI
                         this.statusStrip.Visible = true;
                         this.tsUsuario.Text = UsuarioLogado.Nome;                       
                     }
-                    else
+                    else                    
                         this.BloquearMenus();
                 }
-                else
-                    this.BloquearMenus();
+                else                
+                    this.BloquearMenus();                  
             }
             catch (SqlException)
             {
@@ -72,6 +72,14 @@ namespace BRGS.UI
         private void CarregarPermissoesUsuario()
         {
             List<UsuarioPermissoes> lstPermissoes = new List<UsuarioPermissoes>();
+
+            if (UsuarioLogado.dataPublicacao != DateTime.MinValue && (DateTime.Now - UsuarioLogado.dataPublicacao).Days > 25)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BloquearMenus();
+                return;
+            }
+
             lstPermissoes = UsuarioLogado.lstPermissoes.Where(cont => cont.nomeFormulario == this.Name).ToList();
             helper.VerificaPermissaoAcessoObjetosMenu(menuStrip1, lstPermissoes);          
         }
@@ -297,7 +305,7 @@ namespace BRGS.UI
 
         private void rbEngenharia_Obras_Relatorio_Consolidado_Click(object sender, EventArgs e)
         {
-            helperUI.AbrirNovaAba(new TabPage("Relatório de Obras"), new ObrasRelatorioConsolidado()); 
+            helperUI.AbrirNovaAba(new TabPage("Relatório de Obras - Consolidado"), new ObrasRelatorioConsolidado()); 
         }                
     }
 }
