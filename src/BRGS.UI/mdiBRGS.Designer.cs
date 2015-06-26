@@ -539,20 +539,21 @@
             // rbEngenharia_Obras_Relatorio
             // 
             this.rbEngenharia_Obras_Relatorio.Name = "rbEngenharia_Obras_Relatorio";
-            this.rbEngenharia_Obras_Relatorio.Size = new System.Drawing.Size(241, 22);
+            this.rbEngenharia_Obras_Relatorio.Size = new System.Drawing.Size(249, 22);
             this.rbEngenharia_Obras_Relatorio.Text = "Gastos em Obras";
             this.rbEngenharia_Obras_Relatorio.Click += new System.EventHandler(this.rbEngenharia_Obras_Relatorio_Click);
             // 
             // toolStripSeparator27
             // 
             this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(238, 6);
+            this.toolStripSeparator27.Size = new System.Drawing.Size(246, 6);
             // 
             // rbEngenharia_Obras_Relatorio_Consolidado
             // 
+            this.rbEngenharia_Obras_Relatorio_Consolidado.Enabled = false;
             this.rbEngenharia_Obras_Relatorio_Consolidado.Name = "rbEngenharia_Obras_Relatorio_Consolidado";
-            this.rbEngenharia_Obras_Relatorio_Consolidado.Size = new System.Drawing.Size(241, 22);
-            this.rbEngenharia_Obras_Relatorio_Consolidado.Text = "Gastos em Obras - Consolidado";
+            this.rbEngenharia_Obras_Relatorio_Consolidado.Size = new System.Drawing.Size(249, 22);
+            this.rbEngenharia_Obras_Relatorio_Consolidado.Text = "* Gastos em Obras - Consolidado";
             this.rbEngenharia_Obras_Relatorio_Consolidado.Click += new System.EventHandler(this.rbEngenharia_Obras_Relatorio_Consolidado_Click);
             // 
             // toolStripSeparator13

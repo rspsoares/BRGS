@@ -41,15 +41,12 @@ namespace BRGS.UI
                 
                 if(obraSelecionada.idObra > 0)
                 {
-                    CarregarObra();
-                   // CarregarGridPlanejamento();
+                    CarregarObra();                 
                     CarregarGridEtapas();
                     CarregarTotais();
                 }                    
                 else
-                {
-                    //btPlanejamentoNovo.Enabled = false;                    
-                    //btPlanejamentoVisualizar.Enabled = false;
+                {                 
                     btNovaEtapa.Enabled = false;
                     btVisualizarEtapa.Enabled = false;
                 }
@@ -200,8 +197,7 @@ namespace BRGS.UI
                 return;
 
             try
-            {
-                //obraSelecionada.saldoObra = obraSelecionada.valorBruto - decimal.Parse(obraSelecionada.lstEtapas.Sum(x => x.saldoEtapa).ToString());
+            {                
                 obraSelecionada.saldoObra = obraSelecionada.valorBruto - obraSelecionada.lstEtapas.SelectMany(x => x.lstGastosRealizados).Where(y => y.statusOrdemPagamento == "PAGA").Sum(z => z.Valor);
                 
                 obraSelecionada.totalOPGerada = obraSelecionada.lstEtapas.SelectMany(x => x.lstGastosRealizados).Where(y => y.statusOrdemPagamento != "CANCELADA" && y.statusOrdemPagamento != string.Empty).Sum(z => z.Valor);
@@ -225,32 +221,6 @@ namespace BRGS.UI
             this.Cursor = Cursors.Default;            
         }
 
-        //private void btPlanejamentoNovo_Click(object sender, EventArgs e)
-        //{
-        //    ObraEtapa etapa = new ObraEtapa();
-
-        //    etapa.idObra = obraSelecionada.idObra;
-        //    etapa.idEmpresa = obraSelecionada.idEmpresa;
-        //    etapa.numeroLicitacao = obraSelecionada.numeroLicitacao;
-        //    etapa.idCliente = obraSelecionada.idCliente;
-        //    etapa.nomeEvento = obraSelecionada.nomeEvento;
-        //    etapa.dataInicio = DateTime.Now;
-        //    etapa.dataTermino = DateTime.Now;
-        //    etapa.lstGastosPrevistos = new List<ObraEtapaGastoPrevisto>();
-        //    etapa.lstGastosRealizados = new List<ObraEtapaGastoRealizado>();
-        //    etapa.lstFases = new List<ObraEtapaFase>();
-        //    etapa.lstFollowUps = new List<ObraEtapaFollowUp>();
-
-        //    ObraPlanejamentoManutencao form = new ObraPlanejamentoManutencao(etapa);
-        //    form.ShowDialog();
-
-        //    obraSelecionada.lstEtapas = bizObra.PesquisarObraEtapa(new ObraEtapa() { idObra = obraSelecionada.idObra });
-
-        //    CarregarGridPlanejamento();
-        //    CarregarGridEtapas();
-        //    CarregarTotais();
-        //}       
-       
         private void cbEmpresa_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -346,13 +316,7 @@ namespace BRGS.UI
                 }
 
                 if (msgRetorno == string.Empty)
-                {
-                    //btPlanejamentoNovo.Enabled = UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name && perm.nomeControle == "btPlanejamentoNovo").ToList()[0].Habilitado;
-                    //btPlanejamentoVisualizar.Enabled = UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name && perm.nomeControle == "btPlanejamentoVisualizar").ToList()[0].Habilitado;
-                    //btNovaEtapa.Enabled = UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name && perm.nomeControle == "btPlanejamentoEtapa").ToList()[0].Habilitado;
-                    //btVisualizarEtapa.Enabled = UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name && perm.nomeControle == "btGastosEtapa").ToList()[0].Habilitado;
-                    
-                    //CarregarGridPlanejamento();
+                {                 
                     CarregarGridEtapas();
                     CarregarTotais();
                     MessageBox.Show(acaoSelecionada + " efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -371,44 +335,6 @@ namespace BRGS.UI
 
             this.Cursor = Cursors.Default;
         }
-
-        //private void CarregarGridPlanejamento()
-        //{
-        //    List<ObraEtapa> lstEtapas = new List<ObraEtapa>();
-        //    List<ObraEtapaPlanejamento> lstPlanejamento = new List<ObraEtapaPlanejamento>();
-        //    List<ObraEtapaPlanejamento> lstPlanejamentoGrid = new List<ObraEtapaPlanejamento>();
-
-        //    while (gvPlanejamento.Rows.Count > 0)
-        //        gvPlanejamento.Rows.RemoveAt(0);
-
-        //    lstEtapas = obraSelecionada.lstEtapas.OrderBy(obr => obr.dataInicio).ToList();
-
-        //    lstPlanejamento = lstEtapas.SelectMany(x => x.lstPlanejamentos).ToList();
-
-        //    if (lstPlanejamento == null)
-        //        return;
-
-        //    lstPlanejamentoGrid = lstPlanejamento
-        //        .GroupBy(l => l.idObraEtapa)
-        //        .Select(cl => new ObraEtapaPlanejamento
-        //        {
-        //            idObraEtapa = cl.First().idObraEtapa,
-        //            descricaoEtapa = cl.First().descricaoEtapa,
-        //            valorPrevisto = cl.Sum(c => c.valorPrevisto)
-        //        }).ToList();
-            
-        //    gvPlanejamento.Columns[2].DefaultCellStyle.Format = "N2";
-
-        //    foreach (ObraEtapaPlanejamento planejamento in lstPlanejamentoGrid)
-        //    {
-        //        gvPlanejamento.Rows.Add(new object[] 
-        //        {
-        //            planejamento.idObraEtapa,
-        //            planejamento.descricaoEtapa,                    
-        //            helper.FormatarValorMoeda(planejamento.valorPrevisto.ToString()),                    
-        //        });
-        //    }
-        //}
 
         private void btNovaEtapa_Click(object sender, EventArgs e)
         {
@@ -433,26 +359,6 @@ namespace BRGS.UI
 
             CarregarGridEtapas();
             CarregarTotais();
-
-            //ObraEtapa etapa = new ObraEtapa();
-            //int linhaGrid = 0;
-            //int idEtapaSelecionada = 0;
-
-            //if (gvEtapas.RowCount == 0)
-            //    return;
-
-            //linhaGrid = gvEtapas.SelectedCells[0].RowIndex;
-            //idEtapaSelecionada = int.Parse(gvEtapas[0, linhaGrid].Value.ToString());
-
-            //etapa = obraSelecionada.lstEtapas.Where(x => x.idObraEtapa == idEtapaSelecionada).First();
-
-            //ObraEtapaManutencao form = new ObraEtapaManutencao(etapa, true);
-            //form.ShowDialog();
-
-            //obraSelecionada.lstEtapas = bizObra.PesquisarObraEtapa(new ObraEtapa() { idObra = obraSelecionada.idObra });
-
-            //CarregarGridEtapas();
-            //CarregarTotais();
         }
 
         private void btVisualizarEtapa_Click(object sender, EventArgs e)
@@ -467,8 +373,8 @@ namespace BRGS.UI
             linhaGrid = gvEtapas.SelectedCells[0].RowIndex;
             idEtapaSelecionada = int.Parse(gvEtapas[0, linhaGrid].Value.ToString());
 
-            etapa = obraSelecionada.lstEtapas.Where(x => x.idObraEtapa == idEtapaSelecionada).First();
-
+            etapa = bizObra.PesquisarObraEtapa(new ObraEtapa() { idObraEtapa = idEtapaSelecionada }).First();
+            
             ObraEtapaManutencao form = new ObraEtapaManutencao(etapa, false);
             form.ShowDialog();
 
@@ -477,30 +383,5 @@ namespace BRGS.UI
             CarregarGridEtapas();
             CarregarTotais();
         }
-
-        //private void btPlanejamentoVisualizar_Click(object sender, EventArgs e)
-        //{
-        //    ObraEtapa etapa = new ObraEtapa();
-        //    int linhaGrid = 0;
-        //    int idEtapaSelecionada = 0;
-
-        //    if (gvEtapas.RowCount == 0)
-        //        return;
-
-        //    linhaGrid = gvPlanejamento.SelectedCells[0].RowIndex;
-        //    idEtapaSelecionada = int.Parse(gvPlanejamento[0, linhaGrid].Value.ToString());
-
-        //    etapa = obraSelecionada.lstEtapas.Where(x => x.idObraEtapa == idEtapaSelecionada).First();
-
-        //    ObraPlanejamentoManutencao form = new ObraPlanejamentoManutencao(etapa);
-        //    form.ShowDialog();
-
-        //    obraSelecionada.lstEtapas = bizObra.PesquisarObraEtapa(new ObraEtapa() { idObra = obraSelecionada.idObra });
-
-        //    CarregarGridPlanejamento();
-        //    CarregarGridEtapas();
-        //    CarregarTotais();
-
-        //}      
     }
 }

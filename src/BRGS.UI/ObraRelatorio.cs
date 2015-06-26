@@ -105,9 +105,7 @@ namespace BRGS.UI
                     {
                         if (etapa.lstGastosRealizados.Exists(x => x.idUEN == idUEN) && lstClientesCombo.Exists(x => x.idCliente == etapa.idCliente) == false)
                             lstClientesCombo.Add(new Cliente() { idCliente = etapa.idCliente, Nome = etapa.nomeCliente });
-                    }    
-               
-                    
+                    }
                 }
                 else
                     lstClientesCombo.AddRange(lstClientes);

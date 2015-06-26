@@ -54,6 +54,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rbResumido = new System.Windows.Forms.RadioButton();
             this.rbAgrupado = new System.Windows.Forms.RadioButton();
+            this.lbClientesFiltrados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbClientesFiltrados);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.cbLicitacao);
             this.groupBox1.Controls.Add(this.chkLicitacao);
@@ -82,7 +84,7 @@
             this.groupBox1.Controls.Add(this.chkEmpresa);
             this.groupBox1.Location = new System.Drawing.Point(4, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(583, 203);
+            this.groupBox1.Size = new System.Drawing.Size(683, 203);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro";
@@ -128,7 +130,7 @@
             this.cbLicitacao.FormattingEnabled = true;
             this.cbLicitacao.Location = new System.Drawing.Point(158, 71);
             this.cbLicitacao.Name = "cbLicitacao";
-            this.cbLicitacao.Size = new System.Drawing.Size(351, 21);
+            this.cbLicitacao.Size = new System.Drawing.Size(270, 21);
             this.cbLicitacao.TabIndex = 31;
             // 
             // chkLicitacao
@@ -151,7 +153,7 @@
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(138, 44);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(439, 21);
+            this.cbCliente.Size = new System.Drawing.Size(424, 21);
             this.cbCliente.TabIndex = 29;
             this.cbCliente.SelectedIndexChanged += new System.EventHandler(this.cbCliente_SelectedIndexChanged);
             // 
@@ -174,7 +176,7 @@
             this.cbNomeEvento.FormattingEnabled = true;
             this.cbNomeEvento.Location = new System.Drawing.Point(138, 125);
             this.cbNomeEvento.Name = "cbNomeEvento";
-            this.cbNomeEvento.Size = new System.Drawing.Size(439, 21);
+            this.cbNomeEvento.Size = new System.Drawing.Size(537, 21);
             this.cbNomeEvento.TabIndex = 27;
             // 
             // cbFavorecido
@@ -185,7 +187,7 @@
             this.cbFavorecido.FormattingEnabled = true;
             this.cbFavorecido.Location = new System.Drawing.Point(138, 98);
             this.cbFavorecido.Name = "cbFavorecido";
-            this.cbFavorecido.Size = new System.Drawing.Size(439, 21);
+            this.cbFavorecido.Size = new System.Drawing.Size(537, 21);
             this.cbFavorecido.TabIndex = 26;
             // 
             // chkNomeEvento
@@ -289,8 +291,9 @@
             this.cbEmpresa.FormattingEnabled = true;
             this.cbEmpresa.Location = new System.Drawing.Point(138, 17);
             this.cbEmpresa.Name = "cbEmpresa";
-            this.cbEmpresa.Size = new System.Drawing.Size(439, 21);
+            this.cbEmpresa.Size = new System.Drawing.Size(537, 21);
             this.cbEmpresa.TabIndex = 1;
+            this.cbEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbEmpresa_SelectedIndexChanged);
             this.cbEmpresa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbEmpresa_KeyDown);
             // 
             // chkEmpresa
@@ -306,7 +309,7 @@
             // 
             // btVisualizar
             // 
-            this.btVisualizar.Location = new System.Drawing.Point(512, 276);
+            this.btVisualizar.Location = new System.Drawing.Point(612, 276);
             this.btVisualizar.Name = "btVisualizar";
             this.btVisualizar.Size = new System.Drawing.Size(75, 23);
             this.btVisualizar.TabIndex = 2;
@@ -319,7 +322,7 @@
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
             this.groupBox2.Location = new System.Drawing.Point(4, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(583, 55);
+            this.groupBox2.Size = new System.Drawing.Size(683, 55);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de Relatório";
@@ -337,14 +340,14 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(577, 36);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(677, 36);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // rbResumido
             // 
             this.rbResumido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbResumido.AutoSize = true;
-            this.rbResumido.Location = new System.Drawing.Point(396, 9);
+            this.rbResumido.Location = new System.Drawing.Point(471, 9);
             this.rbResumido.Name = "rbResumido";
             this.rbResumido.Size = new System.Drawing.Size(72, 17);
             this.rbResumido.TabIndex = 2;
@@ -358,7 +361,7 @@
             this.rbAgrupado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbAgrupado.AutoSize = true;
             this.rbAgrupado.Checked = true;
-            this.rbAgrupado.Location = new System.Drawing.Point(108, 9);
+            this.rbAgrupado.Location = new System.Drawing.Point(133, 9);
             this.rbAgrupado.Name = "rbAgrupado";
             this.rbAgrupado.Size = new System.Drawing.Size(71, 17);
             this.rbAgrupado.TabIndex = 1;
@@ -367,11 +370,22 @@
             this.rbAgrupado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbAgrupado.UseVisualStyleBackColor = true;
             // 
+            // lbClientesFiltrados
+            // 
+            this.lbClientesFiltrados.AutoSize = true;
+            this.lbClientesFiltrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesFiltrados.ForeColor = System.Drawing.Color.Red;
+            this.lbClientesFiltrados.Location = new System.Drawing.Point(568, 44);
+            this.lbClientesFiltrados.Name = "lbClientesFiltrados";
+            this.lbClientesFiltrados.Size = new System.Drawing.Size(107, 13);
+            this.lbClientesFiltrados.TabIndex = 35;
+            this.lbClientesFiltrados.Text = "Filtrado pela UEN";
+            // 
             // OrdemPagamentoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 304);
+            this.ClientSize = new System.Drawing.Size(691, 304);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btVisualizar);
             this.Controls.Add(this.groupBox1);
@@ -417,5 +431,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton optDescendente;
         private System.Windows.Forms.RadioButton optAscendente;
+        private System.Windows.Forms.Label lbClientesFiltrados;
     }
 }

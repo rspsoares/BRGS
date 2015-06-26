@@ -244,6 +244,11 @@ namespace BRGS.UI
         private void chkEmpresa_CheckedChanged(object sender, EventArgs e)
         {
             cbEmpresa.Enabled = chkEmpresa.Checked;
+            if (chkEmpresa.Checked == false)
+            {
+                cbEmpresa.SelectedIndex = 0;
+                CarregarClientes(0);
+            }
         }
 
         private void chkDataVencimento_CheckedChanged(object sender, EventArgs e)
@@ -267,12 +272,12 @@ namespace BRGS.UI
             
             this.CarregarObras();
             this.CarregarComboEmpresas();                        
-            this.CarregarClientes();
+            this.CarregarClientes(0);            
             this.CarregarFornecedores();                     
             this.CarregarComboNomeEvento();      
         }
 
-        private void CarregarClientes()
+        private void CarregarClientes(int idEmpresa)
         {
             List<ObraEtapa> lstClientesObras = new List<ObraEtapa>();
 
@@ -281,10 +286,11 @@ namespace BRGS.UI
             try
             {
                 lstClientesObras = new List<ObraEtapa>();
-
                 lstClientesObras.Add(new ObraEtapa() { idCliente = 0, nomeCliente = "--Selecione--" });
 
-                lstClientesObras.AddRange(lstObras.GroupBy(obra => obra.nomeCliente).Select(grp => grp.First()).OrderBy(x => x.nomeCliente));
+                lstClientesObras.AddRange(lstObras.Where(filtro => filtro.idEmpresa == idEmpresa || idEmpresa == 0).GroupBy(obra => obra.nomeCliente).Select(grp => grp.First()).OrderBy(x => x.nomeCliente));
+                
+                lbClientesFiltrados.Visible = idEmpresa > 0;
 
                 cbCliente.DataSource = null;
                 cbCliente.BindingContext = new BindingContext();                
@@ -302,7 +308,7 @@ namespace BRGS.UI
             }
 
             this.Cursor = Cursors.Default;
-        }
+        } 
 
         private void CarregarFornecedores()
         {
@@ -408,6 +414,12 @@ namespace BRGS.UI
             cbLicitacao.DataSource = lstLicitacoesCliente;
             cbLicitacao.DisplayMember = "numeroLicitacao";
             cbLicitacao.ValueMember = "idObraEtapa";    
+        }
+
+        private void cbEmpresa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (chkEmpresa.Checked)
+                CarregarClientes(int.Parse(cbEmpresa.SelectedValue.ToString()));
         }
     }
 }

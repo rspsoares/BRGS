@@ -671,7 +671,8 @@ namespace BRGS.UI
 
             if (msgRetorno == string.Empty)
             {
-                freteSelecionado.lstObras.RemoveAll(x => x.idObraEtapaGastoRealizado == obraSelecionada.idObraEtapaGastoRealizado);
+                //freteSelecionado.lstObras.RemoveAll(x => x.idObraEtapaGastoRealizado == obraSelecionada.idObraEtapaGastoRealizado);
+                freteSelecionado.lstObras.Where(x => x.idObraEtapaGastoRealizado == obraSelecionada.idObraEtapaGastoRealizado).First().Ativo = false;
                 CarregarGridObras();                
             }
             else

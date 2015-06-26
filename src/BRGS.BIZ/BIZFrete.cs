@@ -191,7 +191,7 @@ namespace BRGS.BIZ
                         lstParametros = parametroExclusao
                     });
 
-                    foreach (FreteObra itemObra in frete.lstObras)
+                    foreach (FreteObra itemObra in frete.lstObras.Where(x => x.Ativo == false).ToList())
                     {
                         if (itemObra.idOP == 0)
                         {

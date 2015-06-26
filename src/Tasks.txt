@@ -27,37 +27,22 @@ Complexa >> 1200,00
 
 ****************************************
 
+pagamentos pendentes - Intermediária
+
+Alteração no relatório de OP's
+Vínculo UEN X Cliente
+
+---------------------------------------
+
 ATUALIZAÇÕES
 
 * BD *
-
-__PublishHistory
-SP_LOGVERSAO_ALTERAR
-
 
 
 * FEATURES *
 
 **********************************************
 ** PRIORIDADE ALTA **	
-
-Ver erro Erro Relatório Obras Consolidado do doc
-	Recriar a proc?
-
-----------------------------------------------
-
-Criar vínculo Cliente X UEN
-	[ok] Na tela de Clientes > incluir uma aba onde seria exibida quais UEN's esse cliente já usou nas obras dele
-	[ok] Aplicar esse filtro na tela de Relatório de Obras
-		[ok] Ao selecionar uma UEN, só trazer os clientes que já usaram essa UEN.
-
-[ok] Qdo o usuário logar
-	[ok] Verificar se a versão já está cadastrada na tabela de histórico de versão. se não tiver, insert
-	[ok] trazer essa data do campo da tabela para o atributo dataExecutável (UsuarioLogado)
-
-Criar trigger por essa data	
-
-Atualizar em Produção
 
 	
 **********************************************
