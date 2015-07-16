@@ -17,7 +17,6 @@ using BRGS.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 
-
 namespace BRGS.Util
 {
     public class Helper

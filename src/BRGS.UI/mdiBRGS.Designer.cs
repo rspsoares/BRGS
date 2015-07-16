@@ -118,6 +118,8 @@
             this.rbSeguranca_Parametrizacao = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabTelas = new System.Windows.Forms.TabControl();
+            this.tsVersao = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -126,7 +128,9 @@
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsUsuario});
+            this.tsUsuario,
+            this.toolStripStatusLabel1,
+            this.tsVersao});
             this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1237, 22);
@@ -782,6 +786,19 @@
             this.tabTelas.DoubleClick += new System.EventHandler(this.tabTelas_DoubleClick);
             this.tabTelas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tabTelas_MouseUp);
             // 
+            // tsVersao
+            // 
+            this.tsVersao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsVersao.Name = "tsVersao";
+            this.tsVersao.Size = new System.Drawing.Size(0, 17);
+            this.tsVersao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1191, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
             // mdiBRGS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,7 +913,9 @@
         private System.Windows.Forms.ToolStripMenuItem rbFinanceiro_RelatorioGastosFixos;
         private System.Windows.Forms.ToolStripMenuItem rbEngenharia_Obras_Relatorio;
         private System.Windows.Forms.ToolStripMenuItem rbEngenharia_Obras_Relatorio_Consolidado;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;       
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
+        private System.Windows.Forms.ToolStripStatusLabel tsVersao;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;       
     }
 }
 

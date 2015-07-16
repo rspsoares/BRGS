@@ -11,8 +11,8 @@ using BRGS.BIZ;
 using System.Data.SqlClient;
 using BRGS.Util;
 using System.Security.Cryptography;
+using System.Xml;
 using System.Reflection;
-using System.Deployment.Application;
 
 namespace BRGS.UI
 {
@@ -45,8 +45,7 @@ namespace BRGS.UI
         private void btLogin_Click(object sender, EventArgs e)
         {            
             string Msg = string.Empty;
-            Version versaoAtual;
-
+            
             this.Cursor = Cursors.WaitCursor;
 
             try
@@ -82,15 +81,24 @@ namespace BRGS.UI
                     UsuarioLogado.lstDespesas = usuarioLogin.lstDespesas;
 
                     bizUsuario.AtualizarUltimoAcesso(new Usuario() { idUsuario = UsuarioLogado.idUsuario, ultimoAcesso = DateTime.Now }, UsuarioLogado.idUsuario);
+                    
+                    // Log Version
+                    XmlDocument xmlDoc = new XmlDocument();
+                    Assembly asmCurrent = System.Reflection.Assembly.GetExecutingAssembly();
+                    string executePath = new Uri(asmCurrent.GetName().CodeBase).LocalPath;
 
-                    if (ApplicationDeployment.IsNetworkDeployed)
-                    {
-                        versaoAtual = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                        UsuarioLogado.dataPublicacao = bizUsuario.AtualizarHistoricoVersao(versaoAtual.ToString());
-                    }
+                    xmlDoc.Load(executePath + ".manifest");
+
+                    if (xmlDoc.HasChildNodes)
+                        UsuarioLogado.Versao = xmlDoc.ChildNodes[1].ChildNodes[0].Attributes.GetNamedItem("version").Value.ToString();
+
+                    if (UsuarioLogado.Versao != string.Empty)
+                        UsuarioLogado.dataPublicacao = bizUsuario.AtualizarHistoricoVersao(UsuarioLogado.Versao);
                     else
                         UsuarioLogado.dataPublicacao = DateTime.MinValue;
-
+                    
+                    // *************
+                    
                     bizParametrizacao.ObterParametrizacao();
 
                     this.Close();

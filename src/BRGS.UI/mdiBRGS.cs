@@ -42,7 +42,8 @@ namespace BRGS.UI
                         this.Cursor = Cursors.WaitCursor;
                         this.CarregarPermissoesUsuario();
                         this.statusStrip.Visible = true;
-                        this.tsUsuario.Text = UsuarioLogado.Nome;                       
+                        this.tsUsuario.Text = UsuarioLogado.Nome;
+                        this.tsVersao.Text = "VERSÃO: " + UsuarioLogado.Versao;
                     }
                     else                    
                         this.BloquearMenus();
@@ -73,9 +74,9 @@ namespace BRGS.UI
         {
             List<UsuarioPermissoes> lstPermissoes = new List<UsuarioPermissoes>();
 
-            if (UsuarioLogado.dataPublicacao != DateTime.MinValue && (DateTime.Now - UsuarioLogado.dataPublicacao).Days > 25)
+            if (UsuarioLogado.dataPublicacao != DateTime.MinValue && (DateTime.Now - UsuarioLogado.dataPublicacao).Days > 15)
             {
-                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao carregar as permissões do usuário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.BloquearMenus();
                 return;
             }
