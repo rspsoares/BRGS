@@ -71,6 +71,45 @@ namespace BRGS.Tests
         }
 
         [TestMethod]
+        public void FornecedorContaBancariaIncluir()
+        {
+            string Msg = string.Empty;
+            FornecedorContaBancaria contaBancaria = new FornecedorContaBancaria();
+            List<FornecedorContaBancaria> lstContasTeste = new List<FornecedorContaBancaria>();
+            Fornecedor fornecedor = new Fornecedor();
+
+            fornecedor = bizFornecedor.PesquisarFornecedor(new Fornecedor())[0];
+
+            contaBancaria.idFornecedor = fornecedor.idFornecedor;
+            contaBancaria.Banco = "11";
+            contaBancaria.Agencia = "22";
+            contaBancaria.TipoConta = "aa";
+            contaBancaria.Conta = "33";
+            contaBancaria.UnitTest = 1;
+
+            bizFornecedor.IncluirContaBancaria(contaBancaria);
+
+            lstContasTeste = bizFornecedor.PesquisarFornecedorContaBancaria(new FornecedorContaBancaria() { UnitTest = 1 });
+
+            Assert.AreEqual(true, lstContasTeste.Count > 0);
+        }
+
+        [TestMethod]
+        public void FornecedorContaBancariaExcluir()
+        {
+            List<FornecedorContaBancaria> lstContasTeste = new List<FornecedorContaBancaria>();
+            FornecedorContaBancaria contaBancaria = new FornecedorContaBancaria();
+
+            contaBancaria = bizFornecedor.PesquisarFornecedorContaBancaria(new FornecedorContaBancaria() { UnitTest = 1 })[0];
+
+            bizFornecedor.ExcluirContaBancaria(contaBancaria.idContaBancaria);
+
+            lstContasTeste = bizFornecedor.PesquisarFornecedorContaBancaria(new FornecedorContaBancaria() { UnitTest = 1 });
+
+            Assert.AreEqual(true, lstContasTeste.Count == 0);
+        }
+
+        [TestMethod]
         public void FornecedorExcluir()
         {
             List<Fornecedor> lstFornecedores = new List<Fornecedor>();

@@ -27,60 +27,29 @@ Complexa >> 1200,00
 
 ****************************************
 
-pagamentos pendentes - Intermediária
-
-Alteração no relatório de OP's
-Vínculo UEN X Cliente
-
----------------------------------------
-
 ATUALIZAÇÕES
 
 * BD *
 
 
+
 * FEATURES *
+* Sumiço das contas correntes
+
+
 
 **********************************************
 ** PRIORIDADE ALTA **	
 
-* Sumiço das contas correntes
-> Verificar possibilidades da tabela de Conta Corrente estar sendo truncada
-
-
-* Gerar SQL
-
-é q eu precisava tirar uma lista que não tem em relatório...
-estou gaurdando os scripts de forma q eu não te incomode mais
-sabe o relatório de OPs do financeiro - Contas a Pagar - AGRUPADO ?
-claro q sem a cara bonitinha dele, mas q tivesse os mesmos campos, separando o que é adm de obras
-OPs em aberto
-A´vencer e vencidas
-eu organizo em planilha depois
-se tivesse um relatório grande de OPs...
-o resto eu filtro depois
-com a cara do Agrupado....	
-na realidade, pode ser um planihao
-eu fitlro depois
-com todas as OPs
-faço tabela dinâmica
-com os campos do relatório
-se tiver mais campos, não tem problema
-eu tiro
-
+Atualizar servidor
 
 ----------------------------------
+Migrar para AZUREEEEE - Aguardar Beto liberar o server
 
-Frete.pdf e BaixaFrete.pdf
+brgs
+$roberto15
 
-é um exemplo de frete de obra que foi gerado
-[09:01:34] José Roberto: abriu a solicitação em módulo de fretes
-[09:01:46] José Roberto: gerou a OP no módulo de operações
-[09:01:53] José Roberto: a OP foi apga e baixada
-[09:02:01] José Roberto: no módulo de operações aparece como paga
-[09:02:42] José Roberto: mas no relatório de fretes continua sendo cobrada como senão tivesse sido paga
-[09:02:48] José Roberto: do fretista do exemplo
-
+Rancá o gatilho de trava
 
 **********************************************
 ** PRIORIDADE MÉDIA **

@@ -71,6 +71,45 @@ namespace BRGS.Tests
         }
 
         [TestMethod]
+        public void ClienteContaBancariaIncluir()
+        {
+            string Msg = string.Empty;
+            ClienteContaBancaria contaBancaria = new ClienteContaBancaria();
+            List<ClienteContaBancaria> lstContasTeste = new List<ClienteContaBancaria>();
+            Cliente cliente = new Cliente();
+
+            cliente = bizCliente.PesquisarCliente(new Cliente())[0];
+
+            contaBancaria.idCliente = cliente.idCliente;
+            contaBancaria.Banco = "11";
+            contaBancaria.Agencia = "22";
+            contaBancaria.TipoConta = "aa";
+            contaBancaria.Conta = "33";
+            contaBancaria.UnitTest = 1;
+
+            bizCliente.IncluirContaBancaria(contaBancaria);
+
+            lstContasTeste = bizCliente.PesquisarClienteContaBancaria(new ClienteContaBancaria() { UnitTest = 1 });
+
+            Assert.AreEqual(true, lstContasTeste.Count > 0);
+        }
+
+        [TestMethod]
+        public void ClienteContaBancariaExcluir()
+        {
+            List<ClienteContaBancaria> lstContasTeste = new List<ClienteContaBancaria>();
+            ClienteContaBancaria contaBancaria = new ClienteContaBancaria();
+
+            contaBancaria = bizCliente.PesquisarClienteContaBancaria(new ClienteContaBancaria() { UnitTest = 1 })[0];
+
+            bizCliente.ExcluirContaBancaria(contaBancaria.idContaBancaria);
+
+            lstContasTeste = bizCliente.PesquisarClienteContaBancaria(new ClienteContaBancaria() { UnitTest = 1 });
+
+            Assert.AreEqual(true, lstContasTeste.Count == 0);
+        }
+
+        [TestMethod]
         public void ClienteExcluir()
         {
             List<Cliente> lstClientes = new List<Cliente>();

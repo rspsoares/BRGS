@@ -95,8 +95,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.lbIdContaBancaria = new System.Windows.Forms.Label();
-            this.btContaNova = new System.Windows.Forms.Button();
             this.btContaRemover = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.gvContasBancarias = new BRGS.Util.SortedDataGridView();
@@ -133,11 +131,11 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btExcluir = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.gvUEN = new BRGS.Util.SortedDataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btExcluir = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -789,8 +787,6 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.lbIdContaBancaria);
-            this.groupBox6.Controls.Add(this.btContaNova);
             this.groupBox6.Controls.Add(this.btContaRemover);
             this.groupBox6.Controls.Add(this.groupBox8);
             this.groupBox6.Controls.Add(this.btContaAdd);
@@ -808,29 +804,9 @@
             this.groupBox6.TabIndex = 52;
             this.groupBox6.TabStop = false;
             // 
-            // lbIdContaBancaria
-            // 
-            this.lbIdContaBancaria.AutoSize = true;
-            this.lbIdContaBancaria.Location = new System.Drawing.Point(102, 16);
-            this.lbIdContaBancaria.Name = "lbIdContaBancaria";
-            this.lbIdContaBancaria.Size = new System.Drawing.Size(13, 13);
-            this.lbIdContaBancaria.TabIndex = 63;
-            this.lbIdContaBancaria.Text = "0";
-            this.lbIdContaBancaria.Visible = false;
-            // 
-            // btContaNova
-            // 
-            this.btContaNova.Location = new System.Drawing.Point(9, 355);
-            this.btContaNova.Name = "btContaNova";
-            this.btContaNova.Size = new System.Drawing.Size(75, 23);
-            this.btContaNova.TabIndex = 62;
-            this.btContaNova.Text = "Nova";
-            this.btContaNova.UseVisualStyleBackColor = true;
-            this.btContaNova.Click += new System.EventHandler(this.btContaNova_Click);
-            // 
             // btContaRemover
             // 
-            this.btContaRemover.Location = new System.Drawing.Point(629, 355);
+            this.btContaRemover.Location = new System.Drawing.Point(6, 355);
             this.btContaRemover.Name = "btContaRemover";
             this.btContaRemover.Size = new System.Drawing.Size(75, 23);
             this.btContaRemover.TabIndex = 61;
@@ -870,7 +846,6 @@
             this.gvContasBancarias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvContasBancarias.Size = new System.Drawing.Size(696, 271);
             this.gvContasBancarias.TabIndex = 0;
-            this.gvContasBancarias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvContasBancarias_MouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1190,16 +1165,6 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 99;
             // 
-            // btExcluir
-            // 
-            this.btExcluir.Location = new System.Drawing.Point(3, 425);
-            this.btExcluir.Name = "btExcluir";
-            this.btExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btExcluir.TabIndex = 3;
-            this.btExcluir.Text = "Excluir";
-            this.btExcluir.UseVisualStyleBackColor = true;
-            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
-            // 
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.SystemColors.Control;
@@ -1246,6 +1211,16 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Descrição";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // btExcluir
+            // 
+            this.btExcluir.Location = new System.Drawing.Point(3, 425);
+            this.btExcluir.Name = "btExcluir";
+            this.btExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btExcluir.TabIndex = 3;
+            this.btExcluir.Text = "Excluir";
+            this.btExcluir.UseVisualStyleBackColor = true;
+            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
             // ClienteManutencao
             // 
@@ -1374,8 +1349,6 @@
         private System.Windows.Forms.Button btExcluir;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label lbIdContaBancaria;
-        private System.Windows.Forms.Button btContaNova;
         private System.Windows.Forms.Button btContaRemover;
         private System.Windows.Forms.GroupBox groupBox8;
         private Util.SortedDataGridView gvContasBancarias;

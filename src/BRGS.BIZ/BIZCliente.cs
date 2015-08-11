@@ -168,7 +168,7 @@ namespace BRGS.BIZ
                     }
                 
                     lstComandos.AddRange(this.IncluirContato(idCliente, cliente.lstContatos));
-                    lstComandos.AddRange(this.AtualizarContasBancarias(idCliente, cliente.lstContasBancarias));
+                    //lstComandos.AddRange(this.AtualizarContasBancarias(idCliente, cliente.lstContasBancarias));
 
                     dao.ExecutarTransacao(lstComandos);
 
@@ -227,7 +227,7 @@ namespace BRGS.BIZ
 
                     lstComandos.AddRange(this.IncluirContato(clienteAtualizado.idCliente, clienteAtualizado.lstContatos));
 
-                    lstComandos.AddRange(this.AtualizarContasBancarias(clienteAtualizado.idCliente, clienteAtualizado.lstContasBancarias));
+                    //lstComandos.AddRange(this.AtualizarContasBancarias(clienteAtualizado.idCliente, clienteAtualizado.lstContasBancarias));
 
                     dao.ExecutarTransacao(lstComandos);
 
@@ -252,7 +252,7 @@ namespace BRGS.BIZ
             }
 
             return Msg;
-        }
+        }      
 
         public string ValidarExclusaoCliente(Cliente cliente)
         {
@@ -503,47 +503,104 @@ namespace BRGS.BIZ
             return lstContas;
         }
 
-        private List<_Transacao> AtualizarContasBancarias(int idCliente, List<ClienteContaBancaria> lstContas)
+       // private List<_Transacao> AtualizarContasBancarias(int idCliente, List<ClienteContaBancaria> lstContas)
+        //{
+        //    List<_Transacao> lstComandos = new List<_Transacao>();
+        //    Dictionary<string, string> lstParam = new Dictionary<string, string>();
+
+        //    foreach (ClienteContaBancaria itemConta in lstContas)
+        //    {
+        //        lstParam = new Dictionary<string, string>();
+
+        //        itemConta.idCliente = idCliente;
+
+        //        if (itemConta.Excluir == true)
+        //        {
+        //            lstParam.Add("@idContaBancaria", itemConta.idContaBancaria.ToString());
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_EXCLUIR",
+        //                lstParametros = lstParam
+        //            });
+        //        }
+        //        else if (itemConta.idContaBancaria == 0)
+        //        {
+        //            lstParam = MontarParametrosExecutarContaBancaria(itemConta);
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_INCLUIR",
+        //                lstParametros = lstParam
+        //            });
+        //        }
+        //        else
+        //        {
+        //            lstParam = MontarParametrosExecutarContaBancaria(itemConta);
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_ALTERAR",
+        //                lstParametros = lstParam
+        //            });
+        //        }
+        //    }
+
+        //    return lstComandos;
+        //}
+
+        public void IncluirContaBancaria(ClienteContaBancaria contaBancaria)
         {
-            List<_Transacao> lstComandos = new List<_Transacao>();
-            Dictionary<string, string> lstParam = new Dictionary<string, string>();
+            DataAccess dao = new DataAccess();            
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
 
-            foreach (ClienteContaBancaria itemConta in lstContas)
+            try
             {
-                lstParam = new Dictionary<string, string>();
-
-                itemConta.idCliente = idCliente;
-
-                if (itemConta.Excluir == true)
-                {
-                    lstParam.Add("@idContaBancaria", itemConta.idContaBancaria.ToString());
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_EXCLUIR",
-                        lstParametros = lstParam
-                    });
-                }
-                else if (itemConta.idContaBancaria == 0)
-                {
-                    lstParam = MontarParametrosExecutarContaBancaria(itemConta);
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_INCLUIR",
-                        lstParametros = lstParam
-                    });
-                }
-                else
-                {
-                    lstParam = MontarParametrosExecutarContaBancaria(itemConta);
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_CLIENTES_CONTASBANCARIAS_ALTERAR",
-                        lstParametros = lstParam
-                    });
-                }
+                lstParametros = MontarParametrosExecutarContaBancaria(contaBancaria);
+                dao.Executar("SP_CLIENTES_CONTASBANCARIAS_INCLUIR", lstParametros);
             }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
 
-            return lstComandos;
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_CLIENTES_CONTASBANCARIAS_INCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }    
+        }
+
+        public void ExcluirContaBancaria(int idConta)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            try
+            {
+                lstParametros.Add("@idContaBancaria", idConta.ToString());
+                dao.Executar("SP_CLIENTES_CONTASBANCARIAS_EXCLUIR", lstParametros);
+            }
+            catch (Exception ex)
+            {                
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_CLIENTES_CONTASBANCARIAS_EXCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+           
         }
 
         #endregion

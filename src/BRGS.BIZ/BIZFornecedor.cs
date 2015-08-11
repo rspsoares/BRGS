@@ -211,7 +211,7 @@ namespace BRGS.BIZ
 
                     lstComandos.AddRange(this.IncluirContato(idFornecedor, fornecedor.lstContatos));
 
-                    lstComandos.AddRange(this.AtualizarContasBancarias(idFornecedor, fornecedor.lstContasBancarias));
+                    //lstComandos.AddRange(this.AtualizarContasBancarias(idFornecedor, fornecedor.lstContasBancarias));
 
                     dao.ExecutarTransacao(lstComandos);
 
@@ -271,7 +271,7 @@ namespace BRGS.BIZ
 
                     lstComandos.AddRange(this.IncluirContato(fornecedorSelecionado.idFornecedor, fornecedorSelecionado.lstContatos));
 
-                    lstComandos.AddRange(this.AtualizarContasBancarias(fornecedorSelecionado.idFornecedor, fornecedorSelecionado.lstContasBancarias));
+                   // lstComandos.AddRange(this.AtualizarContasBancarias(fornecedorSelecionado.idFornecedor, fornecedorSelecionado.lstContasBancarias));
 
                     dao.ExecutarTransacao(lstComandos);
 
@@ -543,47 +543,103 @@ namespace BRGS.BIZ
             return lstContas;
         }
                 
-        private List<_Transacao> AtualizarContasBancarias(int idFornecedor, List<FornecedorContaBancaria> lstContas)
-        {
-            List<_Transacao> lstComandos = new List<_Transacao>();
-            Dictionary<string, string> lstParam = new Dictionary<string, string>();
+        //private List<_Transacao> AtualizarContasBancarias(int idFornecedor, List<FornecedorContaBancaria> lstContas)
+        //{
+        //    List<_Transacao> lstComandos = new List<_Transacao>();
+        //    Dictionary<string, string> lstParam = new Dictionary<string, string>();
             
-            foreach (FornecedorContaBancaria itemConta in lstContas)
-            {
-                lstParam = new Dictionary<string, string>();
+        //    foreach (FornecedorContaBancaria itemConta in lstContas)
+        //    {
+        //        lstParam = new Dictionary<string, string>();
 
-                itemConta.idFornecedor = idFornecedor;
+        //        itemConta.idFornecedor = idFornecedor;
                 
-                if(itemConta.Excluir == true)
-                {
-                    lstParam.Add("@idContaBancaria", itemConta.idContaBancaria.ToString());
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_EXCLUIR",
-                        lstParametros = lstParam
-                    });
-                }
-                else if (itemConta.idContaBancaria == 0)         
-                {
-                    lstParam = MontarParametrosExecutarContaBancaria(itemConta);
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_INCLUIR",
-                        lstParametros = lstParam
-                    });
-                }                    
-                else
-                {
-                    lstParam = MontarParametrosExecutarContaBancaria(itemConta);
-                    lstComandos.Add(new _Transacao()
-                    {
-                        nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_ALTERAR",
-                        lstParametros = lstParam
-                    });
-                }                    
-            }
+        //        if(itemConta.Excluir == true)
+        //        {
+        //            lstParam.Add("@idContaBancaria", itemConta.idContaBancaria.ToString());
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_EXCLUIR",
+        //                lstParametros = lstParam
+        //            });
+        //        }
+        //        else if (itemConta.idContaBancaria == 0)         
+        //        {
+        //            lstParam = MontarParametrosExecutarContaBancaria(itemConta);
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_INCLUIR",
+        //                lstParametros = lstParam
+        //            });
+        //        }                    
+        //        else
+        //        {
+        //            lstParam = MontarParametrosExecutarContaBancaria(itemConta);
+        //            lstComandos.Add(new _Transacao()
+        //            {
+        //                nomeProcedure = "SP_FORNECEDORES_CONTASBANCARIAS_ALTERAR",
+        //                lstParametros = lstParam
+        //            });
+        //        }                    
+        //    }
 
-            return lstComandos;
+        //    return lstComandos;
+        //}
+
+        public void IncluirContaBancaria(FornecedorContaBancaria contaBancaria)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            try
+            {
+                lstParametros = MontarParametrosExecutarContaBancaria(contaBancaria);
+                dao.Executar("SP_FORNECEDORES_CONTASBANCARIAS_INCLUIR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_FORNECEDORES_CONTASBANCARIAS_INCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public void ExcluirContaBancaria(int idConta)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            try
+            {
+                lstParametros.Add("@idContaBancaria", idConta.ToString());
+                dao.Executar("SP_FORNECEDORES_CONTASBANCARIAS_EXCLUIR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_FORNECEDORES_CONTASBANCARIAS_EXCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
         }
 
         #endregion

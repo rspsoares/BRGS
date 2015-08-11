@@ -636,12 +636,19 @@ namespace BRGS.UI
 
         private void btContaAdd_Click(object sender, EventArgs e)
         {
-            int linhaGrid = 0;
-            if (tbBanco.Text.Trim() != string.Empty)
+            FornecedorContaBancaria contaBancaria = new FornecedorContaBancaria();
+
+            try
             {
-                if (fornecedorSelecionado.lstContasBancarias.Count == 0 || lbIdContaBancaria.Text == string.Empty)
+                if (tbBanco.Text.Trim() != string.Empty)
                 {
-                    fornecedorSelecionado.lstContasBancarias.Add(new FornecedorContaBancaria()
+                    if (MessageBox.Show("Confirma inclusão desta Conta Bancária?", "Exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Cancel)
+                    {
+                        LimparCamposContaBancaria();
+                        return;
+                    }
+
+                    contaBancaria = new FornecedorContaBancaria()
                     {
                         idContaBancaria = 0,
                         idFornecedor = fornecedorSelecionado.idFornecedor,
@@ -649,111 +656,88 @@ namespace BRGS.UI
                         Agencia = tbAgencia.Text,
                         TipoConta = cbTipoConta.Text,
                         Conta = tbConta.Text
-                    });                    
-                }
-                else
-                {
-                    linhaGrid = int.Parse(lbIdContaBancaria.Text);
-
-                    FornecedorContaBancaria itemSelecionado = new FornecedorContaBancaria()
-                    {
-                        Banco = gvContasBancarias[1, linhaGrid].Value.ToString(),
-                        Agencia = gvContasBancarias[2, linhaGrid].Value.ToString(),
-                        TipoConta = gvContasBancarias[3, linhaGrid].Value.ToString(),
-                        Conta = gvContasBancarias[4, linhaGrid].Value.ToString(),
                     };
 
-                    FornecedorContaBancaria contaAtualizada = fornecedorSelecionado.lstContasBancarias.Where
-                        (item =>
-                            item.Banco == itemSelecionado.Banco &&
-                            item.Agencia == itemSelecionado.Agencia &&
-                            item.TipoConta == itemSelecionado.TipoConta &&
-                            item.Conta == itemSelecionado.Conta).First();
+                    bizFornecedor.IncluirContaBancaria(contaBancaria);
 
-                    contaAtualizada.Banco = tbBanco.Text;
-                    contaAtualizada.Agencia = tbAgencia.Text;
-                    contaAtualizada.TipoConta = cbTipoConta.Text;
-                    contaAtualizada.Conta = tbConta.Text;
+                    LimparCamposContaBancaria();
+
+                    this.CarregarContasBancarias();
                 }
-
-                this.CarregarContasBancarias();                
+                else
+                    MessageBox.Show("Favor informar o Nome do Banco", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
-                MessageBox.Show("Favor informar o Nome do Banco", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }       
         }
 
         private void CarregarContasBancarias()
         {
-            while (gvContasBancarias.Rows.Count > 0)
-                gvContasBancarias.Rows.RemoveAt(0);
-
-            foreach (FornecedorContaBancaria itemConta in fornecedorSelecionado.lstContasBancarias.Where(x => x.Excluir == false).OrderBy(x => x.Banco).ToList())
+            try
             {
-                gvContasBancarias.Rows.Add(new object[] 
+                while (gvContasBancarias.Rows.Count > 0)
+                    gvContasBancarias.Rows.RemoveAt(0);
+
+                fornecedorSelecionado.lstContasBancarias = bizFornecedor.PesquisarFornecedorContaBancaria(new FornecedorContaBancaria() { idFornecedor = fornecedorSelecionado.idFornecedor });
+
+                foreach (FornecedorContaBancaria itemConta in fornecedorSelecionado.lstContasBancarias.OrderBy(x => x.Banco).ToList())
                 {
-                    itemConta.idContaBancaria,
-                    itemConta.Banco,
-                    itemConta.Agencia,
-                    itemConta.TipoConta,
-                    itemConta.Conta
-                });
-            }
+                    gvContasBancarias.Rows.Add(new object[] 
+                    {
+                        itemConta.idContaBancaria,
+                        itemConta.Banco,
+                        itemConta.Agencia,
+                        itemConta.TipoConta,
+                        itemConta.Conta
+                    });
+                }
 
-            if (gvContasBancarias.Rows.Count > 0)
-            {
-                gvContasBancarias.Rows[0].Selected = true;
-                gvContasBancarias_MouseClick(gvContasBancarias, null);
-            }     
-            else
-            {            
-                tbBanco.Text = string.Empty;
-                tbAgencia.Text = string.Empty;
-                cbTipoConta.Text = string.Empty;
-                tbConta.Text = string.Empty;
+                if (gvContasBancarias.Rows.Count > 0)
+                    gvContasBancarias.Rows[0].Selected = true;
+                else
+                    LimparCamposContaBancaria();
             }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimparCamposContaBancaria()
+        {
+            tbBanco.Text = string.Empty;
+            tbAgencia.Text = string.Empty;
+            cbTipoConta.Text = string.Empty;
+            tbConta.Text = string.Empty;
         }
 
         private void btContaRemover_Click(object sender, EventArgs e)
         {
-            BIZOrdemPagamento bizOP = new BIZOrdemPagamento();
             int linhaGrid = 0;
             int idConta = 0;
 
             if (gvContasBancarias.RowCount == 0)
                 return;
 
-            lbIdContaBancaria.Text = string.Empty;
+            if (MessageBox.Show("Confirma exclusão desta Conta Bancária?", "Exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Cancel)
+                return;
 
             linhaGrid = gvContasBancarias.SelectedCells[0].RowIndex;
-
             idConta = int.Parse(gvContasBancarias[0, linhaGrid].Value.ToString());
 
-            // Verificar se a conta bancária está sendo utilizada em alguma OP
-            if(idConta != 0 && bizOP.PesquisarOrdemPagamento(new OrdemPagamento() { idContaBancaria = idConta }).Count > 0)
-            {
-                MessageBox.Show("Esta Conta Bancária está sendo utilizada em alguma Ordem de Pagamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            
-            FornecedorContaBancaria itemSelecionado = new FornecedorContaBancaria()
-            {
-                Banco = gvContasBancarias[1, linhaGrid].Value.ToString(),
-                Agencia = gvContasBancarias[2, linhaGrid].Value.ToString(),
-                TipoConta = gvContasBancarias[3, linhaGrid].Value.ToString(),
-                Conta = gvContasBancarias[4, linhaGrid].Value.ToString(),
-            };
+            bizFornecedor.ExcluirContaBancaria(idConta);
 
-            fornecedorSelecionado.lstContasBancarias.Where
-                (item => 
-                    item.Banco == itemSelecionado.Banco && 
-                    item.Agencia == itemSelecionado.Agencia && 
-                    item.TipoConta == itemSelecionado.TipoConta &&
-                    item.Conta == itemSelecionado.Conta).ToList()[0].Excluir = true;
-
-            tbBanco.Text = string.Empty;
-            tbAgencia.Text = string.Empty;
-            cbTipoConta.Text = string.Empty;
-            tbConta.Text = string.Empty;
+            LimparCamposContaBancaria();
 
             this.CarregarContasBancarias();
         }
@@ -763,33 +747,8 @@ namespace BRGS.UI
             e.Handled = true;
         }
 
-        private void gvContasBancarias_MouseClick(object sender, MouseEventArgs e)
-        {
-            int linhaGrid = 0;
+     
 
-            if (gvContasBancarias.Rows.Count == 0)
-                return;
-
-            linhaGrid = gvContasBancarias.SelectedCells[0].RowIndex;
-
-            lbIdContaBancaria.Text = linhaGrid.ToString();
-            tbBanco.Text = gvContasBancarias[1, linhaGrid].Value.ToString();
-            tbAgencia.Text = gvContasBancarias[2, linhaGrid].Value.ToString();
-            cbTipoConta.Text = gvContasBancarias[3, linhaGrid].Value.ToString();
-            tbConta.Text = gvContasBancarias[4, linhaGrid].Value.ToString();
-
-            btContaAdd.Text = "Atualizar";
-        }
-
-        private void btContaNova_Click(object sender, EventArgs e)
-        {
-            lbIdContaBancaria.Text = string.Empty;
-            tbBanco.Text = string.Empty;
-            tbAgencia.Text = string.Empty;
-            cbTipoConta.Text = string.Empty;
-            tbConta.Text = string.Empty;
-
-            btContaAdd.Text = "Adicionar";
-        }       
+          
     }
 }

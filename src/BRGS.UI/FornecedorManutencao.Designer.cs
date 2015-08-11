@@ -92,11 +92,14 @@
             this.label29 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbIdContaBancaria = new System.Windows.Forms.Label();
-            this.btContaNova = new System.Windows.Forms.Button();
             this.btContaRemover = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gvContasBancarias = new BRGS.Util.SortedDataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btContaAdd = new System.Windows.Forms.Button();
             this.tbConta = new System.Windows.Forms.TextBox();
             this.cbTipoConta = new System.Windows.Forms.ComboBox();
@@ -108,11 +111,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.btGravar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -746,8 +744,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lbIdContaBancaria);
-            this.groupBox2.Controls.Add(this.btContaNova);
             this.groupBox2.Controls.Add(this.btContaRemover);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.btContaAdd);
@@ -765,29 +761,9 @@
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             // 
-            // lbIdContaBancaria
-            // 
-            this.lbIdContaBancaria.AutoSize = true;
-            this.lbIdContaBancaria.Location = new System.Drawing.Point(102, 16);
-            this.lbIdContaBancaria.Name = "lbIdContaBancaria";
-            this.lbIdContaBancaria.Size = new System.Drawing.Size(13, 13);
-            this.lbIdContaBancaria.TabIndex = 63;
-            this.lbIdContaBancaria.Text = "0";
-            this.lbIdContaBancaria.Visible = false;
-            // 
-            // btContaNova
-            // 
-            this.btContaNova.Location = new System.Drawing.Point(9, 310);
-            this.btContaNova.Name = "btContaNova";
-            this.btContaNova.Size = new System.Drawing.Size(75, 23);
-            this.btContaNova.TabIndex = 62;
-            this.btContaNova.Text = "Nova";
-            this.btContaNova.UseVisualStyleBackColor = true;
-            this.btContaNova.Click += new System.EventHandler(this.btContaNova_Click);
-            // 
             // btContaRemover
             // 
-            this.btContaRemover.Location = new System.Drawing.Point(629, 310);
+            this.btContaRemover.Location = new System.Drawing.Point(6, 310);
             this.btContaRemover.Name = "btContaRemover";
             this.btContaRemover.Size = new System.Drawing.Size(75, 23);
             this.btContaRemover.TabIndex = 61;
@@ -827,7 +803,41 @@
             this.gvContasBancarias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvContasBancarias.Size = new System.Drawing.Size(696, 229);
             this.gvContasBancarias.TabIndex = 0;
-            this.gvContasBancarias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvContasBancarias_MouseClick);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "idContaBancaria";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Banco";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Agência";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tipo Conta";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Conta";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // btContaAdd
             // 
@@ -932,41 +942,6 @@
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "idContaBancaria";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Banco";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Agência";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tipo Conta";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Conta";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // FornecedorManutencao
             // 
@@ -1079,8 +1054,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button btContaNova;
-        private System.Windows.Forms.Label lbIdContaBancaria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
