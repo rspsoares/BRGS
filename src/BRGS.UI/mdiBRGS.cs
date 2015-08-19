@@ -74,12 +74,12 @@ namespace BRGS.UI
         {
             List<UsuarioPermissoes> lstPermissoes = new List<UsuarioPermissoes>();
 
-            if (UsuarioLogado.dataPublicacao != DateTime.MinValue && (DateTime.Now - UsuarioLogado.dataPublicacao).Days > 15)
-            {
-                MessageBox.Show("Erro ao carregar as permissões do usuário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.BloquearMenus();
-                return;
-            }
+            //if (UsuarioLogado.dataPublicacao != DateTime.MinValue && (DateTime.Now - UsuarioLogado.dataPublicacao).Days > 15)
+            //{
+            //    MessageBox.Show("Erro ao carregar as permissões do usuário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    this.BloquearMenus();
+            //    return;
+            //}
 
             lstPermissoes = UsuarioLogado.lstPermissoes.Where(cont => cont.nomeFormulario == this.Name).ToList();
             helper.VerificaPermissaoAcessoObjetosMenu(menuStrip1, lstPermissoes);          

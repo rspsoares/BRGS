@@ -446,7 +446,8 @@ namespace BRGS.Util
             string strConn = string.Empty;
 
             strConn = enderecoServidor.Replace("\\\\", "\\").Trim();
-            strConn = "Server=" + strConn + ";Database=BRGS;Network Library=DBMSSOCN;Initial Catalog=BRGS;User Id=sa;Password=brgs2013;";           
+            //strConn = "Server=" + strConn + ";Database=BRGS;Network Library=DBMSSOCN;Initial Catalog=BRGS;User Id=sa;Password=brgs2013;";           
+            strConn = "Server=" + strConn + ";Database=brgs1;Network Library=DBMSSOCN;Initial Catalog=brgs1;User Id=brgs1;Password=2014roberto;";           
 
             return strConn;
         }

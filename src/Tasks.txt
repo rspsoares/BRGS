@@ -5,6 +5,12 @@ Ida - Linha: 19
 Volta - Linhas: 194 158 52
 TeamViewer Produção: 143342320
 Teamviewer Homologação: 401693410 - nabucodonosor
+
+Painel UOL
+https://painelhost.uol.com.br/logout.html
+roberto.santos@brgs.com.br
+2014_roberto
+
 ************************************************************************
 
 Distância entre 2 pontos
@@ -34,22 +40,25 @@ ATUALIZAÇÕES
 
 
 * FEATURES *
-* Sumiço das contas correntes
-
 
 
 **********************************************
 ** PRIORIDADE ALTA **	
 
-Atualizar servidor
+dbsq0008.whservidor.com
+brgs1
+2014roberto
 
-----------------------------------
-Migrar para AZUREEEEE - Aguardar Beto liberar o server
+Depois das 18h
+	Migrar dados - Tirar o DBO e o USE nome_banco
+		Exportar em blocos
+		
+	Rodar teste unitário
+	Publish
 
-brgs
-$roberto15
 
-Rancá o gatilho de trava
+
+[ok] Rancá o gatilho de trava
 
 **********************************************
 ** PRIORIDADE MÉDIA **

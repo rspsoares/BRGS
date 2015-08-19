@@ -23,7 +23,8 @@ namespace BRGS.Tests
         {
             string strConn = string.Empty;
 
-            strConn = "Server=localhost;Network Library=DBMSSOCN;Initial Catalog=BRGS;User Id=sa;Password=brgs2013;";            
+            //strConn = "Server=localhost;Network Library=DBMSSOCN;Initial Catalog=BRGS;User Id=sa;Password=brgs2013;";            
+            strConn = "Server=dbsq0008.whservidor.com;Network Library=DBMSSOCN;Initial Catalog=brgs1;User Id=brgs1;Password=2014roberto;";            
             Parametrizacao.servidor_Conexao = strConn;
             Parametrizacao.servidor_Endereco = strConn.Substring(7, strConn.IndexOf(";", 0) - 7);
 
