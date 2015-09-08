@@ -11,6 +11,10 @@ https://painelhost.uol.com.br/logout.html
 roberto.santos@brgs.com.br
 2014_roberto
 
+dbsq0008.whservidor.com
+brgs1
+2014roberto
+
 ************************************************************************
 
 Distância entre 2 pontos
@@ -44,24 +48,16 @@ ATUALIZAÇÕES
 
 **********************************************
 ** PRIORIDADE ALTA **	
+	
 
-dbsq0008.whservidor.com
-brgs1
-2014roberto
-
-Depois das 18h
-	Migrar dados - Tirar o DBO e o USE nome_banco
-		Exportar em blocos
-		
-	Rodar teste unitário
-	Publish
-
-
-
-[ok] Rancá o gatilho de trava
-
+	
 **********************************************
 ** PRIORIDADE MÉDIA **
+
+Pesquisar se pelo GoogleDrive consigo compartilhar uma pasta para hospedar o deploy
+	Verificar se consigo compartilhar só uma pasta com um usuário do Google, sem dar acesso nas outras
+	Apontar o ClickOnce para essa pasta do GoogleDrive
+	Testar na VM
 
 Criar UserControl para TextBox - http://msdn.microsoft.com/en-us/library/ms229644(v=vs.90).aspx
 

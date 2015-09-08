@@ -29,7 +29,7 @@ namespace BRGS.BIZ
                 {
                     sqlConn.Open();
                     SqlCommand cmd = new SqlCommand(proc, sqlConn);
-
+                    cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     foreach (var parametro in parametros)
@@ -63,13 +63,13 @@ namespace BRGS.BIZ
                         {
                             SqlCommand cmd = new SqlCommand(itemComando.nomeProcedure, sqlConn, transaction);
                             cmd.CommandType = CommandType.StoredProcedure;
-
+                            cmd.CommandTimeout = 0;
                             foreach (var parametro in itemComando.lstParametros)
                                 cmd.Parameters.Add(new SqlParameter(parametro.Key, parametro.Value));
 
                             cmd.ExecuteNonQuery();
                         }
-
+                        
                         transaction.Commit();
                     }
                     catch (SqlException ex)
@@ -100,7 +100,7 @@ namespace BRGS.BIZ
                 {
                     sqlConn.Open();
                     SqlCommand cmd = new SqlCommand(proc, sqlConn);
-
+                    cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     foreach (var parametro in parametros)
@@ -124,9 +124,9 @@ namespace BRGS.BIZ
             using (SqlConnection sqlConn = new SqlConnection(Parametrizacao.servidor_Conexao))
             {
                 try
-                {
+                {                    
                     SqlCommand cmd = new SqlCommand(proc, sqlConn);
-
+                    cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     foreach (var parametro in parametros)
