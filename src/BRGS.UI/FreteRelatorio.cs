@@ -83,7 +83,7 @@ namespace BRGS.UI
         private void btVisualizar_Click(object sender, EventArgs e)
         {
             BIZFrete bizFrete = new BIZFrete();
-            ReportClass relat = new ReportClass();
+            //ReportClass relat = new ReportClass();
             DataTable dt = new DataTable();
             string filtro = string.Empty;
             string filtroRelatorio = string.Empty;
@@ -101,7 +101,7 @@ namespace BRGS.UI
 
                 dt = bizFrete.GerarRelatorio(filtro, filtroRelatorio);                
 
-                relat = new FretesGerados();
+                var relat = new FretesGerados();
                 relat.SetDataSource(dt);
                 Relatorio relatorioFrete = new Relatorio(relat);
                 relatorioFrete.Text = "Relatório de Fretes";
