@@ -1,6 +1,8 @@
-﻿namespace BRGS.UI.Relatorios {
-    
-    
-    public partial class dsComparativoGastos {
+﻿namespace BRGS.UI.Relatorios
+{
+
+
+    public partial class dsComparativoGastos
+    {
     }
 }

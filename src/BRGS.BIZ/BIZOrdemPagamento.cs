@@ -700,5 +700,71 @@ namespace BRGS.BIZ
 
             return dtOP;
         }
+
+        public void AtualizarBinarioCrystalOrdemPagamento(string idOP, string pdfContent)
+        {
+            DataAccess dao = new DataAccess();            
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            try
+            {
+                lstParametros.Add("@idOrdemPagamento", idOP);
+                lstParametros.Add("@pdfContent", pdfContent);
+
+                dao.Executar("SP_ORDEMPAGAMENTO_ATUALIZARBINARIOCRYSTAL", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_ATUALIZARBINARIOCRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public string PesquisarBinarioCrystalOrdemPagamento(string idOP)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            var pdfContent = string.Empty;
+
+            try
+            {
+                lstParametros.Add("@idOrdemPagamento", idOP);
+
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_PESQUISARBINARIOCRYSTAL", lstParametros))
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    pdfContent = dr[0].ToString();
+                }               
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_PESQUISARBINARIOCRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return pdfContent;
+        }
     }
 }

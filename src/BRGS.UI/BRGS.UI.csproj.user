@@ -15,4 +15,7 @@
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>MobileOrdemPagamentoEmissao 37682</StartArguments>
+  </PropertyGroup>
 </Project>
