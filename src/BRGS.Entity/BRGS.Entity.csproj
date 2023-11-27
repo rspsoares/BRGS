@@ -47,6 +47,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteContaBancaria.cs" />
     <Compile Include="ClienteContato.cs" />
+    <Compile Include="DTO\OrdemPagamentoGridMobileDTO.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Despesa.cs" />
     <Compile Include="EmpresaContaBancaria.cs" />

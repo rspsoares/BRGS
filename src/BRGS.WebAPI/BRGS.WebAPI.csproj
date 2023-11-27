@@ -189,7 +189,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataResultModel.cs" />
+    <Compile Include="Models\OrdemPagamentoGridModel.cs" />
+    <Compile Include="Models\OrdemPagamentoPDFModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -299,6 +300,10 @@
     <ProjectReference Include="..\BRGS.UI\BRGS.UI.csproj">
       <Project>{E2082193-B66B-4E52-A458-A776183B7EA3}</Project>
       <Name>BRGS.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRGS.Util\BRGS.Util.csproj">
+      <Project>{57942519-D461-4BCE-AA20-DDB5DD599612}</Project>
+      <Name>BRGS.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
