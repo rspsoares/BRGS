@@ -17,6 +17,7 @@ using BRGS.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Configuration;
 
 namespace BRGS.Util
 {
@@ -846,5 +847,18 @@ namespace BRGS.Util
 
         #endregion
 
-    }    
+        #region Service
+
+        public T ConfigurationGet<T>(string key)
+        {
+            var appSetting = ConfigurationManager.AppSettings[key];
+            if (string.IsNullOrWhiteSpace(appSetting)) throw new ConfigurationErrorsException(key);
+
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+            return (T)(converter.ConvertFromInvariantString(appSetting));
+        }
+
+        #endregion
+
+    }
 }

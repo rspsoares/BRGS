@@ -4,14 +4,13 @@ using System;
 using System.Configuration;
 using System.Web.Http;
 using BRGS.WebAPI.Models;
-using System.IO;
-using System.Diagnostics;
+using BRGS.Entity.DTO;
 
 namespace BRGS.WebAPI.Controllers
 {
     public class OrdemPagamentoController : ApiController
     {
-        private BIZOrdemPagamento ordemPagamento;        
+        private BIZOrdemPagamento ordemPagamento;
         
         public OrdemPagamentoController()
         {
@@ -23,17 +22,17 @@ namespace BRGS.WebAPI.Controllers
         {
             try
             {
-                var startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin\BRGS.exe"))
-                {
-                    Arguments = $"MobileOrdemPagamentoEmissao {idOP}",
-                    UseShellExecute = false
-                };
+                //var startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin\BRGS.exe"))
+                //{
+                //    Arguments = $"MobileOrdemPagamentoEmissao {idOP}",
+                //    UseShellExecute = false
+                //};
 
-                using (var proc = Process.Start(startInfo))
-                {
-                    proc.WaitForExit();
-                    proc.Close();
-                }
+                //using (var proc = Process.Start(startInfo))
+                //{
+                //    proc.WaitForExit();
+                //    proc.Close();
+                //}
                 ordemPagamento = new BIZOrdemPagamento();
 
                 var pdfContent = ordemPagamento.PesquisarBinarioCrystalOrdemPagamento(idOP);
@@ -58,12 +57,12 @@ namespace BRGS.WebAPI.Controllers
         }
 
         [HttpGet]
-        public OrdemPagamentoGridModel GetOpGridMobile(string filtroGrid, string pageNumber, string rowsOfPage)
+        public OrdemPagamentoGridModel GetOpGridMobile(string filtroGrid, int limit, string sort = "idOrdemPagamento DESC", int offset = 0)
         {
             try
             {
                 ordemPagamento = new BIZOrdemPagamento();
-                var opFiltro = new OrdemPagamento();
+                var opFiltro = new OrdemPagamentoGridFiltroMobileDTO();
 
                 if (filtroGrid != null && filtroGrid != "|")
                 {
@@ -75,13 +74,26 @@ namespace BRGS.WebAPI.Controllers
                             Success = false,
                             Message = $"Formato de filtro inválido: {filtroGrid}"
                         };
-                    }                       
+                    }
 
-                    var propertyInfo = opFiltro.GetType().GetProperty(filtroGridSplit[0]);
-                    propertyInfo.SetValue(opFiltro, Convert.ChangeType(filtroGridSplit[1], propertyInfo.PropertyType), null);
+                    if(filtroGridSplit[0] == "dataPagamentoParcela")
+                    {
+                        var valorFiltroSplit = filtroGridSplit[1].Split('_');
+                        opFiltro.dataPagamentoParcelaInicial = DateTime.Parse(valorFiltroSplit[0]);
+                        opFiltro.dataPagamentoParcelaFinal = DateTime.Parse(valorFiltroSplit[1]);
+                    }
+                    else
+                    {
+                        var propertyInfo = opFiltro.GetType().GetProperty(filtroGridSplit[0]);
+                        propertyInfo.SetValue(opFiltro, Convert.ChangeType(filtroGridSplit[1], propertyInfo.PropertyType), null);
+                    }
                 }
 
-                var gridOP = ordemPagamento.PesquisarOrdemPagamentoMobile(opFiltro, pageNumber, rowsOfPage, out int totalRows);
+                opFiltro.Sort = sort;
+                opFiltro.Offset = offset;
+                opFiltro.Limit = limit;
+
+                var gridOP = ordemPagamento.PesquisarOrdemPagamentoMobile(opFiltro, out int totalRows);
                                
                 return new OrdemPagamentoGridModel()
                 {

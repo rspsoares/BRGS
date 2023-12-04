@@ -78,15 +78,18 @@ namespace BRGS.BIZ
             return lstParametros;
         }
 
-        private Dictionary<string, string> MontarParametrosPesquisarOrdemPagamentoMobile(OrdemPagamento ordemPagamento, string pageNumber, string rowsOfPage)
+        private Dictionary<string, string> MontarParametrosPesquisarOrdemPagamentoMobile(OrdemPagamentoGridFiltroMobileDTO opFiltro)
         {
             Dictionary<string, string> lstParametros = new Dictionary<string, string>
             {
-                { "@NomeEmpresa", string.IsNullOrEmpty(ordemPagamento.razaoSocial) ? null : ordemPagamento.razaoSocial },
-                { "@NumeroOP", string.IsNullOrEmpty(ordemPagamento.numeroOP) ? null : ordemPagamento.numeroOP },
-                { "@NomeFavorecido", string.IsNullOrEmpty(ordemPagamento.nomeFavorecido) ? null : ordemPagamento.nomeFavorecido },
-                { "@DataVencimento", ordemPagamento.dataVencimentoParcela.Equals(DateTime.MinValue) ? null : ordemPagamento.dataVencimentoParcela.Date.ToString() },
-                { "@Status", string.IsNullOrEmpty(ordemPagamento.Status) ? null : ordemPagamento.Status }            
+                { "@NumeroOP", string.IsNullOrEmpty(opFiltro.numeroOP) ? null : opFiltro.numeroOP },
+                { "@NomeFavorecido", string.IsNullOrEmpty(opFiltro.nomeFavorecido) ? null : opFiltro.nomeFavorecido },                
+                { "@DataPagamentoInicial", opFiltro.dataPagamentoParcelaInicial.Equals(DateTime.MinValue) ? null : opFiltro.dataPagamentoParcelaInicial.ToString("yyyy-MM-dd") },
+                { "@DataPagamentoFinal", opFiltro.dataPagamentoParcelaFinal.Equals(DateTime.MinValue) ? null : opFiltro.dataPagamentoParcelaFinal.ToString("yyyy-MM-dd") },
+                { "@Status", string.IsNullOrEmpty(opFiltro.Status) ? null : opFiltro.Status },
+                { "@Sort", string.IsNullOrEmpty(opFiltro.Sort) ? null : opFiltro.Sort},
+                { "@Offset", opFiltro.Offset.ToString() },
+                { "@Limit", opFiltro.Limit.ToString() }
             };
 
             return lstParametros;
@@ -716,6 +719,44 @@ namespace BRGS.BIZ
             return dtOP;
         }
 
+        public List<int> PesquisarOrdemPagamentoSemBinarioCrystal()
+        {
+            try
+            {
+                DataAccess dao = new DataAccess();
+                dynamic lst = new List<OrdemPagamentoGridMobileDTO>();
+                var result = new List<OrdemPagamentoGridMobileDTO>();
+
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL", new Dictionary<string, string>()))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoGridMobileDTO>()
+                          select f;
+                }
+
+                result.AddRange(lst);
+
+                return result
+                    .Select(x => x.IdOrdemPagamento)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
         public void AtualizarBinarioCrystalOrdemPagamento(string idOP, string pdfContent)
         {
             DataAccess dao = new DataAccess();            
@@ -782,7 +823,7 @@ namespace BRGS.BIZ
             return pdfContent;
         }
 
-        public List<OrdemPagamentoGridMobileDTO> PesquisarOrdemPagamentoMobile(OrdemPagamento ordemPagamento, string pageNumber, string rowsOfPage, out int totalRecords)
+        public List<OrdemPagamentoGridMobileDTO> PesquisarOrdemPagamentoMobile(OrdemPagamentoGridFiltroMobileDTO opFiltro, out int totalRecords)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
@@ -791,17 +832,7 @@ namespace BRGS.BIZ
 
             try
             {
-                lstParametros = this.MontarParametrosPesquisarOrdemPagamentoMobile(ordemPagamento, pageNumber, rowsOfPage);
-
-                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_GRID_MOBILE_COUNT", lstParametros))
-                {
-                    DataRow dr = ds.Tables[0].Rows[0];
-                    totalRecords = int.Parse(dr[0].ToString());
-                }
-
-                lstParametros.Add("@PageNumber", pageNumber);
-                lstParametros.Add("@RowsOfPage", rowsOfPage.ToString());
-
+                lstParametros = this.MontarParametrosPesquisarOrdemPagamentoMobile(opFiltro);
                 using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_GRID_MOBILE", lstParametros))
                 {
                     lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoGridMobileDTO>()
@@ -809,6 +840,7 @@ namespace BRGS.BIZ
                 }
 
                 lstOrdensPagamentos.AddRange(lst);
+                totalRecords = lstOrdensPagamentos.FirstOrDefault()?.TotalRows ?? 0;
             }
             catch (Exception ex)
             {
