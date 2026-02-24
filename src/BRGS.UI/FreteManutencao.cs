@@ -1,18 +1,18 @@
-﻿using System;
+﻿using BRGS.BIZ;
+using BRGS.Entity;
+using BRGS.Util;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using BRGS.BIZ;
-using BRGS.Entity;
-using BRGS.Util;
 
 namespace BRGS.UI
 {
+   
+
     public partial class FreteManutencao : Form
     {
         private BIZFrete bizFrete = new BIZFrete();
@@ -24,6 +24,7 @@ namespace BRGS.UI
         private BIZUEN bizUEN = new BIZUEN();
         private BIZCentroCusto bizCentroCusto = new BIZCentroCusto();
         private BIZObra bizObra = new BIZObra();
+        private bool isLoadingCombos = false;
 
         public FreteManutencao(Frete _freteSelecionado)
         {
@@ -106,12 +107,20 @@ namespace BRGS.UI
 
         private void CarregarCombos()
         {
-            this.CarregarComboFornecedores();
-            this.CarregarComboObras();
-            this.CarregarComboUEN();
-            this.CarregarComboUENPagto();
-            this.CarregarListaCentroCusto();
-            this.CarregarListaDespesas();                 
+            try
+            {
+                isLoadingCombos = true;
+                this.CarregarComboFornecedores();
+                this.CarregarComboObras();
+                this.CarregarComboUEN();
+                this.CarregarComboUENPagto();
+                this.CarregarListaCentroCusto();
+                this.CarregarListaDespesas();
+            }
+            finally
+            {
+                isLoadingCombos = false;
+            }                         
         }
 
         private void CarregarComboUENPagto()
@@ -123,13 +132,14 @@ namespace BRGS.UI
             try
             {
                 lstUEN.Add(new UEN() { idUEN = 0, Descricao = "--Selecione--" });
-                lstUEN.AddRange(bizUEN.PesquisarUEN(new UEN()).OrderBy(u => u.Descricao));
+                lstUEN.AddRange(bizUEN.PesquisarUENCombo(new UEN()).OrderBy(u => u.Descricao));
 
+                cbUENPagto.BeginUpdate();
                 cbUENPagto.DataSource = null;
-                cbUENPagto.BindingContext = new BindingContext();
-                cbUENPagto.DataSource = lstUEN;
                 cbUENPagto.DisplayMember = "Descricao";
                 cbUENPagto.ValueMember = "idUEN";
+                cbUENPagto.DataSource = lstUEN;
+                cbUENPagto.EndUpdate();
             }
             catch (SqlException)
             {
@@ -174,9 +184,14 @@ namespace BRGS.UI
                 lstObras.Add(new ObraEtapa() { idObraEtapa = 0, numeroLicitacao = "--Selecione--" });
                 lstObras.AddRange(bizObra.PesquisarObraEtapaCombo());
 
-                cbObra.DataSource = lstObras;
+                cbObra.BeginUpdate();
+
+                cbObra.DataSource = null;
                 cbObra.DisplayMember = "numeroLicitacao";
-                cbObra.ValueMember = "idObraEtapa";
+                cbObra.ValueMember = "idObraEtapa";                
+                cbObra.DataSource = lstObras;
+
+                cbObra.EndUpdate();
             }
             catch (SqlException)
             {
@@ -226,13 +241,21 @@ namespace BRGS.UI
                 if (cbObra.SelectedIndex > 0)
                     lstUEN.AddRange(bizObra.RetornarUENGastosRealizados(new ObraEtapaGastoRealizado() { idObraEtapa = int.Parse(cbObra.SelectedValue.ToString()) }));
                 else
-                    lstUEN.AddRange(bizUEN.PesquisarUEN(new UEN()).OrderBy(u => u.Descricao));     
-                
+                    lstUEN.AddRange(bizUEN.PesquisarUENCombo(new UEN()));
+
+                cbUEN.BeginUpdate();
                 cbUEN.DataSource = null;
-                cbUEN.BindingContext = new BindingContext();
-                cbUEN.DataSource = lstUEN;
                 cbUEN.DisplayMember = "Descricao";
                 cbUEN.ValueMember = "idUEN";
+                cbUEN.DataSource = lstUEN;
+                cbUEN.EndUpdate();
+
+                cbUENPagto.BeginUpdate();
+                cbUENPagto.DataSource = null; 
+                cbUENPagto.DisplayMember = "Descricao";
+                cbUENPagto.ValueMember = "idUEN";
+                cbUENPagto.DataSource = lstUEN;
+                cbUENPagto.EndUpdate();
             }
             catch (SqlException)
             {
@@ -248,19 +271,24 @@ namespace BRGS.UI
         
         private void CarregarComboFornecedores()
         {
-            List<Fornecedor> lstFornecedores = new List<Fornecedor>();
+            List<FornecedorCombo> lstFornecedores = new List<FornecedorCombo>();
             BIZFornecedor bizFornecedor = new BIZFornecedor();
 
             this.Cursor = Cursors.WaitCursor;
 
             try
             {
-                lstFornecedores.Add(new Fornecedor() { idFornecedor = 0, Nome = "--Selecione--" });
-                lstFornecedores.AddRange(bizFornecedor.PesquisarFornecedor(new Fornecedor()).OrderBy(u => u.Nome));
+                lstFornecedores.Add(new FornecedorCombo() { IdFornecedor = 0, Nome = "--Selecione--" });
+                lstFornecedores.AddRange(bizFornecedor.PesquisarFornecedorCombo(new Fornecedor()).OrderBy(u => u.Nome));
 
+                cbFornecedores.BeginUpdate();
+
+                cbFornecedores.DataSource = null;
+                cbFornecedores.DisplayMember = nameof(FornecedorCombo.Nome);
+                cbFornecedores.ValueMember = nameof(FornecedorCombo.IdFornecedor);
                 cbFornecedores.DataSource = lstFornecedores;
-                cbFornecedores.DisplayMember = "Nome";
-                cbFornecedores.ValueMember = "idFornecedor";
+
+                cbFornecedores.EndUpdate();
             }
             catch (SqlException)
             {
@@ -339,11 +367,6 @@ namespace BRGS.UI
         private void tbValor_Leave(object sender, EventArgs e)
         {
             tbValor.Text = helper.FormatarValorMoeda(tbValor.Text);           
-        }
-
-        private void cbUEN_SelectedValueChanged(object sender, EventArgs e)
-        {
-            this.CarregarCentrosCustos();
         }
 
         private void CarregarCentrosCustos()
@@ -574,12 +597,14 @@ namespace BRGS.UI
 
         private void cbObra_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregarComboUEN();
+            if(!isLoadingCombos)
+                CarregarComboUEN();
         }
 
         private void cbCentroCusto_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.CarregarDespesas();
+            if(!isLoadingCombos)
+                this.CarregarDespesas();
         }
 
         private void CarregarDespesas()
@@ -859,6 +884,12 @@ namespace BRGS.UI
                 msgRetorno += Environment.NewLine + "Já foi gerada uma OP para esse frete";
 
             return msgRetorno;
+        }
+
+        private void cbUEN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!isLoadingCombos)
+                this.CarregarCentrosCustos();
         }
     }
 }

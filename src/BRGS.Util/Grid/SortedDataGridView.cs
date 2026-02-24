@@ -27,10 +27,9 @@
 //
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel;
-using System.Diagnostics;
+using System.Windows.Forms;
+using static BRGS.Util.DataGridComparer;
 
 namespace BRGS.Util
 {
@@ -72,5 +71,10 @@ namespace BRGS.Util
 		{
 			get { return _columnSorter.SortOrderDescription; }
 		}
-	}
+
+        public List<SortColDefn> SortOrderColumns
+        {
+            get { return _columnSorter.SortOrderColumns; }
+        }
+    }
 }

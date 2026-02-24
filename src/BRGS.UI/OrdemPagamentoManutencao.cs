@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.BIZ;
 using BRGS.Entity;
@@ -20,7 +18,7 @@ namespace BRGS.UI
     {
         private Helper helper = new Helper();
         private BIZFornecedor bizFornecedor = new BIZFornecedor();
-        private List<Fornecedor> lstFornecedores = new List<Fornecedor>();
+        private List<FornecedorCombo> lstFornecedoresCombo = new List<FornecedorCombo>();
         private List<UENCentroCusto> lstCentroCustos = new List<UENCentroCusto>();
         private List<CentroCustoDespesa> lstDespesas = new List<CentroCustoDespesa>();
         private BIZCentroCusto bizCentroCusto = new BIZCentroCusto();
@@ -225,9 +223,9 @@ namespace BRGS.UI
 
             try
             {
-                lstFornecedores.Add(new Fornecedor() { idFornecedor = 0, Nome = "--Selecione--" });
-                lstFornecedores.AddRange(bizFornecedor.PesquisarFornecedorCombo(new Fornecedor()).OrderBy(u => u.Nome));                
-                helper.CarregarComboBox(cbFavorecido, new BindingSource(), lstFornecedores.Cast<object>().ToList(), "Nome", "idFornecedor");             
+                lstFornecedoresCombo.Add(new FornecedorCombo() { IdFornecedor = 0, Nome = "--Selecione--" });
+                lstFornecedoresCombo.AddRange(bizFornecedor.PesquisarFornecedorCombo(new Fornecedor()).OrderBy(u => u.Nome));                
+                helper.CarregarComboBox(cbFavorecido, new BindingSource(), lstFornecedoresCombo.Cast<object>().ToList(), "Nome", "idFornecedor");             
             }
             catch (SqlException)
             {

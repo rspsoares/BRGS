@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -100,6 +99,95 @@ namespace BRGS.BIZ
             return lstUEN;
         }
 
+        public List<UEN> PesquisarUENLista(UEN uen)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<UEN> lstUEN = new List<UEN>();
+
+            try
+            {
+                lstParametros = MontarParametrosPesquisarUEN(uen);
+
+                using (DataSet ds = dao.Pesquisar("SP_UEN_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        UEN uenItem = new UEN();
+                        uenItem.idUEN = int.Parse(dr["idUEN"].ToString());
+                        uenItem.Descricao = dr["Descricao"].ToString();
+                        lstUEN.Add(uenItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_UEN_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstUEN;
+        }
+
+
+        public List<UEN> PesquisarUENCombo(UEN uen)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<UEN> lstUEN = new List<UEN>();
+
+            try
+            {
+                lstParametros = MontarParametrosPesquisarUEN(uen);
+
+                using (DataSet ds = dao.Pesquisar("SP_UEN_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        UEN uenItem = new UEN
+                        {
+                            idUEN = int.Parse(dr["idUEN"].ToString()),
+                            Descricao = dr["Descricao"].ToString()
+                        };
+                        //uenItem.Administrativo = int.Parse(dr["Administrativo"].ToString());
+                        //uenItem.lstCentrosCustos = this.PesquisarCentrosCustosAssociados(new UENCentroCusto() { idUEN = uenItem.idUEN });
+
+                        lstUEN.Add(uenItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_UEN_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstUEN
+                .OrderBy(x => x.Descricao)
+                .ToList();
+        }
         public List<UENCentroCusto> PesquisarCentrosCustosAssociados(UENCentroCusto centrosCustos)
         {
             DataAccess dao = new DataAccess();

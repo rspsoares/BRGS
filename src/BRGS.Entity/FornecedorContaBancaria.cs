@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BRGS.Entity
+﻿namespace BRGS.Entity
 {
     public class FornecedorContaBancaria
     {

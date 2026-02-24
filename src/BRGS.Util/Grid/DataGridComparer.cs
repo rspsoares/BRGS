@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -13,7 +12,7 @@ namespace BRGS.Util
 		List<SortColDefn> _sortedColumns;
 		int _maxSortColumns;
 
-		private struct SortColDefn
+		public struct SortColDefn
 		{
 			internal int colNum;
 		    internal int colOriginal;
@@ -153,7 +152,15 @@ namespace BRGS.Util
 			}
 		}
 
-		public int Compare(DataGridViewCellCollection lhs, DataGridViewCellCollection rhs)
+		public List<SortColDefn> SortOrderColumns
+		{
+			get
+			{
+				return _sortedColumns;
+			}
+		}
+
+        public int Compare(DataGridViewCellCollection lhs, DataGridViewCellCollection rhs)
 		{
 			foreach (SortColDefn colDefn in _sortedColumns)
 			{

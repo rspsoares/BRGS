@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.Util;
 using BRGS.Entity;
@@ -216,9 +214,12 @@ namespace BRGS.UI
                 lstEmpresas.Add(new Empresa() { idEmpresa = 0, razaoSocial = "--Selecione--" });
                 lstEmpresas.AddRange(bizEmpresa.PesquisarEmpresa(new Empresa()).OrderBy(x => x.razaoSocial).ToList());
 
-                cbEmpresa_RazaoSocial.DataSource = lstEmpresas;
+                cbEmpresa_RazaoSocial.BeginUpdate();
+                cbEmpresa_RazaoSocial.DataSource = null;                
                 cbEmpresa_RazaoSocial.DisplayMember = "razaoSocial";
                 cbEmpresa_RazaoSocial.ValueMember = "idEmpresa";
+                cbEmpresa_RazaoSocial.DataSource = lstEmpresas;
+                cbEmpresa_RazaoSocial.EndUpdate();
             }
             catch (SqlException)
             {
@@ -243,9 +244,12 @@ namespace BRGS.UI
                 lstClientes.Add(new Cliente() { idCliente = 0, Nome = "--Selecione--", Status = "Ativo" });
                 lstClientes.AddRange(bizCliente.PesquisarCliente(new Cliente()).OrderBy(x => x.Nome).ToList());
 
-                cbCliente_Nome.DataSource = lstClientes.Where(x => x.Status.ToUpper() == "ATIVO").ToList();
+                cbCliente_Nome.BeginUpdate();
+                cbCliente_Nome.DataSource = null;                
                 cbCliente_Nome.DisplayMember = "Nome";
                 cbCliente_Nome.ValueMember = "idCliente";
+                cbCliente_Nome.DataSource = lstClientes.Where(x => x.Status.ToUpper() == "ATIVO").ToList();
+                cbCliente_Nome.EndUpdate();
             }
             catch (SqlException)
             {

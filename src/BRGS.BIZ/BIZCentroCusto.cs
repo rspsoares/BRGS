@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -103,6 +101,48 @@ namespace BRGS.BIZ
             return lstCentroCusto;
         }
 
+
+        public List<CentroCusto> PesquisarCentroCustoLista(CentroCusto custo)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<CentroCusto> lstCentroCusto = new List<CentroCusto>();
+
+            try
+            {
+                lstParametros = MontarParametrosPesquisarCentroCusto(custo);
+
+                using (DataSet ds = dao.Pesquisar("SP_CENTROSCUSTOS_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        CentroCusto itemCentroCusto = new CentroCusto();
+                        itemCentroCusto.idCentroCusto = int.Parse(dr["idCentroCusto"].ToString());
+                        itemCentroCusto.Codigo = dr["Codigo"].ToString();
+                        itemCentroCusto.Descricao = dr["Descricao"].ToString();
+                        lstCentroCusto.Add(itemCentroCusto);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_CENTROSCUSTOS_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstCentroCusto;
+        }
         private List<UsuarioCentroCusto> PesquisarUsuariosAssociados(UsuarioCentroCusto usuarioCC)
         {
             BIZUsuario bizUsuario = new BIZUsuario();

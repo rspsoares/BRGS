@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -70,7 +69,8 @@ namespace BRGS.BIZ
                         obraItem.nomeEvento = dr["NomeEvento"].ToString();
                         obraItem.valorBruto = decimal.Parse(dr["ValorBruto"].ToString());
                         //obraItem.Finalizada = int.Parse(dr["Finalizada"].ToString());
-                        obraItem.lstEtapas = this.PesquisarObraEtapa(new ObraEtapa() { idObra = obraItem.idObra, UnitTest = obra.UnitTest });
+                        if(obra.idObra != 0 )
+                            obraItem.lstEtapas = this.PesquisarObraEtapa(new ObraEtapa() { idObra = obraItem.idObra, UnitTest = obra.UnitTest });
                         
                         lstObras.Add(obraItem);
                     }
@@ -295,13 +295,16 @@ namespace BRGS.BIZ
                         obraEtapaItem.Finalizada = int.Parse(dr["Finalizada"].ToString());
                         obraEtapaItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
                         //obraEtapaItem.lstPlanejamentos = this.PesquisarPlanejamento(new ObraEtapaPlanejamento() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
-                        obraEtapaItem.lstGastosPrevistos = this.PesquisarGastosPrevistos(new ObraEtapaGastoPrevisto() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
-                        obraEtapaItem.lstGastosRealizados = this.PesquisarGastosRealizados(new ObraEtapaGastoRealizado() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
-                        obraEtapaItem.lstFases = this.PesquisarObraEtapaFases(new ObraEtapaFase() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
-                        obraEtapaItem.lstFollowUps = this.PesquisarObraEtapaFollowUp(new ObraEtapaFollowUp() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
 
-                        obraEtapaItem.saldoEtapa = obraEtapaItem.valorContrato - decimal.Parse(obraEtapaItem.lstGastosRealizados.Where(x => x.statusOrdemPagamento == "PAGA").Sum(y => y.Valor).ToString());
-                        obraEtapaItem.totalNotaFiscalGerada = decimal.Parse(bizNF.PesquisarNotaFiscal(new NotaFiscal() { idObraEtapa = obraEtapaItem.idObraEtapa }).Where(y => y.Cancelado == 0).Sum(x => x.valorNota).ToString());
+                        if (obraEtapa.idObraEtapa != 0)
+                        {
+                            obraEtapaItem.lstGastosPrevistos = this.PesquisarGastosPrevistos(new ObraEtapaGastoPrevisto() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
+                            obraEtapaItem.lstGastosRealizados = this.PesquisarGastosRealizados(new ObraEtapaGastoRealizado() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
+                            obraEtapaItem.lstFases = this.PesquisarObraEtapaFases(new ObraEtapaFase() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
+                            obraEtapaItem.lstFollowUps = this.PesquisarObraEtapaFollowUp(new ObraEtapaFollowUp() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
+                            obraEtapaItem.saldoEtapa = obraEtapaItem.valorContrato - decimal.Parse(obraEtapaItem.lstGastosRealizados.Where(x => x.statusOrdemPagamento == "PAGA").Sum(y => y.Valor).ToString());
+                            obraEtapaItem.totalNotaFiscalGerada = decimal.Parse(bizNF.PesquisarNotaFiscal(new NotaFiscal() { idObraEtapa = obraEtapaItem.idObraEtapa }).Where(y => y.Cancelado == 0).Sum(x => x.valorNota).ToString());
+                        }                        
 
                         lstObrasEtapas.Add(obraEtapaItem);
                     }

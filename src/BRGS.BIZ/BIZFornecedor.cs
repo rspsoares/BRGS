@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -117,12 +116,12 @@ namespace BRGS.BIZ
             return lstFornecedores; 
         }
 
-        public List<Fornecedor> PesquisarFornecedorCombo(Fornecedor fornecedor)
+        public List<FornecedorCombo> PesquisarFornecedorCombo(Fornecedor fornecedor)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();       
             dynamic lst = new List<Fornecedor>();
-            List<Fornecedor> lstFornecedores = new List<Fornecedor>();
+            List<FornecedorCombo> lstFornecedores = new List<FornecedorCombo>();
           
             try
             {
@@ -132,8 +131,8 @@ namespace BRGS.BIZ
                 {
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
-                        Fornecedor itemFornecedor = new Fornecedor();
-                        itemFornecedor.idFornecedor = int.Parse(dr["idFornecedor"].ToString());
+                        FornecedorCombo itemFornecedor = new FornecedorCombo();
+                        itemFornecedor.IdFornecedor = int.Parse(dr["idFornecedor"].ToString());
                         itemFornecedor.Nome = dr["Status"].ToString() == "ATIVO" ? dr["Nome"].ToString() : dr["Nome"].ToString() + " (INATIVO)";
 
                         lstFornecedores.Add(itemFornecedor);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace BRGS.Entity
 {
@@ -63,5 +62,11 @@ namespace BRGS.Entity
 
             return fornecedorClone;
         }
+    }
+
+    public class FornecedorCombo
+    {
+        public int IdFornecedor { get; set; }
+        public string Nome { get; set; }
     }
 }

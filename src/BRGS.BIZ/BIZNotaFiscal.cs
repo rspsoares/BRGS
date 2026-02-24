@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlClient;
 using BRGS.Entity;
 using System.Data;
 using BRGS.Util;
@@ -237,29 +234,33 @@ namespace BRGS.BIZ
                         nf.INSS = decimal.Parse(dr["INSS"].ToString());
                         nf.PIS = decimal.Parse(dr["PIS"].ToString());
                         nf.COFINS = decimal.Parse(dr["COFINS"].ToString());
-                        nf.ISSQN = decimal.Parse(dr["ISSQN"].ToString()); 
+                        nf.ISSQN = decimal.Parse(dr["ISSQN"].ToString());
 
-                        lstParametrosItens = new Dictionary<string, string>();
-                        lstParametrosItens.Add("@idNota",nf.idNota.ToString());                         
-
-                        using (DataSet dsItens = dao.Pesquisar("SP_NOTASFISCAISITENS_CONSULTAR", lstParametrosItens))
+                        if (notaFiscal.idNota != 0)
                         {
-                            lstNFItens = new List<NotaFiscalItem>();
-                            foreach (DataRow drItens in dsItens.Tables[0].Rows)
+                            lstParametrosItens = new Dictionary<string, string>();
+                            lstParametrosItens.Add("@idNota", nf.idNota.ToString());
+
+                            using (DataSet dsItens = dao.Pesquisar("SP_NOTASFISCAISITENS_CONSULTAR", lstParametrosItens))
                             {
-                                NotaFiscalItem nfsItem = new NotaFiscalItem();
-                                nfsItem.idNota = int.Parse(drItens["idNota"].ToString());
-                                nfsItem.Unidade = drItens["Unidade"].ToString();
-                                nfsItem.Quantidade = int.Parse(drItens["Quantidade"].ToString()); 
-                                nfsItem.Descricao = drItens["Descricao"].ToString();
-                                nfsItem.precoUnitario = decimal.Parse(drItens["PrecoUnitario"].ToString());
-                                nfsItem.UnitTest = int.Parse(drItens["UnitTest"].ToString()); 
+                                lstNFItens = new List<NotaFiscalItem>();
+                                foreach (DataRow drItens in dsItens.Tables[0].Rows)
+                                {
+                                    NotaFiscalItem nfsItem = new NotaFiscalItem();
+                                    nfsItem.idNota = int.Parse(drItens["idNota"].ToString());
+                                    nfsItem.Unidade = drItens["Unidade"].ToString();
+                                    nfsItem.Quantidade = int.Parse(drItens["Quantidade"].ToString());
+                                    nfsItem.Descricao = drItens["Descricao"].ToString();
+                                    nfsItem.precoUnitario = decimal.Parse(drItens["PrecoUnitario"].ToString());
+                                    nfsItem.UnitTest = int.Parse(drItens["UnitTest"].ToString());
 
-                                lstNFItens.Add(nfsItem);
+                                    lstNFItens.Add(nfsItem);
+                                }
                             }
-                        }
 
-                        nf.lstItens = lstNFItens;
+                            nf.lstItens = lstNFItens;
+                        }
+                        
                         lstNF.Add(nf);
                     }
                 }

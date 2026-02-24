@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-using System.ComponentModel;
-using System.Diagnostics;
-
 namespace BRGS.Util
 {
 	#region Data Grid Column Comparer

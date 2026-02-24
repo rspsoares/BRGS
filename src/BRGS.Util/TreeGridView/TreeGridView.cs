@@ -9,14 +9,11 @@
 //---------------------------------------------------------------------
 using System;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.ComponentModel.Design.Serialization;
 using System.Drawing.Design;
-using BRGS.Util;
 
 namespace AdvancedDataGridView
 {

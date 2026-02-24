@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.Entity;
 using BRGS.BIZ;
 using System.Data.SqlClient;
 using BRGS.Util;
-using System.Security.Cryptography;
 using System.Xml;
 using System.Reflection;
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -55,6 +53,47 @@ namespace BRGS.BIZ
                             idDespesa = int.Parse(dr["idDespesa"].ToString()),
                             Descricao = dr["Descricao"].ToString(),
                             gastoFixo = int.Parse(dr["GastoFixo"].ToString()),
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_DESPESAS_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstDespesas;
+        }
+        public List<Despesa> PesquisarDespesaLista(Despesa despesa)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<Despesa> lstDespesas = new List<Despesa>();
+
+            try
+            {
+                lstParametros = MontarParametrosPesquisar(despesa);
+
+                using (DataSet ds = dao.Pesquisar("SP_DESPESAS_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        lstDespesas.Add(new Despesa()
+                        {
+                            idDespesa = int.Parse(dr["idDespesa"].ToString()),
+                            Descricao = dr["Descricao"].ToString()                            
                         });
                     }
                 }

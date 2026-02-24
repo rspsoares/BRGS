@@ -1,6 +1,8 @@
-﻿namespace BRGS.UI.Relatorios {
-    
-    
-    public partial class dsFretes {
+﻿namespace BRGS.UI.Relatorios
+{
+
+
+    public partial class dsFretes
+    {
     }
 }

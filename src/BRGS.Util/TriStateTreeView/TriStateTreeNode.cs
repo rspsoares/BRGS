@@ -19,7 +19,6 @@
 ///	through the NodeLineType property.
 ///	
 
-using System;
 using System.Windows.Forms;
 using System.ComponentModel;
 

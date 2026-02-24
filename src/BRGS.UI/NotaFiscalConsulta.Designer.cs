@@ -35,8 +35,6 @@
             this.tbPesquisaValor = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gvNFS = new BRGS.Util.SortedDataGridView();
-            this.btVisualizar = new System.Windows.Forms.Button();
-            this.btNovo = new System.Windows.Forms.Button();
             this.idEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@
             this.ValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diferenca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btVisualizar = new System.Windows.Forms.Button();
+            this.btNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvNFS)).BeginInit();
@@ -132,27 +132,8 @@
             this.gvNFS.Size = new System.Drawing.Size(908, 278);
             this.gvNFS.TabIndex = 0;
             this.gvNFS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvNFS_CellFormatting);
+            this.gvNFS.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvNFS_ColumnHeaderMouseClick);
             this.gvNFS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gvNFS_MouseDoubleClick);
-            // 
-            // btVisualizar
-            // 
-            this.btVisualizar.Location = new System.Drawing.Point(840, 356);
-            this.btVisualizar.Name = "btVisualizar";
-            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
-            this.btVisualizar.TabIndex = 2;
-            this.btVisualizar.Text = "Visualizar";
-            this.btVisualizar.UseVisualStyleBackColor = true;
-            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
-            // 
-            // btNovo
-            // 
-            this.btNovo.Location = new System.Drawing.Point(7, 359);
-            this.btNovo.Name = "btNovo";
-            this.btNovo.Size = new System.Drawing.Size(75, 23);
-            this.btNovo.TabIndex = 3;
-            this.btNovo.Text = "Nova";
-            this.btNovo.UseVisualStyleBackColor = true;
-            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // idEmpresa
             // 
@@ -221,6 +202,26 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
+            // 
+            // btVisualizar
+            // 
+            this.btVisualizar.Location = new System.Drawing.Point(840, 356);
+            this.btVisualizar.Name = "btVisualizar";
+            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
+            this.btVisualizar.TabIndex = 2;
+            this.btVisualizar.Text = "Visualizar";
+            this.btVisualizar.UseVisualStyleBackColor = true;
+            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
+            // 
+            // btNovo
+            // 
+            this.btNovo.Location = new System.Drawing.Point(7, 359);
+            this.btNovo.Name = "btNovo";
+            this.btNovo.Size = new System.Drawing.Size(75, 23);
+            this.btNovo.TabIndex = 3;
+            this.btNovo.Text = "Nova";
+            this.btNovo.UseVisualStyleBackColor = true;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // NotaFiscalConsulta
             // 

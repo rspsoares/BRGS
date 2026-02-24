@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.Entity;
 using BRGS.BIZ;
@@ -190,6 +188,17 @@ namespace BRGS.UI
 
                 bizLogErro.IncluirLogErro(logErro);
             }			
+        }
+
+        private void gvNFS_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //TODO Rodrigo: Criar um enum dos indices e dos nomes das colunas para conseguir identificar qual é o campo que foi ordenado
+            var bitoque = ((BRGS.Util.SortedDataGridView)sender).SortOrderDescription;
+
+            var pangare = ((BRGS.Util.SortedDataGridView)sender).SortOrderColumns;
+
+
+            btPesquisar_Click(null, null);
         }
     }
 }

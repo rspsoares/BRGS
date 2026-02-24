@@ -7,11 +7,8 @@
 //IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
 //PARTICULAR PURPOSE.
 //---------------------------------------------------------------------
-using System;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Windows.Forms.VisualStyles;
-using System.Diagnostics;
 
 namespace AdvancedDataGridView
 {

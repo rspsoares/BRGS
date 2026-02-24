@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.BIZ;
 using BRGS.Entity;
@@ -299,7 +296,7 @@ namespace BRGS.UI
        
         private void CarregarUENCadastradas()
         {
-            lstUENCadastradas = bizUEN.PesquisarUEN(new UEN()).OrderBy(x => x.Descricao).ToList();
+            lstUENCadastradas = bizUEN.PesquisarUENLista(new UEN()).OrderBy(x => x.Descricao).ToList();
 
             while (gvUENCadastradas.Rows.Count > 0)
                 gvUENCadastradas.Rows.RemoveAt(0);
@@ -331,7 +328,7 @@ namespace BRGS.UI
 
         private void CarregarCCCadastrados()
         {
-            lstCCCadastrados = bizCC.PesquisarCentroCusto(new CentroCusto()).OrderBy(x => x.Descricao).ToList();
+            lstCCCadastrados = bizCC.PesquisarCentroCustoLista(new CentroCusto()).OrderBy(x => x.Descricao).ToList();
 
             while (gvCCCadastrados.Rows.Count > 0)
                 gvCCCadastrados.Rows.RemoveAt(0);
@@ -363,7 +360,7 @@ namespace BRGS.UI
 
         private void CarregarDespesaCadastradas()
         {
-            lstDespesaCadastradas = bizDespesa.PesquisarDespesa(new Despesa()).OrderBy(x => x.Descricao).ToList();
+            lstDespesaCadastradas = bizDespesa.PesquisarDespesaLista(new Despesa()).OrderBy(x => x.Descricao).ToList();
 
             while (gvDespesasCadastradas.Rows.Count > 0)
                 gvDespesasCadastradas.Rows.RemoveAt(0);

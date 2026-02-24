@@ -342,7 +342,6 @@
             // 
             this.cbDespesa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbDespesa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbDespesa.FormattingEnabled = true;
             this.cbDespesa.Location = new System.Drawing.Point(9, 112);
             this.cbDespesa.Name = "cbDespesa";
             this.cbDespesa.Size = new System.Drawing.Size(337, 21);
@@ -363,7 +362,6 @@
             // 
             this.cbObra.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbObra.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbObra.FormattingEnabled = true;
             this.cbObra.Location = new System.Drawing.Point(9, 32);
             this.cbObra.Name = "cbObra";
             this.cbObra.Size = new System.Drawing.Size(621, 21);
@@ -408,7 +406,6 @@
             // 
             this.cbCentroCusto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCentroCusto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCentroCusto.FormattingEnabled = true;
             this.cbCentroCusto.Location = new System.Drawing.Point(352, 72);
             this.cbCentroCusto.Name = "cbCentroCusto";
             this.cbCentroCusto.Size = new System.Drawing.Size(278, 21);
@@ -420,12 +417,11 @@
             // 
             this.cbUEN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUEN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbUEN.FormattingEnabled = true;
             this.cbUEN.Location = new System.Drawing.Point(9, 72);
             this.cbUEN.Name = "cbUEN";
             this.cbUEN.Size = new System.Drawing.Size(337, 21);
             this.cbUEN.TabIndex = 1;
-            this.cbUEN.SelectedValueChanged += new System.EventHandler(this.cbUEN_SelectedValueChanged);
+            this.cbUEN.SelectedIndexChanged += new System.EventHandler(this.cbUEN_SelectedIndexChanged);
             this.cbUEN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbUEN_KeyDown);
             // 
             // label5
@@ -461,7 +457,6 @@
             // 
             this.cbFornecedores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbFornecedores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbFornecedores.FormattingEnabled = true;
             this.cbFornecedores.Location = new System.Drawing.Point(88, 31);
             this.cbFornecedores.Name = "cbFornecedores";
             this.cbFornecedores.Size = new System.Drawing.Size(555, 21);
@@ -552,7 +547,6 @@
             // 
             this.cbDespesaPagto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbDespesaPagto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbDespesaPagto.FormattingEnabled = true;
             this.cbDespesaPagto.Location = new System.Drawing.Point(6, 69);
             this.cbDespesaPagto.Name = "cbDespesaPagto";
             this.cbDespesaPagto.Size = new System.Drawing.Size(352, 21);
@@ -586,7 +580,6 @@
             // 
             this.cbCentroCustoPagto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCentroCustoPagto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCentroCustoPagto.FormattingEnabled = true;
             this.cbCentroCustoPagto.Location = new System.Drawing.Point(364, 29);
             this.cbCentroCustoPagto.Name = "cbCentroCustoPagto";
             this.cbCentroCustoPagto.Size = new System.Drawing.Size(282, 21);
@@ -598,7 +591,6 @@
             // 
             this.cbUENPagto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUENPagto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbUENPagto.FormattingEnabled = true;
             this.cbUENPagto.Location = new System.Drawing.Point(6, 29);
             this.cbUENPagto.Name = "cbUENPagto";
             this.cbUENPagto.Size = new System.Drawing.Size(352, 21);

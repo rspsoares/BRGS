@@ -10,11 +10,9 @@
 using System;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.ComponentModel.Design.Serialization;
 using System.Drawing.Design;
 using System.Text;
 

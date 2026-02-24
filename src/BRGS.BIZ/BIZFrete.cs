@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using BRGS.Entity;
 using BRGS.Util;
 
@@ -63,8 +62,13 @@ namespace BRGS.BIZ
                         itemFrete.previsaoPagamento = DateTime.Parse(dr["PrevisaoPagamento"].ToString());
                         itemFrete.valorTotal = decimal.Parse(dr["ValorTotal"].ToString());
                         itemFrete.UnitTest = int.Parse(dr["UnitTest"].ToString());
-                        itemFrete.lstPagamentos = this.PesquisarPagamentos(new FretePagamento() { idFrete = itemFrete.idFrete });
-                        itemFrete.lstObras = this.PesquisarObras(new FreteObra() { idFrete = itemFrete.idFrete });
+                        
+                        if(frete.idFrete != 0)
+                        {
+                            itemFrete.lstPagamentos = this.PesquisarPagamentos(new FretePagamento() { idFrete = itemFrete.idFrete });
+                            itemFrete.lstObras = this.PesquisarObras(new FreteObra() { idFrete = itemFrete.idFrete });
+                        }
+                        
                         lstFretes.Add(itemFrete);
                     }
                 }

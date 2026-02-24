@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BRGS.BIZ;
 using BRGS.Entity;
@@ -42,9 +39,12 @@ namespace BRGS.UI
                 lstEmpresas.Add(new Empresa() { idEmpresa = 0, razaoSocial = "--Selecione--" });
                 lstEmpresas.AddRange(bizEmpresa.PesquisarEmpresa(new Empresa()).OrderBy(x => x.razaoSocial).ToList());
 
-                cbEmpresa.DataSource = lstEmpresas;
+                cbEmpresa.BeginUpdate();
+                cbEmpresa.DataSource = null;
                 cbEmpresa.DisplayMember = "razaoSocial";
                 cbEmpresa.ValueMember = "idEmpresa";
+                cbEmpresa.DataSource = lstEmpresas;
+                cbEmpresa.EndUpdate();
             }
             catch (SqlException)
             {
@@ -292,11 +292,12 @@ namespace BRGS.UI
                 
                 lbClientesFiltrados.Visible = idEmpresa > 0;
 
-                cbCliente.DataSource = null;
-                cbCliente.BindingContext = new BindingContext();                
-                cbCliente.DataSource = lstClientesObras;
+                cbCliente.BeginUpdate();
+                cbCliente.DataSource = null;                
                 cbCliente.DisplayMember = "nomeCliente";
-                cbCliente.ValueMember = "idCliente";    
+                cbCliente.ValueMember = "idCliente";
+                cbCliente.DataSource = lstClientesObras;
+                cbCliente.EndUpdate();
             }
             catch (SqlException)
             {
