@@ -271,7 +271,7 @@ namespace BRGS.UI
             dtpAte.Value = DateTime.Today;
             
             this.CarregarObras();
-            this.CarregarComboEmpresas();                        
+            this.CarregarComboEmpresas();
             this.CarregarClientes(0);            
             this.CarregarFornecedores();                     
             this.CarregarComboNomeEvento();      

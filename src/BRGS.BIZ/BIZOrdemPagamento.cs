@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using BRGS.Entity;
+using BRGS.Entity.DTO;
 using BRGS.Util;
 
 namespace BRGS.BIZ
@@ -72,6 +73,23 @@ namespace BRGS.BIZ
             lstParametros.Add("@Status", string.IsNullOrEmpty(ordemPagamento.Status) ? null : ordemPagamento.Status);
             lstParametros.Add("@Observacao", string.IsNullOrEmpty(ordemPagamento.Observacao) ? null : ordemPagamento.Observacao);                        
             lstParametros.Add("@UnitTest", ordemPagamento.UnitTest.Equals(0) ? null : ordemPagamento.UnitTest.ToString());
+
+            return lstParametros;
+        }
+
+        private Dictionary<string, string> MontarParametrosPesquisarOrdemPagamentoMobile(OrdemPagamentoGridFiltroMobileDTO opFiltro)
+        {
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>
+            {
+                { "@NumeroOP", string.IsNullOrEmpty(opFiltro.numeroOP) ? null : opFiltro.numeroOP },
+                { "@NomeFavorecido", string.IsNullOrEmpty(opFiltro.nomeFavorecido) ? null : opFiltro.nomeFavorecido },                
+                { "@DataPagamentoInicial", opFiltro.dataPagamentoParcelaInicial.Equals(DateTime.MinValue) ? null : opFiltro.dataPagamentoParcelaInicial.ToString("yyyy-MM-dd") },
+                { "@DataPagamentoFinal", opFiltro.dataPagamentoParcelaFinal.Equals(DateTime.MinValue) ? null : opFiltro.dataPagamentoParcelaFinal.ToString("yyyy-MM-dd") },
+                { "@Status", string.IsNullOrEmpty(opFiltro.Status) ? null : opFiltro.Status },
+                { "@Sort", string.IsNullOrEmpty(opFiltro.Sort) ? null : opFiltro.Sort},
+                { "@Offset", opFiltro.Offset.ToString() },
+                { "@Limit", opFiltro.Limit.ToString() }
+            };
 
             return lstParametros;
         }
@@ -698,6 +716,149 @@ namespace BRGS.BIZ
             }
 
             return dtOP;
+        }
+
+        public List<int> PesquisarOrdemPagamentoSemBinarioCrystal()
+        {
+            try
+            {
+                DataAccess dao = new DataAccess();
+                dynamic lst = new List<OrdemPagamentoGridMobileDTO>();
+                var result = new List<OrdemPagamentoGridMobileDTO>();
+
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL", new Dictionary<string, string>()))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoGridMobileDTO>()
+                          select f;
+                }
+
+                result.AddRange(lst);
+
+                return result
+                    .Select(x => x.IdOrdemPagamento)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public void AtualizarBinarioCrystalOrdemPagamento(string idOP, string pdfContent)
+        {
+            DataAccess dao = new DataAccess();            
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            try
+            {
+                lstParametros.Add("@idOrdemPagamento", idOP);
+                lstParametros.Add("@pdfContent", pdfContent);
+
+                dao.Executar("SP_ORDEMPAGAMENTO_ATUALIZARBINARIOCRYSTAL", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_ATUALIZARBINARIOCRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public string PesquisarBinarioCrystalOrdemPagamento(string idOP)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            var pdfContent = string.Empty;
+
+            try
+            {
+                lstParametros.Add("@idOrdemPagamento", idOP);
+
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_PESQUISARBINARIOCRYSTAL", lstParametros))
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    pdfContent = dr[0].ToString();
+                }               
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_PESQUISARBINARIOCRYSTAL",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return pdfContent;
+        }
+
+        public List<OrdemPagamentoGridMobileDTO> PesquisarOrdemPagamentoMobile(OrdemPagamentoGridFiltroMobileDTO opFiltro, out int totalRecords)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<OrdemPagamentoGridMobileDTO> lstOrdensPagamentos = new List<OrdemPagamentoGridMobileDTO>();
+            dynamic lst = new List<OrdemPagamentoGridMobileDTO>();
+
+            try
+            {
+                lstParametros = this.MontarParametrosPesquisarOrdemPagamentoMobile(opFiltro);
+                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_GRID_MOBILE", lstParametros))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoGridMobileDTO>()
+                          select f;
+                }
+
+                lstOrdensPagamentos.AddRange(lst);
+                totalRecords = lstOrdensPagamentos.FirstOrDefault()?.TotalRows ?? 0;
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_GRID_MOBILE",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstOrdensPagamentos;
         }
     }
 }

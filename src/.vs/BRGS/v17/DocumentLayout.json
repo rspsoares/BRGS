@@ -7,19 +7,23 @@
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\fretemanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\fretemanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizempresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizempresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizempresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.util\\grid\\sorteddatagridview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|c:\\_rodrigo\\brgs\\src\\brgs.util\\grid\\sorteddatagridview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|solutionrelative:brgs.util\\grid\\sorteddatagridview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|c:\\_rodrigo\\brgs\\src\\brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|solutionrelative:brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -40,7 +44,7 @@
               "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
               "RelativeToolTip": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ViewState": "AgIAAAUBAAAAAAAAAAA6wA8BAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAiwBABAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-24T14:41:45.18Z",
               "IsPinned": true,
@@ -56,7 +60,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "FreteManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\FreteManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\FreteManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\FreteManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\FreteManutencao.cs",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAlwA0BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T21:29:43.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BIZEmpresa.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpresa.cs",
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZEmpresa.cs",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "BRGS.BIZ\\BIZEmpresa.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAAAFkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T18:15:55.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T18:15:55.058Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BIZObra.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZObra.cs",
@@ -77,8 +92,7 @@
               "RelativeToolTip": "BRGS.BIZ\\BIZObra.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAAAC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T14:41:45.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T14:41:45.165Z"
             }
           ]
         },
@@ -88,20 +102,20 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SortedDataGridView.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
               "RelativeDocumentMoniker": "BRGS.Util\\Grid\\SortedDataGridView.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
               "RelativeToolTip": "BRGS.Util\\Grid\\SortedDataGridView.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA5wEwAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwEwAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-23T09:46:12.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DataGridComparer.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\DataGridComparer.cs",
               "RelativeDocumentMoniker": "BRGS.Util\\Grid\\DataGridComparer.cs",
@@ -109,8 +123,7 @@
               "RelativeToolTip": "BRGS.Util\\Grid\\DataGridComparer.cs",
               "ViewState": "AgIAAIoAAAAAAAAAAAAQwJ4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T09:46:48.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-23T09:46:48.406Z"
             }
           ]
         }

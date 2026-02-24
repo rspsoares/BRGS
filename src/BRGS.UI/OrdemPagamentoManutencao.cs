@@ -11,6 +11,8 @@ using BRGS.UI.Relatorios;
 using BRGS.Util;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Data.SqlTypes;
+using CrystalDecisions.Shared;
+using System.IO;
 
 namespace BRGS.UI
 {
@@ -810,8 +812,6 @@ namespace BRGS.UI
                 op = new OrdemPagamentoEmissao();
                 op.Database.Tables["DataTable1"].SetDataSource(dtOP);
                 op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
-                
-                //op.SetDataSource(dtOP);
                 op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
 
                 Relatorio relat = new Relatorio(op);
@@ -827,6 +827,10 @@ namespace BRGS.UI
                 MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
+
+
+        
+
 
         private void PopularEntidade()
         {            

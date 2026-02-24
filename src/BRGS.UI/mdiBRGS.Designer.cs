@@ -32,6 +32,8 @@
             this.atividadeCarregarComponenteCrystal = new System.ComponentModel.BackgroundWorker();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsVersao = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.comercialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rbAdministrativo_Clientes = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,8 +120,6 @@
             this.rbSeguranca_Parametrizacao = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabTelas = new System.Windows.Forms.TabControl();
-            this.tsVersao = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +142,19 @@
             this.tsUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsUsuario.Name = "tsUsuario";
             this.tsUsuario.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1222, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // tsVersao
+            // 
+            this.tsVersao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsVersao.Name = "tsVersao";
+            this.tsVersao.Size = new System.Drawing.Size(0, 17);
+            this.tsVersao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // menuStrip1
             // 
@@ -216,14 +229,14 @@
             // rbEngenharia_Obras_Consulta
             // 
             this.rbEngenharia_Obras_Consulta.Name = "rbEngenharia_Obras_Consulta";
-            this.rbEngenharia_Obras_Consulta.Size = new System.Drawing.Size(136, 22);
+            this.rbEngenharia_Obras_Consulta.Size = new System.Drawing.Size(134, 22);
             this.rbEngenharia_Obras_Consulta.Text = "Obras";
             this.rbEngenharia_Obras_Consulta.Click += new System.EventHandler(this.rbEngenharia_Obras_Consulta_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // transportesToolStripMenuItem
             // 
@@ -238,44 +251,44 @@
             this.toolStripSeparator5,
             this.rbTransporte_Uso});
             this.transportesToolStripMenuItem.Name = "transportesToolStripMenuItem";
-            this.transportesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.transportesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.transportesToolStripMenuItem.Text = "Transportes";
             // 
             // rbTransporte_Abastecimento
             // 
             this.rbTransporte_Abastecimento.Name = "rbTransporte_Abastecimento";
-            this.rbTransporte_Abastecimento.Size = new System.Drawing.Size(204, 22);
+            this.rbTransporte_Abastecimento.Size = new System.Drawing.Size(203, 22);
             this.rbTransporte_Abastecimento.Text = "Abastecimentos";
             this.rbTransporte_Abastecimento.Click += new System.EventHandler(this.rbTransporte_Abastecimento_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(200, 6);
             // 
             // rbTransporte_Frete
             // 
             this.rbTransporte_Frete.Name = "rbTransporte_Frete";
-            this.rbTransporte_Frete.Size = new System.Drawing.Size(204, 22);
+            this.rbTransporte_Frete.Size = new System.Drawing.Size(203, 22);
             this.rbTransporte_Frete.Text = "Fretes";
             this.rbTransporte_Frete.Click += new System.EventHandler(this.rbTransporte_Frete_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(200, 6);
             // 
             // rbTransporte_Manutencao
             // 
             this.rbTransporte_Manutencao.Name = "rbTransporte_Manutencao";
-            this.rbTransporte_Manutencao.Size = new System.Drawing.Size(204, 22);
+            this.rbTransporte_Manutencao.Size = new System.Drawing.Size(203, 22);
             this.rbTransporte_Manutencao.Text = "Manutenção de Veículos";
             this.rbTransporte_Manutencao.Click += new System.EventHandler(this.rbTransporte_Manutencao_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(200, 6);
             // 
             // multasToolStripMenuItem
             // 
@@ -284,7 +297,7 @@
             this.rbTransporte_Gravidade,
             this.rbTransporte_Ocorrencia});
             this.multasToolStripMenuItem.Name = "multasToolStripMenuItem";
-            this.multasToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.multasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.multasToolStripMenuItem.Text = "Multas";
             // 
             // rbTransporte_Multa
@@ -311,25 +324,25 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(200, 6);
             // 
             // rbTransporte_Uso
             // 
             this.rbTransporte_Uso.Name = "rbTransporte_Uso";
-            this.rbTransporte_Uso.Size = new System.Drawing.Size(204, 22);
+            this.rbTransporte_Uso.Size = new System.Drawing.Size(203, 22);
             this.rbTransporte_Uso.Text = "Veículos";
             this.rbTransporte_Uso.Click += new System.EventHandler(this.rbTransporte_Uso_Click);
             // 
             // toolStripSeparator20
             // 
             this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator20.Size = new System.Drawing.Size(131, 6);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Enabled = false;
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.estoqueToolStripMenuItem.Text = "* Estoque";
             // 
             // administrativosToolStripMenuItem
@@ -473,7 +486,7 @@
             // rbFinanceiro_NFRelatorio
             // 
             this.rbFinanceiro_NFRelatorio.Name = "rbFinanceiro_NFRelatorio";
-            this.rbFinanceiro_NFRelatorio.Size = new System.Drawing.Size(132, 22);
+            this.rbFinanceiro_NFRelatorio.Size = new System.Drawing.Size(180, 22);
             this.rbFinanceiro_NFRelatorio.Text = "Nota Fiscal";
             this.rbFinanceiro_NFRelatorio.Click += new System.EventHandler(this.rbFinanceiro_NFRelatorio_Click);
             // 
@@ -497,31 +510,31 @@
             // rbFinanceiro_OPRelatorio
             // 
             this.rbFinanceiro_OPRelatorio.Name = "rbFinanceiro_OPRelatorio";
-            this.rbFinanceiro_OPRelatorio.Size = new System.Drawing.Size(153, 22);
+            this.rbFinanceiro_OPRelatorio.Size = new System.Drawing.Size(180, 22);
             this.rbFinanceiro_OPRelatorio.Text = "Contas à Pagar";
             this.rbFinanceiro_OPRelatorio.Click += new System.EventHandler(this.rbFinanceiro_OPRelatorio_Click);
             // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator15.Size = new System.Drawing.Size(177, 6);
             // 
             // rbFinanceiro_RelatorioGastos
             // 
             this.rbFinanceiro_RelatorioGastos.Name = "rbFinanceiro_RelatorioGastos";
-            this.rbFinanceiro_RelatorioGastos.Size = new System.Drawing.Size(153, 22);
+            this.rbFinanceiro_RelatorioGastos.Size = new System.Drawing.Size(180, 22);
             this.rbFinanceiro_RelatorioGastos.Text = "Gastos Obras";
             this.rbFinanceiro_RelatorioGastos.Click += new System.EventHandler(this.rbFinanceiro_RelatorioGastos_Click);
             // 
             // toolStripSeparator26
             // 
             this.toolStripSeparator26.Name = "toolStripSeparator26";
-            this.toolStripSeparator26.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator26.Size = new System.Drawing.Size(177, 6);
             // 
             // rbFinanceiro_RelatorioGastosFixos
             // 
             this.rbFinanceiro_RelatorioGastosFixos.Name = "rbFinanceiro_RelatorioGastosFixos";
-            this.rbFinanceiro_RelatorioGastosFixos.Size = new System.Drawing.Size(153, 22);
+            this.rbFinanceiro_RelatorioGastosFixos.Size = new System.Drawing.Size(180, 22);
             this.rbFinanceiro_RelatorioGastosFixos.Text = "Gastos Fixos";
             this.rbFinanceiro_RelatorioGastosFixos.Click += new System.EventHandler(this.rbFinanceiro_RelatorioGastosFixos_Click);
             // 
@@ -576,7 +589,7 @@
             // rbTransporte_FreteRelatorio
             // 
             this.rbTransporte_FreteRelatorio.Name = "rbTransporte_FreteRelatorio";
-            this.rbTransporte_FreteRelatorio.Size = new System.Drawing.Size(105, 22);
+            this.rbTransporte_FreteRelatorio.Size = new System.Drawing.Size(180, 22);
             this.rbTransporte_FreteRelatorio.Text = "Fretes";
             this.rbTransporte_FreteRelatorio.Click += new System.EventHandler(this.rbTransporte_FreteRelatorio_Click);
             // 
@@ -635,7 +648,7 @@
             this.toolStripSeparator7,
             this.rbSeguranca_Auditoria});
             this.segurançaToolStripMenuItem.Name = "segurançaToolStripMenuItem";
-            this.segurançaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.segurançaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.segurançaToolStripMenuItem.Text = "Segurança";
             // 
             // rbSeguranca_Usuarios
@@ -660,7 +673,7 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // manutençãoToolStripMenuItem
             // 
@@ -677,7 +690,7 @@
             this.toolStripSeparator17,
             this.rbAdministrativo_Empresa});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             // 
             // rbEngenharia_Despesas
@@ -752,12 +765,12 @@
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(177, 6);
             // 
             // rbSeguranca_Parametrizacao
             // 
             this.rbSeguranca_Parametrizacao.Name = "rbSeguranca_Parametrizacao";
-            this.rbSeguranca_Parametrizacao.Size = new System.Drawing.Size(155, 22);
+            this.rbSeguranca_Parametrizacao.Size = new System.Drawing.Size(180, 22);
             this.rbSeguranca_Parametrizacao.Text = "Parametrização";
             this.rbSeguranca_Parametrizacao.Click += new System.EventHandler(this.rbSeguranca_Parametrizacao_Click);
             // 
@@ -785,19 +798,6 @@
             this.tabTelas.TabIndex = 7;
             this.tabTelas.DoubleClick += new System.EventHandler(this.tabTelas_DoubleClick);
             this.tabTelas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tabTelas_MouseUp);
-            // 
-            // tsVersao
-            // 
-            this.tsVersao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsVersao.Name = "tsVersao";
-            this.tsVersao.Size = new System.Drawing.Size(0, 17);
-            this.tsVersao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1191, 17);
-            this.toolStripStatusLabel1.Spring = true;
             // 
             // mdiBRGS
             // 

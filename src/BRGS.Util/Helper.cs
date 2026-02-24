@@ -16,6 +16,8 @@ using System.IO;
 using BRGS.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
+using CrystalDecisions.CrystalReports.Engine;
+using System.Configuration;
 
 namespace BRGS.Util
 {
@@ -447,7 +449,7 @@ namespace BRGS.Util
 
             strConn = enderecoServidor.Replace("\\\\", "\\").Trim();
             //strConn = "Server=" + strConn + ";Database=BRGS;Network Library=DBMSSOCN;Initial Catalog=BRGS;User Id=sa;Password=brgs2013;";           
-            strConn = "Server=" + strConn + ";Database=brgs1;Network Library=DBMSSOCN;Initial Catalog=brgs1;User Id=brgs1;Password=2014roberto;";           
+            strConn = "Server=" + strConn + ";Database=BRGS_DEV;Network Library=DBMSSOCN;Initial Catalog=BRGS_DEV;User Id=brgs1;Password=2014roberto;";           
 
             return strConn;
         }
@@ -844,5 +846,19 @@ namespace BRGS.Util
         }
 
         #endregion
-    }    
+
+        #region Service
+
+        public T ConfigurationGet<T>(string key)
+        {
+            var appSetting = ConfigurationManager.AppSettings[key];
+            if (string.IsNullOrWhiteSpace(appSetting)) throw new ConfigurationErrorsException(key);
+
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+            return (T)(converter.ConvertFromInvariantString(appSetting));
+        }
+
+        #endregion
+
+    }
 }
