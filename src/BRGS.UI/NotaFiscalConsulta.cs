@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BRGS.BIZ;
+using BRGS.Entity;
+using BRGS.Util;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using BRGS.Entity;
-using BRGS.BIZ;
-using BRGS.Util;
-using System.Data.SqlClient;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace BRGS.UI
 {
@@ -17,6 +17,7 @@ namespace BRGS.UI
         private BIZNotaFiscal bizNotaFiscal = new BIZNotaFiscal();
         private Helper helper = new Helper();
         private BIZLogErro bizLogErro = new BIZLogErro();
+        private GridPagination _pagination = new GridPagination();
         
         public NotaFiscalConsulta()
         {
@@ -58,7 +59,12 @@ namespace BRGS.UI
 
             try
             {
-                lstNFS = bizNotaFiscal.PesquisarNotaFiscal(nfsFiltro).OrderBy(nfs => nfs.numeroNota).ToList();
+                //lstNFS = bizNotaFiscal.PesquisarNotaFiscal(nfsFiltro);
+                //.OrderBy(nfs => nfs.numeroNota).ToList();
+
+                lstNFS = bizNotaFiscal.GridNotaFiscal(nfsFiltro, _pagination.Take, _pagination.Skip, _pagination.Sort, out int totalPages);
+
+                _pagination.TotalPages = totalPages;
 
                 LimparGrid();
 
@@ -79,7 +85,7 @@ namespace BRGS.UI
                         itemNota.Nome,
                         itemNota.Empenho, 
                         decimal.Parse(helper.FormatarValorMoeda(itemNota.valorNota.ToString())),
-                        itemNota.Cancelado == 1 ? "CANCELADO" :helper.FormatarValorMoeda(itemNota.valorPago.ToString()),
+                        itemNota.Cancelado == 1 ? "CANCELADO" : helper.FormatarValorMoeda(itemNota.valorPago.ToString()),
                         itemNota.Cancelado == 1 ? decimal.Zero : decimal.Parse(helper.FormatarValorMoeda((itemNota.valorNota - itemNota.valorPago).ToString())), 
                         itemNota.idNota 
                     });
@@ -175,6 +181,10 @@ namespace BRGS.UI
             try
             {
                 helper.VerificaPermissaoAcessoObjetos(this, UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name).ToList());
+                _pagination.Skip = 0;
+                _pagination.Take = 10;
+                _pagination.Sort = "NF.idNota DESC";
+
                 CarregarCamposPesquisa();
             }
             catch (Exception ex)
@@ -192,13 +202,47 @@ namespace BRGS.UI
 
         private void gvNFS_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //TODO Rodrigo: Criar um enum dos indices e dos nomes das colunas para conseguir identificar qual é o campo que foi ordenado
-            var bitoque = ((BRGS.Util.SortedDataGridView)sender).SortOrderDescription;
+            if (e.ColumnIndex == 9)                
+            {
+                ((SortedDataGridView)sender)
+                    .Columns[e.ColumnIndex]
+                    .HeaderCell
+                    .SortGlyphDirection = System.Windows.Forms.SortOrder.None;
+                return;
+            }
+                
+            var field = (GridColumns)Enum.Parse(typeof(GridColumns), e.ColumnIndex.ToString());
 
-            var pangare = ((BRGS.Util.SortedDataGridView)sender).SortOrderColumns;
+            var direction = ((SortedDataGridView)sender)
+                .Columns[e.ColumnIndex]
+                .HeaderCell
+                .SortGlyphDirection == System.Windows.Forms.SortOrder.Ascending
+                ? "ASC"
+                : "DESC";                
 
+            _pagination.Sort = $"{field} {direction}";
 
             btPesquisar_Click(null, null);
-        }
+        }       
+    }
+
+    class GridPagination
+    {
+        public int Take { get; set; }
+        public int Skip { get; set; }
+        public string Sort { get; set; }
+        public int TotalPages { get; set; }
+    }
+
+    enum GridColumns
+    {
+        RazaoSocial = 1,
+        TipoNota = 2,
+        NumeroNota = 3,
+        DataEmissao = 4,
+        NomeCliente = 5,
+        Empenho = 6,
+        ValorNota = 7,
+        ValorPago = 8
     }
 }

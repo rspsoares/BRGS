@@ -56,7 +56,7 @@ namespace BRGS.Entity
         public decimal INSS { get; set; }
         public decimal PIS { get; set; }
         public decimal COFINS { get; set; }
-        public decimal ISSQN { get; set; }
+        public decimal ISSQN { get; set; }        
         public List<NotaFiscalItem> lstItens { get; set; }
         public int UnitTest { get; set; }
     }

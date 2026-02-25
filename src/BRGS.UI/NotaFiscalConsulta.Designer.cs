@@ -34,6 +34,15 @@
             this.cbPesquisaCampo = new System.Windows.Forms.ComboBox();
             this.tbPesquisaValor = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbGridTotalRegistros = new System.Windows.Forms.Label();
+            this.lbGridPaginas = new System.Windows.Forms.Label();
+            this.cmdGridUltima = new System.Windows.Forms.Button();
+            this.cmdGridProxima = new System.Windows.Forms.Button();
+            this.cmdGridAnterior = new System.Windows.Forms.Button();
+            this.cmdGridPrimeira = new System.Windows.Forms.Button();
+            this.btVisualizar = new System.Windows.Forms.Button();
+            this.btNovo = new System.Windows.Forms.Button();
             this.gvNFS = new BRGS.Util.SortedDataGridView();
             this.idEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +55,9 @@
             this.ValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diferenca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btVisualizar = new System.Windows.Forms.Button();
-            this.btNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvNFS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,12 +104,109 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.gvNFS);
             this.groupBox2.Location = new System.Drawing.Point(4, 56);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(914, 297);
+            this.groupBox2.Size = new System.Drawing.Size(914, 353);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbGridTotalRegistros);
+            this.groupBox3.Controls.Add(this.lbGridPaginas);
+            this.groupBox3.Controls.Add(this.cmdGridUltima);
+            this.groupBox3.Controls.Add(this.cmdGridProxima);
+            this.groupBox3.Controls.Add(this.cmdGridAnterior);
+            this.groupBox3.Controls.Add(this.cmdGridPrimeira);
+            this.groupBox3.Location = new System.Drawing.Point(3, 300);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(908, 46);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Paginação";
+            // 
+            // lbGridTotalRegistros
+            // 
+            this.lbGridTotalRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGridTotalRegistros.Location = new System.Drawing.Point(677, 17);
+            this.lbGridTotalRegistros.Name = "lbGridTotalRegistros";
+            this.lbGridTotalRegistros.Size = new System.Drawing.Size(227, 23);
+            this.lbGridTotalRegistros.TabIndex = 19;
+            this.lbGridTotalRegistros.Text = "Total de registros: 0";
+            this.lbGridTotalRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbGridPaginas
+            // 
+            this.lbGridPaginas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbGridPaginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGridPaginas.Location = new System.Drawing.Point(192, 16);
+            this.lbGridPaginas.Name = "lbGridPaginas";
+            this.lbGridPaginas.Size = new System.Drawing.Size(139, 23);
+            this.lbGridPaginas.TabIndex = 18;
+            this.lbGridPaginas.Text = "Página 1 / 1";
+            this.lbGridPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmdGridUltima
+            // 
+            this.cmdGridUltima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridUltima.Location = new System.Drawing.Point(430, 17);
+            this.cmdGridUltima.Name = "cmdGridUltima";
+            this.cmdGridUltima.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridUltima.TabIndex = 17;
+            this.cmdGridUltima.Text = "Última";
+            this.cmdGridUltima.UseVisualStyleBackColor = true;
+            // 
+            // cmdGridProxima
+            // 
+            this.cmdGridProxima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridProxima.Location = new System.Drawing.Point(337, 17);
+            this.cmdGridProxima.Name = "cmdGridProxima";
+            this.cmdGridProxima.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridProxima.TabIndex = 15;
+            this.cmdGridProxima.Text = "Próxima";
+            this.cmdGridProxima.UseVisualStyleBackColor = true;
+            // 
+            // cmdGridAnterior
+            // 
+            this.cmdGridAnterior.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridAnterior.Location = new System.Drawing.Point(99, 16);
+            this.cmdGridAnterior.Name = "cmdGridAnterior";
+            this.cmdGridAnterior.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridAnterior.TabIndex = 13;
+            this.cmdGridAnterior.Text = "Anterior";
+            this.cmdGridAnterior.UseVisualStyleBackColor = true;
+            // 
+            // cmdGridPrimeira
+            // 
+            this.cmdGridPrimeira.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridPrimeira.Location = new System.Drawing.Point(5, 16);
+            this.cmdGridPrimeira.Name = "cmdGridPrimeira";
+            this.cmdGridPrimeira.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridPrimeira.TabIndex = 12;
+            this.cmdGridPrimeira.Text = "Primeira";
+            this.cmdGridPrimeira.UseVisualStyleBackColor = true;
+            // 
+            // btVisualizar
+            // 
+            this.btVisualizar.Location = new System.Drawing.Point(843, 415);
+            this.btVisualizar.Name = "btVisualizar";
+            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
+            this.btVisualizar.TabIndex = 2;
+            this.btVisualizar.Text = "Visualizar";
+            this.btVisualizar.UseVisualStyleBackColor = true;
+            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
+            // 
+            // btNovo
+            // 
+            this.btNovo.Location = new System.Drawing.Point(4, 415);
+            this.btNovo.Name = "btNovo";
+            this.btNovo.Size = new System.Drawing.Size(75, 23);
+            this.btNovo.TabIndex = 3;
+            this.btNovo.Text = "Nova";
+            this.btNovo.UseVisualStyleBackColor = true;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // gvNFS
             // 
@@ -123,7 +228,6 @@
             this.ValorPago,
             this.Diferenca,
             this.Column2});
-            this.gvNFS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvNFS.Location = new System.Drawing.Point(3, 16);
             this.gvNFS.Name = "gvNFS";
             this.gvNFS.ReadOnly = true;
@@ -195,6 +299,7 @@
             this.Diferenca.HeaderText = "Diferença";
             this.Diferenca.Name = "Diferenca";
             this.Diferenca.ReadOnly = true;
+            this.Diferenca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column2
             // 
@@ -203,31 +308,11 @@
             this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
             // 
-            // btVisualizar
-            // 
-            this.btVisualizar.Location = new System.Drawing.Point(840, 356);
-            this.btVisualizar.Name = "btVisualizar";
-            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
-            this.btVisualizar.TabIndex = 2;
-            this.btVisualizar.Text = "Visualizar";
-            this.btVisualizar.UseVisualStyleBackColor = true;
-            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
-            // 
-            // btNovo
-            // 
-            this.btNovo.Location = new System.Drawing.Point(7, 359);
-            this.btNovo.Name = "btNovo";
-            this.btNovo.Size = new System.Drawing.Size(75, 23);
-            this.btNovo.TabIndex = 3;
-            this.btNovo.Text = "Nova";
-            this.btNovo.UseVisualStyleBackColor = true;
-            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
-            // 
             // NotaFiscalConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 388);
+            this.ClientSize = new System.Drawing.Size(923, 445);
             this.Controls.Add(this.btNovo);
             this.Controls.Add(this.btVisualizar);
             this.Controls.Add(this.groupBox2);
@@ -243,6 +328,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvNFS)).EndInit();
             this.ResumeLayout(false);
 
@@ -258,6 +344,13 @@
         private System.Windows.Forms.Button btVisualizar;
         private System.Windows.Forms.Button btNovo;
         private BRGS.Util.SortedDataGridView gvNFS;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbGridTotalRegistros;
+        private System.Windows.Forms.Label lbGridPaginas;
+        private System.Windows.Forms.Button cmdGridUltima;
+        private System.Windows.Forms.Button cmdGridProxima;
+        private System.Windows.Forms.Button cmdGridAnterior;
+        private System.Windows.Forms.Button cmdGridPrimeira;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEmpresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

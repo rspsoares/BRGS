@@ -44,6 +44,9 @@ namespace BRGS.Util
 
         protected override void OnColumnHeaderMouseClick(DataGridViewCellMouseEventArgs e)
 		{
+			if(Columns[e.ColumnIndex].SortMode == DataGridViewColumnSortMode.NotSortable)
+				return;
+
 			_columnSorter.SetSortColumn(e.ColumnIndex, ModifierKeys);
 
 			Sort(_columnSorter);

@@ -98,7 +98,7 @@ namespace BRGS.Util
             else if (_grid.Name == "gvManutencoes" && colunaSelecionada == 1)
                 colunaRedirecionada = 0;
             else if (_grid.Name == "gvManutencoes" && colunaSelecionada == 7)
-                colunaRedirecionada = 6;
+                colunaRedirecionada = 6;            
 
             return new SortColDefn(colunaRedirecionada, colunaSelecionada, _grid.Columns[colunaSelecionada].HeaderCell.SortGlyphDirection);
         }

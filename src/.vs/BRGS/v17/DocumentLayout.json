@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\_Rodrigo\\BRGS\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\notafiscalconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\notafiscalconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\fretemanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\fretemanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\biznotafiscal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\biznotafiscal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizempresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizempresa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\notafiscalmanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\notafiscalmanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|c:\\_rodrigo\\brgs\\src\\brgs.util\\grid\\sorteddatagridview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|solutionrelative:brgs.util\\grid\\sorteddatagridview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|c:\\_rodrigo\\brgs\\src\\brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57942519-D461-4BCE-AA20-DDB5DD599612}|BRGS.Util\\BRGS.Util.csproj|solutionrelative:brgs.util\\grid\\datagridcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\notafiscalconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\notafiscalconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,23 +33,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 2300,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 1234,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrdemPagamentoRelatorio.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "RelativeToolTip": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAiwBABAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T14:41:45.18Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -60,70 +46,86 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FreteManutencao.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\FreteManutencao.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\FreteManutencao.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\FreteManutencao.cs",
-              "RelativeToolTip": "BRGS.UI\\FreteManutencao.cs",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAlwA0BAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T21:29:43.398Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BIZEmpresa.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpresa.cs",
-              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZEmpresa.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpresa.cs",
-              "RelativeToolTip": "BRGS.BIZ\\BIZEmpresa.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAFkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T18:15:55.058Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BIZObra.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
-              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZObra.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
-              "RelativeToolTip": "BRGS.BIZ\\BIZObra.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAC4AAAAIAAAAAAAAAA==",
+              "Title": "NotaFiscalManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\NotaFiscalManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\NotaFiscalManutencao.cs",
+              "ViewState": "AgIAANAAAAAAAAAAAAAuwNUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T14:41:45.165Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 519,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SortedDataGridView.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
-              "RelativeDocumentMoniker": "BRGS.Util\\Grid\\SortedDataGridView.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
-              "RelativeToolTip": "BRGS.Util\\Grid\\SortedDataGridView.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwEwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T09:46:12.287Z",
+              "WhenOpened": "2026-02-25T10:47:09.271Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "NotaFiscalConsulta.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalConsulta.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\NotaFiscalConsulta.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalConsulta.cs",
+              "RelativeToolTip": "BRGS.UI\\NotaFiscalConsulta.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAkwMwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T08:15:53.461Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 2047,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SortedDataGridView.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
+              "RelativeDocumentMoniker": "BRGS.Util\\Grid\\SortedDataGridView.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\SortedDataGridView.cs",
+              "RelativeToolTip": "BRGS.Util\\Grid\\SortedDataGridView.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswC4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T18:05:01.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NotaFiscalConsulta.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalConsulta.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\NotaFiscalConsulta.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\NotaFiscalConsulta.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\NotaFiscalConsulta.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T18:00:01.795Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DataGridComparer.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\DataGridComparer.cs",
               "RelativeDocumentMoniker": "BRGS.Util\\Grid\\DataGridComparer.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Util\\Grid\\DataGridComparer.cs",
               "RelativeToolTip": "BRGS.Util\\Grid\\DataGridComparer.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAQwJ4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T09:46:48.406Z"
+              "WhenOpened": "2026-02-25T17:32:42.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BIZNotaFiscal.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZNotaFiscal.cs",
+              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZNotaFiscal.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZNotaFiscal.cs",
+              "RelativeToolTip": "BRGS.BIZ\\BIZNotaFiscal.cs",
+              "ViewState": "AgIAABEBAAAAAAAAAAAUwBcBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T08:15:53.429Z",
+              "EditorCaption": ""
             }
           ]
         }

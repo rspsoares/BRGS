@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using BRGS.Entity;
-using System.Data;
+﻿using BRGS.Entity;
 using BRGS.Util;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Text;
 
 namespace BRGS.BIZ
 {
@@ -79,6 +81,78 @@ namespace BRGS.BIZ
             lstParametros.Add("@UnitTest", notaFiscal.UnitTest.Equals(0) ? null : notaFiscal.UnitTest.ToString());
 
             return lstParametros;
+        }
+
+        private string PrepararFiltroGrid(NotaFiscal notaFiscal)
+        {
+            var sbFiltro = new StringBuilder();
+            sbFiltro.Append("1 = 1 AND");
+
+            if (!string.IsNullOrEmpty(notaFiscal.CNPJ))
+                sbFiltro.Append($" C.CPF_CNPJ = '{notaFiscal.CNPJ}' AND");
+
+            if (!notaFiscal.dataEmissao.Equals(DateTime.MinValue))
+                sbFiltro.Append($" NF.DataEmissao = CONVERT(DATETIME, '{notaFiscal.dataEmissao.Date.ToString()}', 103) AND");
+
+            if (!string.IsNullOrEmpty(notaFiscal.Nome))
+                sbFiltro.Append($" C.Nome LIKE '%{notaFiscal.Nome}%' AND");
+
+            if (!string.IsNullOrEmpty(notaFiscal.Empenho))
+                sbFiltro.Append($" NF.Empenho LIKE '%{notaFiscal.Empenho}%' AND");
+
+            return sbFiltro
+                .ToString()                
+                .Substring(0, sbFiltro.ToString().Length - 3)
+                .Trim();
+        }
+
+        private string PrepararSelectGridNotaFiscal(string filtro, string sort, int take, int skip)
+        {
+            var sql = new StringBuilder()
+                .AppendLine("WITH PG AS ( ")
+                .AppendLine("SELECT idNota ")
+                .AppendLine("FROM NotasFiscais (NOLOCK) NF ")
+                .AppendLine("INNER JOIN Empresas (NOLOCK) E on NF.idEmpresa = E.idEmpresa ")
+                .AppendLine("LEFT JOIN Clientes (NOLOCK) C ON C.idCliente = NF.idCliente ")
+                .AppendLine($"WHERE {filtro} ")
+                .AppendLine($"ORDER BY {sort} OFFSET {skip} ROWS FETCH NEXT {take} ROWS ONLY ")
+                .AppendLine(")")
+                .AppendLine("SELECT ")
+                .AppendLine(" NF.idNota ")
+                .AppendLine(" ,CASE NF.TipoNota ")
+                .AppendLine(" WHEN 1 THEN 'Locação' ")
+                .AppendLine(" WHEN 2 THEN 'Serviço' ")
+                .AppendLine("WHEN 3 THEN 'Venda' END AS 'DescricaoTipoNota' ")
+                .AppendLine(",NF.NumeroNota ")
+                .AppendLine(",NF.DataEmissao ")
+                .AppendLine(",NF.idEmpresa ")
+                .AppendLine(",E.RazaoSocial ")
+                .AppendLine(",NF.ValorNota ")
+                .AppendLine(" ,C.Nome AS 'NomeCliente' ")
+                .AppendLine(",NF.Empenho ")
+                .AppendLine(",NF.DataPagamento ")
+                .AppendLine(",NF.ValorPago ")
+                .AppendLine(",NF.Cancelado ")
+                .AppendLine("FROM NotasFiscais (NOLOCK) NF ")
+                .AppendLine("INNER JOIN Empresas (NOLOCK) E on NF.idEmpresa = E.idEmpresa ")
+                .AppendLine("LEFT JOIN Clientes (NOLOCK) C ON C.idCliente = NF.idCliente ")
+                .AppendLine("WHERE EXISTS (SELECT 1 FROM PG WHERE PG.idNota = NF.idNota) ")
+                .AppendLine($"ORDER BY {sort} ")
+                .AppendLine("OPTION (RECOMPILE)");
+            
+            return sql.ToString();
+        }
+
+        private string PrepararSelectContador(string filtro)
+        {
+            var sql = new StringBuilder()
+                .AppendLine("SELECT COUNT(NF.idNota) AS 'Qtd' ")
+                .AppendLine("FROM NotasFiscais (NOLOCK) NF ")
+                .AppendLine("INNER JOIN Empresas (NOLOCK) E on NF.idEmpresa = E.idEmpresa ")
+                .AppendLine("LEFT JOIN Clientes (NOLOCK) C ON C.idCliente = NF.idCliente ")
+                .AppendLine($"WHERE {filtro}");
+
+            return sql.ToString();
         }
 
         private string ValidarCamposObrigatorios(NotaFiscal notaFiscal, bool inclusao)
@@ -180,6 +254,79 @@ namespace BRGS.BIZ
             }
 
             return existeNF;
+        }
+
+        public List<NotaFiscal> GridNotaFiscal(NotaFiscal notaFiscal, int take, int skip, string sort, out int totalPages)
+        {
+            var dao = new DataAccess();
+            var lstNF = new List<NotaFiscal>();
+            var parametros = new Dictionary<string, string>();
+            totalPages = 0;
+            
+            try
+            {
+                var filtro = PrepararFiltroGrid(notaFiscal);
+
+                var sqlContador = PrepararSelectContador(filtro);
+                parametros = new Dictionary<string, string>
+                {
+                    { "@SQL", sqlContador }
+                };
+
+                using (DataSet ds = dao.Pesquisar("SP_BRGS_GRID", parametros))
+                {
+                    var dr = ds.Tables[0].Rows[0];
+                    totalPages = int.Parse(dr["Qtd"].ToString());
+                }
+
+                var sqlGrid = PrepararSelectGridNotaFiscal(filtro, sort, take, skip);
+                parametros = new Dictionary<string, string>
+                {
+                    { "@SQL", sqlGrid }
+                };                
+
+                using (DataSet ds = dao.Pesquisar("SP_BRGS_GRID", parametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        var nf = new NotaFiscal
+                        {
+                            idNota = int.Parse(dr["idNota"].ToString()),
+                            descTipoNota = dr["DescricaoTipoNota"].ToString(),
+                            numeroNota = int.Parse(dr["NumeroNota"].ToString()),
+                            idEmpresa = int.Parse(dr["idEmpresa"].ToString()),
+                            nomeEmpresa = dr["RazaoSocial"].ToString(),
+                            dataEmissao = DateTime.Parse(dr["DataEmissao"].ToString()),
+                            valorNota = decimal.Parse(dr["ValorNota"].ToString()),
+                            Nome = dr["NomeCliente"].ToString(),
+                            Empenho = dr["Empenho"].ToString(),
+                            dataPagamento = DateTime.Parse(dr["DataPagamento"].ToString()),
+                            valorPago = decimal.Parse(dr["ValorPago"].ToString()),
+                            Cancelado = int.Parse(dr["Cancelado"].ToString())
+                        };                        
+
+                        lstNF.Add(nf);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(parametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_NOTASFISCAIS_GRID",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstNF;
         }
 
         public List<NotaFiscal> PesquisarNotaFiscal(NotaFiscal notaFiscal)
