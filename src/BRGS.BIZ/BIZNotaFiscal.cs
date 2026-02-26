@@ -108,15 +108,7 @@ namespace BRGS.BIZ
 
         private string PrepararSelectGridNotaFiscal(string filtro, string sort, int take, int skip)
         {
-            var sql = new StringBuilder()
-                .AppendLine("WITH PG AS ( ")
-                .AppendLine("SELECT idNota ")
-                .AppendLine("FROM NotasFiscais (NOLOCK) NF ")
-                .AppendLine("INNER JOIN Empresas (NOLOCK) E on NF.idEmpresa = E.idEmpresa ")
-                .AppendLine("LEFT JOIN Clientes (NOLOCK) C ON C.idCliente = NF.idCliente ")
-                .AppendLine($"WHERE {filtro} ")
-                .AppendLine($"ORDER BY {sort} OFFSET {skip} ROWS FETCH NEXT {take} ROWS ONLY ")
-                .AppendLine(")")
+            var sql = new StringBuilder()                
                 .AppendLine("SELECT ")
                 .AppendLine(" NF.idNota ")
                 .AppendLine(" ,CASE NF.TipoNota ")
@@ -136,10 +128,11 @@ namespace BRGS.BIZ
                 .AppendLine("FROM NotasFiscais (NOLOCK) NF ")
                 .AppendLine("INNER JOIN Empresas (NOLOCK) E on NF.idEmpresa = E.idEmpresa ")
                 .AppendLine("LEFT JOIN Clientes (NOLOCK) C ON C.idCliente = NF.idCliente ")
-                .AppendLine("WHERE EXISTS (SELECT 1 FROM PG WHERE PG.idNota = NF.idNota) ")
+                .AppendLine($"WHERE {filtro} ")
                 .AppendLine($"ORDER BY {sort} ")
-                .AppendLine("OPTION (RECOMPILE)");
-            
+                .AppendLine($"OFFSET {skip} ROWS ")
+                .AppendLine($"FETCH NEXT {take} ROWS ONLY");
+
             return sql.ToString();
         }
 
@@ -256,15 +249,22 @@ namespace BRGS.BIZ
             return existeNF;
         }
 
-        public List<NotaFiscal> GridNotaFiscal(NotaFiscal notaFiscal, int take, int skip, string sort, out int totalPages)
+        public List<NotaFiscal> GridNotaFiscal(NotaFiscal notaFiscal, int take, int skip, string sort, out int totalLines, out int currentPage, out int totalPages)
         {
             var dao = new DataAccess();
             var lstNF = new List<NotaFiscal>();
             var parametros = new Dictionary<string, string>();
+            totalLines = 0;
+            
             totalPages = 0;
             
             try
             {
+                var currPage = (decimal)skip / take;
+                currentPage = currPage > 0
+                    ? (int)Math.Ceiling(currPage) + 1
+                    : 1;
+             
                 var filtro = PrepararFiltroGrid(notaFiscal);
 
                 var sqlContador = PrepararSelectContador(filtro);
@@ -276,8 +276,10 @@ namespace BRGS.BIZ
                 using (DataSet ds = dao.Pesquisar("SP_BRGS_GRID", parametros))
                 {
                     var dr = ds.Tables[0].Rows[0];
-                    totalPages = int.Parse(dr["Qtd"].ToString());
+                    totalLines = int.Parse(dr["Qtd"].ToString());
                 }
+
+                totalPages = (int)Math.Ceiling(totalLines / (double)take);
 
                 var sqlGrid = PrepararSelectGridNotaFiscal(filtro, sort, take, skip);
                 parametros = new Dictionary<string, string>

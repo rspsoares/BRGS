@@ -37,6 +37,17 @@ namespace BRGS.UI
 
         private void btPesquisar_Click(object sender, EventArgs e)
         {
+            PesquisarGrid();
+        }
+
+        private void PesquisarGrid(bool isPaginacao = false)
+        {
+            if (!isPaginacao)
+            {
+                _pagination.Skip = 0;
+                _pagination.Take = 10;
+            }
+
             if (cbPesquisaCampo.FindStringExact(cbPesquisaCampo.Text) != -1)
             {
                 NotaFiscal nfsFiltro = new NotaFiscal();
@@ -51,6 +62,18 @@ namespace BRGS.UI
                 MessageBox.Show("Campo para o filtro de pesquisa inválido. Favor verificar.", "Opção inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+        private void AtualizarInfoPaginacao(int currentPage, int totalPages, int totalLines)
+        {
+            lbGridTotalRegistros.Text = $"Total de registros: {totalLines}";
+            lbGridPaginas.Text = $"Página {currentPage} / {totalPages}";
+
+            cmdGridPrimeira.Enabled = currentPage > 1;
+            cmdGridAnterior.Enabled = currentPage > 1;
+
+            cmdGridProxima.Enabled = currentPage < totalPages;
+            cmdGridUltima.Enabled = currentPage < totalPages;
+        }
+
         private void CarregarGrid(NotaFiscal nfsFiltro)
         {
             List<NotaFiscal> lstNFS = new List<NotaFiscal>();           
@@ -58,13 +81,12 @@ namespace BRGS.UI
             this.Cursor = Cursors.WaitCursor;
 
             try
-            {
-                //lstNFS = bizNotaFiscal.PesquisarNotaFiscal(nfsFiltro);
-                //.OrderBy(nfs => nfs.numeroNota).ToList();
+            {   
+                lstNFS = bizNotaFiscal.GridNotaFiscal(nfsFiltro, _pagination.Take, _pagination.Skip, _pagination.Sort, out int totalLines, out int currentPage, out int totalPages);
 
-                lstNFS = bizNotaFiscal.GridNotaFiscal(nfsFiltro, _pagination.Take, _pagination.Skip, _pagination.Sort, out int totalPages);
+                _pagination.TotalLines = totalLines;
 
-                _pagination.TotalPages = totalPages;
+                AtualizarInfoPaginacao(currentPage, totalPages, totalLines);
 
                 LimparGrid();
 
@@ -201,16 +223,7 @@ namespace BRGS.UI
         }
 
         private void gvNFS_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex == 9)                
-            {
-                ((SortedDataGridView)sender)
-                    .Columns[e.ColumnIndex]
-                    .HeaderCell
-                    .SortGlyphDirection = System.Windows.Forms.SortOrder.None;
-                return;
-            }
-                
+        {       
             var field = (GridColumns)Enum.Parse(typeof(GridColumns), e.ColumnIndex.ToString());
 
             var direction = ((SortedDataGridView)sender)
@@ -222,16 +235,40 @@ namespace BRGS.UI
 
             _pagination.Sort = $"{field} {direction}";
 
-            btPesquisar_Click(null, null);
-        }       
+            PesquisarGrid();            
+        }
+
+        private void cmdGridPrimeira_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip = 0;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridAnterior_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip -= _pagination.Take;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridProxima_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip += _pagination.Take;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridUltima_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip = _pagination.TotalLines - _pagination.Take;
+            PesquisarGrid(true);
+        }
     }
 
     class GridPagination
     {
         public int Take { get; set; }
         public int Skip { get; set; }
-        public string Sort { get; set; }
-        public int TotalPages { get; set; }
+        public int TotalLines { get; set; }
+        public string Sort { get; set; }        
     }
 
     enum GridColumns
