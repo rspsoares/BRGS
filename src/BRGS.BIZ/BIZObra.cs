@@ -296,7 +296,7 @@ namespace BRGS.BIZ
                         obraEtapaItem.UnitTest = int.Parse(dr["UnitTest"].ToString());
                         //obraEtapaItem.lstPlanejamentos = this.PesquisarPlanejamento(new ObraEtapaPlanejamento() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
 
-                        if (obraEtapa.idObraEtapa != 0)
+                        if (obraEtapa.idObraEtapa != 0 || obraEtapa.idObra != 0)
                         {
                             obraEtapaItem.lstGastosPrevistos = this.PesquisarGastosPrevistos(new ObraEtapaGastoPrevisto() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });
                             obraEtapaItem.lstGastosRealizados = this.PesquisarGastosRealizados(new ObraEtapaGastoRealizado() { idObraEtapa = obraEtapaItem.idObraEtapa, UnitTest = obraEtapa.UnitTest });

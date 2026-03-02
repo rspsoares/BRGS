@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\_Rodrigo\\BRGS\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\obraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\obramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,6 +31,57 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 858,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ObraConsulta.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraConsulta.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\ObraConsulta.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraConsulta.cs",
+              "RelativeToolTip": "BRGS.UI\\ObraConsulta.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAwHoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:07:43.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ObraManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\ObraManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\ObraManutencao.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAA1wMUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T09:46:27.605Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 3697,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BIZObra.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
+              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZObra.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
+              "RelativeToolTip": "BRGS.BIZ\\BIZObra.cs",
+              "ViewState": "AgIAABoBAAAAAAAAAAAIwB8BAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T09:46:27.644Z",
+              "EditorCaption": ""
             }
           ]
         }
