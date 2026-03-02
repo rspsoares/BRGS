@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BRGS.Entity;
+using BRGS.Entity.DTO;
+using BRGS.Util;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using BRGS.Entity;
-using BRGS.Entity.DTO;
-using BRGS.Util;
+using System.Text;
 
 namespace BRGS.BIZ
 {
@@ -102,6 +103,154 @@ namespace BRGS.BIZ
             lstParametros.Add("@idCentroCusto", ordemPagamentoItem.idCentroCusto.Equals(0) ? null : ordemPagamentoItem.idCentroCusto.ToString());            
             lstParametros.Add("@idDespesa", ordemPagamentoItem.idDespesa.Equals(0) ? null : ordemPagamentoItem.idDespesa.ToString());            
             return lstParametros;
+        }
+
+        private string PrepararFiltroGrid(OrdemPagamento op)
+        {
+            var sbFiltro = new StringBuilder();
+            sbFiltro.Append("1 = 1 AND");
+
+            if (!string.IsNullOrEmpty(op.razaoSocial))
+                sbFiltro.Append($" E.RazaoSocial LIKE '%{op.razaoSocial}%' AND");
+
+            if (!string.IsNullOrEmpty(op.numeroOP))
+                sbFiltro.Append($" OP.NumeroOP LIKE '%{op.numeroOP}%' AND");
+
+            if (!string.IsNullOrEmpty(op.nomeFavorecido))
+                sbFiltro.Append($" F.Nome LIKE '%{op.nomeFavorecido}%' AND");
+
+            if (!op.dataPagamentoParcela.Equals(DateTime.MinValue))
+                sbFiltro.Append($" OPI.DataPagamento = CONVERT(DATETIME, '{op.dataPagamentoParcela.Date.ToString()}', 103) AND");
+
+            if (!op.dataVencimentoParcela.Equals(DateTime.MinValue))
+                sbFiltro.Append($" OPI.DataVencimento = CONVERT(DATETIME, '{op.dataVencimentoParcela.Date.ToString()}', 103) AND");
+
+            if (!string.IsNullOrEmpty(op.Status))
+                sbFiltro.Append($" OP.Status LIKE '%{op.Status}%' AND");
+
+            if (!string.IsNullOrEmpty(op.Observacao))
+                sbFiltro.Append($" OP.Observacao LIKE '%{op.Observacao}%' AND");
+
+            return sbFiltro
+                .ToString()
+                .Substring(0, sbFiltro.ToString().Length - 3)
+                .Trim();
+        }
+
+        private string ScriptConsultaBase(string filtro)
+        {
+            var sql = new StringBuilder()
+                .AppendLine("SELECT DISTINCT ")
+                .AppendLine("OP.idOrdemPagamento ")
+                .AppendLine(",OP.NumeroOP ")
+                .AppendLine(",E.RazaoSocial ")
+                .AppendLine(",C.Nome AS 'NomeCliente' ")
+                .AppendLine(",O.NomeEvento ")
+                .AppendLine(",F.Nome AS 'NomeFavorecido' ")
+                .AppendLine(",(SELECT SUM(OPI.Valor) from OrdemPagamentoItens OPI where OPI.idOrdemPagamento = OP.idOrdemPagamento) as 'ValorTotal' ")
+                .AppendLine(",OP.Status ")
+                .AppendLine(",OP.Observacao ")
+                .AppendLine(",(SELECT MAX(OPI.DataPagamento) from OrdemPagamentoItens OPI where OPI.idOrdemPagamento = OP.idOrdemPagamento) as 'DataPagamentoParcela' ")
+                .AppendLine(",(SELECT isnull(MIN(OPI.DataVencimento),'1753-01-01 00:00:00.000') FROM OrdemPagamentoItens OPI where OPI.idOrdemPagamento = OP.idOrdemPagamento AND OPI.DataPagamento = '1753-01-01 00:00:00.000') AS 'dataVencimentoParcela' ")
+                .AppendLine("FROM OrdemPagamento OP ")
+                .AppendLine("INNER JOIN Fornecedores F on OP.idFavorecido = F.idFornecedor ")
+                .AppendLine("LEFT JOIN ObrasEtapas O on OP.idObraEtapa = O.idObraEtapa ")
+                .AppendLine("LEFT JOIN Clientes C on O.idCliente = C.idCliente ")
+                .AppendLine("INNER JOIN Empresas E on OP.idEmpresa = E.idEmpresa ")
+                .AppendLine("INNER JOIN OrdemPagamentoItens OPI ON OP.idOrdemPagamento = OPI.idOrdemPagamento ")
+                .AppendLine($"WHERE {filtro} ");
+
+            return sql.ToString();
+        }
+
+        private string PrepararSelectGridOP(string consultaBase, string sort, int take, int skip)
+        {
+            var sql = new StringBuilder()                 
+                 .AppendLine($"{consultaBase} ")
+                 .AppendLine($"ORDER BY {sort} ")
+                 .AppendLine($"OFFSET {skip} ROWS ")
+                 .AppendLine($"FETCH NEXT {take} ROWS ONLY");
+
+            return sql.ToString();
+        }
+
+        private string PrepararSelectContador(string sqlConsultaBase)
+        {
+            var sql = new StringBuilder()
+                .AppendLine("SELECT COUNT(1) as 'Qtd' FROM (")
+                .AppendLine($"{sqlConsultaBase}")
+                .AppendLine(") T");
+
+            return sql.ToString();
+        }
+
+        public List<OrdemPagamento> GridOrdemPagamento(OrdemPagamento op, int take, int skip, string sort, out int totalLines, out int currentPage, out int totalPages)
+        {
+            var dao = new DataAccess();
+            var lstOPs = new List<OrdemPagamento>();
+            var parametros = new Dictionary<string, string>();
+            dynamic lst = new List<OrdemPagamento>();
+
+            totalLines = 0;
+            totalPages = 0;
+
+            try
+            {
+                var currPage = (decimal)skip / take;
+                currentPage = currPage > 0
+                    ? (int)Math.Ceiling(currPage) + 1
+                    : 1;
+
+                var filtro = PrepararFiltroGrid(op);
+
+                var sqlConsultaBase = ScriptConsultaBase(filtro);
+
+                var sqlContador = PrepararSelectContador(sqlConsultaBase);
+                parametros = new Dictionary<string, string>
+                {
+                    { "@SQL", sqlContador }
+                };
+
+                using (DataSet ds = dao.Pesquisar("SP_BRGS_GRID", parametros))
+                {
+                    var dr = ds.Tables[0].Rows[0];
+                    totalLines = int.Parse(dr["Qtd"].ToString());
+                }
+
+                totalPages = (int)Math.Ceiling(totalLines / (double)take);
+
+                var sqlGrid = PrepararSelectGridOP(sqlConsultaBase, sort, take, skip);
+                parametros = new Dictionary<string, string>
+                {
+                    { "@SQL", sqlGrid }
+                };
+
+                using (DataSet ds = dao.Pesquisar("SP_BRGS_GRID", parametros))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamento>()
+                          select f;
+                }
+
+                lstOPs.AddRange(lst);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(parametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_BRGS_GRID",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstOPs;
         }
 
         public List<OrdemPagamento> PesquisarOrdemPagamento(OrdemPagamento ordemPagamento)

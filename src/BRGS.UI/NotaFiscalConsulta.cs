@@ -261,25 +261,25 @@ namespace BRGS.UI
             _pagination.Skip = _pagination.TotalLines - _pagination.Take;
             PesquisarGrid(true);
         }
-    }
+        
+        private class GridPagination
+        {
+            public int Take { get; set; }
+            public int Skip { get; set; }
+            public int TotalLines { get; set; }
+            public string Sort { get; set; }
+        }
 
-    class GridPagination
-    {
-        public int Take { get; set; }
-        public int Skip { get; set; }
-        public int TotalLines { get; set; }
-        public string Sort { get; set; }        
-    }
-
-    enum GridColumns
-    {
-        RazaoSocial = 1,
-        TipoNota = 2,
-        NumeroNota = 3,
-        DataEmissao = 4,
-        NomeCliente = 5,
-        Empenho = 6,
-        ValorNota = 7,
-        ValorPago = 8
-    }
+        private enum GridColumns
+        {
+            RazaoSocial = 1,
+            TipoNota = 2,
+            NumeroNota = 3,
+            DataEmissao = 4,
+            NomeCliente = 5,
+            Empenho = 6,
+            ValorNota = 7,
+            ValorPago = 8
+        }
+    }   
 }

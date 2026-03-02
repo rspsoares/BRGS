@@ -254,8 +254,8 @@ namespace BRGS.BIZ
             var dao = new DataAccess();
             var lstNF = new List<NotaFiscal>();
             var parametros = new Dictionary<string, string>();
-            totalLines = 0;
             
+            totalLines = 0;            
             totalPages = 0;
             
             try
@@ -318,7 +318,7 @@ namespace BRGS.BIZ
 
                 LogErro log = new LogErro()
                 {
-                    procedureSQL = "SP_NOTASFISCAIS_GRID",
+                    procedureSQL = "SP_BRGS_GRID",
                     parametrosSQL = parametrosSQL,
                     mensagemErro = ex.ToString()
                 };

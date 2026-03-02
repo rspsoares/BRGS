@@ -18,6 +18,7 @@ namespace BRGS.UI
         private HelperUI helperUI = new HelperUI();
         private BIZLogErro bizLogErro = new BIZLogErro();
         private BIZParametrizacao bizParametrizacao = new BIZParametrizacao();
+        private GridPagination _pagination = new GridPagination();
 
         public OrdemPagamentoConsulta()
         {
@@ -38,6 +39,17 @@ namespace BRGS.UI
 
         private void btPesquisar_Click(object sender, EventArgs e)
         {
+            PesquisarGrid();
+        }
+
+        private void PesquisarGrid(bool isPaginacao = false)
+        {
+            if (!isPaginacao)
+            {
+                _pagination.Skip = 0;
+                _pagination.Take = 10;
+            }
+
             if (cbPesquisaCampo.FindStringExact(cbPesquisaCampo.Text) != -1)
             {
                 OrdemPagamento ordemPagamentoFiltro = new OrdemPagamento();
@@ -50,6 +62,7 @@ namespace BRGS.UI
             }
             else
                 MessageBox.Show("Campo para o filtro de pesquisa inválido. Favor verificar.", "Opção inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        
         }
 
         private void CarregarGrid(OrdemPagamento ordemPagamentoFiltro)
@@ -60,8 +73,12 @@ namespace BRGS.UI
 
             try
             {
-                lstOrdemPagamento = bizOP.PesquisarOrdemPagamento(ordemPagamentoFiltro).OrderBy(op => op.razaoSocial).ToList();
-                
+                lstOrdemPagamento = bizOP.GridOrdemPagamento(ordemPagamentoFiltro, _pagination.Take, _pagination.Skip, _pagination.Sort, out int totalLines, out int currentPage, out int totalPages);
+
+                _pagination.TotalLines = totalLines;
+
+                AtualizarInfoPaginacao(currentPage, totalPages, totalLines);
+
                 LimparGrid();
 
                 gvOrdensPagamentos.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -71,12 +88,12 @@ namespace BRGS.UI
                 {   
                     gvOrdensPagamentos.Rows.Add(new object[] 
                     {
-                        itemOrdemPagamento.idOrdemPagamento,          
+                        itemOrdemPagamento.idOrdemPagamento,
                         itemOrdemPagamento.numeroOP,
-                        itemOrdemPagamento.razaoSocial,   
+                        itemOrdemPagamento.razaoSocial,
                         itemOrdemPagamento.nomeCliente,
-                        itemOrdemPagamento.nomeEvento,                     
-                        itemOrdemPagamento.nomeFavorecido,                                                                         
+                        itemOrdemPagamento.nomeEvento,
+                        itemOrdemPagamento.nomeFavorecido,
                         itemOrdemPagamento.valorTotal,
                         itemOrdemPagamento.Status,
                         itemOrdemPagamento.Status == "PAGA" ? itemOrdemPagamento.dataPagamentoParcela: (DateTime?)null,
@@ -97,6 +114,18 @@ namespace BRGS.UI
             }
 
             this.Cursor = Cursors.Default;
+        }
+
+        private void AtualizarInfoPaginacao(int currentPage, int totalPages, int totalLines)
+        {
+            lbGridTotalRegistros.Text = $"Total de registros: {totalLines}";
+            lbGridPaginas.Text = $"Página {currentPage} / {totalPages}";
+
+            cmdGridPrimeira.Enabled = currentPage > 1;
+            cmdGridAnterior.Enabled = currentPage > 1;
+
+            cmdGridProxima.Enabled = currentPage < totalPages;
+            cmdGridUltima.Enabled = currentPage < totalPages;
         }
 
         private void LimparGrid()
@@ -178,6 +207,11 @@ namespace BRGS.UI
             try
             {
                 helper.VerificaPermissaoAcessoObjetos(this, UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name).ToList());
+
+                _pagination.Skip = 0;
+                _pagination.Take = 10;
+                _pagination.Sort = "E.RazaoSocial ASC";
+
                 CarregarCamposPesquisa();
             }
             catch (Exception ex)
@@ -192,5 +226,66 @@ namespace BRGS.UI
                 bizLogErro.IncluirLogErro(logErro);
             }
         }       
-    }
+ 
+        private void gvOrdensPagamentos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var field = (GridColumns)Enum.Parse(typeof(GridColumns), e.ColumnIndex.ToString());
+
+            var direction = ((SortedDataGridView)sender)
+                .Columns[e.ColumnIndex]
+                .HeaderCell
+                .SortGlyphDirection == System.Windows.Forms.SortOrder.Ascending
+                ? "ASC"
+                : "DESC";
+
+            _pagination.Sort = $"{field} {direction}";
+
+            PesquisarGrid();
+        }
+
+        private void cmdGridPrimeira_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip = 0;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridAnterior_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip -= _pagination.Take;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridProxima_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip += _pagination.Take;
+            PesquisarGrid(true);
+        }
+
+        private void cmdGridUltima_Click(object sender, EventArgs e)
+        {
+            _pagination.Skip = _pagination.TotalLines - _pagination.Take;
+            PesquisarGrid(true);
+        }
+
+        private class GridPagination
+        {
+            public int Take { get; set; }
+            public int Skip { get; set; }
+            public int TotalLines { get; set; }
+            public string Sort { get; set; }
+        }
+
+        private enum GridColumns
+        {
+            NumeroOP = 1,
+            RazaoSocial = 2,
+            NomeCliente = 3,
+            NomeEvento = 4,
+            NomeFavorecido = 5,
+            ValorTotal = 6,
+            Status = 7,
+            DataPagamentoParcela = 8,
+            Observacao = 9
+        }
+    }   
 }

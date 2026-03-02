@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btNova = new System.Windows.Forms.Button();
             this.btVisualizar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,14 +49,22 @@
             this.btPesquisar = new System.Windows.Forms.Button();
             this.cbPesquisaCampo = new System.Windows.Forms.ComboBox();
             this.tbPesquisaValor = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbGridTotalRegistros = new System.Windows.Forms.Label();
+            this.lbGridPaginas = new System.Windows.Forms.Label();
+            this.cmdGridUltima = new System.Windows.Forms.Button();
+            this.cmdGridProxima = new System.Windows.Forms.Button();
+            this.cmdGridAnterior = new System.Windows.Forms.Button();
+            this.cmdGridPrimeira = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvOrdensPagamentos)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btNova
             // 
-            this.btNova.Location = new System.Drawing.Point(6, 360);
+            this.btNova.Location = new System.Drawing.Point(6, 384);
             this.btNova.Name = "btNova";
             this.btNova.Size = new System.Drawing.Size(75, 23);
             this.btNova.TabIndex = 11;
@@ -66,7 +74,7 @@
             // 
             // btVisualizar
             // 
-            this.btVisualizar.Location = new System.Drawing.Point(1029, 360);
+            this.btVisualizar.Location = new System.Drawing.Point(1032, 384);
             this.btVisualizar.Name = "btVisualizar";
             this.btVisualizar.Size = new System.Drawing.Size(75, 23);
             this.btVisualizar.TabIndex = 10;
@@ -79,7 +87,7 @@
             this.groupBox2.Controls.Add(this.gvOrdensPagamentos);
             this.groupBox2.Location = new System.Drawing.Point(3, 57);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1104, 297);
+            this.groupBox2.Size = new System.Drawing.Size(1104, 269);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             // 
@@ -88,8 +96,8 @@
             this.gvOrdensPagamentos.AllowUserToAddRows = false;
             this.gvOrdensPagamentos.AllowUserToDeleteRows = false;
             this.gvOrdensPagamentos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvOrdensPagamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvOrdensPagamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gvOrdensPagamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvOrdensPagamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idOrdemPagamento,
@@ -109,8 +117,9 @@
             this.gvOrdensPagamentos.ReadOnly = true;
             this.gvOrdensPagamentos.RowHeadersVisible = false;
             this.gvOrdensPagamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvOrdensPagamentos.Size = new System.Drawing.Size(1098, 278);
+            this.gvOrdensPagamentos.Size = new System.Drawing.Size(1098, 250);
             this.gvOrdensPagamentos.TabIndex = 0;
+            this.gvOrdensPagamentos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvOrdensPagamentos_ColumnHeaderMouseClick);
             this.gvOrdensPagamentos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gvOrdensPagamentos_MouseDoubleClick);
             // 
             // idOrdemPagamento
@@ -162,9 +171,9 @@
             // Evento
             // 
             this.Evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Evento.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Evento.DefaultCellStyle = dataGridViewCellStyle4;
             this.Evento.HeaderText = "Valor";
             this.Evento.Name = "Evento";
             this.Evento.ReadOnly = true;
@@ -240,11 +249,96 @@
             this.tbPesquisaValor.TabIndex = 1;
             this.tbPesquisaValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPesquisaValor_KeyDown);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbGridTotalRegistros);
+            this.groupBox3.Controls.Add(this.lbGridPaginas);
+            this.groupBox3.Controls.Add(this.cmdGridUltima);
+            this.groupBox3.Controls.Add(this.cmdGridProxima);
+            this.groupBox3.Controls.Add(this.cmdGridAnterior);
+            this.groupBox3.Controls.Add(this.cmdGridPrimeira);
+            this.groupBox3.Location = new System.Drawing.Point(6, 332);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1101, 46);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Paginação";
+            // 
+            // lbGridTotalRegistros
+            // 
+            this.lbGridTotalRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGridTotalRegistros.Location = new System.Drawing.Point(868, 16);
+            this.lbGridTotalRegistros.Name = "lbGridTotalRegistros";
+            this.lbGridTotalRegistros.Size = new System.Drawing.Size(227, 23);
+            this.lbGridTotalRegistros.TabIndex = 19;
+            this.lbGridTotalRegistros.Text = "Total de registros: 0";
+            this.lbGridTotalRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbGridPaginas
+            // 
+            this.lbGridPaginas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbGridPaginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGridPaginas.Location = new System.Drawing.Point(193, 17);
+            this.lbGridPaginas.Name = "lbGridPaginas";
+            this.lbGridPaginas.Size = new System.Drawing.Size(139, 23);
+            this.lbGridPaginas.TabIndex = 18;
+            this.lbGridPaginas.Text = "Página 1 / 1";
+            this.lbGridPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmdGridUltima
+            // 
+            this.cmdGridUltima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridUltima.Enabled = false;
+            this.cmdGridUltima.Location = new System.Drawing.Point(431, 18);
+            this.cmdGridUltima.Name = "cmdGridUltima";
+            this.cmdGridUltima.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridUltima.TabIndex = 17;
+            this.cmdGridUltima.Text = "Última";
+            this.cmdGridUltima.UseVisualStyleBackColor = true;
+            this.cmdGridUltima.Click += new System.EventHandler(this.cmdGridUltima_Click);
+            // 
+            // cmdGridProxima
+            // 
+            this.cmdGridProxima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridProxima.Enabled = false;
+            this.cmdGridProxima.Location = new System.Drawing.Point(338, 18);
+            this.cmdGridProxima.Name = "cmdGridProxima";
+            this.cmdGridProxima.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridProxima.TabIndex = 15;
+            this.cmdGridProxima.Text = "Próxima";
+            this.cmdGridProxima.UseVisualStyleBackColor = true;
+            this.cmdGridProxima.Click += new System.EventHandler(this.cmdGridProxima_Click);
+            // 
+            // cmdGridAnterior
+            // 
+            this.cmdGridAnterior.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridAnterior.Enabled = false;
+            this.cmdGridAnterior.Location = new System.Drawing.Point(100, 17);
+            this.cmdGridAnterior.Name = "cmdGridAnterior";
+            this.cmdGridAnterior.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridAnterior.TabIndex = 13;
+            this.cmdGridAnterior.Text = "Anterior";
+            this.cmdGridAnterior.UseVisualStyleBackColor = true;
+            this.cmdGridAnterior.Click += new System.EventHandler(this.cmdGridAnterior_Click);
+            // 
+            // cmdGridPrimeira
+            // 
+            this.cmdGridPrimeira.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGridPrimeira.Enabled = false;
+            this.cmdGridPrimeira.Location = new System.Drawing.Point(6, 17);
+            this.cmdGridPrimeira.Name = "cmdGridPrimeira";
+            this.cmdGridPrimeira.Size = new System.Drawing.Size(87, 23);
+            this.cmdGridPrimeira.TabIndex = 12;
+            this.cmdGridPrimeira.Text = "Primeira";
+            this.cmdGridPrimeira.UseVisualStyleBackColor = true;
+            this.cmdGridPrimeira.Click += new System.EventHandler(this.cmdGridPrimeira_Click);
+            // 
             // OrdemPagamentoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 388);
+            this.ClientSize = new System.Drawing.Size(1112, 413);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btNova);
             this.Controls.Add(this.btVisualizar);
             this.Controls.Add(this.groupBox2);
@@ -256,6 +350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvOrdensPagamentos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -281,5 +376,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vencimento;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbGridTotalRegistros;
+        private System.Windows.Forms.Label lbGridPaginas;
+        private System.Windows.Forms.Button cmdGridUltima;
+        private System.Windows.Forms.Button cmdGridProxima;
+        private System.Windows.Forms.Button cmdGridAnterior;
+        private System.Windows.Forms.Button cmdGridPrimeira;
     }
 }

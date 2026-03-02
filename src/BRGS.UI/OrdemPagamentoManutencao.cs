@@ -11,8 +11,6 @@ using BRGS.UI.Relatorios;
 using BRGS.Util;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Data.SqlTypes;
-using CrystalDecisions.Shared;
-using System.IO;
 
 namespace BRGS.UI
 {
