@@ -196,6 +196,12 @@
     <Compile Include="DespesaManutencao.Designer.cs">
       <DependentUpon>DespesaManutencao.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmpilhadeiraConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpilhadeiraConsulta.Designer.cs">
+      <DependentUpon>EmpilhadeiraConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmpresaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -723,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DespesaManutencao.resx">
       <DependentUpon>DespesaManutencao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpilhadeiraConsulta.resx">
+      <DependentUpon>EmpilhadeiraConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpresaConsulta.resx">
       <DependentUpon>EmpresaConsulta.cs</DependentUpon>

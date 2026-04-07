@@ -74,6 +74,8 @@
     <Compile Include="TestFrete.cs" />
     <Compile Include="TestEmpresa.cs" />
     <Compile Include="TestFuncionario.cs" />
+    <Compile Include="TestEmpilhadeira.cs" />
+    <Compile Include="TestGeradores.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BRGS.Application\BRGS.Application.csproj">

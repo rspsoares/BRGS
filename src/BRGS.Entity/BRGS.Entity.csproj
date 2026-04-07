@@ -52,6 +52,7 @@
     <Compile Include="ClienteContato.cs" />
     <Compile Include="DTO\OrdemPagamentoGridFiltroMobileDTO.cs" />
     <Compile Include="DTO\OrdemPagamentoGridMobileDTO.cs" />
+    <Compile Include="Empilhadeira.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Despesa.cs" />
     <Compile Include="EmpresaContaBancaria.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="FreteObra.cs" />
     <Compile Include="FretePagamento.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="Gerador.cs" />
     <Compile Include="Manutencao.cs" />
     <Compile Include="Motorista.cs" />
     <Compile Include="Multa.cs" />

@@ -50,12 +50,14 @@
     <Compile Include="BIZCentroCusto.cs" />
     <Compile Include="BIZCliente.cs" />
     <Compile Include="BIZDespesa.cs" />
+    <Compile Include="BIZEmpilhadeira.cs" />
     <Compile Include="BIZEmpresa.cs" />
     <Compile Include="BIZFase.cs" />
     <Compile Include="BIZFeriado.cs" />
     <Compile Include="BIZFornecedor.cs" />
     <Compile Include="BIZFrete.cs" />
     <Compile Include="BIZFuncionario.cs" />
+    <Compile Include="BIZGerador.cs" />
     <Compile Include="BIZLogErro.cs" />
     <Compile Include="BIZMotorista.cs" />
     <Compile Include="BIZNotaFiscal.cs" />

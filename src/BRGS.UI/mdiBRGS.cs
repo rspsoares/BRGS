@@ -302,6 +302,11 @@ namespace BRGS.UI
         private void rbEngenharia_Obras_Relatorio_Consolidado_Click(object sender, EventArgs e)
         {
             helperUI.AbrirNovaAba(new TabPage("Relatório de Obras - Consolidado"), new ObrasRelatorioConsolidado()); 
-        }                
+        }
+
+        private void empilhadeirasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            helperUI.AbrirNovaAba(new TabPage("Controle de Empilhadeiras"), new EmpilhadeiraConsulta());
+        }
     }
 }

@@ -1,0 +1,79 @@
+DeadLine - 06/07/2026
+
+Desktop
+	» Criação de um Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)			
+		OK - Criar item de Menu
+		Criar tela
+			OK - Grid
+			»» Manutenção
+				Combo de obras					
+					Label de cliente 
+					Label de pregão
+				Aba de histórico de manutenções
+		
+	
+	Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
+		Criar item de Menu
+		Criar tela
+			Grid
+			Manutenção
+				Aba de histórico de manutenções
+				
+	Na tela de Manutenção de Obras, adicionar a funcionalidade de adicionar uma lista de Empilhadeiras e de Geradores. 	
+	
+	Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+
+App
+
+	Conexão externa de BD		https://success.outsystems.com/documentation/11/integration_with_external_systems/integrate_with_an_external_database/integrate_with_an_external_database_using_integration_studio/
+
+	
+	Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;
+	
+	
+	Não tem código de barras. Só plaqueta afixada
+
+	
+	»» Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)
+
+	»» Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
+
+	»» Criação de OP's com visualização do documento	
+	
+	»» App disponível para Android e iPhone	
+		Pegar dica no ChatGPT
+			Criar pacote Android
+			Criar pacote iPhone
+			
+	
+	
+
+-----------------------------
+
+Chat, por favor crie um script para a criação de um usuário no SQL Server 2022 com as seguintes permissões: 
+- Listar as tabelas e views
+- Executar as stored procedures
+- Tenha as permissões de Create, Read, Update, and Delete nas tabelas e views
+
+O nome desse novo usuário será "OS_User" e o nome da base de dados é "brgs1"
+
+
+USE [brgs1];
+GO
+
+CREATE LOGIN [OS_User] WITH PASSWORD = 'SenhaForte@BRGSApp';
+GO
+
+CREATE USER [OS_User] FOR LOGIN [OS_User];
+GO
+
+-- Roles padrão
+ALTER ROLE db_datareader ADD MEMBER [OS_User];
+ALTER ROLE db_datawriter ADD MEMBER [OS_User];
+ALTER ROLE db_ddladmin ADD MEMBER [OS_User]; -- opcional (permite criar objetos)
+
+-- Executar procedures
+GRANT EXECUTE TO [OS_User];
+GO
