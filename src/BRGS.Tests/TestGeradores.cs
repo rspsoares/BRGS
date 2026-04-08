@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
+using System.Data.SqlTypes;
 
 namespace BRGS.Tests
 {
@@ -25,21 +26,30 @@ namespace BRGS.Tests
                 .ToList()
                 .ForEach(line =>
                 {
-                    var lineSplit = line.Split(new char[] { ';' });
-
-                    var gerador = new Gerador
+                    try
                     {
-                        NumeroSerie = lineSplit[0].Trim(),
-                        Combustivel = lineSplit[1].Trim(),
-                        Modelo = lineSplit[2].Trim(),
-                        Marca = lineSplit[3].Trim(),
-                        Lotado = lineSplit[4].Trim(),
-                        NotaFiscal = lineSplit[7].Trim(),
-                        DataCompra = DateTime.Parse(lineSplit[9]),
-                        Acessorios = $"{lineSplit[10].Trim()} - {lineSplit[11].Trim()}"
-                    };
+                        var lineSplit = line.Split(new char[] { ';' });
 
-                    bizGerador.IncluirGerador(gerador, out int ID);
+                        var gerador = new Gerador
+                        {
+                            NumeroSerie = lineSplit[0].Trim(),
+                            Combustivel = lineSplit[1].Trim(),
+                            Modelo = lineSplit[2].Trim(),
+                            Marca = lineSplit[3].Trim(),
+                            Lotado = lineSplit[4].Trim(),
+                            NotaFiscal = lineSplit[7].Trim(),
+                            DataCompra = string.IsNullOrEmpty(lineSplit[9].Trim()) ? SqlDateTime.MinValue.Value : DateTime.Parse(lineSplit[9]),
+                            Acessorios = $"{lineSplit[10].Trim()} - {lineSplit[11].Trim()}"
+                        };
+
+                        bizGerador.IncluirGerador(gerador, out int ID);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw;
+                    }
+                   
                 });
         }
     }

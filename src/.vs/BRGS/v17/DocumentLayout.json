@@ -7,24 +7,24 @@
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizempilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizgerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizgerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|c:\\_rodrigo\\brgs\\src\\brgs.entity\\gerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\gerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\obramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.entity\\empilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\empilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,8 +33,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 504,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 1248,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,24 +43,81 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmpilhadeiraConsulta.cs [Design]",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs [Design]",
-              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraConsulta.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T09:12:40.51Z",
-              "EditorCaption": " [Design]"
             }
           ]
         },
         {
-          "DockedWidth": 2061,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 659,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmpilhadeiraManutencao.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T13:14:35.171Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ObraEtapaManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraEtapaManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\ObraEtapaManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraEtapaManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\ObraEtapaManutencao.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAIAwwCYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T14:26:46.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmpilhadeiraManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "ViewState": "AgIAAG8BAAAAAAAAAAAAAH0BAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T08:39:09.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ObraManutencao.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\ObraManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraManutencao.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\ObraManutencao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T09:54:46.404Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Empilhadeira.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
+              "RelativeDocumentMoniker": "BRGS.Entity\\Empilhadeira.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
+              "RelativeToolTip": "BRGS.Entity\\Empilhadeira.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T09:37:46.369Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1974,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
@@ -70,81 +127,9 @@
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZEmpilhadeira.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpilhadeira.cs",
               "RelativeToolTip": "BRGS.BIZ\\BIZEmpilhadeira.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T09:54:22.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmpilhadeiraConsulta.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraConsulta.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAAADQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T09:15:34.619Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Empilhadeira.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
-              "RelativeDocumentMoniker": "BRGS.Entity\\Empilhadeira.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
-              "RelativeToolTip": "BRGS.Entity\\Empilhadeira.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T09:37:46.369Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "15551ab0-6933-4288-9045-ab2bc566a30b",
-        "Display": 1,
-        "X": 254,
-        "Y": 210,
-        "Width": 771,
-        "Height": 884,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Gerador.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Gerador.cs",
-              "RelativeDocumentMoniker": "BRGS.Entity\\Gerador.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Gerador.cs",
-              "RelativeToolTip": "BRGS.Entity\\Gerador.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T15:58:40.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BIZGerador.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
-              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZGerador.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
-              "RelativeToolTip": "BRGS.BIZ\\BIZGerador.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAAAFIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T16:01:17.233Z",
               "EditorCaption": ""
             }
           ]

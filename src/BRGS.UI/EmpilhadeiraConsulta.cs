@@ -93,10 +93,10 @@ namespace BRGS.UI
 
         private void btNovo_Click(object sender, EventArgs e)
         {
-            //AbastecimentoManutencao form = new AbastecimentoManutencao(new Abastecimento());
-            //form.ShowDialog();
+            EmpilhadeiraManutencao form = new EmpilhadeiraManutencao(new Empilhadeira());
+            form.ShowDialog();
 
-            //btPesquisar_Click(null, null);
+            btPesquisar_Click(null, null);
         }
 
         private void btVisualizar_Click(object sender, EventArgs e)
@@ -118,8 +118,8 @@ namespace BRGS.UI
                 ID = int.Parse(gvEmpilhadeiras[0, linhaGrid].Value.ToString())
             };
 
-            //AbastecimentoManutencao form = new AbastecimentoManutencao(abastecimento);
-            //form.ShowDialog();
+            EmpilhadeiraManutencao form = new EmpilhadeiraManutencao(empilhadeira);
+            form.ShowDialog();
 
             btPesquisar_Click(null, null);
         }

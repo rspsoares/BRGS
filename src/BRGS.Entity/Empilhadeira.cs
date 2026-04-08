@@ -7,8 +7,9 @@ namespace BRGS.Entity
     {
         public int ID { get; set; }
         public int IdEmpresa { get; set; }
-        public int IdObra { get; set; }
-        
+        public int IdCliente { get; set; }
+        public int IdObraEtapa { get; set; }
+
         [Description("Número Série")]
         public string NumeroSerie { get; set; }
         

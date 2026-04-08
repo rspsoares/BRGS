@@ -18,7 +18,8 @@ namespace BRGS.BIZ
             {
                 { "@Id", gerador.ID.ToString() },
                 { "@IdEmpresa", gerador.IdEmpresa.Equals(0) ? string.Empty : gerador.IdEmpresa.ToString() },
-                { "@IdObra", gerador.IdObra.Equals(0) ? string.Empty : gerador.IdObra.ToString() },
+                { "@IdCliente", gerador.IdCliente.Equals(0) ? string.Empty : gerador.IdCliente.ToString() },
+                { "@IdObraEtapa", gerador.IdObraEtapa.Equals(0) ? string.Empty : gerador.IdObraEtapa.ToString() },
                 { "@NumeroSerie", gerador.NumeroSerie },
                 { "@Combustivel", gerador.Combustivel },
                 { "@Modelo", gerador.Modelo },
@@ -38,7 +39,8 @@ namespace BRGS.BIZ
             {
                 { "@Id", gerador.ID.Equals(0) ? null : gerador.ID.ToString() },
                 { "@IdEmpresa", gerador.IdEmpresa.Equals(0) ? null : gerador.IdEmpresa.ToString() },
-                { "@IdObra", gerador.IdObra.Equals(0) ? null : gerador.IdObra.ToString() },
+                { "@IdCliente", gerador.IdCliente.Equals(0) ? null : gerador.IdCliente.ToString() },
+                { "@IdObraEtapa", gerador.IdObraEtapa.Equals(0) ? null : gerador.IdObraEtapa.ToString() },
                 { "@NumeroSerie", string.IsNullOrEmpty(gerador.NumeroSerie) ? null : gerador.NumeroSerie },
                 { "@Combustivel", string.IsNullOrEmpty(gerador.Combustivel) ? null : gerador.Combustivel },
                 { "@Modelo", string.IsNullOrEmpty(gerador.Modelo) ? null : gerador.Modelo },

@@ -1,16 +1,38 @@
 DeadLine - 06/07/2026
 
+» Carregar arquivo de geradores
+
 Desktop
 	» Criação de um Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)			
 		OK - Criar item de Menu
 		Criar tela
 			OK - Grid
 			»» Manutenção
-				Combo de obras					
+				OK - Campos normais
+				OK - Combo de obras					
 					Label de cliente 
 					Label de pregão
-				Aba de histórico de manutenções
+				
+				OK - Incluir
+				OK - Alterar
+				OK - Excluir
+				
+				OK - Validar campos obrigatórios
+					IdEmpresa
+					NumeroSerie
+					Combustivel
+					Marca
+					Modelo
+					Torre
+					CapacidadeCarga
+					Lotada
+				
+				»» Aba de histórico de manutenções
+					Ver como está a regra das fases das obras. Só habilita de já existir o registro master?		
 		
+					Incluir
+					Alterar
+					Excluir
 	
 	Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
 		Criar item de Menu

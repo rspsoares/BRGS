@@ -12,13 +12,16 @@ namespace BRGS.Tests
     {
         private BIZEmpilhadeira bizEmpilhadeira = new BIZEmpilhadeira();
 
-        [TestMethod]
-        public void TestCarregarPlanilha()
-        {
+        public TestEmpilhadeira()
+        {             
             var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
             Parametrizacao.servidor_Conexao = strConn;
             Parametrizacao.servidor_Endereco = strConn.Substring(7, strConn.IndexOf(";", 0) - 7);
+        }
 
+        [TestMethod]
+        public void TestCarregarPlanilha()
+        {  
             File
                 .ReadAllLines(@"C:\_Rodrigo\BRGS\Empilhadeiras2.csv")
                 .Skip(1)
@@ -43,6 +46,57 @@ namespace BRGS.Tests
 
                     bizEmpilhadeira.IncluirEmpilhadeira(empilhadeira, out int ID);
                 });
+        }
+
+        [TestMethod]
+        public void TestInsert()
+        {
+            var e = new Empilhadeira
+            {
+                NumeroSerie = "SERIE",
+                Marca = "Marca",
+                Modelo = "MODELO",
+                Combustivel = "Combustivel",
+                Torre = 123.5M,
+                CapacidadeCarga = 321,
+                IdCliente = 0,
+                IdObraEtapa = 0,
+                Lotada = "Lotada",
+                IdEmpresa = 0,
+                NotaFiscal = "NotaFiscal",
+                DataCompra = DateTime.Today,
+                Acessorios = "Acessorios"
+            };
+
+            bizEmpilhadeira.IncluirEmpilhadeira(e, out int ID);
+
+            Assert.IsTrue(ID > 0);
+        }
+
+        [TestMethod]
+        public void TestUpdate()
+        {
+            var e = new Empilhadeira
+            {
+                ID = 41,
+                NumeroSerie = "**SERIE",
+                Marca = "**Marca",
+                Modelo = "**MODELO",
+                Combustivel = "**Combustivel",
+                Torre = 99.5M,
+                CapacidadeCarga = 999,
+                IdCliente = 0,
+                IdObraEtapa = 0,
+                Lotada = "**Lotada",
+                IdEmpresa = 0,
+                NotaFiscal = "**NotaFiscal",
+                DataCompra = DateTime.Today.AddDays(15),
+                Acessorios = "**Acessorios"
+            };
+
+            string msgRetorno = bizEmpilhadeira.AlterarEmpilhadeira(e);
+
+            Assert.IsTrue(string.IsNullOrEmpty(msgRetorno));
         }
     }
 }
