@@ -11,6 +11,7 @@ namespace BRGS.Tests
     public class TestEmpilhadeira
     {
         private BIZEmpilhadeira bizEmpilhadeira = new BIZEmpilhadeira();
+        private BIZEmpresa bizEmpresa = new BIZEmpresa();
 
         public TestEmpilhadeira()
         {             
@@ -23,12 +24,32 @@ namespace BRGS.Tests
         public void TestCarregarPlanilha()
         {  
             File
-                .ReadAllLines(@"C:\_Rodrigo\BRGS\Empilhadeiras2.csv")
+                .ReadAllLines(@"C:\_Rodrigo\BRGS\Empilhadeiras.csv")
                 .Skip(1)
                 .ToList()
                 .ForEach(line => 
                 {
                     var lineSplit = line.Split(new char[] { ';' });
+
+                    //var numeroSerie = lineSplit[0].Trim();
+                    //var fantasia = lineSplit[10].Trim();
+
+                    //var empresa = bizEmpresa.PesquisarEmpresa(new Empresa() {nomeFantasia = fantasia }).FirstOrDefault();
+                    //if(empresa == null)
+                    //{
+                    //    var x = "borocoxô!";
+
+                    //}
+                    //else
+                    //{                       
+                    //    var empilhadeira = bizEmpilhadeira.PesquisarEmpilhadeiras(new Empilhadeira() { NumeroSerie = numeroSerie }).FirstOrDefault();
+                    //    if(empilhadeira != null)
+                    //    {
+                    //        empilhadeira.IdEmpresa = empresa.idEmpresa;
+                    //        bizEmpilhadeira.AlterarEmpilhadeira(empilhadeira);
+                    //    }
+
+                    //}
 
                     var empilhadeira = new Empilhadeira
                     {
@@ -53,6 +74,7 @@ namespace BRGS.Tests
         {
             var e = new Empilhadeira
             {
+                
                 NumeroSerie = "SERIE",
                 Marca = "Marca",
                 Modelo = "MODELO",
@@ -62,11 +84,25 @@ namespace BRGS.Tests
                 IdCliente = 0,
                 IdObraEtapa = 0,
                 Lotada = "Lotada",
-                IdEmpresa = 0,
+                IdEmpresa = 1,
                 NotaFiscal = "NotaFiscal",
                 DataCompra = DateTime.Today,
                 Acessorios = "Acessorios"
             };
+
+            e.lstManutencoes.Add(new EmpilhadeiraManutencao()
+            {
+                Data = DateTime.Today,
+                Valor = 123,
+                Descricao = "sssss"
+            });
+
+            e.lstManutencoes.Add(new EmpilhadeiraManutencao()
+            {
+                Data = DateTime.Today.AddDays(9),
+                Valor = 321,
+                Descricao = "ttt"
+            });
 
             bizEmpilhadeira.IncluirEmpilhadeira(e, out int ID);
 

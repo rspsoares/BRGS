@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BRGS.Entity
 {
     public class Empilhadeira
     {
+        public Empilhadeira()
+        {
+            lstManutencoes = new List<EmpilhadeiraManutencao>();
+        }
+
         public int ID { get; set; }
         public int IdEmpresa { get; set; }
         public int IdCliente { get; set; }
@@ -32,5 +38,7 @@ namespace BRGS.Entity
 
         [Description("Cliente")]
         public string Cliente { get; set; }
+
+        public List<EmpilhadeiraManutencao> lstManutencoes { get; set; }
     }
 }

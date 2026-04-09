@@ -37,14 +37,14 @@
             this.tbPesquisaValor = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gvEmpilhadeiras = new BRGS.Util.SortedDataGridView();
-            this.btNovo = new System.Windows.Forms.Button();
-            this.btVisualizar = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lotada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btNovo = new System.Windows.Forms.Button();
+            this.btVisualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvEmpilhadeiras)).BeginInit();
@@ -141,26 +141,6 @@
             this.gvEmpilhadeiras.TabIndex = 0;
             this.gvEmpilhadeiras.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gvEmpilhadeiras_MouseDoubleClick);
             // 
-            // btNovo
-            // 
-            this.btNovo.Location = new System.Drawing.Point(5, 357);
-            this.btNovo.Name = "btNovo";
-            this.btNovo.Size = new System.Drawing.Size(75, 23);
-            this.btNovo.TabIndex = 2;
-            this.btNovo.Text = "Nova";
-            this.btNovo.UseVisualStyleBackColor = true;
-            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
-            // 
-            // btVisualizar
-            // 
-            this.btVisualizar.Location = new System.Drawing.Point(523, 357);
-            this.btVisualizar.Name = "btVisualizar";
-            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
-            this.btVisualizar.TabIndex = 3;
-            this.btVisualizar.Text = "Visualizar";
-            this.btVisualizar.UseVisualStyleBackColor = true;
-            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
-            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -209,6 +189,26 @@
             this.Column8.HeaderText = "Cliente";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            // 
+            // btNovo
+            // 
+            this.btNovo.Location = new System.Drawing.Point(5, 357);
+            this.btNovo.Name = "btNovo";
+            this.btNovo.Size = new System.Drawing.Size(75, 23);
+            this.btNovo.TabIndex = 2;
+            this.btNovo.Text = "Nova";
+            this.btNovo.UseVisualStyleBackColor = true;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
+            // 
+            // btVisualizar
+            // 
+            this.btVisualizar.Location = new System.Drawing.Point(523, 357);
+            this.btVisualizar.Name = "btVisualizar";
+            this.btVisualizar.Size = new System.Drawing.Size(75, 23);
+            this.btVisualizar.TabIndex = 3;
+            this.btVisualizar.Text = "Visualizar";
+            this.btVisualizar.UseVisualStyleBackColor = true;
+            this.btVisualizar.Click += new System.EventHandler(this.btVisualizar_Click);
             // 
             // EmpilhadeiraConsulta
             // 

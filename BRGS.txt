@@ -1,7 +1,5 @@
 DeadLine - 06/07/2026
 
-» Carregar arquivo de geradores
-
 Desktop
 	» Criação de um Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)			
 		OK - Criar item de Menu
@@ -27,16 +25,20 @@ Desktop
 					CapacidadeCarga
 					Lotada
 				
-				»» Aba de histórico de manutenções
-					Ver como está a regra das fases das obras. Só habilita de já existir o registro master?		
-		
-					Incluir
-					Alterar
-					Excluir
+				OK - Aba de histórico de manutenções
+					
+					Manutenções		
+						OK - Incluir
+						OK - Alterar
+						OK - Excluir
+						
+				OK - Teste completo de CRUD
+					MASTER
+					DETAIL
 	
 	Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
 		Criar item de Menu
-		Criar tela
+		Criar tela - usar as empilhadeiras como exemplo
 			Grid
 			Manutenção
 				Aba de histórico de manutenções

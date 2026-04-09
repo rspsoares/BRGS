@@ -61,20 +61,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tbData = new System.Windows.Forms.DateTimePicker();
-            this.tbValor = new System.Windows.Forms.TextBox();
+            this.tbManutencaoData = new System.Windows.Forms.DateTimePicker();
+            this.tbManutencaoValor = new System.Windows.Forms.TextBox();
             this.lbIdContaBancaria = new System.Windows.Forms.Label();
-            this.btContaNova = new System.Windows.Forms.Button();
-            this.btContaRemover = new System.Windows.Forms.Button();
+            this.btManutencaoRemover = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.gvManutencoes = new BRGS.Util.SortedDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btContaAdd = new System.Windows.Forms.Button();
-            this.tbDescricao = new System.Windows.Forms.TextBox();
+            this.btManutencaoAdd = new System.Windows.Forms.Button();
+            this.tbManutencaoDescricao = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -409,14 +407,13 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.tbData);
-            this.groupBox6.Controls.Add(this.tbValor);
+            this.groupBox6.Controls.Add(this.tbManutencaoData);
+            this.groupBox6.Controls.Add(this.tbManutencaoValor);
             this.groupBox6.Controls.Add(this.lbIdContaBancaria);
-            this.groupBox6.Controls.Add(this.btContaNova);
-            this.groupBox6.Controls.Add(this.btContaRemover);
+            this.groupBox6.Controls.Add(this.btManutencaoRemover);
             this.groupBox6.Controls.Add(this.groupBox8);
-            this.groupBox6.Controls.Add(this.btContaAdd);
-            this.groupBox6.Controls.Add(this.tbDescricao);
+            this.groupBox6.Controls.Add(this.btManutencaoAdd);
+            this.groupBox6.Controls.Add(this.tbManutencaoDescricao);
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.label33);
             this.groupBox6.Controls.Add(this.label34);
@@ -426,25 +423,25 @@
             this.groupBox6.TabIndex = 53;
             this.groupBox6.TabStop = false;
             // 
-            // tbData
+            // tbManutencaoData
             // 
-            this.tbData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tbData.Location = new System.Drawing.Point(6, 33);
-            this.tbData.Name = "tbData";
-            this.tbData.Size = new System.Drawing.Size(114, 20);
-            this.tbData.TabIndex = 0;
+            this.tbManutencaoData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.tbManutencaoData.Location = new System.Drawing.Point(6, 33);
+            this.tbManutencaoData.Name = "tbManutencaoData";
+            this.tbManutencaoData.Size = new System.Drawing.Size(114, 20);
+            this.tbManutencaoData.TabIndex = 0;
             // 
-            // tbValor
+            // tbManutencaoValor
             // 
-            this.tbValor.Location = new System.Drawing.Point(126, 33);
-            this.tbValor.Name = "tbValor";
-            this.tbValor.Size = new System.Drawing.Size(86, 20);
-            this.tbValor.TabIndex = 1;
-            this.tbValor.Text = "0,00";
-            this.tbValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbValor_KeyDown);
-            this.tbValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValor_KeyPress);
-            this.tbValor.Leave += new System.EventHandler(this.tbValor_Leave);
+            this.tbManutencaoValor.Location = new System.Drawing.Point(126, 33);
+            this.tbManutencaoValor.Name = "tbManutencaoValor";
+            this.tbManutencaoValor.Size = new System.Drawing.Size(86, 20);
+            this.tbManutencaoValor.TabIndex = 1;
+            this.tbManutencaoValor.Text = "0,00";
+            this.tbManutencaoValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbManutencaoValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbManutencaoValor_KeyDown);
+            this.tbManutencaoValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbManutencaoValor_KeyPress);
+            this.tbManutencaoValor.Leave += new System.EventHandler(this.tbManutencaoValor_Leave);
             // 
             // lbIdContaBancaria
             // 
@@ -456,23 +453,15 @@
             this.lbIdContaBancaria.Text = "0";
             this.lbIdContaBancaria.Visible = false;
             // 
-            // btContaNova
+            // btManutencaoRemover
             // 
-            this.btContaNova.Location = new System.Drawing.Point(6, 284);
-            this.btContaNova.Name = "btContaNova";
-            this.btContaNova.Size = new System.Drawing.Size(75, 23);
-            this.btContaNova.TabIndex = 4;
-            this.btContaNova.Text = "Nova";
-            this.btContaNova.UseVisualStyleBackColor = true;
-            // 
-            // btContaRemover
-            // 
-            this.btContaRemover.Location = new System.Drawing.Point(544, 284);
-            this.btContaRemover.Name = "btContaRemover";
-            this.btContaRemover.Size = new System.Drawing.Size(75, 23);
-            this.btContaRemover.TabIndex = 5;
-            this.btContaRemover.Text = "Remover";
-            this.btContaRemover.UseVisualStyleBackColor = true;
+            this.btManutencaoRemover.Location = new System.Drawing.Point(9, 284);
+            this.btManutencaoRemover.Name = "btManutencaoRemover";
+            this.btManutencaoRemover.Size = new System.Drawing.Size(75, 23);
+            this.btManutencaoRemover.TabIndex = 5;
+            this.btManutencaoRemover.Text = "Remover";
+            this.btManutencaoRemover.UseVisualStyleBackColor = true;
+            this.btManutencaoRemover.Click += new System.EventHandler(this.btManutencaoRemover_Click);
             // 
             // groupBox8
             // 
@@ -495,8 +484,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn4});
             this.gvManutencoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvManutencoes.Location = new System.Drawing.Point(3, 16);
             this.gvManutencoes.MultiSelect = false;
@@ -509,56 +497,52 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "idContaBancaria";
+            this.dataGridViewTextBoxColumn1.HeaderText = "idManutencao";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Banco";
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Data";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 55;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Agência";
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Valor";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 56;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Tipo Conta";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Descricao";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // btManutencaoAdd
             // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Conta";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.btManutencaoAdd.Location = new System.Drawing.Point(544, 31);
+            this.btManutencaoAdd.Name = "btManutencaoAdd";
+            this.btManutencaoAdd.Size = new System.Drawing.Size(75, 23);
+            this.btManutencaoAdd.TabIndex = 3;
+            this.btManutencaoAdd.Text = "Adicionar";
+            this.btManutencaoAdd.UseVisualStyleBackColor = true;
+            this.btManutencaoAdd.Click += new System.EventHandler(this.btManutencaoAdd_Click);
             // 
-            // btContaAdd
+            // tbManutencaoDescricao
             // 
-            this.btContaAdd.Location = new System.Drawing.Point(544, 31);
-            this.btContaAdd.Name = "btContaAdd";
-            this.btContaAdd.Size = new System.Drawing.Size(75, 23);
-            this.btContaAdd.TabIndex = 3;
-            this.btContaAdd.Text = "Adicionar";
-            this.btContaAdd.UseVisualStyleBackColor = true;
-            // 
-            // tbDescricao
-            // 
-            this.tbDescricao.Location = new System.Drawing.Point(218, 33);
-            this.tbDescricao.MaxLength = 100;
-            this.tbDescricao.Name = "tbDescricao";
-            this.tbDescricao.Size = new System.Drawing.Size(320, 20);
-            this.tbDescricao.TabIndex = 2;
-            this.tbDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDescricao_KeyDown);
+            this.tbManutencaoDescricao.Location = new System.Drawing.Point(218, 33);
+            this.tbManutencaoDescricao.MaxLength = 100;
+            this.tbManutencaoDescricao.Name = "tbManutencaoDescricao";
+            this.tbManutencaoDescricao.Size = new System.Drawing.Size(320, 20);
+            this.tbManutencaoDescricao.TabIndex = 2;
+            this.tbManutencaoDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbManutencaoDescricao_KeyDown);
             // 
             // label10
             // 
@@ -654,17 +638,11 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lbIdContaBancaria;
-        private System.Windows.Forms.Button btContaNova;
-        private System.Windows.Forms.Button btContaRemover;
+        private System.Windows.Forms.Button btManutencaoRemover;
         private System.Windows.Forms.GroupBox groupBox8;
         private Util.SortedDataGridView gvManutencoes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Button btContaAdd;
-        private System.Windows.Forms.TextBox tbDescricao;
+        private System.Windows.Forms.Button btManutencaoAdd;
+        private System.Windows.Forms.TextBox tbManutencaoDescricao;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
@@ -688,8 +666,12 @@
         private System.Windows.Forms.TextBox tbAcessorios;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDataCompra;
-        private System.Windows.Forms.TextBox tbValor;
-        private System.Windows.Forms.DateTimePicker tbData;
+        private System.Windows.Forms.TextBox tbManutencaoValor;
+        private System.Windows.Forms.DateTimePicker tbManutencaoData;
         private System.Windows.Forms.Button btExcluir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

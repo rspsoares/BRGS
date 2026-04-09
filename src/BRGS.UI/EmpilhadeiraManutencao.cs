@@ -107,7 +107,7 @@ namespace BRGS.UI
             }
         }
 
-        private void tbDescricao_KeyDown(object sender, KeyEventArgs e)
+        private void tbManutencaoDescricao_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -155,7 +155,7 @@ namespace BRGS.UI
                 e.Handled = true;
         }
 
-        private void tbValor_KeyDown(object sender, KeyEventArgs e)
+        private void tbManutencaoValor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -164,7 +164,7 @@ namespace BRGS.UI
             }
         }
 
-        private void tbValor_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbManutencaoValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             int asc = (int)e.KeyChar;
 
@@ -172,9 +172,9 @@ namespace BRGS.UI
                 e.Handled = true;
         }
 
-        private void tbValor_Leave(object sender, EventArgs e)
+        private void tbManutencaoValor_Leave(object sender, EventArgs e)
         {
-            tbValor.Text = helper.FormatarValorMoeda(tbValor.Text);
+            tbManutencaoValor.Text = helper.FormatarValorMoeda(tbManutencaoValor.Text);
         }
 
         private void EmpilhadeiraManutencao_Load(object sender, EventArgs e)
@@ -212,7 +212,7 @@ namespace BRGS.UI
         private void CarregarEmpilhadeira()
         {
             empilhadeiraSelecionada = bizEmpilhadeira.PesquisarEmpilhadeiras(new Empilhadeira() { ID = empilhadeiraSelecionada.ID })[0];
-            //empresaSelecionada.lstContasBancarias = bizEmpresa.PesquisarEmpresaContaBancaria(new EmpresaContaBancaria() { idEmpresa = empresaSelecionada.idEmpresa });
+            empilhadeiraSelecionada.lstManutencoes = bizEmpilhadeira.PesquisarEmpilhadeirasManutencao(new Entity.EmpilhadeiraManutencao() { IdEmpilhadeira = empilhadeiraSelecionada.ID });
 
             tbNumeroSerie.Text = empilhadeiraSelecionada.NumeroSerie;
             tbMarca.Text = empilhadeiraSelecionada.Marca;
@@ -227,6 +227,30 @@ namespace BRGS.UI
             tbNotaFiscal.Text = empilhadeiraSelecionada.NotaFiscal;
             dtpDataCompra.Value = empilhadeiraSelecionada.DataCompra;
             tbAcessorios.Text = empilhadeiraSelecionada.Acessorios;
+
+            CarregarGridManutencoes();       
+        }
+
+        private void CarregarGridManutencoes()
+        {
+            LimparGridManutencoes();
+
+            foreach (Entity.EmpilhadeiraManutencao item in empilhadeiraSelecionada.lstManutencoes)
+            {
+                gvManutencoes.Rows.Add(new object[]
+                {
+                    item.ID,
+                    item.Data.ToString("dd/MM/yyyy"),                    
+                    helper.FormatarValorMoeda(item.Valor.ToString()),
+                    item.Descricao
+                });
+            }            
+        }
+
+        private void LimparGridManutencoes()
+        {
+            while (gvManutencoes.Rows.Count > 0)
+                gvManutencoes.Rows.RemoveAt(0);
         }
 
         private void CarregarCombos()
@@ -389,12 +413,8 @@ namespace BRGS.UI
                     acaoSelecionada = "Alteração";
                 }
 
-                if (msgRetorno == string.Empty)
-                {
-                    //TODO: Carregar grid histórico
-                    //CarregarGridHistorico();                    
-                    MessageBox.Show(acaoSelecionada + " efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                if (msgRetorno == string.Empty)                                    
+                    MessageBox.Show(acaoSelecionada + " efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 else
                     MessageBox.Show("Atenção: " + msgRetorno, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -418,7 +438,7 @@ namespace BRGS.UI
             {
                 if (empilhadeiraSelecionada.ID != 0)
                 {
-                    if (MessageBox.Show("Confirma exclusão da Empilhadeira?", "Confirmação de exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    if (MessageBox.Show("Confirma exclusão da Empilhadeira?", "Confirmação de exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         this.Cursor = Cursors.WaitCursor;
                         bizEmpilhadeira.ExcluirEmpilhadeira(empilhadeiraSelecionada);
@@ -436,6 +456,74 @@ namespace BRGS.UI
             {
                 MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btManutencaoAdd_Click(object sender, EventArgs e)
+        {
+            string Msg = string.Empty;
+
+            Msg = VerificarCamposManutencao();
+
+            if (Msg == string.Empty)
+            {
+                Entity.EmpilhadeiraManutencao item = new Entity.EmpilhadeiraManutencao()
+                {                    
+                    Data = tbManutencaoData.Value,
+                    Valor = decimal.Parse(tbManutencaoValor.Text),
+                    Descricao = tbManutencaoDescricao.Text                    
+                };
+
+                empilhadeiraSelecionada.lstManutencoes.Add(item);
+
+                CarregarGridManutencoes();
+                LimparCamposManutencoes();
+            }
+            else
+                MessageBox.Show(Msg, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private string VerificarCamposManutencao()
+        {
+            string Msg = string.Empty;
+
+            if (tbManutencaoValor.Text == string.Empty || tbManutencaoValor.Text == "0,00")
+                Msg += Environment.NewLine + "Favor informar o Valor";
+
+            if (tbManutencaoDescricao.Text == string.Empty)
+                Msg += Environment.NewLine + "Favor informar a Descrição";
+
+            return Msg;
+        }
+
+        private void LimparCamposManutencoes()
+        {
+            tbManutencaoData.Value = DateTime.Now;
+            tbManutencaoValor.Text = "0,00";
+            tbManutencaoDescricao.Text = string.Empty;
+        }
+
+        private void btManutencaoRemover_Click(object sender, EventArgs e)
+        {
+            int linhaGrid = 0;
+
+            if (gvManutencoes.RowCount == 0)
+                return;
+
+            linhaGrid = gvManutencoes.SelectedCells[0].RowIndex;
+
+            Entity.EmpilhadeiraManutencao item = new Entity.EmpilhadeiraManutencao()
+            {
+                Data = DateTime.Parse(gvManutencoes[1, linhaGrid].Value.ToString()),
+                Valor = decimal.Parse(gvManutencoes[2, linhaGrid].Value.ToString()),
+                Descricao = gvManutencoes[3, linhaGrid].Value.ToString()
+            };
+
+            empilhadeiraSelecionada.lstManutencoes.RemoveAll(x =>
+                x.Data.Date == item.Data.Date &&
+                x.Valor == item.Valor &&
+                x.Descricao == item.Descricao);
+
+            CarregarGridManutencoes();
         }
     }
 }

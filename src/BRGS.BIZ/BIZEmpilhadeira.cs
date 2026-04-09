@@ -12,6 +12,20 @@ namespace BRGS.BIZ
         private BIZLogErro bizLogErro = new BIZLogErro();
         private Helper helper = new Helper();
 
+        private Dictionary<string, string> MontarParametrosManutencaoExecutar(EmpilhadeiraManutencao e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.ToString() },
+                { "@IdEmpilhadeira", e.IdEmpilhadeira.ToString() },
+                { "@Data", e.Data.Date.ToString() },
+                { "@Valor", e.Valor.ToString() },
+                { "@Descricao", e.Descricao }
+            };
+
+            return lstParametros;
+        }
+
         private Dictionary<string, string> MontarParametrosExecutar(Empilhadeira empilhadeira)
         {
             var lstParametros = new Dictionary<string, string>
@@ -35,6 +49,16 @@ namespace BRGS.BIZ
             return lstParametros;
         }
 
+        private Dictionary<string, string> MontarParametrosPesquisarManutencao(EmpilhadeiraManutencao e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.Equals(0) ? null : e.ID.ToString() },
+                { "@IdEmpilhadeira", e.IdEmpilhadeira.Equals(0) ? null : e.IdEmpilhadeira.ToString() },                
+            };
+
+            return lstParametros;
+        }
         private Dictionary<string, string> MontarParametrosPesquisarEmpilhadeiras(Empilhadeira empilhadeira)
         {
             var lstParametros = new Dictionary<string, string>
@@ -88,10 +112,25 @@ namespace BRGS.BIZ
             return Msg;
         }
 
+        private string ValidarCamposManutencaoObrigatorios(EmpilhadeiraManutencao e)
+        {
+            string Msg = string.Empty;
+
+            if (e.Valor == 0)
+                Msg += Environment.NewLine + "Valor não preenchido";
+
+            if (string.IsNullOrEmpty(e.Descricao))
+                Msg += Environment.NewLine + "Descrição não preenchida";
+
+            return Msg;
+        }
+
+
         public string IncluirEmpilhadeira(Empilhadeira empilhadeira, out int ID)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<_Transacao> lstComandos = new List<_Transacao>();
 
             string Msg = string.Empty;
 
@@ -108,6 +147,9 @@ namespace BRGS.BIZ
                         DataRow dr = ds.Tables[0].Rows[0];
                         ID = int.Parse(dr[0].ToString());
                     }
+
+                    lstComandos.AddRange(this.IncluirManutencoes(ID, empilhadeira.lstManutencoes));
+                    dao.ExecutarTransacao(lstComandos);               
                 }
             }
             catch (Exception ex)
@@ -130,8 +172,29 @@ namespace BRGS.BIZ
             return Msg;
         }
 
+        private List<_Transacao> IncluirManutencoes(int id, List<EmpilhadeiraManutencao> lstManutencoes)
+        {
+            List<_Transacao> lstComandos = new List<_Transacao>();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            foreach (EmpilhadeiraManutencao e in lstManutencoes)
+            {
+                e.IdEmpilhadeira = id;
+                lstParametros = MontarParametrosManutencaoExecutar(e);
+
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_EMPILHADEIRAS_MANUTENCOES_INCLUIR",
+                    lstParametros = lstParametros
+                });
+            }
+
+            return lstComandos;
+        }
+
         public string AlterarEmpilhadeira(Empilhadeira empilhadeira)
         {
+            List<_Transacao> lstComandos = new List<_Transacao>();
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
 
@@ -142,9 +205,27 @@ namespace BRGS.BIZ
                 Msg = ValidarCamposObrigatorios(empilhadeira);
 
                 if (Msg == string.Empty)
-                {
+                {   
                     lstParametros = MontarParametrosExecutar(empilhadeira);
-                    dao.Executar("SP_EMPILHADEIRAS_ALTERAR", lstParametros);                    
+                    lstComandos.Add(new _Transacao()
+                    {
+                        nomeProcedure = "SP_EMPILHADEIRAS_ALTERAR",
+                        lstParametros = lstParametros
+                    });
+
+                    lstParametros = new Dictionary<string, string>
+                    {
+                        { "@IdEmpilhadeira", empilhadeira.ID.ToString() }
+                    };
+
+                    lstComandos.Add(new _Transacao()
+                    {
+                        nomeProcedure = "SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR",
+                        lstParametros = lstParametros
+                    });
+
+                    lstComandos.AddRange(this.IncluirManutencoes(empilhadeira.ID, empilhadeira.lstManutencoes));
+                    dao.ExecutarTransacao(lstComandos);
                 }
             }
             catch (Exception ex)
@@ -170,13 +251,34 @@ namespace BRGS.BIZ
         public string ExcluirEmpilhadeira(Empilhadeira empilhadeira)
         {
             DataAccess dao = new DataAccess();
+            List<_Transacao> lstComandos = new List<_Transacao>();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             string Msg = string.Empty;
 
             try
-            {   
-                lstParametros.Add("@Id", empilhadeira.ID.ToString());
-                dao.Executar("SP_EMPILHADEIRAS_EXCLUIR", lstParametros);
+            {
+                lstParametros = new Dictionary<string, string>
+                {
+                    { "@IdEmpilhadeira", empilhadeira.ID.ToString() }
+                };
+
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR",
+                    lstParametros = lstParametros
+                });
+
+                lstParametros = new Dictionary<string, string>
+                {
+                    { "@Id", empilhadeira.ID.ToString() }
+                };
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_EMPILHADEIRAS_EXCLUIR",
+                    lstParametros = lstParametros
+                });
+
+                dao.ExecutarTransacao(lstComandos);                
             }
             catch (Exception ex)
             {
@@ -234,6 +336,154 @@ namespace BRGS.BIZ
             }
 
             return lstEmpilhadeiras;
+        }
+
+        public string IncluirEmpilhadeiraManutencao(EmpilhadeiraManutencao e, out int ID)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            string Msg = string.Empty;
+
+            try
+            {
+                Msg = ValidarCamposManutencaoObrigatorios(e);
+                ID = 0;
+
+                if (Msg == string.Empty)
+                {
+                    lstParametros = MontarParametrosManutencaoExecutar(e);
+                    using (DataSet ds = dao.Pesquisar("SP_EMPILHADEIRAS_MANUTENCOES_INCLUIR", lstParametros))
+                    {
+                        DataRow dr = ds.Tables[0].Rows[0];
+                        ID = int.Parse(dr[0].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_INCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return Msg;
+        }
+
+        public string AlterarEmpilhadeiraManutencao(EmpilhadeiraManutencao e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            string Msg = string.Empty;
+
+            try
+            {
+                Msg = ValidarCamposManutencaoObrigatorios(e);
+
+                if (Msg == string.Empty)
+                {
+                    lstParametros = MontarParametrosManutencaoExecutar(e);
+                    dao.Executar("SP_EMPILHADEIRAS_MANUTENCOES_ALTERAR", lstParametros);
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_ALTERAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return Msg;
+        }
+
+        public string ExcluirEmpilhadeiraManutencao(EmpilhadeiraManutencao e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            string Msg = string.Empty;
+
+            try
+            {
+                lstParametros.Add("@Id", e.ID.ToString());
+                dao.Executar("SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return Msg;
+        }
+
+        public List<EmpilhadeiraManutencao> PesquisarEmpilhadeirasManutencao(EmpilhadeiraManutencao e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<EmpilhadeiraManutencao> lstEmpilhadeiraManutencao = new List<EmpilhadeiraManutencao>();
+            dynamic lst = new List<EmpilhadeiraManutencao>();
+            try
+            {
+                lstParametros = MontarParametrosPesquisarManutencao(e);
+
+                using (DataSet ds = dao.Pesquisar("SP_EMPILHADEIRAS_MANUTENCOES_CONSULTAR", lstParametros))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<EmpilhadeiraManutencao>()
+                          select f;
+                }
+
+                lstEmpilhadeiraManutencao.AddRange(lst);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstEmpilhadeiraManutencao;
         }
     }
 }
