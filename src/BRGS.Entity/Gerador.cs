@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BRGS.Entity
 {
     public class Gerador
     {
+        public Gerador()
+        {
+            lstManutencoes = new List<GeradorManutencao>();
+        }
+
         public int ID { get; set; }
         public int IdEmpresa { get; set; }
         public int IdCliente { get; set; }
@@ -30,5 +36,7 @@ namespace BRGS.Entity
 
         [Description("Cliente")]
         public string Cliente { get; set; }
+
+        public List<GeradorManutencao> lstManutencoes { get; set; }
     }
 }

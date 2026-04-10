@@ -1,0 +1,485 @@
+﻿using BRGS.BIZ;
+using BRGS.Entity;
+using BRGS.Util;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace BRGS.UI
+{
+    public partial class GeradorManutencao : Form
+    {
+        private Gerador geradorSelecionado = new Gerador();
+        private BIZObra bizObra = new BIZObra();
+        private BIZLogErro bizLogErro = new BIZLogErro();
+        private BIZGerador bizGerador = new BIZGerador();
+        private List<ObraEtapa> lstLicitacoesCliente = new List<ObraEtapa>();
+        private List<ObraEtapa> lstObrasEtapas = new List<ObraEtapa>();
+        private Helper helper = new Helper();
+
+        public GeradorManutencao(Gerador _geradorSelecionado)
+        {
+            InitializeComponent();
+            geradorSelecionado = _geradorSelecionado;
+        }
+
+        private void tbNumeroSerie_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbModelo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbCombustivel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void cbClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void cbLicitacao_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbLotado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void cbEmpresa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbNotaFiscal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbManutencaoValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void tbManutencaoDescricao_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{tab}");
+            }
+        }
+
+        private void cbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbClientes.SelectedIndex == 0)
+            {
+                cbLicitacao.DataSource = null;
+                cbLicitacao.BindingContext = new BindingContext();
+                return;
+            }
+
+            lstLicitacoesCliente = new List<ObraEtapa>
+            {
+                new ObraEtapa() { idObraEtapa = 0, numeroLicitacao = "--Selecione--" }
+            };
+
+            if (cbClientes.SelectedValue != null)
+            {
+                lstLicitacoesCliente.AddRange(lstObrasEtapas.Where(x => x.idCliente == int.Parse(cbClientes.SelectedValue.ToString())).OrderBy(y => y.numeroLicitacao).ThenBy(z => z.Descricao));
+
+                foreach (ObraEtapa itemLicitacao in lstLicitacoesCliente)
+                    itemLicitacao.numeroLicitacao = itemLicitacao.numeroLicitacao + " - " + itemLicitacao.Descricao;
+            }
+
+            cbLicitacao.DataSource = lstLicitacoesCliente;
+            cbLicitacao.DisplayMember = "numeroLicitacao";
+            cbLicitacao.ValueMember = "idObraEtapa";
+        }
+
+        private void tbManutencaoValor_Leave(object sender, EventArgs e)
+        {
+            tbManutencaoValor.Text = helper.FormatarValorMoeda(tbManutencaoValor.Text);
+        }
+
+        private void GeradorManutencao_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                helper.VerificaPermissaoAcessoObjetos(this, UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name).ToList());
+
+                CarregarCombos();
+
+                if (geradorSelecionado.ID != 0)
+                    CarregarGerador();
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                LogErro logErro = new LogErro()
+                {
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(logErro);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void CarregarGerador()
+        {
+            geradorSelecionado = bizGerador.PesquisarGeradores(new Gerador() { ID = geradorSelecionado.ID })[0];
+            geradorSelecionado.lstManutencoes = bizGerador.PesquisarGeradoresManutencao(new Entity.GeradorManutencao() { IdGerador = geradorSelecionado.ID });
+
+            tbNumeroSerie.Text = geradorSelecionado.NumeroSerie;
+            tbMarca.Text = geradorSelecionado.Marca;
+            tbModelo.Text = geradorSelecionado.Modelo;
+            tbCombustivel.Text = geradorSelecionado.Combustivel;            
+            cbClientes.SelectedValue = geradorSelecionado.IdCliente;
+            cbLicitacao.SelectedValue = geradorSelecionado.IdObraEtapa;
+            tbLotado.Text = geradorSelecionado.Lotado;
+            cbEmpresa.SelectedValue = geradorSelecionado.IdEmpresa;
+            tbNotaFiscal.Text = geradorSelecionado.NotaFiscal;
+            dtpDataCompra.Value = geradorSelecionado.DataCompra;
+            tbAcessorios.Text = geradorSelecionado.Acessorios;
+
+            CarregarGridManutencoes();
+        }
+
+        private void CarregarGridManutencoes()
+        {
+            LimparGridManutencoes();
+
+            foreach (Entity.GeradorManutencao item in geradorSelecionado.lstManutencoes)
+            {
+                gvManutencoes.Rows.Add(new object[]
+                {
+                    item.ID,
+                    item.Data.ToString("dd/MM/yyyy"),
+                    helper.FormatarValorMoeda(item.Valor.ToString()),
+                    item.Descricao
+                });
+            }
+        }
+
+        private void LimparGridManutencoes()
+        {
+            while (gvManutencoes.Rows.Count > 0)
+                gvManutencoes.Rows.RemoveAt(0);
+        }
+
+        private void CarregarCombos()
+        {
+            CarregarObrasEtapas();
+            CarregarComboClientes();
+            CarregarComboEmpresas();
+        }
+
+        private void CarregarComboClientes()
+        {
+            BIZCliente bizCliente = new BIZCliente();
+            List<Cliente> lstClientes = new List<Cliente>();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lstClientes.Add(new Cliente() { idCliente = 0, Nome = "--Selecione--" });
+                lstClientes.AddRange(bizCliente.PesquisarCliente(new Cliente()).OrderBy(u => u.Nome));
+
+                cbClientes.DataSource = lstClientes;
+                cbClientes.DisplayMember = "Nome";
+                cbClientes.ValueMember = "idCliente";
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void CarregarObrasEtapas()
+        {
+            lstObrasEtapas = new List<ObraEtapa>();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lstObrasEtapas.AddRange(bizObra.PesquisarObraEtapa(new ObraEtapa()));
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void CarregarComboEmpresas()
+        {
+            List<Empresa> lstEmpresas = new List<Empresa>();
+            BIZEmpresa bizEmpresa = new BIZEmpresa();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lstEmpresas.Add(new Empresa() { idEmpresa = 0, razaoSocial = "--Selecione--" });
+                lstEmpresas.AddRange(bizEmpresa.PesquisarEmpresa(new Empresa()).OrderBy(x => x.razaoSocial).ToList());
+
+                cbEmpresa.DataSource = lstEmpresas;
+                cbEmpresa.DisplayMember = "razaoSocial";
+                cbEmpresa.ValueMember = "idEmpresa";
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btGravar_Click(object sender, EventArgs e)
+        {
+            string msgRetorno = string.Empty;
+            string acaoSelecionada = string.Empty;
+            int idGerador = 0;
+            int idEmpresa = 0;
+            int idCliente = 0;
+            int idObraEtapa = 0;
+
+            if (cbEmpresa.SelectedIndex > 0 && cbEmpresa.FindStringExact(cbEmpresa.Text) != -1)
+                idEmpresa = int.Parse(cbEmpresa.SelectedValue.ToString());
+
+            if (cbClientes.SelectedIndex > 0 && cbClientes.FindStringExact(cbClientes.Text) != -1)
+                idCliente = int.Parse(cbClientes.SelectedValue.ToString());
+
+            if (cbLicitacao.SelectedIndex > 0 && cbLicitacao.FindStringExact(cbLicitacao.Text) != -1)
+                idObraEtapa = int.Parse(cbLicitacao.SelectedValue.ToString());
+
+            geradorSelecionado.NumeroSerie = tbNumeroSerie.Text;
+            geradorSelecionado.Marca = tbMarca.Text;
+            geradorSelecionado.Modelo = tbModelo.Text;
+            geradorSelecionado.Combustivel = tbCombustivel.Text;            
+            geradorSelecionado.IdCliente = idCliente;
+            geradorSelecionado.IdObraEtapa = idObraEtapa;
+            geradorSelecionado.Lotado = tbLotado.Text;
+            geradorSelecionado.IdEmpresa = idEmpresa;
+            geradorSelecionado.NotaFiscal = tbNotaFiscal.Text;
+            geradorSelecionado.DataCompra = dtpDataCompra.Value;
+            geradorSelecionado.Acessorios = tbAcessorios.Text;
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                if (geradorSelecionado.ID == 0)
+                {
+                    msgRetorno = bizGerador.IncluirGerador(geradorSelecionado, out idGerador);
+                    acaoSelecionada = "Inclusão";
+                    geradorSelecionado.ID = idGerador;
+                }
+                else
+                {
+                    msgRetorno = bizGerador.AlterarGerador(geradorSelecionado);
+                    acaoSelecionada = "Alteração";
+                }
+
+                if (msgRetorno == string.Empty)
+                    MessageBox.Show(acaoSelecionada + " efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Atenção: " + msgRetorno, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+            string msgRetorno = string.Empty;
+
+            try
+            {
+                if (geradorSelecionado.ID != 0)
+                {
+                    if (MessageBox.Show("Confirma exclusão do Gerador?", "Confirmação de exclusão", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        bizGerador.ExcluirGerador(geradorSelecionado);
+                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Exclusão efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btManutencaoAdd_Click(object sender, EventArgs e)
+        {
+            string Msg = string.Empty;
+
+            Msg = VerificarCamposManutencao();
+
+            if (Msg == string.Empty)
+            {
+                Entity.GeradorManutencao item = new Entity.GeradorManutencao()
+                {
+                    Data = tbManutencaoData.Value,
+                    Valor = decimal.Parse(tbManutencaoValor.Text),
+                    Descricao = tbManutencaoDescricao.Text
+                };
+
+                geradorSelecionado.lstManutencoes.Add(item);
+
+                CarregarGridManutencoes();
+                LimparCamposManutencoes();
+            }
+            else
+                MessageBox.Show(Msg, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private string VerificarCamposManutencao()
+        {
+            string Msg = string.Empty;
+
+            if (tbManutencaoValor.Text == string.Empty || tbManutencaoValor.Text == "0,00")
+                Msg += Environment.NewLine + "Favor informar o Valor";
+
+            if (tbManutencaoDescricao.Text == string.Empty)
+                Msg += Environment.NewLine + "Favor informar a Descrição";
+
+            return Msg;
+        }
+
+        private void LimparCamposManutencoes()
+        {
+            tbManutencaoData.Value = DateTime.Now;
+            tbManutencaoValor.Text = "0,00";
+            tbManutencaoDescricao.Text = string.Empty;
+        }
+
+        private void btManutencaoRemover_Click(object sender, EventArgs e)
+        {
+            int linhaGrid = 0;
+
+            if (gvManutencoes.RowCount == 0)
+                return;
+
+            linhaGrid = gvManutencoes.SelectedCells[0].RowIndex;
+
+            Entity.GeradorManutencao item = new Entity.GeradorManutencao()
+            {
+                Data = DateTime.Parse(gvManutencoes[1, linhaGrid].Value.ToString()),
+                Valor = decimal.Parse(gvManutencoes[2, linhaGrid].Value.ToString()),
+                Descricao = gvManutencoes[3, linhaGrid].Value.ToString()
+            };
+
+            geradorSelecionado.lstManutencoes.RemoveAll(x =>
+                x.Data.Date == item.Data.Date &&
+                x.Valor == item.Valor &&
+                x.Descricao == item.Descricao);
+
+            CarregarGridManutencoes();
+        }
+
+        private void tbManutencaoValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int asc = (int)e.KeyChar;
+
+            if (!char.IsDigit(e.KeyChar) && asc != 08 && asc != 127 && asc != 44)
+                e.Handled = true;
+        }
+    }
+}

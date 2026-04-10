@@ -308,5 +308,10 @@ namespace BRGS.UI
         {
             helperUI.AbrirNovaAba(new TabPage("Controle de Empilhadeiras"), new EmpilhadeiraConsulta());
         }
+
+        private void geradoresConsultaMenuItem_Click(object sender, EventArgs e)
+        {
+            helperUI.AbrirNovaAba(new TabPage("Controle de Geradores"), new GeradorConsulta());
+        }
     }
 }

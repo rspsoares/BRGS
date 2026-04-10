@@ -36,7 +36,7 @@ Desktop
 					MASTER
 					DETAIL
 	
-	Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
+	»» Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
 		Criar item de Menu
 		Criar tela - usar as empilhadeiras como exemplo
 			Grid
@@ -44,6 +44,12 @@ Desktop
 				Aba de histórico de manutenções
 				
 	Na tela de Manutenção de Obras, adicionar a funcionalidade de adicionar uma lista de Empilhadeiras e de Geradores. 	
+		
+		Quando associar a empilhadeira (1 ou mais) à uma etapa de obra, ela ficaria indisponível. E só liberaria ela quando finalizar a etapa da obra a qual ela está associada
+
+		Aí no controle de empilhadeiras, teria mais uma aba, de histórico de usos
+
+		Alinhar com Betto - se por acaso desfinalizar a etapa que tinha equipamento, verifica se o mesmo equipamento está disponível. Se tiver, almoça novamente. Se não tiver, avisa que já não está e não carrega o equipamento 
 	
 	Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
 

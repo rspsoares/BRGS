@@ -67,6 +67,7 @@
     <Compile Include="FretePagamento.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Gerador.cs" />
+    <Compile Include="GeradorManutencao.cs" />
     <Compile Include="Manutencao.cs" />
     <Compile Include="Motorista.cs" />
     <Compile Include="Multa.cs" />

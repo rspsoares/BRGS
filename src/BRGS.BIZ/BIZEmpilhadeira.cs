@@ -59,6 +59,7 @@ namespace BRGS.BIZ
 
             return lstParametros;
         }
+
         private Dictionary<string, string> MontarParametrosPesquisarEmpilhadeiras(Empilhadeira empilhadeira)
         {
             var lstParametros = new Dictionary<string, string>
@@ -336,116 +337,6 @@ namespace BRGS.BIZ
             }
 
             return lstEmpilhadeiras;
-        }
-
-        public string IncluirEmpilhadeiraManutencao(EmpilhadeiraManutencao e, out int ID)
-        {
-            DataAccess dao = new DataAccess();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-
-            string Msg = string.Empty;
-
-            try
-            {
-                Msg = ValidarCamposManutencaoObrigatorios(e);
-                ID = 0;
-
-                if (Msg == string.Empty)
-                {
-                    lstParametros = MontarParametrosManutencaoExecutar(e);
-                    using (DataSet ds = dao.Pesquisar("SP_EMPILHADEIRAS_MANUTENCOES_INCLUIR", lstParametros))
-                    {
-                        DataRow dr = ds.Tables[0].Rows[0];
-                        ID = int.Parse(dr[0].ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
-
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_INCLUIR",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
-
-                bizLogErro.IncluirLogErro(log);
-
-                throw ex;
-            }
-
-            return Msg;
-        }
-
-        public string AlterarEmpilhadeiraManutencao(EmpilhadeiraManutencao e)
-        {
-            DataAccess dao = new DataAccess();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-
-            string Msg = string.Empty;
-
-            try
-            {
-                Msg = ValidarCamposManutencaoObrigatorios(e);
-
-                if (Msg == string.Empty)
-                {
-                    lstParametros = MontarParametrosManutencaoExecutar(e);
-                    dao.Executar("SP_EMPILHADEIRAS_MANUTENCOES_ALTERAR", lstParametros);
-                }
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
-
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_ALTERAR",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
-
-                bizLogErro.IncluirLogErro(log);
-
-                throw ex;
-            }
-
-            return Msg;
-        }
-
-        public string ExcluirEmpilhadeiraManutencao(EmpilhadeiraManutencao e)
-        {
-            DataAccess dao = new DataAccess();
-            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            string Msg = string.Empty;
-
-            try
-            {
-                lstParametros.Add("@Id", e.ID.ToString());
-                dao.Executar("SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR", lstParametros);
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
-
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_EMPILHADEIRAS_MANUTENCOES_EXCLUIR",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
-
-                bizLogErro.IncluirLogErro(log);
-
-                throw ex;
-            }
-
-            return Msg;
         }
 
         public List<EmpilhadeiraManutencao> PesquisarEmpilhadeirasManutencao(EmpilhadeiraManutencao e)

@@ -120,6 +120,8 @@
             this.rbSeguranca_Parametrizacao = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabTelas = new System.Windows.Forms.TabControl();
+            this.geradoresConsultaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -221,7 +223,9 @@
             this.toolStripSeparator1,
             this.transportesToolStripMenuItem,
             this.toolStripSeparator20,
-            this.estoqueToolStripMenuItem});
+            this.estoqueToolStripMenuItem,
+            this.toolStripSeparator28,
+            this.geradoresConsultaMenuItem});
             this.operaçõesToolStripMenuItem.Name = "operaçõesToolStripMenuItem";
             this.operaçõesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.operaçõesToolStripMenuItem.Text = "Operações";
@@ -799,6 +803,18 @@
             this.tabTelas.DoubleClick += new System.EventHandler(this.tabTelas_DoubleClick);
             this.tabTelas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tabTelas_MouseUp);
             // 
+            // geradoresConsultaMenuItem
+            // 
+            this.geradoresConsultaMenuItem.Name = "geradoresConsultaMenuItem";
+            this.geradoresConsultaMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.geradoresConsultaMenuItem.Text = "Geradores";
+            this.geradoresConsultaMenuItem.Click += new System.EventHandler(this.geradoresConsultaMenuItem_Click);
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(177, 6);
+            // 
             // mdiBRGS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,7 +931,9 @@
         private System.Windows.Forms.ToolStripMenuItem rbEngenharia_Obras_Relatorio_Consolidado;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
         private System.Windows.Forms.ToolStripStatusLabel tsVersao;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;       
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
+        private System.Windows.Forms.ToolStripMenuItem geradoresConsultaMenuItem;
     }
 }
 
