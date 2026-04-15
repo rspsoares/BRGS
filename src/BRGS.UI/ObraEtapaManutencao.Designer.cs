@@ -32,6 +32,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObraEtapaManutencao));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -147,6 +161,34 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.tbFUUsuario = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btRemoverEmpilhadeira = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gvEmpilhadeiras = new BRGS.Util.SortedDataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btAddEmpilhadeira = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
+            this.dtpDataAlocacaoEmpilhadeira = new System.Windows.Forms.DateTimePicker();
+            this.cbEmpilhadeiras = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btRemoverGerador = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.gvGeradores = new BRGS.Util.SortedDataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btGeradorAdd = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.dtpDataAlocacaoGerador = new System.Windows.Forms.DateTimePicker();
+            this.cbGeradores = new System.Windows.Forms.ComboBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -171,7 +213,6 @@
             this.lbRealizadoCoberturas = new System.Windows.Forms.Label();
             this.lbRealizadoTubulares = new System.Windows.Forms.Label();
             this.lbRealizadoGerenciamentoObra = new System.Windows.Forms.Label();
-            this.lbSaldoEstande = new System.Windows.Forms.Label();
             this.lbSaldoCoberturas = new System.Windows.Forms.Label();
             this.lbSaldoTubulares = new System.Windows.Forms.Label();
             this.lbSaldoGerenciamentoObra = new System.Windows.Forms.Label();
@@ -198,6 +239,7 @@
             this.lbSaldoModulosHabitacionais = new System.Windows.Forms.Label();
             this.lbSaldoLogisticaTransporte = new System.Windows.Forms.Label();
             this.lbSaldoMatriz = new System.Windows.Forms.Label();
+            this.lbSaldoEstande = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btGravar = new System.Windows.Forms.Button();
@@ -218,6 +260,16 @@
             this.grpFollowUp.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvFollowUp)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvEmpilhadeiras)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGeradores)).BeginInit();
+            this.groupBox11.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -229,12 +281,14 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Location = new System.Drawing.Point(6, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1178, 516);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -369,6 +423,14 @@
             this.gvGastosRealizados.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.gvGastosRealizados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvGastosRealizados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvGastosRealizados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvGastosRealizados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -383,6 +445,14 @@
             this.Column9,
             this.Column12,
             this.Column18});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvGastosRealizados.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvGastosRealizados.Location = new System.Drawing.Point(5, 178);
             this.gvGastosRealizados.Name = "gvGastosRealizados";
             this.gvGastosRealizados.ReadOnly = true;
@@ -650,8 +720,16 @@
             // 
             this.gvGastosPrevistos.AllowUserToAddRows = false;
             this.gvGastosPrevistos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvGastosPrevistos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvGastosPrevistos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvGastosPrevistos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gvGastosPrevistos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvGastosPrevistos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -662,6 +740,14 @@
             this.Column6,
             this.Column7,
             this.Column10});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvGastosPrevistos.DefaultCellStyle = dataGridViewCellStyle6;
             this.gvGastosPrevistos.Location = new System.Drawing.Point(5, 178);
             this.gvGastosPrevistos.Name = "gvGastosPrevistos";
             this.gvGastosPrevistos.ReadOnly = true;
@@ -1082,8 +1168,16 @@
             this.gvFases.AllowUserToAddRows = false;
             this.gvFases.AllowUserToDeleteRows = false;
             this.gvFases.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvFases.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvFases.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvFases.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.gvFases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvFases.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column17,
@@ -1092,6 +1186,14 @@
             this.Column14,
             this.Column15,
             this.Column16});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvFases.DefaultCellStyle = dataGridViewCellStyle9;
             this.gvFases.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvFases.Location = new System.Drawing.Point(3, 16);
             this.gvFases.MultiSelect = false;
@@ -1290,13 +1392,29 @@
             this.gvFollowUp.AllowUserToAddRows = false;
             this.gvFollowUp.AllowUserToDeleteRows = false;
             this.gvFollowUp.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvFollowUp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvFollowUp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvFollowUp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.gvFollowUp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvFollowUp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn12});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvFollowUp.DefaultCellStyle = dataGridViewCellStyle12;
             this.gvFollowUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvFollowUp.Location = new System.Drawing.Point(3, 16);
             this.gvFollowUp.MultiSelect = false;
@@ -1403,6 +1521,328 @@
             this.tbFUUsuario.Size = new System.Drawing.Size(218, 20);
             this.tbFUUsuario.TabIndex = 2;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage5.Controls.Add(this.groupBox4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1170, 490);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Empilhadeiras";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btRemoverEmpilhadeira);
+            this.groupBox4.Controls.Add(this.groupBox3);
+            this.groupBox4.Controls.Add(this.groupBox2);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(407, 336);
+            this.groupBox4.TabIndex = 63;
+            this.groupBox4.TabStop = false;
+            // 
+            // btRemoverEmpilhadeira
+            // 
+            this.btRemoverEmpilhadeira.Location = new System.Drawing.Point(6, 305);
+            this.btRemoverEmpilhadeira.Name = "btRemoverEmpilhadeira";
+            this.btRemoverEmpilhadeira.Size = new System.Drawing.Size(75, 23);
+            this.btRemoverEmpilhadeira.TabIndex = 1;
+            this.btRemoverEmpilhadeira.Text = "Remover";
+            this.btRemoverEmpilhadeira.UseVisualStyleBackColor = true;
+            this.btRemoverEmpilhadeira.Click += new System.EventHandler(this.btRemoverEmpilhadeira_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.gvEmpilhadeiras);
+            this.groupBox3.Location = new System.Drawing.Point(6, 80);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(392, 219);
+            this.groupBox3.TabIndex = 62;
+            this.groupBox3.TabStop = false;
+            // 
+            // gvEmpilhadeiras
+            // 
+            this.gvEmpilhadeiras.AllowUserToAddRows = false;
+            this.gvEmpilhadeiras.AllowUserToDeleteRows = false;
+            this.gvEmpilhadeiras.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvEmpilhadeiras.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvEmpilhadeiras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.gvEmpilhadeiras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvEmpilhadeiras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn13});
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvEmpilhadeiras.DefaultCellStyle = dataGridViewCellStyle15;
+            this.gvEmpilhadeiras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvEmpilhadeiras.Location = new System.Drawing.Point(3, 16);
+            this.gvEmpilhadeiras.MaxSortColumns = 4;
+            this.gvEmpilhadeiras.MultiSelect = false;
+            this.gvEmpilhadeiras.Name = "gvEmpilhadeiras";
+            this.gvEmpilhadeiras.ReadOnly = true;
+            this.gvEmpilhadeiras.RowHeadersVisible = false;
+            this.gvEmpilhadeiras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvEmpilhadeiras.Size = new System.Drawing.Size(386, 200);
+            this.gvEmpilhadeiras.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "idEmpilhadeira";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Número Série";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 96;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Data alocação";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 102;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btAddEmpilhadeira);
+            this.groupBox2.Controls.Add(this.label45);
+            this.groupBox2.Controls.Add(this.dtpDataAlocacaoEmpilhadeira);
+            this.groupBox2.Controls.Add(this.cbEmpilhadeiras);
+            this.groupBox2.Controls.Add(this.label44);
+            this.groupBox2.Location = new System.Drawing.Point(6, 10);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(392, 64);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // btAddEmpilhadeira
+            // 
+            this.btAddEmpilhadeira.Location = new System.Drawing.Point(305, 31);
+            this.btAddEmpilhadeira.Name = "btAddEmpilhadeira";
+            this.btAddEmpilhadeira.Size = new System.Drawing.Size(75, 23);
+            this.btAddEmpilhadeira.TabIndex = 2;
+            this.btAddEmpilhadeira.Text = "Adicionar";
+            this.btAddEmpilhadeira.UseVisualStyleBackColor = true;
+            this.btAddEmpilhadeira.Click += new System.EventHandler(this.btAddEmpilhadeira_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(197, 16);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(90, 13);
+            this.label45.TabIndex = 13;
+            this.label45.Text = "Data alocação";
+            // 
+            // dtpDataAlocacaoEmpilhadeira
+            // 
+            this.dtpDataAlocacaoEmpilhadeira.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAlocacaoEmpilhadeira.Location = new System.Drawing.Point(200, 32);
+            this.dtpDataAlocacaoEmpilhadeira.Name = "dtpDataAlocacaoEmpilhadeira";
+            this.dtpDataAlocacaoEmpilhadeira.Size = new System.Drawing.Size(99, 20);
+            this.dtpDataAlocacaoEmpilhadeira.TabIndex = 1;
+            // 
+            // cbEmpilhadeiras
+            // 
+            this.cbEmpilhadeiras.FormattingEnabled = true;
+            this.cbEmpilhadeiras.Location = new System.Drawing.Point(7, 33);
+            this.cbEmpilhadeiras.Name = "cbEmpilhadeiras";
+            this.cbEmpilhadeiras.Size = new System.Drawing.Size(187, 21);
+            this.cbEmpilhadeiras.TabIndex = 0;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(6, 16);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(83, 13);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Número Série";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage6.Controls.Add(this.groupBox9);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1170, 490);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Geradores";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.btRemoverGerador);
+            this.groupBox9.Controls.Add(this.groupBox10);
+            this.groupBox9.Controls.Add(this.groupBox11);
+            this.groupBox9.Location = new System.Drawing.Point(3, 3);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(407, 336);
+            this.groupBox9.TabIndex = 64;
+            this.groupBox9.TabStop = false;
+            // 
+            // btRemoverGerador
+            // 
+            this.btRemoverGerador.Location = new System.Drawing.Point(6, 305);
+            this.btRemoverGerador.Name = "btRemoverGerador";
+            this.btRemoverGerador.Size = new System.Drawing.Size(75, 23);
+            this.btRemoverGerador.TabIndex = 0;
+            this.btRemoverGerador.Text = "Remover";
+            this.btRemoverGerador.UseVisualStyleBackColor = true;
+            this.btRemoverGerador.Click += new System.EventHandler(this.btRemoverGerador_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.gvGeradores);
+            this.groupBox10.Location = new System.Drawing.Point(6, 80);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(392, 219);
+            this.groupBox10.TabIndex = 62;
+            this.groupBox10.TabStop = false;
+            // 
+            // gvGeradores
+            // 
+            this.gvGeradores.AllowUserToAddRows = false;
+            this.gvGeradores.AllowUserToDeleteRows = false;
+            this.gvGeradores.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvGeradores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvGeradores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.gvGeradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvGeradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvGeradores.DefaultCellStyle = dataGridViewCellStyle18;
+            this.gvGeradores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvGeradores.Location = new System.Drawing.Point(3, 16);
+            this.gvGeradores.MultiSelect = false;
+            this.gvGeradores.Name = "gvGeradores";
+            this.gvGeradores.ReadOnly = true;
+            this.gvGeradores.RowHeadersVisible = false;
+            this.gvGeradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvGeradores.Size = new System.Drawing.Size(386, 200);
+            this.gvGeradores.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "idEmpilhadeira";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Número Série";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 96;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Data alocação";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 102;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.btGeradorAdd);
+            this.groupBox11.Controls.Add(this.label46);
+            this.groupBox11.Controls.Add(this.dtpDataAlocacaoGerador);
+            this.groupBox11.Controls.Add(this.cbGeradores);
+            this.groupBox11.Controls.Add(this.label47);
+            this.groupBox11.Location = new System.Drawing.Point(6, 10);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(392, 64);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            // 
+            // btGeradorAdd
+            // 
+            this.btGeradorAdd.Location = new System.Drawing.Point(305, 31);
+            this.btGeradorAdd.Name = "btGeradorAdd";
+            this.btGeradorAdd.Size = new System.Drawing.Size(75, 23);
+            this.btGeradorAdd.TabIndex = 2;
+            this.btGeradorAdd.Text = "Adicionar";
+            this.btGeradorAdd.UseVisualStyleBackColor = true;
+            this.btGeradorAdd.Click += new System.EventHandler(this.btGeradorAdd_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(197, 16);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(90, 13);
+            this.label46.TabIndex = 13;
+            this.label46.Text = "Data alocação";
+            // 
+            // dtpDataAlocacaoGerador
+            // 
+            this.dtpDataAlocacaoGerador.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAlocacaoGerador.Location = new System.Drawing.Point(200, 32);
+            this.dtpDataAlocacaoGerador.Name = "dtpDataAlocacaoGerador";
+            this.dtpDataAlocacaoGerador.Size = new System.Drawing.Size(99, 20);
+            this.dtpDataAlocacaoGerador.TabIndex = 1;
+            // 
+            // cbGeradores
+            // 
+            this.cbGeradores.FormattingEnabled = true;
+            this.cbGeradores.Location = new System.Drawing.Point(7, 33);
+            this.cbGeradores.Name = "cbGeradores";
+            this.cbGeradores.Size = new System.Drawing.Size(187, 21);
+            this.cbGeradores.TabIndex = 0;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(6, 16);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(83, 13);
+            this.label47.TabIndex = 0;
+            this.label47.Text = "Número Série";
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
@@ -1436,7 +1876,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
             this.tableLayoutPanel1.Controls.Add(this.lbResultadoBruto, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoOperacional, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoTributario, 1, 2);
@@ -1458,7 +1898,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lbRealizadoCoberturas, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbRealizadoTubulares, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbRealizadoGerenciamentoObra, 6, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lbSaldoEstande, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoCoberturas, 7, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoTubulares, 7, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoGerenciamentoObra, 7, 4);
@@ -1485,6 +1924,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoModulosHabitacionais, 7, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoLogisticaTransporte, 7, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbSaldoMatriz, 7, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lbSaldoEstande, 7, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1505,9 +1945,9 @@
             this.lbResultadoBruto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbResultadoBruto.AutoSize = true;
             this.lbResultadoBruto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoBruto.Location = new System.Drawing.Point(276, 92);
+            this.lbResultadoBruto.Location = new System.Drawing.Point(277, 92);
             this.lbResultadoBruto.Name = "lbResultadoBruto";
-            this.lbResultadoBruto.Size = new System.Drawing.Size(36, 16);
+            this.lbResultadoBruto.Size = new System.Drawing.Size(35, 16);
             this.lbResultadoBruto.TabIndex = 9;
             this.lbResultadoBruto.Text = "0,00";
             this.lbResultadoBruto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1645,7 +2085,7 @@
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1046, 5);
+            this.label27.Location = new System.Drawing.Point(1054, 5);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(48, 13);
             this.label27.TabIndex = 17;
@@ -1740,24 +2180,13 @@
             this.lbRealizadoGerenciamentoObra.Text = "0,00";
             this.lbRealizadoGerenciamentoObra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lbSaldoEstande
-            // 
-            this.lbSaldoEstande.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbSaldoEstande.AutoSize = true;
-            this.lbSaldoEstande.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoEstande.Location = new System.Drawing.Point(1129, 27);
-            this.lbSaldoEstande.Name = "lbSaldoEstande";
-            this.lbSaldoEstande.Size = new System.Drawing.Size(32, 13);
-            this.lbSaldoEstande.TabIndex = 26;
-            this.lbSaldoEstande.Text = "0,00";
-            this.lbSaldoEstande.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lbSaldoCoberturas
             // 
             this.lbSaldoCoberturas.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoCoberturas.AutoSize = true;
             this.lbSaldoCoberturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1129, 49);
+            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1128, 49);
+            this.lbSaldoCoberturas.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoCoberturas.Name = "lbSaldoCoberturas";
             this.lbSaldoCoberturas.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoCoberturas.TabIndex = 27;
@@ -1769,7 +2198,8 @@
             this.lbSaldoTubulares.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoTubulares.AutoSize = true;
             this.lbSaldoTubulares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoTubulares.Location = new System.Drawing.Point(1129, 71);
+            this.lbSaldoTubulares.Location = new System.Drawing.Point(1128, 71);
+            this.lbSaldoTubulares.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoTubulares.Name = "lbSaldoTubulares";
             this.lbSaldoTubulares.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoTubulares.TabIndex = 28;
@@ -1781,7 +2211,8 @@
             this.lbSaldoGerenciamentoObra.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoGerenciamentoObra.AutoSize = true;
             this.lbSaldoGerenciamentoObra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1129, 93);
+            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1128, 93);
+            this.lbSaldoGerenciamentoObra.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoGerenciamentoObra.Name = "lbSaldoGerenciamentoObra";
             this.lbSaldoGerenciamentoObra.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoGerenciamentoObra.TabIndex = 29;
@@ -1873,9 +2304,9 @@
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(32, 92);
+            this.label28.Location = new System.Drawing.Point(33, 92);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(119, 16);
+            this.label28.Size = new System.Drawing.Size(118, 16);
             this.label28.TabIndex = 34;
             this.label28.Text = "Resultado Bruto";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2017,7 +2448,8 @@
             this.lbSaldoModulosHabitacionais.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoModulosHabitacionais.AutoSize = true;
             this.lbSaldoModulosHabitacionais.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1129, 115);
+            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1128, 115);
+            this.lbSaldoModulosHabitacionais.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoModulosHabitacionais.Name = "lbSaldoModulosHabitacionais";
             this.lbSaldoModulosHabitacionais.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoModulosHabitacionais.TabIndex = 47;
@@ -2029,7 +2461,8 @@
             this.lbSaldoLogisticaTransporte.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoLogisticaTransporte.AutoSize = true;
             this.lbSaldoLogisticaTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1129, 137);
+            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1128, 137);
+            this.lbSaldoLogisticaTransporte.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoLogisticaTransporte.Name = "lbSaldoLogisticaTransporte";
             this.lbSaldoLogisticaTransporte.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoLogisticaTransporte.TabIndex = 48;
@@ -2041,12 +2474,26 @@
             this.lbSaldoMatriz.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoMatriz.AutoSize = true;
             this.lbSaldoMatriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoMatriz.Location = new System.Drawing.Point(1129, 159);
+            this.lbSaldoMatriz.Location = new System.Drawing.Point(1128, 159);
+            this.lbSaldoMatriz.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoMatriz.Name = "lbSaldoMatriz";
             this.lbSaldoMatriz.Size = new System.Drawing.Size(32, 13);
             this.lbSaldoMatriz.TabIndex = 49;
             this.lbSaldoMatriz.Text = "0,00";
             this.lbSaldoMatriz.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbSaldoEstande
+            // 
+            this.lbSaldoEstande.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbSaldoEstande.AutoSize = true;
+            this.lbSaldoEstande.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSaldoEstande.Location = new System.Drawing.Point(1128, 27);
+            this.lbSaldoEstande.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.lbSaldoEstande.Name = "lbSaldoEstande";
+            this.lbSaldoEstande.Size = new System.Drawing.Size(32, 13);
+            this.lbSaldoEstande.TabIndex = 26;
+            this.lbSaldoEstande.Text = "0,00";
+            this.lbSaldoEstande.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox5
             // 
@@ -2062,7 +2509,6 @@
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.CachedPageNumberPerDoc = 10;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.DisplayStatusBar = false;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2140,6 +2586,18 @@
             this.grpFollowUp.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvFollowUp)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvEmpilhadeiras)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvGeradores)).EndInit();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -2321,5 +2779,33 @@
         private System.Windows.Forms.TextBox tbDescricao;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.GroupBox grpFollowUp;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btRemoverEmpilhadeira;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private Util.SortedDataGridView gvEmpilhadeiras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btAddEmpilhadeira;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.DateTimePicker dtpDataAlocacaoEmpilhadeira;
+        private System.Windows.Forms.ComboBox cbEmpilhadeiras;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button btRemoverGerador;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private Util.SortedDataGridView gvGeradores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button btGeradorAdd;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.DateTimePicker dtpDataAlocacaoGerador;
+        private System.Windows.Forms.ComboBox cbGeradores;
+        private System.Windows.Forms.Label label47;
     }
 }

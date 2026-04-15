@@ -31,6 +31,10 @@ namespace BRGS.UI
         private bool listaGastosAlterada = false;        
         private Random rnd = new Random();
         private bool? previsaoEtapa = null;
+        private BIZEmpilhadeira bizEmpilhadeira = new BIZEmpilhadeira();
+        private BIZGerador bizGerador = new BIZGerador();
+        private List<Empilhadeira> lstEmpilhadeirasDisponiveisCombo = new List<Empilhadeira>();
+        private List<Gerador> lstGeradoresDisponiveisCombo = new List<Gerador>();
 
         public ObraEtapaManutencao(ObraEtapa _etapaSelecionada, bool? _previsaoEtapa = null)
         {
@@ -50,6 +54,66 @@ namespace BRGS.UI
             this.CarregarListaCentroCusto();
             this.CarregarListaDespesas();
             this.CarregarComboFases();
+            this.CarregarComboEmpilhadeiras();
+            this.CarregarComboGeradores();
+        }
+
+        private void CarregarComboGeradores()
+        {
+            List<Gerador> lst = new List<Gerador>();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lst.Add(new Gerador() { ID = 0, NumeroSerie = "--Selecione--" });
+                lst.AddRange(lstGeradoresDisponiveisCombo.OrderBy(x => x.NumeroSerie).ToList());
+
+                cbGeradores.DataSource = lst;
+                cbGeradores.DisplayMember = "NumeroSerie";
+                cbGeradores.ValueMember = "ID";
+
+                btGeradorAdd.Enabled = lst.Count > 1;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void CarregarComboEmpilhadeiras()
+        {
+            List<Empilhadeira> lst = new List<Empilhadeira>();
+
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                lst.Add(new Empilhadeira() { ID = 0, NumeroSerie = "--Selecione--" });
+                lst.AddRange(lstEmpilhadeirasDisponiveisCombo.OrderBy(x => x.NumeroSerie).ToList());
+                
+                cbEmpilhadeiras.DataSource = lst;
+                cbEmpilhadeiras.DisplayMember = "NumeroSerie";
+                cbEmpilhadeiras.ValueMember = "ID";
+
+                btAddEmpilhadeira.Enabled = lst.Count > 1;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroAcessoBD(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
         }
 
         private void CarregarComboFases()
@@ -1461,6 +1525,9 @@ namespace BRGS.UI
 
                 helper.VerificaPermissaoAcessoObjetos(this, UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name).ToList());
 
+                lstEmpilhadeirasDisponiveisCombo.AddRange(bizEmpilhadeira.PesquisarEmpilhadeirasDisponiveisCombo().OrderBy(u => u.NumeroSerie));
+                lstGeradoresDisponiveisCombo.AddRange(bizGerador.PesquisarGeradoresDisponiveisCombo().OrderBy(u => u.NumeroSerie));
+
                 CarregarCombos();
 
                 tbDataInicio.Value = DateTime.Today;
@@ -1485,6 +1552,8 @@ namespace BRGS.UI
                     CarregarComparativoObra(etapaSelecionada);
                     HabilitarCamposCabecalho();
                     VerificarEtapaFinalizada();
+                    CarregarGridEmpilhadeiras();
+                    CarregarGridGeradores();
                 }
 
                 this.Cursor = Cursors.Default;
@@ -1501,7 +1570,56 @@ namespace BRGS.UI
                 bizLogErro.IncluirLogErro(logErro);
             }			
         }
-        
+
+        private void CarregarGridEmpilhadeiras()
+        {
+            try
+            {
+                while (gvEmpilhadeiras.Rows.Count > 0)
+                    gvEmpilhadeiras.Rows.RemoveAt(0);
+
+                foreach (Empilhadeira itemEmpilhadeira in etapaSelecionada.lstEmpilhadeiras)
+                {
+                    gvEmpilhadeiras.Rows.Add(new object[]
+                    {
+                        itemEmpilhadeira.ID,
+                        itemEmpilhadeira.NumeroSerie,
+                        itemEmpilhadeira.DataAlocacao.ToString("dd/MM/yyyy")
+                    });
+                }
+            }            
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CarregarGridGeradores()
+        {
+            try
+            {
+                while (gvGeradores.Rows.Count > 0)
+                    gvGeradores.Rows.RemoveAt(0);
+
+                foreach (Gerador e in etapaSelecionada.lstGeradores)
+                {
+                    gvGeradores.Rows.Add(new object[]
+                    {
+                        e.ID,
+                        e.NumeroSerie,
+                        e.DataAlocacao.ToString("dd/MM/yyyy")
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+           
+        }
+
+
         private void HabilitarCamposCabecalho()
         {            
             UsuarioPermissoes permissaoAlterarCabecalho = new UsuarioPermissoes();
@@ -1515,18 +1633,9 @@ namespace BRGS.UI
         }
 
         private void VerificarEtapaFinalizada()
-        {
-            //if (previsaoEtapa != null)
-            //{            
-            //    grpPrevistos.Enabled = previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
-            //    grpRealizados.Enabled = !previsaoEtapa.Value && etapaSelecionada.Finalizada == 0;
-            //}
-            //else
-            //{
-                grpPrevistos.Enabled = etapaSelecionada.Finalizada == 0;
-                grpRealizados.Enabled = etapaSelecionada.Finalizada == 0;
-            //}
-
+        {            
+            grpPrevistos.Enabled = etapaSelecionada.Finalizada == 0;
+            grpRealizados.Enabled = etapaSelecionada.Finalizada == 0;
             grpFases.Enabled = etapaSelecionada.Finalizada == 0;
             grpFollowUp.Enabled = etapaSelecionada.Finalizada == 0;            
         }
@@ -1726,6 +1835,96 @@ namespace BRGS.UI
                 e.Handled = true;
                 SendKeys.Send("{tab}");
             }
+        }
+
+        private void btAddEmpilhadeira_Click(object sender, EventArgs e)
+        {            
+            if (cbEmpilhadeiras.SelectedIndex == 0 || cbEmpilhadeiras.FindStringExact(cbEmpilhadeiras.Text) == -1)
+            {
+                MessageBox.Show("Favor selecionar uma das Empilhadeiras disponíveis.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            etapaSelecionada.lstEmpilhadeiras.Add(new Empilhadeira()
+            {
+                ID = int.Parse(cbEmpilhadeiras.SelectedValue.ToString()),
+                NumeroSerie = cbEmpilhadeiras.Text,
+                DataAlocacao = dtpDataAlocacaoEmpilhadeira.Value
+            });
+
+            lstEmpilhadeirasDisponiveisCombo.RemoveAll(x => x.ID == int.Parse(cbEmpilhadeiras.SelectedValue.ToString()));
+
+            CarregarComboEmpilhadeiras();            
+            dtpDataAlocacaoEmpilhadeira.Value = DateTime.Today;
+            CarregarGridEmpilhadeiras();
+        }
+
+        private void btRemoverEmpilhadeira_Click(object sender, EventArgs e)
+        {
+            int linhaGrid = 0;
+
+            if (gvEmpilhadeiras.RowCount == 0)
+                return;
+
+            linhaGrid = gvEmpilhadeiras.SelectedCells[0].RowIndex;
+
+            int id = int.Parse(gvEmpilhadeiras[0, linhaGrid].Value.ToString());
+            string numeroSerie = gvEmpilhadeiras[1, linhaGrid].Value.ToString();
+
+            lstEmpilhadeirasDisponiveisCombo.Add(new Empilhadeira()
+            {
+                ID = id,
+                NumeroSerie = numeroSerie
+            });
+            CarregarComboEmpilhadeiras();
+            
+            etapaSelecionada.lstEmpilhadeiras.RemoveAll(x => x.ID == id);
+            CarregarGridEmpilhadeiras();
+        }
+
+        private void btGeradorAdd_Click(object sender, EventArgs e)
+        {
+            if (cbGeradores.SelectedIndex == 0 || cbGeradores.FindStringExact(cbGeradores.Text) == -1)
+            {
+                MessageBox.Show("Favor selecionar um dos Geradores disponíveis.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            etapaSelecionada.lstGeradores.Add(new Gerador()
+            {
+                ID = int.Parse(cbGeradores.SelectedValue.ToString()),
+                NumeroSerie = cbGeradores.Text,
+                DataAlocacao = dtpDataAlocacaoGerador.Value
+            });
+
+            lstGeradoresDisponiveisCombo.RemoveAll(x => x.ID == int.Parse(cbGeradores.SelectedValue.ToString()));
+
+            CarregarComboGeradores();
+            dtpDataAlocacaoGerador.Value = DateTime.Today;
+            CarregarGridGeradores();
+        }
+
+        private void btRemoverGerador_Click(object sender, EventArgs e)
+        {
+            int linhaGrid = 0;
+
+            if (gvGeradores.RowCount == 0)
+                return;
+
+            linhaGrid = gvGeradores.SelectedCells[0].RowIndex;
+
+            int id = int.Parse(gvGeradores[0, linhaGrid].Value.ToString());            
+            string numeroSerie = gvGeradores[1, linhaGrid].Value.ToString();
+
+            lstGeradoresDisponiveisCombo.Add(new Gerador()
+            {
+                ID = id,
+                NumeroSerie = numeroSerie
+            });
+            CarregarComboGeradores();
+
+            etapaSelecionada.lstGeradores.RemoveAll(x => x.ID == id);
+            CarregarGridGeradores();
         }
     }
 }

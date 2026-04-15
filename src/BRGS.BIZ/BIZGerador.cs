@@ -352,5 +352,46 @@ namespace BRGS.BIZ
 
             return lstGeradorManutencao;
         }
+
+        public List<Gerador> PesquisarGeradoresDisponiveisCombo()
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<Gerador> lstGeradores = new List<Gerador>();
+            
+            try
+            {
+                using (DataSet ds = dao.Pesquisar("SP_GERADORES_COMBO_DISPONIVEIS_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        Gerador e = new Gerador
+                        {
+                            ID = int.Parse(dr["ID"].ToString()),
+                            NumeroSerie = dr["NumeroSerie"].ToString()
+                        };
+                        lstGeradores.Add(e);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_GERADORES_COMBO_DISPONIVEIS_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstGeradores;
+        }
     }
 }

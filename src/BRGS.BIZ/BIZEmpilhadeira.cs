@@ -113,20 +113,6 @@ namespace BRGS.BIZ
             return Msg;
         }
 
-        private string ValidarCamposManutencaoObrigatorios(EmpilhadeiraManutencao e)
-        {
-            string Msg = string.Empty;
-
-            if (e.Valor == 0)
-                Msg += Environment.NewLine + "Valor não preenchido";
-
-            if (string.IsNullOrEmpty(e.Descricao))
-                Msg += Environment.NewLine + "Descrição não preenchida";
-
-            return Msg;
-        }
-
-
         public string IncluirEmpilhadeira(Empilhadeira empilhadeira, out int ID)
         {
             DataAccess dao = new DataAccess();
@@ -375,6 +361,47 @@ namespace BRGS.BIZ
             }
 
             return lstEmpilhadeiraManutencao;
+        }
+
+        public List<Empilhadeira> PesquisarEmpilhadeirasDisponiveisCombo()
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<Empilhadeira> lstEmpilhadeiras = new List<Empilhadeira>();
+            
+            try
+            {
+                using (DataSet ds = dao.Pesquisar("SP_EMPILHADEIRAS_COMBO_DISPONIVEIS_CONSULTAR", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        Empilhadeira e = new Empilhadeira
+                        {
+                            ID = int.Parse(dr["ID"].ToString()),
+                            NumeroSerie = dr["NumeroSerie"].ToString()
+                        };
+                        lstEmpilhadeiras.Add(e);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_COMBO_DISPONIVEIS_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstEmpilhadeiras;
         }
     }
 }

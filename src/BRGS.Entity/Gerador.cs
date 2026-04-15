@@ -15,6 +15,7 @@ namespace BRGS.Entity
         public int IdEmpresa { get; set; }
         public int IdCliente { get; set; }
         public int IdObraEtapa { get; set; }
+        public DateTime DataAlocacao { get; set; }
 
         [Description("Número Série")]
         public string NumeroSerie { get; set; }

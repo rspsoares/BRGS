@@ -1,55 +1,128 @@
 DeadLine - 06/07/2026
 
 Desktop
-	» Criação de um Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)			
-		OK - Criar item de Menu
-		Criar tela
-			OK - Grid
-			»» Manutenção
-				OK - Campos normais
-				OK - Combo de obras					
-					Label de cliente 
-					Label de pregão
-				
-				OK - Incluir
-				OK - Alterar
-				OK - Excluir
-				
-				OK - Validar campos obrigatórios
-					IdEmpresa
-					NumeroSerie
-					Combustivel
-					Marca
-					Modelo
-					Torre
-					CapacidadeCarga
-					Lotada
-				
-				OK - Aba de histórico de manutenções
-					
-					Manutenções		
-						OK - Incluir
-						OK - Alterar
-						OK - Excluir
-						
-				OK - Teste completo de CRUD
-					MASTER
-					DETAIL
 	
-	»» Criação de um Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
-		Criar item de Menu
-		Criar tela - usar as empilhadeiras como exemplo
-			Grid
-			Manutenção
-				Aba de histórico de manutenções
-				
-	Na tela de Manutenção de Obras, adicionar a funcionalidade de adicionar uma lista de Empilhadeiras e de Geradores. 	
+	» Na tela de Manutenção de Obras, adicionar a funcionalidade de adicionar uma lista de Empilhadeiras e de Geradores. 	
+		Seguir o doc: Alocação de Equipamentos.docx
+	
+		ok - Criar campo DataAlocacao (DateTime - null)
+			Empilhadeiras
+			Geradores
+			
+		Buscar backup do server
 		
-		Quando associar a empilhadeira (1 ou mais) à uma etapa de obra, ela ficaria indisponível. E só liberaria ela quando finalizar a etapa da obra a qual ela está associada
-
-		Aí no controle de empilhadeiras, teria mais uma aba, de histórico de usos
-
-		Alinhar com Betto - se por acaso desfinalizar a etapa que tinha equipamento, verifica se o mesmo equipamento está disponível. Se tiver, almoça novamente. Se não tiver, avisa que já não está e não carrega o equipamento 
+		Carregar backup local
+		
+		Só trabalhar com banco localmente
+			Criar um DBServer.dat local
+			
+		Atualizar no server junto quando mandar o deploy
+		
+		---------------
+		
+		Scripts para deploy			
+		
+		
+		----------------
+		
+		Criar novas procs para ALOCAR
+			IdCliente, IdObraEtapa, DataAlocacao preenchidos
+		
+			EMPILHADEIRA
+			GERADOR
+			
+		Criar tabelas de usos
+			Estrutura
+			PROC Inclusão
+			PROC Consulta
+			
+		Criar novas procs para LIBERAR
+			IdCliente, IdObraEtapa, DataAlocacao vazios
+			Inserir na tabela de Histórico de Usos
+		
+			EMPILHADEIRA
+			GERADOR
+		
+		Métodos nas BIZ
+			EMPILHADEIRA
+			GERADOR
+		
+		Criar Empilhadeira e Gerador de exemplo para testar as alocações
+	
+	
+		Obra com empilhadeira
+			FIOCRUZ - depósito
+			
+		Obra com gerador
+			Albertina
+	
+	
+		Na EtapaObras, 
+			Criar mais duas abas para adicionar e remover equipamentos
+				Empilhadeiras
+					ok - Combo empilhadeiras disponíveis
+					ok - Data alocação
+					
+					ok - Botão adicionar
+						Adicionar na lista
+						Carregar grid
+					
+					ok - Grid
+						Número série
+						Data alocação
+					
+					ok - Botão remover
+						Remover da lista
+						Carregar grid
+					
+					ok - manter uma lista para empilhadeiras e geradores disponiveis
+					
+					
+				Geradores
+					ok - Combo geradores disponíveis
+					ok - Data alocação
+					ok - Botão adicionar
+						Adicionar na lista
+						Carregar grid
+					
+					ok - Grid
+						Número série
+						Data alocação
+					
+					ok - Botão remover
+						Remover da lista
+						Carregar grid
+	
+			Quando salvar a etapa
+				Se não estiver com o pisco Finalizada
+				
+					Verificar se houve troca de equipamento
+						[HOLD] Aguardanbdo confirmação da regra de substiuição
+						
+							Comparar o que está na grid com o que vem do banco
+							
+								Se não estiver na grid e estiver no banco (substiuição)
+									Updeita a tabela do equipamento zerando a alocação, mas sem incluir no histórico de uso?
+						
+					Update de uso nos itens da grid Empilhadeira
+						IdCliente, IdObraEtapa, DataAlocacao
+						
+					Update de uso nos itens da grid Gerador
+						IdCliente, IdObraEtapa, DataAlocacao
+						
+				Se estiver com o pisco de Finalizada
+					Update de liberação na Empilhadeira
+					Update de liberação no Gerador
+					
+					Inserir no histórico de uso da Empilhadeira, definindo a data de fim automaticamente
+					Inserir no histórico de uso do Gerador, definindo a data de fim automaticamente
+					
+		No controle de Empilhadeiras			
+			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
+	
+		No controle de Geradores			
+			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
+	
 	
 	Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
 
@@ -107,3 +180,267 @@ ALTER ROLE db_ddladmin ADD MEMBER [OS_User]; -- opcional (permite criar objetos)
 -- Executar procedures
 GRANT EXECUTE TO [OS_User];
 GO
+
+
+-------------------------------------
+
+User Id=brgs1;Password=2014roberto;
+
+
+Data Source=localhost;Persist Security Info=True;User ID=sa;Password=db@2023;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name="SQL Server Management Studio";Command Timeout=0
+
+-------------
+Claro — vou te guiar de forma prática e completa para expor o SQL Server externamente **com segurança**, incluindo alteração de porta e firewall.
+
+---
+
+# 🧩 1. Ativar conexões remotas no SQL Server
+
+1. Abra o **SQL Server Management Studio (SSMS)**
+2. Conecte ao servidor
+3. Clique com o botão direito no servidor → **Properties**
+4. Vá em **Connections**
+5. Marque:
+   ✔️ *Allow remote connections to this server*
+
+---
+
+# 🌐 2. Ativar protocolo TCP/IP
+
+1. Abra o **SQL Server Configuration Manager**
+
+2. Vá em:
+   **SQL Server Network Configuration → Protocols for [SUA INSTÂNCIA]**
+
+3. Habilite:
+   ✔️ **TCP/IP**
+
+4. Clique duas vezes em **TCP/IP** → aba **IP Addresses**
+
+---
+
+# 🔢 3. Alterar a porta padrão (ex: 1433 → 21433)
+
+Ainda dentro do TCP/IP:
+
+1. Role até **IPAll**
+
+2. Apague o valor de:
+
+   * `TCP Dynamic Ports`
+
+3. Em `TCP Port`, coloque por exemplo:
+   👉 `21433`
+
+4. Clique em **OK**
+
+---
+
+# 🔄 4. Reiniciar o serviço do SQL Server
+
+No próprio Configuration Manager:
+
+* Clique com o botão direito no serviço
+* **Restart**
+
+---
+
+# 🔥 5. Liberar a porta no Firewall do Windows
+
+Agora o mais importante 👇
+
+1. Abra:
+   **Windows Defender Firewall with Advanced Security**
+
+2. Clique em:
+
+   * **Inbound Rules → New Rule**
+
+3. Escolha:
+
+   * **Port**
+   * TCP
+   * Specific local ports: `21433`
+
+4. Permita a conexão:
+   ✔️ *Allow the connection*
+
+5. Marque:
+   ✔️ Domain
+   ✔️ Private
+   ✔️ Public (somente se necessário)
+
+6. Nome:
+   👉 `SQL Server Porta 21433`
+
+---
+
+# 🌍 6. Liberar no firewall externo / roteador
+
+Se o servidor estiver atrás de NAT:
+
+* Configure **Port Forwarding**
+
+  * Porta externa: `21433`
+  * IP interno: IP do servidor Windows
+  * Porta interna: `21433`
+
+---
+
+# 🔐 7. Configurar autenticação SQL
+
+Para acesso externo:
+
+1. No SSMS:
+
+   * Server Properties → **Security**
+
+2. Marque:
+   ✔️ *SQL Server and Windows Authentication mode*
+
+3. Crie login:
+
+   * Security → Logins → New Login
+
+---
+
+# 🧪 8. Testar conexão externa
+
+Exemplo de string:
+
+```
+IP_DO_SERVIDOR,21433
+```
+
+Ou:
+
+```
+tcp:SEU_IP_PUBLICO,21433
+```
+
+---
+
+# ⚠️ Boas práticas de segurança (importante)
+
+Não pule isso 👇
+
+* ❌ Evite expor diretamente à internet se possível
+* ✔️ Use VPN (recomendado)
+* ✔️ Restrinja IPs no firewall
+* ✔️ Use senhas fortes
+* ✔️ Considere criptografia (SSL)
+
+---
+
+# 🚀 Dica profissional
+
+Se for ambiente de produção:
+
+* Prefira acesso via **VPN**
+* Ou use um **bastion host**
+* Ou ainda Azure/AWS com regras de segurança
+
+---
+
+Se quiser, posso:
+
+* montar um checklist automático pra você validar tudo
+* ou revisar sua configuração atual (me manda prints ou descreve como está)
+
+
+----------------------------
+Step de criação do backup
+
+DECLARE @SQLStatement VARCHAR(2000) 
+SET @SQLStatement = 'C:\BRGS\BKP\BRGS1_' +CONVERT(CHAR(10), GETDATE(), 126) +'.bak'
+BACKUP DATABASE [brgs1] TO  DISK = @SQLStatement WITH NOFORMAT, INIT,  NAME = N'brgs1-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, COMPRESSION,  STATS = 10, CHECKSUM
+GO
+declare @backupSetId as int
+select @backupSetId = position from msdb..backupset where database_name=N'brgs1' and backup_set_id=(select max(backup_set_id) from msdb..backupset where database_name=N'brgs1' )
+if @backupSetId is null begin raiserror(N'Verify failed. Backup information for database ''brgs1'' not found.', 16, 1) end
+RESTORE VERIFYONLY FROM  DISK = N'C:\BRGS\BKP\BRGS1_2024-01-31.bak' WITH  FILE = @backupSetId,  NOUNLOAD,  NOREWIND
+GO
+
+
+
+Script de criação do backup
+
+USE [msdb]
+GO
+
+/****** Object:  Job [Back Up Database - brgs1]    Script Date: 11/04/2026 17:12:49 ******/
+BEGIN TRANSACTION
+DECLARE @ReturnCode INT
+SELECT @ReturnCode = 0
+/****** Object:  JobCategory [Database Maintenance]    Script Date: 11/04/2026 17:12:49 ******/
+IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'Database Maintenance' AND category_class=1)
+BEGIN
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'Database Maintenance'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+
+END
+
+DECLARE @jobId BINARY(16)
+EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'Back Up Database - brgs1', 
+		@enabled=1, 
+		@notify_level_eventlog=0, 
+		@notify_level_email=0, 
+		@notify_level_netsend=0, 
+		@notify_level_page=0, 
+		@delete_level=0, 
+		@description=N'No description available.', 
+		@category_name=N'Database Maintenance', 
+		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+/****** Object:  Step [1]    Script Date: 11/04/2026 17:12:49 ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'1', 
+		@step_id=1, 
+		@cmdexec_success_code=0, 
+		@on_success_action=1, 
+		@on_success_step_id=0, 
+		@on_fail_action=2, 
+		@on_fail_step_id=0, 
+		@retry_attempts=0, 
+		@retry_interval=0, 
+		@os_run_priority=0, @subsystem=N'TSQL', 
+		@command=N'DECLARE @SQLStatement VARCHAR(2000) 
+SET @SQLStatement = ''C:\BRGS\BKP\BRGS1_'' +CONVERT(CHAR(10), GETDATE(), 126) +''.bak''
+BACKUP DATABASE [brgs1] TO  DISK = @SQLStatement WITH NOFORMAT, INIT,  NAME = N''brgs1-Full Database Backup'', SKIP, NOREWIND, NOUNLOAD, COMPRESSION,  STATS = 10, CHECKSUM
+GO
+declare @backupSetId as int
+select @backupSetId = position from msdb..backupset where database_name=N''brgs1'' and backup_set_id=(select max(backup_set_id) from msdb..backupset where database_name=N''brgs1'' )
+if @backupSetId is null begin raiserror(N''Verify failed. Backup information for database ''''brgs1'''' not found.'', 16, 1) end
+RESTORE VERIFYONLY FROM  DISK = N''C:\BRGS\BKP\BRGS1_2024-01-31.bak'' WITH  FILE = @backupSetId,  NOUNLOAD,  NOREWIND
+GO
+', 
+		@database_name=N'master', 
+		@flags=0
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N'Backup Scheduler', 
+		@enabled=1, 
+		@freq_type=4, 
+		@freq_interval=1, 
+		@freq_subday_type=1, 
+		@freq_subday_interval=0, 
+		@freq_relative_interval=0, 
+		@freq_recurrence_factor=0, 
+		@active_start_date=20240131, 
+		@active_end_date=99991231, 
+		@active_start_time=10, 
+		@active_end_time=235959, 
+		@schedule_uid=N'ca222b1f-557d-45f3-8e1a-fbb3faea3d6d'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+COMMIT TRANSACTION
+GOTO EndSave
+QuitWithRollback:
+    IF (@@TRANCOUNT > 0) ROLLBACK TRANSACTION
+EndSave:
+GO
+
+
+
+
