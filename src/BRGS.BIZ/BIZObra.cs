@@ -11,6 +11,8 @@ namespace BRGS.BIZ
     {
         private Helper helper = new Helper();
         private BIZLogErro bizLogErro = new BIZLogErro();
+        private BIZEmpilhadeira bizEmpilhadeira = new BIZEmpilhadeira();
+        private BIZGerador bizGerador = new BIZGerador();
 
         #region Obras
 
@@ -503,11 +505,15 @@ namespace BRGS.BIZ
                         idObraEtapa = int.Parse(dr[0].ToString());
                     }
 
-                  //  lstComandos.AddRange(this.IncluirPlanejamento(idObraEtapa, obraEtapa.lstPlanejamentos));
                     lstComandos.AddRange(this.IncluirGastosPrevistos(idObraEtapa, obraEtapa.lstGastosPrevistos));
                     lstComandos.AddRange(this.IncluirGastosRealizados(idObraEtapa, obraEtapa.lstGastosRealizados));
                     lstComandos.AddRange(this.IncluirFases(idObraEtapa, obraEtapa.lstFases));
                     lstComandos.AddRange(this.IncluirFollowUp(idObraEtapa, obraEtapa.lstFollowUps));
+
+                    obraEtapa.idObraEtapa = idObraEtapa;
+                    lstComandos.AddRange(this.AtualizarEmpilhadeiras(obraEtapa));
+                    lstComandos.AddRange(this.AtualizarGeradores(obraEtapa));
+
                     dao.ExecutarTransacao(lstComandos);
                 }
             }
@@ -649,6 +655,8 @@ namespace BRGS.BIZ
                     lstComandos.AddRange(this.IncluirGastosRealizados(obraEtapa.idObraEtapa, obraEtapa.lstGastosRealizados));
                     lstComandos.AddRange(this.IncluirFases(obraEtapa.idObraEtapa, obraEtapa.lstFases));
                     lstComandos.AddRange(this.IncluirFollowUp(obraEtapa.idObraEtapa, obraEtapa.lstFollowUps));
+                    lstComandos.AddRange(this.AtualizarEmpilhadeiras(obraEtapa));
+                    lstComandos.AddRange(this.AtualizarGeradores(obraEtapa));
 
                     dao.ExecutarTransacao(lstComandos);
                 }
@@ -1302,8 +1310,139 @@ namespace BRGS.BIZ
             return lstComandos;
         }
 
+        private List<_Transacao> AtualizarEmpilhadeiras(ObraEtapa obraEtapa)
+        {
+            List<_Transacao> lstComandos = new List<_Transacao>();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+ 
+            //Empilhadeiras adicionados - Tem na Grid e não tem no banco
+            // »» Aloca
+            var originalIDs = new HashSet<int>(obraEtapa.lstEmpilhadeiras.Select(s => s.ID));
+            var lstAlocarEmpilhadeiras = obraEtapa
+                .lstEmpilhadeirasGrid
+                .Where(m => !originalIDs.Contains(m.ID))
+                .ToList();
+                
+            foreach (var e in lstAlocarEmpilhadeiras)
+            {
+                e.IdObraEtapa = obraEtapa.idObraEtapa;
+                e.IdCliente = obraEtapa.idCliente;
+                    
+                lstParametros = bizEmpilhadeira.MontarParametrosAlocar(e);
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_EMPILHADEIRAS_ALOCAR",
+                    lstParametros = lstParametros
+                });
+            }
+
+            //Empilhadeiras retiradas - Tem no banco e não tem na grid
+            // »» Libera
+            var gridIDs = new HashSet<int>(obraEtapa.lstEmpilhadeirasGrid.Select(s => s.ID));
+            var lstLiberarEmpilhadeiras = obraEtapa
+                .lstEmpilhadeiras
+                .Where(m => !gridIDs.Contains(m.ID))
+                .ToList();
+
+            foreach (var e in lstLiberarEmpilhadeiras)
+            {
+                e.IdObraEtapa = obraEtapa.idObraEtapa;
+                e.IdCliente = obraEtapa.idCliente;
+                lstParametros = bizEmpilhadeira.MontarParametrosLiberar(e);
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_EMPILHADEIRAS_LIBERAR",
+                    lstParametros = lstParametros
+                });
+            }
+
+            if (obraEtapa.Finalizada == 1)
+            {
+                //Libera todos os que estão na grid
+                foreach (var e in obraEtapa.lstEmpilhadeirasGrid)
+                {
+                    e.IdObraEtapa = obraEtapa.idObraEtapa;
+                    e.IdCliente = obraEtapa.idCliente;
+                    lstParametros = bizEmpilhadeira.MontarParametrosLiberar(e);
+                    lstComandos.Add(new _Transacao()
+                    {
+                        nomeProcedure = "SP_EMPILHADEIRAS_LIBERAR",
+                        lstParametros = lstParametros
+                    });
+                }
+            }            
+
+            return lstComandos;
+        }
+
+        private List<_Transacao> AtualizarGeradores(ObraEtapa obraEtapa)
+        {
+            List<_Transacao> lstComandos = new List<_Transacao>();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            //Geradores adicionados - Tem na Grid e não tem no banco
+            // »» Aloca
+            var originalIDs = new HashSet<int>(obraEtapa.lstGeradores.Select(s => s.ID));
+            var lstAlocarGeradores = obraEtapa
+                .lstGeradoresGrid
+                .Where(m => !originalIDs.Contains(m.ID))
+                .ToList();
+
+            foreach (var e in lstAlocarGeradores)
+            {
+                e.IdObraEtapa = obraEtapa.idObraEtapa;
+                e.IdCliente = obraEtapa.idCliente;
+
+                lstParametros = bizGerador.MontarParametrosAlocar(e);
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_GERADORES_ALOCAR",
+                    lstParametros = lstParametros
+                });
+            }
+
+            //Geradores retirados - Tem no banco e não tem na grid
+            // »» Libera
+            var gridIDs = new HashSet<int>(obraEtapa.lstGeradoresGrid.Select(s => s.ID));
+            var lstLiberarGeradores = obraEtapa
+                .lstGeradores
+                .Where(m => !gridIDs.Contains(m.ID))
+                .ToList();
+
+            foreach (var e in lstLiberarGeradores)
+            {
+                e.IdObraEtapa = obraEtapa.idObraEtapa;
+                e.IdCliente = obraEtapa.idCliente;
+                lstParametros = bizGerador.MontarParametrosLiberar(e);
+                lstComandos.Add(new _Transacao()
+                {
+                    nomeProcedure = "SP_GERADORES_LIBERAR",
+                    lstParametros = lstParametros
+                });
+            }
+
+            if (obraEtapa.Finalizada == 1) 
+            {   
+                //Libera todos os que estão na grid
+                foreach (var e in obraEtapa.lstGeradoresGrid)
+                {
+                    e.IdObraEtapa = obraEtapa.idObraEtapa;
+                    e.IdCliente = obraEtapa.idCliente;
+                    lstParametros = bizGerador.MontarParametrosLiberar(e);
+                    lstComandos.Add(new _Transacao()
+                    {
+                        nomeProcedure = "SP_GERADORES_LIBERAR",
+                        lstParametros = lstParametros
+                    });
+                }
+            }           
+
+            return lstComandos;
+        }
+
+
         #endregion
-        
+
         //#region Planejamento
 
         //private Dictionary<string, string> MontarParametrosExecutarPlanejamento(ObraEtapaPlanejamento planejamento)
@@ -1378,7 +1517,7 @@ namespace BRGS.BIZ
         ////    DataAccess dao = new DataAccess();
         ////    List<_Transacao> lstComandos = new List<_Transacao>();
         ////    Dictionary<string, string> lstParametros = new Dictionary<string, string>();
-            
+
         ////    foreach (ObraEtapaPlanejamento planejamento in lstPlanejamento)
         ////    {
         ////        planejamento.idObraEtapa = idObraEtapa;

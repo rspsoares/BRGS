@@ -3,27 +3,79 @@
   "WorkspaceRootPath": "C:\\_Rodrigo\\BRGS\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\ordempagamentomanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentomanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\ordempagamentomanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentomanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizuen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizuen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizempilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizempilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizgerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizgerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizempilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizempilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|c:\\_rodrigo\\brgs\\src\\brgs.entity\\geradoruso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\geradoruso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|c:\\_rodrigo\\brgs\\src\\brgs.entity\\gerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\gerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|c:\\_rodrigo\\brgs\\src\\brgs.entity\\empilhadeirauso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\empilhadeirauso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|c:\\_rodrigo\\brgs\\src\\brgs.entity\\empilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A80D874B-391C-431E-998E-FC7E15BD6562}|BRGS.Entity\\BRGS.Entity.csproj|solutionrelative:brgs.entity\\empilhadeira.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\_dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\_dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obraetapamanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiraconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\geradormanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\geradormanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\geradormanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\geradormanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -47,82 +99,248 @@
           ]
         },
         {
-          "DockedWidth": 238,
+          "DockedWidth": 195,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "BIZEmpilhadeira.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpilhadeira.cs",
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZEmpilhadeira.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZEmpilhadeira.cs",
               "RelativeToolTip": "BRGS.BIZ\\BIZEmpilhadeira.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAO0AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAKIBAAAAAAAAAAAYwLIBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T09:54:22.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BIZGerador.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
-              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZGerador.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
-              "RelativeToolTip": "BRGS.BIZ\\BIZGerador.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABwAAABUAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "EmpilhadeiraManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAAANEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T04:31:29.59Z",
+              "WhenOpened": "2026-04-20T09:05:17.046Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 868,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "GeradorUso.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\GeradorUso.cs",
+              "RelativeDocumentMoniker": "BRGS.Entity\\GeradorUso.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\GeradorUso.cs",
+              "RelativeToolTip": "BRGS.Entity\\GeradorUso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:09:19.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmpilhadeiraUso.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\EmpilhadeiraUso.cs",
+              "RelativeDocumentMoniker": "BRGS.Entity\\EmpilhadeiraUso.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\EmpilhadeiraUso.cs",
+              "RelativeToolTip": "BRGS.Entity\\EmpilhadeiraUso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:07:12.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "EmpilhadeiraManutencao.cs [Design]",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
               "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T10:14:52.152Z",
+              "WhenOpened": "2026-04-20T08:54:11.149Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
+              "Title": "Gerador.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Gerador.cs",
+              "RelativeDocumentMoniker": "BRGS.Entity\\Gerador.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Gerador.cs",
+              "RelativeToolTip": "BRGS.Entity\\Gerador.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:10:53.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Empilhadeira.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
+              "RelativeDocumentMoniker": "BRGS.Entity\\Empilhadeira.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Entity\\Empilhadeira.cs",
+              "RelativeToolTip": "BRGS.Entity\\Empilhadeira.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:06:13.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmpilhadeiraConsulta.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraConsulta.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:35:49.726Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_DataAccess.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\_DataAccess.cs",
+              "RelativeDocumentMoniker": "BRGS.BIZ\\_DataAccess.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\_DataAccess.cs",
+              "RelativeToolTip": "BRGS.BIZ\\_DataAccess.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAAAIsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T06:53:27.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EmpilhadeiraConsulta.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraConsulta.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:35:52.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GeradorManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\GeradorManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\GeradorManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\GeradorManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\GeradorManutencao.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAAAMIAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T09:14:55.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GeradorManutencao.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\GeradorManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\GeradorManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\GeradorManutencao.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\GeradorManutencao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T08:54:37.741Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 884,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BIZUEN.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZUEN.cs",
+              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZUEN.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZUEN.cs",
+              "RelativeToolTip": "BRGS.BIZ\\BIZUEN.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAI8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T14:56:19.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrdemPagamentoManutencao.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "ViewState": "AgIAABoCAAAAAAAAAAAYwCcCAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T14:52:33.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdemPagamentoManutencao.cs [Design]",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoManutencao.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoManutencao.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\OrdemPagamentoManutencao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T14:49:21.605Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BIZGerador.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
+              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZGerador.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZGerador.cs",
+              "RelativeToolTip": "BRGS.BIZ\\BIZGerador.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAmwIwAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T04:31:29.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "BIZObra.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZObra.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
               "RelativeToolTip": "BRGS.BIZ\\BIZObra.cs",
-              "ViewState": "AgIAACYBAAAAAAAAAAAewDQBAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAFwFAAAAAAAAAAAYwGAFAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T09:37:58.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "ObraEtapaManutencao.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraEtapaManutencao.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\ObraEtapaManutencao.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraEtapaManutencao.cs",
               "RelativeToolTip": "BRGS.UI\\ObraEtapaManutencao.cs",
-              "ViewState": "AgIAAHQHAAAAAAAAAAAnwIMHAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAADsGAAAAAAAAAAAkwEwGAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T09:04:08.382Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ObraEtapaManutencao.cs [Design]",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraEtapaManutencao.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\ObraEtapaManutencao.cs",

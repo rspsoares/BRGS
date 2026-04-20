@@ -21,33 +21,46 @@ Desktop
 		---------------
 		
 		Scripts para deploy			
-		
-		
+			SP_EMPILHADEIRAS_ALOCAR
+			SP_GERADORES_ALOCAR
+			
+			Empilhadeiras_Usos
+			Geradores_Usos
+			
+			SP_EMPILHADEIRAS_LIBERAR
+			SP_GERADORES_LIBERAR
+			
+			SP_EMPILHADEIRAS_COMBO_DISPONIVEIS_CONSULTAR
+			SP_GERADORES_COMBO_DISPONIVEIS_CONSULTAR
+			
+			--Definir data de alocação
+			UPDATE E
+			SET E.DataAlocacao = O.DataInicio
+			FROM Empilhadeiras E
+			INNER JOIN ObrasEtapas O ON E.IdObraEtapa = E.IdObraEtapa AND O.IdCliente = E.IdCliente
+			WHERE E.IdObraEtapa != 0
+			
+			UPDATE G
+			SET G.DataAlocacao = O.DataInicio
+			FROM Geradores G
+			INNER JOIN ObrasEtapas O ON G.IdObraEtapa = O.IdObraEtapa AND O.IdCliente = G.IdCliente
+			WHERE G.IdObraEtapa != 0
+			
+			SP_EMPILHADEIRAS_CONSULTAR
+			SP_GERADORES_CONSULTAR
+			
+			SP_EMPILHADEIRAS_USOS_GRID
+			SP_GERADORES_USOS_GRID
+			
 		----------------
 		
-		Criar novas procs para ALOCAR
-			IdCliente, IdObraEtapa, DataAlocacao preenchidos
+		OK - Métodos nas BIZ
+			Alocar e Liberar
+				EMPILHADEIRA
+				GERADOR
 		
-			EMPILHADEIRA
-			GERADOR
-			
-		Criar tabelas de usos
-			Estrutura
-			PROC Inclusão
-			PROC Consulta
-			
-		Criar novas procs para LIBERAR
-			IdCliente, IdObraEtapa, DataAlocacao vazios
-			Inserir na tabela de Histórico de Usos
 		
-			EMPILHADEIRA
-			GERADOR
-		
-		Métodos nas BIZ
-			EMPILHADEIRA
-			GERADOR
-		
-		Criar Empilhadeira e Gerador de exemplo para testar as alocações
+		OK - Criar Empilhadeira e Gerador de exemplo para testar as alocações
 	
 	
 		Obra com empilhadeira
@@ -93,8 +106,14 @@ Desktop
 						Remover da lista
 						Carregar grid
 	
+			
 			Quando salvar a etapa
-				Se não estiver com o pisco Finalizada
+				
+			
+			
+			Teste na obra de Guartujá - aluguel de container seco
+			
+				OK - Se não estiver com o pisco Finalizada
 				
 					Verificar se houve troca de equipamento
 						[HOLD] Aguardanbdo confirmação da regra de substiuição
@@ -110,21 +129,43 @@ Desktop
 					Update de uso nos itens da grid Gerador
 						IdCliente, IdObraEtapa, DataAlocacao
 						
-				Se estiver com o pisco de Finalizada
+				OK - Se estiver com o pisco de Finalizada
 					Update de liberação na Empilhadeira
 					Update de liberação no Gerador
 					
 					Inserir no histórico de uso da Empilhadeira, definindo a data de fim automaticamente
 					Inserir no histórico de uso do Gerador, definindo a data de fim automaticamente
 					
-		No controle de Empilhadeiras			
+		OK - No controle de Empilhadeiras			
+			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
+				Ver pq não vem o pregão
+				
+	
+		OK - No controle de Geradores			
 			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
 	
-		No controle de Geradores			
-			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
 	
+		OK - Na Manutenção de OP's está demorando muito patra carregar. Exemplo: 590/2026					
+			OK - Carregar o Centro de Custo e as Despesas sempre filtrada pelo pai
+			Fazer mais alguns testes direto pelo executável
+			
+		Entregar nova versão de testes
+			Scripts de banco
+			Criar empilhadeira e gerador de teste
+				Testar as novidades
+				Apagar os equipamentos de teste
+			
+			Avisar que está disponível o seguinte
+				Alocação e liberação Empilhadeiras e Geradores na Etapa de Obra
+				Histórico de Uso nos controles de Empilhadeiras e Geradores
+				Otimização do tempo de abertura na Manutenção de OPs
+			
+			
 	
 	Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
+		EMPILHADEIRAS atualmente alocadas + Empilhadeiras_Usos
+		GERADORES atualmente alocados + Geradores_Usos
+		
 
 »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
 
@@ -137,8 +178,11 @@ App
 	
 	
 	Não tem código de barras. Só plaqueta afixada
-
-	
+		https://www.outsystems.com/forge/component-overview/7587/mobile-offline-ocr-o11
+		
+		https://www.outsystems.com/forge/component-overview/8168/tesseract-ocr-o11
+		
+		
 	»» Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)
 
 	»» Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)

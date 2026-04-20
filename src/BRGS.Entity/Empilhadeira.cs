@@ -9,6 +9,7 @@ namespace BRGS.Entity
         public Empilhadeira()
         {
             lstManutencoes = new List<EmpilhadeiraManutencao>();
+            lstUsos = new List<EmpilhadeiraUso>();
         }
 
         public int ID { get; set; }
@@ -41,5 +42,6 @@ namespace BRGS.Entity
         public string Cliente { get; set; }
 
         public List<EmpilhadeiraManutencao> lstManutencoes { get; set; }
+        public List<EmpilhadeiraUso> lstUsos { get; set; }
     }
 }

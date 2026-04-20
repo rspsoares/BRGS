@@ -213,6 +213,7 @@ namespace BRGS.UI
         {
             empilhadeiraSelecionada = bizEmpilhadeira.PesquisarEmpilhadeiras(new Empilhadeira() { ID = empilhadeiraSelecionada.ID })[0];
             empilhadeiraSelecionada.lstManutencoes = bizEmpilhadeira.PesquisarEmpilhadeirasManutencao(new Entity.EmpilhadeiraManutencao() { IdEmpilhadeira = empilhadeiraSelecionada.ID });
+            empilhadeiraSelecionada.lstUsos = bizEmpilhadeira.PesquisarEmpilhadeirasUsoGrid(empilhadeiraSelecionada.ID);
 
             tbNumeroSerie.Text = empilhadeiraSelecionada.NumeroSerie;
             tbMarca.Text = empilhadeiraSelecionada.Marca;
@@ -228,7 +229,31 @@ namespace BRGS.UI
             dtpDataCompra.Value = empilhadeiraSelecionada.DataCompra;
             tbAcessorios.Text = empilhadeiraSelecionada.Acessorios;
 
-            CarregarGridManutencoes();       
+            CarregarGridManutencoes();
+            CarregarGridUsos();
+        }
+
+        private void CarregarGridUsos()
+        {
+            LimparGridUsos();
+
+            foreach (EmpilhadeiraUso item in empilhadeiraSelecionada.lstUsos)
+            {
+                gvUsos.Rows.Add(new object[]
+                {
+                    item.ID,
+                    item.DataInicio.ToString("dd/MM/yyyy"),
+                    item.DataFim.ToString("dd/MM/yyyy"),                    
+                    item.NomeCliente,
+                    item.NumeroLicitacao
+                });
+            }
+        }
+
+        private void LimparGridUsos()
+        {
+            while (gvUsos.Rows.Count > 0)
+                gvUsos.Rows.RemoveAt(0);
         }
 
         private void CarregarGridManutencoes()

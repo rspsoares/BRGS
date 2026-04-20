@@ -1539,13 +1539,14 @@
             this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(407, 336);
+            this.groupBox4.Size = new System.Drawing.Size(407, 346);
             this.groupBox4.TabIndex = 63;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Empilhadeiras atualmente alocadas na Etapa da Obra";
             // 
             // btRemoverEmpilhadeira
             // 
-            this.btRemoverEmpilhadeira.Location = new System.Drawing.Point(6, 305);
+            this.btRemoverEmpilhadeira.Location = new System.Drawing.Point(6, 314);
             this.btRemoverEmpilhadeira.Name = "btRemoverEmpilhadeira";
             this.btRemoverEmpilhadeira.Size = new System.Drawing.Size(75, 23);
             this.btRemoverEmpilhadeira.TabIndex = 1;
@@ -1556,7 +1557,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.gvEmpilhadeiras);
-            this.groupBox3.Location = new System.Drawing.Point(6, 80);
+            this.groupBox3.Location = new System.Drawing.Point(6, 89);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(392, 219);
             this.groupBox3.TabIndex = 62;
@@ -1631,7 +1632,7 @@
             this.groupBox2.Controls.Add(this.dtpDataAlocacaoEmpilhadeira);
             this.groupBox2.Controls.Add(this.cbEmpilhadeiras);
             this.groupBox2.Controls.Add(this.label44);
-            this.groupBox2.Location = new System.Drawing.Point(6, 10);
+            this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(392, 64);
             this.groupBox2.TabIndex = 1;
@@ -1700,13 +1701,14 @@
             this.groupBox9.Controls.Add(this.groupBox11);
             this.groupBox9.Location = new System.Drawing.Point(3, 3);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(407, 336);
+            this.groupBox9.Size = new System.Drawing.Size(407, 346);
             this.groupBox9.TabIndex = 64;
             this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Geradores atualmente alocados na Etapa da Obra";
             // 
             // btRemoverGerador
             // 
-            this.btRemoverGerador.Location = new System.Drawing.Point(6, 305);
+            this.btRemoverGerador.Location = new System.Drawing.Point(6, 314);
             this.btRemoverGerador.Name = "btRemoverGerador";
             this.btRemoverGerador.Size = new System.Drawing.Size(75, 23);
             this.btRemoverGerador.TabIndex = 0;
@@ -1717,7 +1719,7 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.gvGeradores);
-            this.groupBox10.Location = new System.Drawing.Point(6, 80);
+            this.groupBox10.Location = new System.Drawing.Point(6, 89);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(392, 219);
             this.groupBox10.TabIndex = 62;
@@ -1791,7 +1793,7 @@
             this.groupBox11.Controls.Add(this.dtpDataAlocacaoGerador);
             this.groupBox11.Controls.Add(this.cbGeradores);
             this.groupBox11.Controls.Add(this.label47);
-            this.groupBox11.Location = new System.Drawing.Point(6, 10);
+            this.groupBox11.Location = new System.Drawing.Point(6, 19);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(392, 64);
             this.groupBox11.TabIndex = 1;
@@ -1876,7 +1878,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel1.Controls.Add(this.lbResultadoBruto, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoOperacional, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbCustoTributario, 1, 2);
@@ -2085,7 +2087,7 @@
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1054, 5);
+            this.label27.Location = new System.Drawing.Point(1055, 5);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(48, 13);
             this.label27.TabIndex = 17;
@@ -2185,7 +2187,7 @@
             this.lbSaldoCoberturas.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoCoberturas.AutoSize = true;
             this.lbSaldoCoberturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1128, 49);
+            this.lbSaldoCoberturas.Location = new System.Drawing.Point(1130, 49);
             this.lbSaldoCoberturas.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoCoberturas.Name = "lbSaldoCoberturas";
             this.lbSaldoCoberturas.Size = new System.Drawing.Size(32, 13);
@@ -2198,7 +2200,7 @@
             this.lbSaldoTubulares.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoTubulares.AutoSize = true;
             this.lbSaldoTubulares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoTubulares.Location = new System.Drawing.Point(1128, 71);
+            this.lbSaldoTubulares.Location = new System.Drawing.Point(1130, 71);
             this.lbSaldoTubulares.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoTubulares.Name = "lbSaldoTubulares";
             this.lbSaldoTubulares.Size = new System.Drawing.Size(32, 13);
@@ -2211,7 +2213,7 @@
             this.lbSaldoGerenciamentoObra.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoGerenciamentoObra.AutoSize = true;
             this.lbSaldoGerenciamentoObra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1128, 93);
+            this.lbSaldoGerenciamentoObra.Location = new System.Drawing.Point(1130, 93);
             this.lbSaldoGerenciamentoObra.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoGerenciamentoObra.Name = "lbSaldoGerenciamentoObra";
             this.lbSaldoGerenciamentoObra.Size = new System.Drawing.Size(32, 13);
@@ -2448,7 +2450,7 @@
             this.lbSaldoModulosHabitacionais.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoModulosHabitacionais.AutoSize = true;
             this.lbSaldoModulosHabitacionais.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1128, 115);
+            this.lbSaldoModulosHabitacionais.Location = new System.Drawing.Point(1130, 115);
             this.lbSaldoModulosHabitacionais.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoModulosHabitacionais.Name = "lbSaldoModulosHabitacionais";
             this.lbSaldoModulosHabitacionais.Size = new System.Drawing.Size(32, 13);
@@ -2461,7 +2463,7 @@
             this.lbSaldoLogisticaTransporte.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoLogisticaTransporte.AutoSize = true;
             this.lbSaldoLogisticaTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1128, 137);
+            this.lbSaldoLogisticaTransporte.Location = new System.Drawing.Point(1130, 137);
             this.lbSaldoLogisticaTransporte.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoLogisticaTransporte.Name = "lbSaldoLogisticaTransporte";
             this.lbSaldoLogisticaTransporte.Size = new System.Drawing.Size(32, 13);
@@ -2474,7 +2476,7 @@
             this.lbSaldoMatriz.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoMatriz.AutoSize = true;
             this.lbSaldoMatriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoMatriz.Location = new System.Drawing.Point(1128, 159);
+            this.lbSaldoMatriz.Location = new System.Drawing.Point(1130, 159);
             this.lbSaldoMatriz.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoMatriz.Name = "lbSaldoMatriz";
             this.lbSaldoMatriz.Size = new System.Drawing.Size(32, 13);
@@ -2487,7 +2489,7 @@
             this.lbSaldoEstande.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbSaldoEstande.AutoSize = true;
             this.lbSaldoEstande.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldoEstande.Location = new System.Drawing.Point(1128, 27);
+            this.lbSaldoEstande.Location = new System.Drawing.Point(1130, 27);
             this.lbSaldoEstande.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.lbSaldoEstande.Name = "lbSaldoEstande";
             this.lbSaldoEstande.Size = new System.Drawing.Size(32, 13);

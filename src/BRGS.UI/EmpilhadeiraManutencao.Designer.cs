@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmpilhadeiraManutencao));
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -78,6 +79,14 @@
             this.label34 = new System.Windows.Forms.Label();
             this.btGravar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gvUsos = new BRGS.Util.SortedDataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,11 +94,15 @@
             this.groupBox6.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvManutencoes)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUsos)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -477,8 +490,8 @@
             this.gvManutencoes.AllowUserToAddRows = false;
             this.gvManutencoes.AllowUserToDeleteRows = false;
             this.gvManutencoes.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gvManutencoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvManutencoes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.gvManutencoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvManutencoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -586,13 +599,95 @@
             // 
             // btExcluir
             // 
-            this.btExcluir.Location = new System.Drawing.Point(3, 359);
+            this.btExcluir.Location = new System.Drawing.Point(7, 359);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(75, 23);
             this.btExcluir.TabIndex = 5;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(645, 325);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Histórico de Usos";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gvUsos);
+            this.groupBox2.Location = new System.Drawing.Point(4, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(637, 319);
+            this.groupBox2.TabIndex = 62;
+            this.groupBox2.TabStop = false;
+            // 
+            // gvUsos
+            // 
+            this.gvUsos.AllowUserToAddRows = false;
+            this.gvUsos.AllowUserToDeleteRows = false;
+            this.gvUsos.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gvUsos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gvUsos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvUsos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.Column3,
+            this.Column4,
+            this.Column1,
+            this.Column2});
+            this.gvUsos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvUsos.Location = new System.Drawing.Point(3, 16);
+            this.gvUsos.MultiSelect = false;
+            this.gvUsos.Name = "gvUsos";
+            this.gvUsos.ReadOnly = true;
+            this.gvUsos.RowHeadersVisible = false;
+            this.gvUsos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvUsos.Size = new System.Drawing.Size(631, 300);
+            this.gvUsos.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "idUso";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column3.HeaderText = "Data Início";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 85;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column4.HeaderText = "Data Fim";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 74;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column1.HeaderText = "Cliente";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 64;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column2.HeaderText = "Pregão";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 66;
             // 
             // EmpilhadeiraManutencao
             // 
@@ -619,6 +714,9 @@
             this.groupBox6.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvManutencoes)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvUsos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -673,5 +771,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private Util.SortedDataGridView gvUsos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

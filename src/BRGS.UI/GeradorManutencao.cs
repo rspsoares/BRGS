@@ -192,6 +192,7 @@ namespace BRGS.UI
         {
             geradorSelecionado = bizGerador.PesquisarGeradores(new Gerador() { ID = geradorSelecionado.ID })[0];
             geradorSelecionado.lstManutencoes = bizGerador.PesquisarGeradoresManutencao(new Entity.GeradorManutencao() { IdGerador = geradorSelecionado.ID });
+            geradorSelecionado.lstUsos = bizGerador.PesquisarGeradoresUsoGrid(geradorSelecionado.ID);
 
             tbNumeroSerie.Text = geradorSelecionado.NumeroSerie;
             tbMarca.Text = geradorSelecionado.Marca;
@@ -206,6 +207,30 @@ namespace BRGS.UI
             tbAcessorios.Text = geradorSelecionado.Acessorios;
 
             CarregarGridManutencoes();
+            CarregarGridUsos();
+        }
+
+        private void CarregarGridUsos()
+        {
+            LimparGridUsos();
+
+            foreach (GeradorUso item in geradorSelecionado.lstUsos)
+            {
+                gvUsos.Rows.Add(new object[]
+                {
+                    item.ID,
+                    item.DataInicio.ToString("dd/MM/yyyy"),
+                    item.DataFim.ToString("dd/MM/yyyy"),
+                    item.NomeCliente,
+                    item.NumeroLicitacao
+                });
+            }
+        }
+
+        private void LimparGridUsos()
+        {
+            while (gvUsos.Rows.Count > 0)
+                gvUsos.Rows.RemoveAt(0);
         }
 
         private void CarregarGridManutencoes()

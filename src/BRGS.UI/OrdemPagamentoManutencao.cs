@@ -132,8 +132,8 @@ namespace BRGS.UI
             this.CarregarComboFornecedores();
             this.CarregarListaUEN();
             this.CarregarComboUEN();
-            this.CarregarListaCentroCusto();
-            this.CarregarListaDespesas();
+            //this.CarregarListaCentroCusto();
+            //this.CarregarListaDespesas();
         }
 
         private void CarregarComboAutorizador()
@@ -278,13 +278,15 @@ namespace BRGS.UI
             List<ObraEtapaGastoRealizado> lstGastosObra = new List<ObraEtapaGastoRealizado>();
             int idUENCombo = 0;
             
-            if (cbUEN.SelectedValue == null || int.TryParse(cbUEN.SelectedValue.ToString(), out idUENCombo) == false)
+            if (cbUEN.SelectedValue == null || int.TryParse(cbUEN.SelectedValue.ToString(), out idUENCombo) == false || int.Parse(cbUEN.SelectedValue.ToString()) == 0)
                 return;
 
             this.Cursor = Cursors.WaitCursor;
 
             try
             {
+                lstCentroCustos = bizUEN.PesquisarCentrosCustosAssociados(new UENCentroCusto(){ idUEN = idUENCombo });
+
                 lstCCFiltrado.Add(new UENCentroCusto() { idCentroCusto = 0, descricaoCentroCusto = "--Selecione--" });
 
                 if (cbObra.SelectedIndex > 0)
@@ -346,7 +348,7 @@ namespace BRGS.UI
 
             try
             {
-                lstUEN = bizUEN.PesquisarUEN(new UEN());
+                lstUEN = bizUEN.PesquisarUENCombo(new UEN());
             }
             catch (SqlException)
             {
@@ -546,8 +548,10 @@ namespace BRGS.UI
                 cbDespesa.DataSource = null;
                 cbDespesa.Text = string.Empty;
 
-                if (cbCentroCusto.SelectedValue != null && int.TryParse(cbCentroCusto.SelectedValue.ToString(), out idCentroCustoCombo))
+                if (cbCentroCusto.SelectedValue != null && int.TryParse(cbCentroCusto.SelectedValue.ToString(), out idCentroCustoCombo) && int.Parse(cbUEN.SelectedValue.ToString()) > 0)
                 {
+                    lstDespesas = bizCentroCusto.PesquisarDespesasAssociadas(new CentroCustoDespesa() { idCentroCusto = idCentroCustoCombo } );
+
                     cbDespesa.BindingContext = new BindingContext();
                     cbDespesa.DataSource = lstDespesas.Where(x => x.idCentroCusto == idCentroCustoCombo).OrderBy(x => x.descricaoDespesa).ToList();
                     cbDespesa.DisplayMember = "descricaoDespesa";

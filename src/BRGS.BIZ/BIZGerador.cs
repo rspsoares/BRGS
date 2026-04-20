@@ -12,6 +12,41 @@ namespace BRGS.BIZ
         private BIZLogErro bizLogErro = new BIZLogErro();
         private Helper helper = new Helper();
 
+        private Dictionary<string, string> MontarParametrosPesquisarUsos(int idGerador)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@IdGerador", idGerador.ToString() }
+            };
+
+            return lstParametros;
+        }
+
+        public Dictionary<string, string> MontarParametrosAlocar(Gerador e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.ToString() },
+                { "@IdCliente", e.IdCliente.ToString() },
+                { "@IdObraEtapa", e.IdObraEtapa.ToString() },
+                { "@DataAlocacao", e.DataAlocacao.Date.ToString() }
+            };
+
+            return lstParametros;
+        }
+
+        public Dictionary<string, string> MontarParametrosLiberar(Gerador e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.ToString() },
+                { "@IdCliente", e.IdCliente.ToString() },
+                { "@IdObraEtapa", e.IdObraEtapa.ToString() }
+            };
+
+            return lstParametros;
+        }
+
         private Dictionary<string, string> MontarParametrosManutencaoExecutar(GeradorManutencao e)
         {
             var lstParametros = new Dictionary<string, string>
@@ -101,6 +136,102 @@ namespace BRGS.BIZ
                 Msg += Environment.NewLine + "Empresa não selecionada";
 
             return Msg;
+        }
+
+        public List<GeradorUso> PesquisarGeradoresUsoGrid(int idGerador)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<GeradorUso> lstGeradorUso = new List<GeradorUso>();
+            dynamic lst = new List<GeradorUso>();
+            try
+            {
+                lstParametros = MontarParametrosPesquisarUsos(idGerador);
+
+                using (DataSet ds = dao.Pesquisar("SP_GERADORES_USOS_GRID", lstParametros))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<GeradorUso>()
+                          select f;
+                }
+
+                lstGeradorUso.AddRange(lst);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_GERADOR_USOS_GRID",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstGeradorUso;
+        }
+
+        public void Alocar(Gerador e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            lstParametros = MontarParametrosAlocar(e);
+
+            try
+            {
+                dao.Executar("SP_GERADORES_ALOCAR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_GERADORES_ALOCAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public void Liberar(Gerador e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            lstParametros = MontarParametrosLiberar(e);
+
+            try
+            {
+                dao.Executar("SP_GERADORES_LIBERAR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_GERADORES_LIBERAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
         }
 
         public string IncluirGerador(Gerador gerador, out int ID)

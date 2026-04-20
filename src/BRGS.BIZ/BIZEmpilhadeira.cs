@@ -12,6 +12,41 @@ namespace BRGS.BIZ
         private BIZLogErro bizLogErro = new BIZLogErro();
         private Helper helper = new Helper();
 
+        private Dictionary<string, string> MontarParametrosPesquisarUsos(int idEmpilhadeira)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {                
+                { "@IdEmpilhadeira", idEmpilhadeira.ToString() }
+            };
+
+            return lstParametros;
+        }
+
+        public Dictionary<string, string> MontarParametrosAlocar(Empilhadeira e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.ToString() },
+                { "@IdCliente", e.IdCliente.ToString() },
+                { "@IdObraEtapa", e.IdObraEtapa.ToString() },
+                { "@DataAlocacao", e.DataAlocacao.Date.ToString() }
+            };
+
+            return lstParametros;
+        }
+
+        public Dictionary<string, string> MontarParametrosLiberar(Empilhadeira e)
+        {
+            var lstParametros = new Dictionary<string, string>
+            {
+                { "@Id", e.ID.ToString() },
+                { "@IdCliente", e.IdCliente.ToString() },
+                { "@IdObraEtapa", e.IdObraEtapa.ToString() }                
+            };
+
+            return lstParametros;
+        }
+
         private Dictionary<string, string> MontarParametrosManutencaoExecutar(EmpilhadeiraManutencao e)
         {
             var lstParametros = new Dictionary<string, string>
@@ -80,6 +115,64 @@ namespace BRGS.BIZ
             };
 
             return lstParametros;
+        }
+
+        public void Alocar(Empilhadeira e)
+        {
+            DataAccess dao = new DataAccess();            
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            
+            lstParametros = MontarParametrosAlocar(e);
+
+            try
+            {
+                dao.Executar("SP_EMPILHADEIRAS_ALOCAR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_ALOCAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public void Liberar(Empilhadeira e)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+
+            lstParametros = MontarParametrosLiberar(e);
+
+            try
+            {
+                dao.Executar("SP_EMPILHADEIRAS_LIBERAR", lstParametros);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_LIBERAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
         }
 
         private string ValidarCamposObrigatorios(Empilhadeira empilhadeira)
@@ -323,6 +416,44 @@ namespace BRGS.BIZ
             }
 
             return lstEmpilhadeiras;
+        }
+
+        public List<EmpilhadeiraUso> PesquisarEmpilhadeirasUsoGrid(int idEmpilhadeira)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            List<EmpilhadeiraUso> lstEmpilhadeiraUso = new List<EmpilhadeiraUso>();
+            dynamic lst = new List<EmpilhadeiraUso>();
+            try
+            {
+                lstParametros = MontarParametrosPesquisarUsos(idEmpilhadeira);
+
+                using (DataSet ds = dao.Pesquisar("SP_EMPILHADEIRAS_USOS_GRID", lstParametros))
+                {
+                    lst = from f in ds.Tables[0].AsEnumerable<EmpilhadeiraUso>()
+                          select f;
+                }
+
+                lstEmpilhadeiraUso.AddRange(lst);
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_EMPILHADEIRAS_USOS_GRID",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstEmpilhadeiraUso;
         }
 
         public List<EmpilhadeiraManutencao> PesquisarEmpilhadeirasManutencao(EmpilhadeiraManutencao e)

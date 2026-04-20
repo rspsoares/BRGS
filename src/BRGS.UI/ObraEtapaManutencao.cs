@@ -33,8 +33,8 @@ namespace BRGS.UI
         private bool? previsaoEtapa = null;
         private BIZEmpilhadeira bizEmpilhadeira = new BIZEmpilhadeira();
         private BIZGerador bizGerador = new BIZGerador();
-        private List<Empilhadeira> lstEmpilhadeirasDisponiveisCombo = new List<Empilhadeira>();
-        private List<Gerador> lstGeradoresDisponiveisCombo = new List<Gerador>();
+        private List<Empilhadeira> lstEmpilhadeirasDisponiveisCombo = new List<Empilhadeira>();        
+        private List<Gerador> lstGeradoresDisponiveisCombo = new List<Gerador>();        
 
         public ObraEtapaManutencao(ObraEtapa _etapaSelecionada, bool? _previsaoEtapa = null)
         {
@@ -1525,6 +1525,9 @@ namespace BRGS.UI
 
                 helper.VerificaPermissaoAcessoObjetos(this, UsuarioLogado.lstPermissoes.Where(perm => perm.nomeFormulario == this.Name).ToList());
 
+                etapaSelecionada.lstEmpilhadeirasGrid.AddRange(etapaSelecionada.lstEmpilhadeiras);
+                etapaSelecionada.lstGeradoresGrid.AddRange(etapaSelecionada.lstGeradores);
+
                 lstEmpilhadeirasDisponiveisCombo.AddRange(bizEmpilhadeira.PesquisarEmpilhadeirasDisponiveisCombo().OrderBy(u => u.NumeroSerie));
                 lstGeradoresDisponiveisCombo.AddRange(bizGerador.PesquisarGeradoresDisponiveisCombo().OrderBy(u => u.NumeroSerie));
 
@@ -1578,7 +1581,7 @@ namespace BRGS.UI
                 while (gvEmpilhadeiras.Rows.Count > 0)
                     gvEmpilhadeiras.Rows.RemoveAt(0);
 
-                foreach (Empilhadeira itemEmpilhadeira in etapaSelecionada.lstEmpilhadeiras)
+                foreach (Empilhadeira itemEmpilhadeira in etapaSelecionada.lstEmpilhadeirasGrid)
                 {
                     gvEmpilhadeiras.Rows.Add(new object[]
                     {
@@ -1601,7 +1604,7 @@ namespace BRGS.UI
                 while (gvGeradores.Rows.Count > 0)
                     gvGeradores.Rows.RemoveAt(0);
 
-                foreach (Gerador e in etapaSelecionada.lstGeradores)
+                foreach (Gerador e in etapaSelecionada.lstGeradoresGrid)
                 {
                     gvGeradores.Rows.Add(new object[]
                     {
@@ -1614,11 +1617,8 @@ namespace BRGS.UI
             catch (Exception)
             {
                 MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-           
+            }           
         }
-
 
         private void HabilitarCamposCabecalho()
         {            
@@ -1845,7 +1845,7 @@ namespace BRGS.UI
                 return;
             }
 
-            etapaSelecionada.lstEmpilhadeiras.Add(new Empilhadeira()
+            etapaSelecionada.lstEmpilhadeirasGrid.Add(new Empilhadeira()
             {
                 ID = int.Parse(cbEmpilhadeiras.SelectedValue.ToString()),
                 NumeroSerie = cbEmpilhadeiras.Text,
@@ -1877,8 +1877,8 @@ namespace BRGS.UI
                 NumeroSerie = numeroSerie
             });
             CarregarComboEmpilhadeiras();
-            
-            etapaSelecionada.lstEmpilhadeiras.RemoveAll(x => x.ID == id);
+
+            etapaSelecionada.lstEmpilhadeirasGrid.RemoveAll(x => x.ID == id);
             CarregarGridEmpilhadeiras();
         }
 
@@ -1890,7 +1890,7 @@ namespace BRGS.UI
                 return;
             }
 
-            etapaSelecionada.lstGeradores.Add(new Gerador()
+            etapaSelecionada.lstGeradoresGrid.Add(new Gerador()
             {
                 ID = int.Parse(cbGeradores.SelectedValue.ToString()),
                 NumeroSerie = cbGeradores.Text,
@@ -1923,7 +1923,7 @@ namespace BRGS.UI
             });
             CarregarComboGeradores();
 
-            etapaSelecionada.lstGeradores.RemoveAll(x => x.ID == id);
+            etapaSelecionada.lstGeradoresGrid.RemoveAll(x => x.ID == id);
             CarregarGridGeradores();
         }
     }

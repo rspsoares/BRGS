@@ -8,7 +8,9 @@ namespace BRGS.Entity
         public ObraEtapa()
         {
             lstEmpilhadeiras = new List<Empilhadeira>();
+            lstEmpilhadeirasGrid = new List<Empilhadeira>();
             lstGeradores = new List<Gerador>();
+            lstGeradoresGrid = new List<Gerador>();
         }
 
         public int idObraEtapa { get; set; }
@@ -33,7 +35,9 @@ namespace BRGS.Entity
         //public List<ObraEtapaPlanejamento> lstPlanejamentos { get; set; }
 
         public List<Empilhadeira> lstEmpilhadeiras { get; set; }
+        public List<Empilhadeira> lstEmpilhadeirasGrid { get; set; }
         public List<Gerador> lstGeradores { get; set; }
+        public List<Gerador> lstGeradoresGrid { get; set; }
 
         public int UnitTest { get; set; }
     }

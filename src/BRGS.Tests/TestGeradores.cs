@@ -13,10 +13,19 @@ namespace BRGS.Tests
     {
         private BIZGerador bizGerador = new BIZGerador();
 
+        public TestGeradores()
+        {
+            //var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
+            var strConn = "Server=localhost;Database=brgs1;Trusted_Connection=True;TrustServerCertificate=True;";
+            Parametrizacao.servidor_Conexao = strConn;
+            Parametrizacao.servidor_Endereco = strConn.Substring(7, strConn.IndexOf(";", 0) - 7);
+        }
+
         [TestMethod]
         public void TestCarregarPlanilha()
         {
-            var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
+            //var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
+            var strConn = "Server=localhost;Database=brgs1;Trusted_Connection=True;TrustServerCertificate=True;";
             Parametrizacao.servidor_Conexao = strConn;
             Parametrizacao.servidor_Endereco = strConn.Substring(7, strConn.IndexOf(";", 0) - 7);
 
@@ -51,6 +60,33 @@ namespace BRGS.Tests
                     }
                    
                 });
+        }
+
+        [TestMethod]
+        public void TestAlocar()
+        {
+            var e = new Gerador
+            {
+                ID = 36,
+                IdCliente = 1124,
+                IdObraEtapa = 1226,
+                DataAlocacao = DateTime.Today
+            };
+
+            bizGerador.Alocar(e);
+        }
+
+        [TestMethod]
+        public void TestLiberar()
+        {
+            var e = new Gerador
+            {
+                ID = 36,
+                IdCliente = 1124,
+                IdObraEtapa = 1226
+            };
+
+            bizGerador.Liberar(e);
         }
     }
 }

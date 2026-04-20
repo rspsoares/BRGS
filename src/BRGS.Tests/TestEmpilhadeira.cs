@@ -14,8 +14,9 @@ namespace BRGS.Tests
         private BIZEmpresa bizEmpresa = new BIZEmpresa();
 
         public TestEmpilhadeira()
-        {             
-            var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
+        {
+            //var strConn = "Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;";
+            var strConn = "Server=localhost;Database=brgs1;Trusted_Connection=True;TrustServerCertificate=True;";
             Parametrizacao.servidor_Conexao = strConn;
             Parametrizacao.servidor_Endereco = strConn.Substring(7, strConn.IndexOf(";", 0) - 7);
         }
@@ -37,8 +38,6 @@ namespace BRGS.Tests
                     //var empresa = bizEmpresa.PesquisarEmpresa(new Empresa() {nomeFantasia = fantasia }).FirstOrDefault();
                     //if(empresa == null)
                     //{
-                    //    var x = "borocoxô!";
-
                     //}
                     //else
                     //{                       
@@ -133,6 +132,33 @@ namespace BRGS.Tests
             string msgRetorno = bizEmpilhadeira.AlterarEmpilhadeira(e);
 
             Assert.IsTrue(string.IsNullOrEmpty(msgRetorno));
+        }
+
+        [TestMethod]
+        public void TestAlocar()
+        {
+            var e = new Empilhadeira
+            {
+                ID = 53,
+                IdCliente = 1124,
+                IdObraEtapa = 1226,
+                DataAlocacao = DateTime.Today
+            };
+
+            bizEmpilhadeira.Alocar(e);
+        }
+
+        [TestMethod]
+        public void TestLiberar()
+        {
+            var e = new Empilhadeira
+            {
+                ID = 53,
+                IdCliente = 1124,
+                IdObraEtapa = 1226
+            };
+
+            bizEmpilhadeira.Liberar(e);
         }
     }
 }

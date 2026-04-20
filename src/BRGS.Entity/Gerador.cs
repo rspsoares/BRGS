@@ -9,6 +9,7 @@ namespace BRGS.Entity
         public Gerador()
         {
             lstManutencoes = new List<GeradorManutencao>();
+            lstUsos = new List<GeradorUso>();
         }
 
         public int ID { get; set; }
@@ -39,5 +40,6 @@ namespace BRGS.Entity
         public string Cliente { get; set; }
 
         public List<GeradorManutencao> lstManutencoes { get; set; }
+        public List<GeradorUso> lstUsos { get; set; }
     }
 }
