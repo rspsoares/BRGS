@@ -45,6 +45,67 @@ namespace BRGS.BIZ
             return lstParametros;
         }
 
+        private Dictionary<string, string> MontarParametrosGrid(Obra obra)
+        {
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>
+            {
+                { "@NumeroLicitacao", string.IsNullOrEmpty(obra.numeroLicitacao) ? null : obra.numeroLicitacao },
+                { "@NomeCliente", string.IsNullOrEmpty(obra.nomeCliente) ? null : obra.nomeCliente },
+                { "@NomeEvento", string.IsNullOrEmpty(obra.nomeEvento) ? null : obra.nomeEvento }
+            };            
+
+            return lstParametros;
+        }
+
+        public List<Obra> PesquisarGridObra(Obra obra)
+        {
+            DataAccess dao = new DataAccess();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
+            Dictionary<string, string> lstParametrosGastos = new Dictionary<string, string>();
+            List<Obra> lstObras = new List<Obra>();
+            List<ObraEtapa> lstEtapas = new List<ObraEtapa>();
+
+            try
+            {
+                lstParametros = MontarParametrosGrid(obra);
+
+                using (DataSet ds = dao.Pesquisar("SP_OBRAS_GRID", lstParametros))
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        Obra obraItem = new Obra
+                        {
+                            idObra = int.Parse(dr["idObra"].ToString()),
+                            numeroLicitacao = dr["NumeroLicitacao"].ToString(),
+                            nomeCliente = dr["Nome"].ToString(),
+                            nomeEvento = dr["NomeEvento"].ToString(),
+                            valorBruto = decimal.Parse(dr["ValorBruto"].ToString())
+                        };
+
+                        lstObras.Add(obraItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(lstParametros);
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_OBRAS_CONSULTAR",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+            return lstObras;
+        }
+
         public List<Obra> PesquisarObra(Obra obra)
         {
             DataAccess dao = new DataAccess();

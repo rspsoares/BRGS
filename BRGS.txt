@@ -2,13 +2,6 @@ DeadLine - 06/07/2026
 
 Desktop
 	
-	» Na tela de Manutenção de Obras, adicionar a funcionalidade de adicionar uma lista de Empilhadeiras e de Geradores. 	
-		Seguir o doc: Alocação de Equipamentos.docx
-	
-		ok - Criar campo DataAlocacao (DateTime - null)
-			Empilhadeiras
-			Geradores
-			
 		Buscar backup do server
 		
 		Carregar backup local
@@ -20,149 +13,19 @@ Desktop
 		
 		---------------
 		
-		Scripts para deploy			
-			SP_EMPILHADEIRAS_ALOCAR
-			SP_GERADORES_ALOCAR
-			
-			Empilhadeiras_Usos
-			Geradores_Usos
-			
-			SP_EMPILHADEIRAS_LIBERAR
-			SP_GERADORES_LIBERAR
-			
-			SP_EMPILHADEIRAS_COMBO_DISPONIVEIS_CONSULTAR
-			SP_GERADORES_COMBO_DISPONIVEIS_CONSULTAR
-			
-			--Definir data de alocação
-			UPDATE E
-			SET E.DataAlocacao = O.DataInicio
-			FROM Empilhadeiras E
-			INNER JOIN ObrasEtapas O ON E.IdObraEtapa = E.IdObraEtapa AND O.IdCliente = E.IdCliente
-			WHERE E.IdObraEtapa != 0
-			
-			UPDATE G
-			SET G.DataAlocacao = O.DataInicio
-			FROM Geradores G
-			INNER JOIN ObrasEtapas O ON G.IdObraEtapa = O.IdObraEtapa AND O.IdCliente = G.IdCliente
-			WHERE G.IdObraEtapa != 0
-			
-			SP_EMPILHADEIRAS_CONSULTAR
-			SP_GERADORES_CONSULTAR
-			
-			SP_EMPILHADEIRAS_USOS_GRID
-			SP_GERADORES_USOS_GRID
+		Scripts para deploy
+		
+	
 			
 		----------------
 		
-		OK - Métodos nas BIZ
-			Alocar e Liberar
-				EMPILHADEIRA
-				GERADOR
-		
-		
-		OK - Criar Empilhadeira e Gerador de exemplo para testar as alocações
-	
-	
 		Obra com empilhadeira
 			FIOCRUZ - depósito
 			
 		Obra com gerador
 			Albertina
 	
-	
-		Na EtapaObras, 
-			Criar mais duas abas para adicionar e remover equipamentos
-				Empilhadeiras
-					ok - Combo empilhadeiras disponíveis
-					ok - Data alocação
-					
-					ok - Botão adicionar
-						Adicionar na lista
-						Carregar grid
-					
-					ok - Grid
-						Número série
-						Data alocação
-					
-					ok - Botão remover
-						Remover da lista
-						Carregar grid
-					
-					ok - manter uma lista para empilhadeiras e geradores disponiveis
-					
-					
-				Geradores
-					ok - Combo geradores disponíveis
-					ok - Data alocação
-					ok - Botão adicionar
-						Adicionar na lista
-						Carregar grid
-					
-					ok - Grid
-						Número série
-						Data alocação
-					
-					ok - Botão remover
-						Remover da lista
-						Carregar grid
-	
-			
-			Quando salvar a etapa
-				
-			
-			
-			Teste na obra de Guartujá - aluguel de container seco
-			
-				OK - Se não estiver com o pisco Finalizada
-				
-					Verificar se houve troca de equipamento
-						[HOLD] Aguardanbdo confirmação da regra de substiuição
-						
-							Comparar o que está na grid com o que vem do banco
-							
-								Se não estiver na grid e estiver no banco (substiuição)
-									Updeita a tabela do equipamento zerando a alocação, mas sem incluir no histórico de uso?
-						
-					Update de uso nos itens da grid Empilhadeira
-						IdCliente, IdObraEtapa, DataAlocacao
-						
-					Update de uso nos itens da grid Gerador
-						IdCliente, IdObraEtapa, DataAlocacao
-						
-				OK - Se estiver com o pisco de Finalizada
-					Update de liberação na Empilhadeira
-					Update de liberação no Gerador
-					
-					Inserir no histórico de uso da Empilhadeira, definindo a data de fim automaticamente
-					Inserir no histórico de uso do Gerador, definindo a data de fim automaticamente
-					
-		OK - No controle de Empilhadeiras			
-			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
-				Ver pq não vem o pregão
-				
-	
-		OK - No controle de Geradores			
-			Nova aba, com grid de Histórico de uso. Colunas: Cliente, Pregão, Data Início, Data Fim
-	
-	
-		OK - Na Manutenção de OP's está demorando muito patra carregar. Exemplo: 590/2026					
-			OK - Carregar o Centro de Custo e as Despesas sempre filtrada pelo pai
-			Fazer mais alguns testes direto pelo executável
-			
-		Entregar nova versão de testes
-			Scripts de banco
-			Criar empilhadeira e gerador de teste
-				Testar as novidades
-				Apagar os equipamentos de teste
-			
-			Avisar que está disponível o seguinte
-				Alocação e liberação Empilhadeiras e Geradores na Etapa de Obra
-				Histórico de Uso nos controles de Empilhadeiras e Geradores
-				Otimização do tempo de abertura na Manutenção de OPs
-			
-			
-	
-	Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
+	»» Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
 		EMPILHADEIRAS atualmente alocadas + Empilhadeiras_Usos
 		GERADORES atualmente alocados + Geradores_Usos
 		

@@ -58,7 +58,7 @@ namespace BRGS.UI
 
             try
             {
-                lstObra = bizObra.PesquisarObra(obraFiltro).OrderBy(obr => obr.nomeCliente).ToList();
+                lstObra = bizObra.PesquisarGridObra(obraFiltro).OrderBy(obr => obr.nomeCliente).ToList();
 
                 LimparGrid();
 

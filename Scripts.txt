@@ -1,0 +1,366 @@
+«««««««««««««««««««««
+
+CREATE TABLE [dbo].[Empilhadeiras_Usos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[IdEmpilhadeira] [int] NOT NULL,
+	[DataInicio] [datetime] NOT NULL,
+	[DataFim] [datetime] NOT NULL,
+	[IdCliente] [int] NOT NULL,
+	[IdEtapaObra] [int] NOT NULL,
+ CONSTRAINT [PK_Empilhadeiras_Usos] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+«««««««««««««««««««««
+
+CREATE TABLE [dbo].[Geradores_Usos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[IdGerador] [int] NOT NULL,
+	[DataInicio] [datetime] NOT NULL,
+	[DataFim] [datetime] NOT NULL,
+	[IdCliente] [int] NOT NULL,
+	[IdEtapaObra] [int] NOT NULL,
+ CONSTRAINT [PK_Geradores_Usos] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+«««««««««««««««««««««
+
+UPDATE E
+SET E.DataAlocacao = O.DataInicio
+FROM Empilhadeiras E
+INNER JOIN ObrasEtapas O ON E.IdObraEtapa = E.IdObraEtapa AND O.IdCliente = E.IdCliente
+WHERE E.IdObraEtapa != 0
+
+«««««««««««««««««««««
+
+UPDATE G
+SET G.DataAlocacao = O.DataInicio
+FROM Geradores G
+INNER JOIN ObrasEtapas O ON G.IdObraEtapa = O.IdObraEtapa AND O.IdCliente = G.IdCliente
+WHERE G.IdObraEtapa != 0
+
+««««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_GERADORES_USOS_GRID]
+(	
+	@IdGerador VARCHAR(10)
+)
+AS
+BEGIN
+	SELECT 
+		G.IdGerador,
+		G.DataInicio,
+		G.DataFim,
+		C.Nome AS 'NomeCliente',
+		O.NumeroLicitacao
+	FROM Geradores_Usos (NOLOCK) G
+		INNER JOIN Clientes (NOLOCK) C On G.IdCliente = C.idCliente
+		INNER JOIN ObrasEtapas(NOLOCK) O ON G.IdEtapaObra = O.idObraEtapa
+	WHERE		
+		G.IdGerador = @IdGerador
+END
+
+««««««««««««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_EMPILHADEIRAS_USOS_GRID]
+(	
+	@IdEmpilhadeira VARCHAR(10)
+)
+AS
+BEGIN
+	SELECT 
+	U.IdEmpilhadeira,
+	U.DataInicio,
+	U.DataFim,
+	C.Nome AS 'NomeCliente',
+	O.NumeroLicitacao
+	FROM Empilhadeiras_Usos (NOLOCK) U
+		INNER JOIN Clientes (NOLOCK) C On U.IdCliente = C.idCliente
+		INNER JOIN ObrasEtapas(NOLOCK) O ON U.IdEtapaObra = O.idObraEtapa
+	WHERE		
+		U.IdEmpilhadeira = @IdEmpilhadeira
+END
+
+««««««««««««««««««««««««
+
+USE [brgs1]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GERADORES_CONSULTAR]    Script Date: 22/04/2026 08:07:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SP_GERADORES_CONSULTAR]
+(
+	@Id INT = NULL,
+	@IdEmpresa INT = NULL,
+	@IdCliente VARCHAR(10) = NULL,
+	@IdObraEtapa VARCHAR(10) = NULL,
+    @NumeroSerie VARCHAR(30) = NULL, 
+	@Combustivel VARCHAR(30) = NULL,
+    @Marca VARCHAR(30) = NULL,
+	@Modelo VARCHAR(30) = NULL,    
+	@Lotado VARCHAR(50) = NULL,
+    @NotaFiscal VARCHAR(30) = NULL,
+    @DataCompra DATETIME = NULL,
+    @Acessorios VARCHAR(MAX) = NULL
+)
+AS
+BEGIN
+	SELECT ID
+      ,G.IdEmpresa
+      ,ISNULL(G.IdCliente,0) AS IdCliente
+	  ,ISNULL(G.IdObraEtapa,0) AS IdObraEtapa	  
+	  ,ISNULL(G.DataAlocacao, CONVERT(DATETIME, '1753-01-01', 102)) AS DataAlocacao
+      ,G.NumeroSerie   
+	  ,G.Combustivel
+	  ,G.Marca
+      ,G.Modelo      
+	  ,G.Lotado
+      ,G.NotaFiscal
+      ,G.DataCompra
+      ,G.Acessorios
+	  ,C.Nome AS 'Cliente'
+	FROM dbo.Geradores (NOLOCK) G
+		LEFT JOIN Clientes (NOLOCK) C ON G.IdCliente = C.idCliente
+	WHERE
+		(G.ID = @Id OR @ID IS NULL) AND
+		(G.IdEmpresa = @IdEmpresa OR @IdEmpresa IS NULL) AND
+		(G.IdCliente = @IdCliente OR @IdCliente IS NULL) AND
+		(G.IdObraEtapa = @IdObraEtapa OR @IdObraEtapa IS NULL) AND
+		(G.NumeroSerie LIKE '%' + @NumeroSerie + '%' OR @NumeroSerie IS NULL) AND		
+		(G.Modelo LIKE '%' + @Modelo + '%' OR @Modelo IS NULL) AND		
+		(G.Lotado LIKE '%' + @Lotado + '%' OR @Lotado IS NULL) AND		
+		(G.NotaFiscal = @NotaFiscal or @NotaFiscal IS NULL) AND
+		(G.DataCompra = @DataCompra or @DataCompra IS NULL) AND
+		(G.Acessorios LIKE '%' + @Acessorios + '%' OR @Acessorios IS NULL)
+END
+
+««««««««««««««««««««««««««««««««
+
+ALTER PROCEDURE [dbo].[SP_EMPILHADEIRAS_CONSULTAR]
+(
+	@Id INT = NULL,
+	@IdEmpresa INT = NULL,
+	@IdCliente VARCHAR(10) = NULL,
+	@IdObraEtapa VARCHAR(10) = NULL,
+    @NumeroSerie VARCHAR(30) = NULL,
+    @Combustivel VARCHAR(30) = NULL,
+    @Modelo VARCHAR(30) = NULL,
+    @Marca VARCHAR(30) = NULL,
+    @Torre NUMERIC(4,3) = NULL,
+    @CapacidadeCarga INT = NULL,
+    @Lotada VARCHAR(50) = NULL,
+	@NotaFiscal VARCHAR(30) = NULL,
+    @DataCompra DATETIME = NULL,
+    @Acessorios VARCHAR(MAX) = NULL
+)
+AS
+BEGIN
+	SELECT E.ID
+      ,E.IdEmpresa
+      ,ISNULL(E.IdCliente,0) AS IdCliente
+	  ,ISNULL(E.IdObraEtapa,0) AS IdObraEtapa
+	  ,ISNULL(E.DataAlocacao, CONVERT(DATETIME, '1753-01-01', 102)) AS DataAlocacao
+      ,E.NumeroSerie
+      ,E.Combustivel
+      ,E.Modelo
+      ,E.Marca
+      ,E.Torre
+      ,E.CapacidadeCarga
+	  ,E.Lotada
+      ,E.NotaFiscal
+      ,E.DataCompra
+      ,E.Acessorios
+	  ,C.Nome AS 'Cliente'
+	FROM dbo.Empilhadeiras (NOLOCK) E		
+		LEFT JOIN Clientes (NOLOCK) C ON E.IdCliente = C.idCliente
+	WHERE
+		(E.ID = @Id OR @Id IS NULL) AND
+		(E.IdEmpresa = @IdEmpresa OR @IdEmpresa IS NULL) AND
+		(E.IdCliente = @IdCliente OR @IdCliente IS NULL) AND
+		(E.IdObraEtapa = @IdObraEtapa OR @IdObraEtapa IS NULL) AND
+		(E.NumeroSerie LIKE '%' + @NumeroSerie + '%' OR @NumeroSerie IS NULL) AND
+		(E.Combustivel LIKE '%' + @Combustivel + '%' OR @Combustivel IS NULL) AND
+		(E.Modelo LIKE '%' + @Modelo + '%' OR @Modelo IS NULL) AND
+		(E.Marca LIKE '%' + @Marca + '%' OR @Marca IS NULL) AND
+		(E.Torre = @Torre OR @Torre IS NULL) AND
+		(E.CapacidadeCarga = @CapacidadeCarga OR @CapacidadeCarga IS NULL) AND
+		(E.Lotada LIKE '%' + @Lotada + '%' OR @Lotada IS NULL) AND
+		(E.NotaFiscal = @NotaFiscal OR @NotaFiscal IS NULL) AND
+		(E.DataCompra = @DataCompra OR @DataCompra IS NULL) AND
+		(E.Acessorios LIKE '%' + @Acessorios + '%' OR @Acessorios IS NULL)
+END
+
+«««««««««««««««««««««««««««««
+
+ALTER PROCEDURE [dbo].[SP_GERADORES_COMBO_DISPONIVEIS_CONSULTAR]
+AS
+BEGIN
+	SELECT ID, NumeroSerie
+	FROM dbo.Geradores (NOLOCK)
+	WHERE IdObraEtapa = 0 OR IdObraEtapa IS NULL
+END
+
+«««««««««««««««
+
+ALTER PROCEDURE [dbo].[SP_EMPILHADEIRAS_COMBO_DISPONIVEIS_CONSULTAR]
+AS
+BEGIN
+	SELECT ID, NumeroSerie      
+	FROM dbo.Empilhadeiras (NOLOCK)		
+	WHERE IdObraEtapa = 0 OR IdObraEtapa IS NULL		
+END
+
+«««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_GERADORES_LIBERAR]
+	@Id VARCHAR(10),
+	@idCliente VARCHAR(10),
+	@idObraEtapa VARCHAR(10)	
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DECLARE @DataAlocacao DATETIME
+
+			SELECT @DataAlocacao = DataAlocacao FROM Geradores WHERE Id = @Id
+
+			UPDATE Geradores
+			SET
+				IdCliente = NULL,
+				IdObraEtapa = NULL,
+				DataAlocacao = NULL
+			WHERE
+				 Id = @Id
+
+			INSERT INTO Geradores_Usos
+				   ([IdGerador]
+				   ,[IdCliente]
+				   ,[IdEtapaObra]
+				   ,[DataInicio]
+				   ,[DataFim])
+			 VALUES
+				   (@Id
+				   ,@idCliente
+				   ,@idObraEtapa 
+				   ,@DataAlocacao
+				   ,GETDATE())
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		DECLARE @ErrorNumber INT = ERROR_NUMBER();
+		DECLARE @ErrorLine INT = ERROR_LINE();
+		DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+		DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+		DECLARE @ErrorState INT = ERROR_STATE();
+		
+		IF @@TRANCOUNT > 0
+		BEGIN
+			ROLLBACK TRANSACTION
+		END;
+
+		RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);		
+		
+	END CATCH;
+END
+
+««««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_EMPILHADEIRAS_LIBERAR]
+	@Id VARCHAR(10),
+	@idCliente VARCHAR(10),
+	@idObraEtapa VARCHAR(10)	
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DECLARE @DataAlocacao DATETIME
+
+			SELECT @DataAlocacao = DataAlocacao FROM Empilhadeiras WHERE Id = @Id
+
+			UPDATE Empilhadeiras
+			SET
+				IdCliente = NULL,
+				IdObraEtapa = NULL,
+				DataAlocacao = NULL
+			WHERE
+				 Id = @Id
+
+			INSERT INTO Empilhadeiras_Usos
+				   ([IdEmpilhadeira]
+				   ,[IdCliente]
+				   ,[IdEtapaObra]
+				   ,[DataInicio]
+				   ,[DataFim])
+			 VALUES
+				   (@Id
+				   ,@idCliente
+				   ,@idObraEtapa 
+				   ,@DataAlocacao
+				   ,GETDATE())
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		DECLARE @ErrorNumber INT = ERROR_NUMBER();
+		DECLARE @ErrorLine INT = ERROR_LINE();
+		DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+		DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+		DECLARE @ErrorState INT = ERROR_STATE();
+		
+		IF @@TRANCOUNT > 0
+		BEGIN
+			ROLLBACK TRANSACTION
+		END;
+
+		RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);		
+		
+	END CATCH;
+END
+
+«««««««««««««««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_GERADORES_ALOCAR]
+	@Id VARCHAR(10),
+	@idCliente VARCHAR(10),
+	@idObraEtapa VARCHAR(10),
+	@DataAlocacao VARCHAR(30)	
+AS
+BEGIN
+	UPDATE Geradores 
+	SET
+		IdCliente = @idCliente,
+		IdObraEtapa = @idObraEtapa,
+		DataAlocacao = CONVERT(DATETIME, @DataAlocacao, 103)
+	WHERE
+		 Id = @Id
+END
+
+««««««««««««««««««««««««««««««
+
+CREATE PROCEDURE [dbo].[SP_EMPILHADEIRAS_ALOCAR]
+	@Id VARCHAR(10),
+	@idCliente VARCHAR(10),
+	@idObraEtapa VARCHAR(10),
+	@DataAlocacao VARCHAR(30)	
+AS
+BEGIN
+	UPDATE Empilhadeiras 
+	SET
+		IdCliente = @idCliente,
+		IdObraEtapa = @idObraEtapa,
+		DataAlocacao = CONVERT(DATETIME, @DataAlocacao, 103)
+	WHERE
+		 Id = @Id
+END
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»
