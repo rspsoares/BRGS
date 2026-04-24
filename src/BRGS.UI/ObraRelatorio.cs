@@ -195,8 +195,10 @@ namespace BRGS.UI
         {
             ReportClass obra = new ReportClass();
             DataTable dt = new DataTable();
+            DataTable dtEquipamento = new DataTable();
             string filtro = string.Empty;
             string filtroRelatorio = string.Empty;
+            
             string msgRetorno = string.Empty;
 
             msgRetorno = this.ValidarFiltro();
@@ -206,10 +208,13 @@ namespace BRGS.UI
                 filtro = this.MontarFiltroSQL();
                 filtroRelatorio = this.MontarFiltroRelatorio();
 
-                dt = bizObra.GerarRelatorioRealizadas(filtro, filtroRelatorio);
+                dt = bizObra.GerarRelatorioRealizadas(filtro, filtroRelatorio, out dtEquipamento);
                 
                 obra = new GastosObras();
                 obra.SetDataSource(dt);
+                obra.Subreports[0].DataSourceConnections.Clear();
+                obra.Subreports[0].SetDataSource(dtEquipamento);
+
                 Relatorio gastosObras = new Relatorio(obra);
                 gastosObras.Text = "Relatório de Gastos Realizados";
                 gastosObras.ShowDialog();               

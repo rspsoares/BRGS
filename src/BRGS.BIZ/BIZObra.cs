@@ -93,7 +93,7 @@ namespace BRGS.BIZ
 
                 LogErro log = new LogErro()
                 {
-                    procedureSQL = "SP_OBRAS_CONSULTAR",
+                    procedureSQL = "SP_OBRAS_GRID",
                     parametrosSQL = parametrosSQL,
                     mensagemErro = ex.ToString()
                 };
@@ -808,19 +808,25 @@ namespace BRGS.BIZ
             return saldo;
         }
 
-        public DataTable GerarRelatorioRealizadas(string filtro, string filtroRelatorio)
+        public DataTable GerarRelatorioRealizadas(string filtro, string filtroRelatorio, out DataTable dtEmpilhadeira)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             DataTable dtObra = new DataTable();
+
+            dtEmpilhadeira = new DataTable(); 
 
             try
             {
                 lstParametros.Add("@filtro", filtro);
                 DataSet ds = dao.Pesquisar("SP_OBRAS_RELATORIO_REALIZADAS", lstParametros);
                 dtObra = ds.Tables[0];
-
                 dtObra = helper.AdicionarColunaFiltroRelatorio(filtroRelatorio, dtObra);
+
+                lstParametros = new Dictionary<string, string>();
+                //lstParametros.Add("@IdObraEtapa", "1085");
+                DataSet dsEquip = dao.Pesquisar("SP_OBRAS_RELATORIO_EQUIPAMENTOS", lstParametros);
+                dtEmpilhadeira = dsEquip.Tables[0];
             }
             catch (Exception ex)
             {

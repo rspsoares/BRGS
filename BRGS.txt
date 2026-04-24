@@ -15,7 +15,15 @@ Desktop
 		
 		Scripts para deploy
 		
-	
+	CREATE NONCLUSTERED INDEX IX_REPORT_ObrasEtapas_GastosRealizados
+ON [dbo].[ObrasEtapas_GastosRealizados] ([idObraEtapa])
+INCLUDE ([idUEN],[idCentroCusto],[idDespesa],[idOrdemPagamento],[Valor])
+
+			SP_OBRAS_RELATORIO_REALIZADAS
+			
+			SP_OBRAS_GRID
+			
+			SP_OBRAS_RELATORIO_EQUIPAMENTOS
 			
 		----------------
 		
@@ -26,8 +34,13 @@ Desktop
 			Albertina
 	
 	»» Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
-		EMPILHADEIRAS atualmente alocadas + Empilhadeiras_Usos
-		GERADORES atualmente alocados + Geradores_Usos
+		EMPILHADEIRAS atualmente alocadas
+		GERADORES atualmente alocados
+		
+			Cliente com relatório: ACADEMIA DE POLÍCIA MILITAR DO BARRO BRANCO
+		
+			Tela: ObraRelatório.cs
+			Relatorio: GastoObras.rpt
 		
 
 »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»

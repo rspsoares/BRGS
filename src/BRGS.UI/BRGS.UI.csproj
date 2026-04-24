@@ -504,6 +504,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsComparativoGastos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Relatorios\dsEquipamentosAlocados.cs">
+      <DependentUpon>dsEquipamentosAlocados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\dsEquipamentosAlocados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEquipamentosAlocados.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Relatorios\dsFretes.cs">
       <DependentUpon>dsFretes.xsd</DependentUpon>
     </Compile>
@@ -516,6 +524,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsGastosFixos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\dsGastosObras.cs">
+      <DependentUpon>dsGastosObras.xsd</DependentUpon>
     </Compile>
     <Compile Include="Relatorios\dsGastosObrasConsolidado.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -555,6 +566,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsOrdemPagamentoGasto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\EquipamentosAlocados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EquipamentosAlocados.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Relatorios\FretesGerados.cs">
       <AutoGen>True</AutoGen>
@@ -904,6 +921,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ComparativoGastos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\EquipamentosAlocados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EquipamentosAlocados.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\FretesGerados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FretesGerados.cs</LastGenOutput>
@@ -914,7 +935,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\GastosObras.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>GastosObras.cs</LastGenOutput>
+      <LastGenOutput>GastosObras1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\GastosObrasConsolidado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1019,6 +1040,17 @@
     </None>
     <None Include="Relatorios\dsComparativoGastos.xss">
       <DependentUpon>dsComparativoGastos.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\dsEquipamentosAlocados.xsc">
+      <DependentUpon>dsEquipamentosAlocados.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\dsEquipamentosAlocados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEquipamentosAlocados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\dsEquipamentosAlocados.xss">
+      <DependentUpon>dsEquipamentosAlocados.xsd</DependentUpon>
     </None>
     <None Include="Relatorios\dsFretes.xsc">
       <DependentUpon>dsFretes.xsd</DependentUpon>
