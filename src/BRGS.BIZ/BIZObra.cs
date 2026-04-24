@@ -808,13 +808,13 @@ namespace BRGS.BIZ
             return saldo;
         }
 
-        public DataTable GerarRelatorioRealizadas(string filtro, string filtroRelatorio, out DataTable dtEmpilhadeira)
+        public DataTable GerarRelatorioRealizadas(string filtro, string filtroRelatorio, out DataTable dtEquipamento)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             DataTable dtObra = new DataTable();
 
-            dtEmpilhadeira = new DataTable(); 
+            dtEquipamento = new DataTable(); 
 
             try
             {
@@ -823,10 +823,9 @@ namespace BRGS.BIZ
                 dtObra = ds.Tables[0];
                 dtObra = helper.AdicionarColunaFiltroRelatorio(filtroRelatorio, dtObra);
 
-                lstParametros = new Dictionary<string, string>();
-                //lstParametros.Add("@IdObraEtapa", "1085");
+                lstParametros = new Dictionary<string, string>();                
                 DataSet dsEquip = dao.Pesquisar("SP_OBRAS_RELATORIO_EQUIPAMENTOS", lstParametros);
-                dtEmpilhadeira = dsEquip.Tables[0];
+                dtEquipamento = dsEquip.Tables[0];
             }
             catch (Exception ex)
             {

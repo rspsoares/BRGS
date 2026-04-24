@@ -369,12 +369,13 @@ namespace BRGS.BIZ
             return lstOPAbastecimento;
         }
 
-        public DataTable GerarRelatorioOrdemPagamentoEmitida(string filtroSQL, string filtroRelatorio, int idObraEtapa, out DataTable dtTotaisObra)
+        public DataTable GerarRelatorioOrdemPagamentoEmitida(string filtroSQL, string filtroRelatorio, int idObraEtapa, out DataTable dtTotaisObra, out DataTable dtEquipamento)
         {
             DataAccess dao = new DataAccess();
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
             DataTable dtOP = new DataTable();
             dtTotaisObra = new DataTable();
+            dtEquipamento = new DataTable();
 
             try
             {
@@ -391,6 +392,10 @@ namespace BRGS.BIZ
                     {
                         dtTotaisObra = dsTotais.Tables[0];
                     }
+
+                    lstParametros = new Dictionary<string, string>();
+                    DataSet dsEquip = dao.Pesquisar("SP_OBRAS_RELATORIO_EQUIPAMENTOS", lstParametros);
+                    dtEquipamento = dsEquip.Tables[0];
                 }
                 else
                 {

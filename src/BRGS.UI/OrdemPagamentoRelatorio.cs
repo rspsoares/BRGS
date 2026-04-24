@@ -63,6 +63,7 @@ namespace BRGS.UI
             ReportClass op = new ReportClass();
             DataTable dtOP = new DataTable();
             DataTable dtTotaisObra = new DataTable();
+            DataTable dtEquipamento = new DataTable();
             string filtroSQL = string.Empty;
             string ordenacao = string.Empty;
             string msgRetorno = string.Empty;
@@ -81,7 +82,7 @@ namespace BRGS.UI
                 if (chkLicitacao.Checked && int.Parse(cbLicitacao.SelectedValue.ToString()) > 0)
                     idObraEtapa = int.Parse(cbLicitacao.SelectedValue.ToString());
 
-                dtOP = bizOP.GerarRelatorioOrdemPagamentoEmitida(filtroSQL, filtroRelatorio, idObraEtapa, out dtTotaisObra);
+                dtOP = bizOP.GerarRelatorioOrdemPagamentoEmitida(filtroSQL, filtroRelatorio, idObraEtapa, out dtTotaisObra, out dtEquipamento);
 
                 dtOP = VerificarOrdenacao(dtOP, rbAgrupado.Checked);
 
@@ -92,6 +93,8 @@ namespace BRGS.UI
                     //op.SetDataSource(dt);
                     op.Database.Tables["DataTable1"].SetDataSource(dtOP);
                     op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
+                    op.Subreports[0].DataSourceConnections.Clear();
+                    op.Subreports[0].SetDataSource(dtEquipamento);
 
                     Relatorio opEmitidas = new Relatorio(op);
                     opEmitidas.Text = "Relatório de Ordens de Pagamentos Emitidas";                  
