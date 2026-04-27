@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbClientesFiltrados = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.optDescendente = new System.Windows.Forms.RadioButton();
             this.optAscendente = new System.Windows.Forms.RadioButton();
@@ -54,7 +55,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rbResumido = new System.Windows.Forms.RadioButton();
             this.rbAgrupado = new System.Windows.Forms.RadioButton();
-            this.lbClientesFiltrados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,6 +88,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro";
+            // 
+            // lbClientesFiltrados
+            // 
+            this.lbClientesFiltrados.AutoSize = true;
+            this.lbClientesFiltrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesFiltrados.ForeColor = System.Drawing.Color.Red;
+            this.lbClientesFiltrados.Location = new System.Drawing.Point(568, 44);
+            this.lbClientesFiltrados.Name = "lbClientesFiltrados";
+            this.lbClientesFiltrados.Size = new System.Drawing.Size(107, 13);
+            this.lbClientesFiltrados.TabIndex = 35;
+            this.lbClientesFiltrados.Text = "Filtrado pela UEN";
             // 
             // panel1
             // 
@@ -130,7 +141,7 @@
             this.cbLicitacao.FormattingEnabled = true;
             this.cbLicitacao.Location = new System.Drawing.Point(158, 71);
             this.cbLicitacao.Name = "cbLicitacao";
-            this.cbLicitacao.Size = new System.Drawing.Size(270, 21);
+            this.cbLicitacao.Size = new System.Drawing.Size(388, 21);
             this.cbLicitacao.TabIndex = 31;
             // 
             // chkLicitacao
@@ -369,17 +380,6 @@
             this.rbAgrupado.Text = "Agrupado";
             this.rbAgrupado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbAgrupado.UseVisualStyleBackColor = true;
-            // 
-            // lbClientesFiltrados
-            // 
-            this.lbClientesFiltrados.AutoSize = true;
-            this.lbClientesFiltrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientesFiltrados.ForeColor = System.Drawing.Color.Red;
-            this.lbClientesFiltrados.Location = new System.Drawing.Point(568, 44);
-            this.lbClientesFiltrados.Name = "lbClientesFiltrados";
-            this.lbClientesFiltrados.Size = new System.Drawing.Size(107, 13);
-            this.lbClientesFiltrados.TabIndex = 35;
-            this.lbClientesFiltrados.Text = "Filtrado pela UEN";
             // 
             // OrdemPagamentoRelatorio
             // 

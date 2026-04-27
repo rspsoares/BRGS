@@ -89,12 +89,14 @@ namespace BRGS.UI
                 if (rbAgrupado.Checked)
                 {   
                     op = new OrdemPagamentoEmitidas();
-                    
-                    //op.SetDataSource(dt);
                     op.Database.Tables["DataTable1"].SetDataSource(dtOP);
                     op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
-                    op.Subreports[0].DataSourceConnections.Clear();
-                    op.Subreports[0].SetDataSource(dtEquipamento);
+                    
+                    if(idObraEtapa > 0)
+                    {
+                        op.Subreports[0].DataSourceConnections.Clear();
+                        op.Subreports[0].SetDataSource(dtEquipamento);
+                    }
 
                     Relatorio opEmitidas = new Relatorio(op);
                     opEmitidas.Text = "Relatório de Ordens de Pagamentos Emitidas";                  

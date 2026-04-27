@@ -396,6 +396,14 @@ namespace BRGS.BIZ
                     lstParametros = new Dictionary<string, string>();
                     DataSet dsEquip = dao.Pesquisar("SP_OBRAS_RELATORIO_EQUIPAMENTOS", lstParametros);
                     dtEquipamento = dsEquip.Tables[0];
+
+                    var dr2 = dtEquipamento.Select($"IdObraEtapa = {idObraEtapa}");
+
+                    DataColumn hasEquipamento = new DataColumn("HasEquipamento", typeof(bool))
+                    {
+                        DefaultValue = dr2.Length > 0
+                    };
+                    dtTotaisObra.Columns.Add(hasEquipamento);
                 }
                 else
                 {
@@ -403,7 +411,8 @@ namespace BRGS.BIZ
                     dtTotaisObra.Columns.Add("ValorContrato", typeof(double));
                     dtTotaisObra.Columns.Add("TotalPago", typeof(double));
                     dtTotaisObra.Columns.Add("TotalAberto", typeof(double));
-                    dtTotaisObra.Rows.Add(0, 0, 0, 0);
+                    dtTotaisObra.Columns.Add("HasEquipamento", typeof(bool));
+                    dtTotaisObra.Rows.Add(0, 0, 0, 0, false);
                 }                    
             }
             catch (Exception ex)

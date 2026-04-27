@@ -3,39 +3,19 @@
   "WorkspaceRootPath": "C:\\_Rodrigo\\BRGS\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\obrarelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\obrarelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\RodrigoS\\AppData\\Local\\Temp\\.vsdbgsrc\\f180b0ec217ecdb542350fcad387eb7210e32634f73dca938c1497cbc2381665\\-Module-.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\relatorios\\ordempagamentoemitidas.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\relatorios\\ordempagamentoemitidas.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|c:\\_rodrigo\\brgs\\src\\brgs.biz\\bizordempagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizordempagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizobra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\relatorios\\gastosobras.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\relatorios\\gastosobras.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\relatorios\\dsordempagamentoemitidas.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\relatorios\\dsordempagamentoemitidas.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\relatorios\\dsordempagamentoemitidas.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|BRGS.UI||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,31 +34,18 @@
           ]
         },
         {
-          "DockedWidth": 521,
+          "DockedWidth": 767,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "-Module-.cs",
-              "DocumentMoniker": "C:\\Users\\RodrigoS\\AppData\\Local\\Temp\\.vsdbgsrc\\f180b0ec217ecdb542350fcad387eb7210e32634f73dca938c1497cbc2381665\\-Module-.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\RodrigoS\\AppData\\Local\\Temp\\.vsdbgsrc\\f180b0ec217ecdb542350fcad387eb7210e32634f73dca938c1497cbc2381665\\-Module-.cs",
-              "ToolTip": "C:\\Users\\RodrigoS\\AppData\\Local\\Temp\\.vsdbgsrc\\f180b0ec217ecdb542350fcad387eb7210e32634f73dca938c1497cbc2381665\\-Module-.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\Users\\RodrigoS\\AppData\\Local\\Temp\\.vsdbgsrc\\f180b0ec217ecdb542350fcad387eb7210e32634f73dca938c1497cbc2381665\\-Module-.cs [Read Only]",
-              "ViewState": "AgIAAPhfAAAAAAAAAAAmwARgAAAEAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:26:17.352Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "BIZOrdemPagamento.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZOrdemPagamento.cs",
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZOrdemPagamento.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZOrdemPagamento.cs",
               "RelativeToolTip": "BRGS.BIZ\\BIZOrdemPagamento.cs",
-              "ViewState": "AgIAAHcBAAAAAAAAAAAAAI0BAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAIMBAAAAAAAAAAAAAIwBAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-24T16:13:58.249Z",
               "EditorCaption": ""
@@ -86,43 +53,29 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "BRGS.UI",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\BRGS.UI.csproj",
+              "RelativeDocumentMoniker": "BRGS.UI\\BRGS.UI.csproj",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\BRGS.UI.csproj",
+              "RelativeToolTip": "BRGS.UI\\BRGS.UI.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-27T08:11:06.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "OrdemPagamentoRelatorio.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
               "RelativeToolTip": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAUwGAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAUwFQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:12:09.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-24T16:12:09.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrdemPagamentoEmitidas.rpt",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\OrdemPagamentoEmitidas.rpt",
-              "RelativeDocumentMoniker": "BRGS.UI\\Relatorios\\OrdemPagamentoEmitidas.rpt",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\OrdemPagamentoEmitidas.rpt",
-              "RelativeToolTip": "BRGS.UI\\Relatorios\\OrdemPagamentoEmitidas.rpt",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIdSURBVDhPpZJNaBNBFMf/M7ub2NhajSDiwS96CbY2BykojaD0oF5s0YPgQYReLHgpeNCLYv0AexNRb1VUAkJcPXgQEUG89BIaxI9gqzGxH6QmXTef3Wx2nJkmNev25g8ebx7z3n/ezBv8F4wx0lhK7j6fYo3lmowMhl35HoRA3XGk/YvYW\u002BsA2vCrUEIwu1hEJltwmeDc8V5Plx4BAaXEY4J7LxLSt4q4BBS6Eiq8oGm3nXHZ1VCkS9pgfxc62/0yT\u002BASaNRLIWE6ieHB3H1EZsMyVhUKTXU37Yo0RZFeVQiuL14D1tnooBtQcEwcSO9d7aoVdefw5yFC2GG\u002BDsa/OTj228LYwmXejYrkzxkUsqZMNG0TfZkexA99lHETUqlYJ0rV5YEPqfKOG7Glo3MGRSTkx2T4JNp2\u002BzGfmMf3JzNAHijHarJIfz\u002BN0wMh2QoduRrVL9x6NqrWzUt3hjfjYMiHV1NVWNHHCJAOoMof3OBOt10T8XD24kOiv0uynFFkp8ZTrPv8NNs3\u002BpXtifawUmWZWbU6q9l16Z\u002B\u002BTXrHOHHzDPP7ND6iNvSHAtjYrkLTNDzqfQleBIU/rDhdeI1Po4l7JpyqDSTSDoKdPmwLqqhaNdh2vbHrxXWhidcZ9mXBj3yJYr3Pwf7tBnL5HLZu2YRA4O/nERzp2yVrXQJiIhWrdsUwy92/lorZyURqLP4p/YZv/eBXLK9ktQL8AbhJ7xVosbKmAAAAAElFTkSuQmCC",
-              "WhenOpened": "2026-04-24T16:10:39.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "OrdemPagamentoRelatorio.cs [Design]",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs [Design]",
-              "RelativeToolTip": "BRGS.UI\\OrdemPagamentoRelatorio.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:12:07.123Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "dsOrdemPagamentoEmitidas.xsd",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\dsOrdemPagamentoEmitidas.xsd",
               "RelativeDocumentMoniker": "BRGS.UI\\Relatorios\\dsOrdemPagamentoEmitidas.xsd",
@@ -130,50 +83,6 @@
               "RelativeToolTip": "BRGS.UI\\Relatorios\\dsOrdemPagamentoEmitidas.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
               "WhenOpened": "2026-04-24T16:11:41.649Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 685,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ObraRelatorio.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraRelatorio.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\ObraRelatorio.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\ObraRelatorio.cs",
-              "RelativeToolTip": "BRGS.UI\\ObraRelatorio.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAAANcAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T13:35:27.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BIZObra.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
-              "RelativeDocumentMoniker": "BRGS.BIZ\\BIZObra.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZObra.cs",
-              "RelativeToolTip": "BRGS.BIZ\\BIZObra.cs",
-              "ViewState": "AgIAACMDAAAAAAAAAAAAADsDAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T09:37:58.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GastosObras.rpt",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\GastosObras.rpt",
-              "RelativeDocumentMoniker": "BRGS.UI\\Relatorios\\GastosObras.rpt",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\GastosObras.rpt",
-              "RelativeToolTip": "BRGS.UI\\Relatorios\\GastosObras.rpt",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIdSURBVDhPpZJNaBNBFMf/M7ub2NhajSDiwS96CbY2BykojaD0oF5s0YPgQYReLHgpeNCLYv0AexNRb1VUAkJcPXgQEUG89BIaxI9gqzGxH6QmXTef3Wx2nJkmNev25g8ebx7z3n/ezBv8F4wx0lhK7j6fYo3lmowMhl35HoRA3XGk/YvYW\u002BsA2vCrUEIwu1hEJltwmeDc8V5Plx4BAaXEY4J7LxLSt4q4BBS6Eiq8oGm3nXHZ1VCkS9pgfxc62/0yT\u002BASaNRLIWE6ieHB3H1EZsMyVhUKTXU37Yo0RZFeVQiuL14D1tnooBtQcEwcSO9d7aoVdefw5yFC2GG\u002BDsa/OTj228LYwmXejYrkzxkUsqZMNG0TfZkexA99lHETUqlYJ0rV5YEPqfKOG7Glo3MGRSTkx2T4JNp2\u002BzGfmMf3JzNAHijHarJIfz\u002BN0wMh2QoduRrVL9x6NqrWzUt3hjfjYMiHV1NVWNHHCJAOoMof3OBOt10T8XD24kOiv0uynFFkp8ZTrPv8NNs3\u002BpXtifawUmWZWbU6q9l16Z\u002B\u002BTXrHOHHzDPP7ND6iNvSHAtjYrkLTNDzqfQleBIU/rDhdeI1Po4l7JpyqDSTSDoKdPmwLqqhaNdh2vbHrxXWhidcZ9mXBj3yJYr3Pwf7tBnL5HLZu2YRA4O/nERzp2yVrXQJiIhWrdsUwy92/lorZyURqLP4p/YZv/eBXLK9ktQL8AbhJ7xVosbKmAAAAAElFTkSuQmCC",
-              "WhenOpened": "2026-04-24T16:15:04.745Z",
               "EditorCaption": ""
             }
           ]

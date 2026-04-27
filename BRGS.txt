@@ -42,6 +42,12 @@ INCLUDE ([idUEN],[idCentroCusto],[idDespesa],[idOrdemPagamento],[Valor])
 			Tela: ObraRelatório.cs
 			Relatorio: GastoObras.rpt
 		
+		Finalizar testes
+
+	Gerar novo pacote de instalação completo e testar na VM
+
+	Pedir para testar nova versão em produção 
+
 
 »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
 
