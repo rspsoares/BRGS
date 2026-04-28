@@ -33,7 +33,7 @@ INCLUDE ([idUEN],[idCentroCusto],[idDespesa],[idOrdemPagamento],[Valor])
 		Obra com gerador
 			Albertina
 	
-	»» Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
+	OK - Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
 		EMPILHADEIRAS atualmente alocadas
 		GERADORES atualmente alocados
 		
@@ -42,9 +42,10 @@ INCLUDE ([idUEN],[idCentroCusto],[idDespesa],[idOrdemPagamento],[Valor])
 			Tela: ObraRelatório.cs
 			Relatorio: GastoObras.rpt
 		
-		Finalizar testes
+		OK - Finalizar testes
 
-	Gerar novo pacote de instalação completo e testar na VM
+	
+	»» Gerar novo pacote de instalação completo e testar na VM
 
 	Pedir para testar nova versão em produção 
 
