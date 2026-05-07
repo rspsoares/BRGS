@@ -792,32 +792,36 @@ namespace BRGS.UI
 
                 switch (cbEmpresa.Text)
                 {
-                    case "FRONT ESTRUTURAS LTDA - EPP":                       
+                    case "FRONT ESTRUTURAS LTDA - EPP":
                         tituloAba = "Emissão de Ordem de Pagamento - FRONT";
                         logotipo = Properties.Resources.Logo_FRONT;
                         break;
-                    case "BRGS BRASIL LTDA - EPP":                        
+                    case "BRGS BRASIL LTDA - EPP":
                         tituloAba = "Emissão de Ordem de Pagamento - BRGS";
                         logotipo = Properties.Resources.Logo_BRGS;
                         break;
-                    case "LOGOS DO BRASIL LTDA - EPP":                       
+                    case "LOGOS DO BRASIL LTDA - EPP":
                         tituloAba = "Emissão de Ordem de Pagamento - LOGOS";
                         logotipo = Properties.Resources.Logo_LOGOS;
-                        break;    
+                        break;
                     case "BRG SERVICOS LTDA - EPP":
                         tituloAba = "Emissão de Ordem de Pagamento - BRG";
                         logotipo = Properties.Resources.Logo_BRG;
-                        break;    
+                        break;
                 }
 
                 dtOP = helper.AdicionarLogotipoDataTable(dtOP, logotipo);
+
+                var dsOP = PrepararDataSet(dtOP, dtTotaisObra, logotipo);
+
                 op = new OrdemPagamentoEmissao();
-                op.Database.Tables["DataTable1"].SetDataSource(dtOP);
-                op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
+                op.SetDataSource(dsOP);
                 op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
 
-                Relatorio relat = new Relatorio(op);
-                relat.Text = tituloAba;
+                var relat = new Relatorio(op)
+                {
+                    Text = tituloAba
+                };
                 relat.ShowDialog();
             }
             catch (SqlException)
@@ -828,6 +832,58 @@ namespace BRGS.UI
             {
                 MessageBox.Show(helper.RetornarMensagemPadraoErroGenerico(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
+        }
+
+        private dsOrdemPagamento PrepararDataSet(DataTable dtOP, DataTable dtTotaisObra, Image logotipo)
+        {
+            var dsOP = new dsOrdemPagamento();
+
+            foreach (DataRow dr in dtOP.Rows)
+            {
+                ImageConverter _imageConverter = new ImageConverter();
+                byte[] xByte = (byte[])_imageConverter.ConvertTo(logotipo, typeof(byte[]));
+
+                dsOP.DataTable1.AddDataTable1Row
+                (
+                    dr["RazaoSocial"].ToString(),
+                    dr["NomeEvento"].ToString(),
+                    dr["NumeroLicitacao"].ToString(),
+                    dr["NomeSolicitante"].ToString(),
+                    dr["NomeFavorecido"].ToString(),
+                    dr["Autorizado"].ToString(),
+                    dr["DataSolicitacao"].ToString(),
+                    dr["DescricaoUEN"].ToString(),
+                    dr["DescricaoCentroCusto"].ToString(),
+                    dr["DescricaoDespesa"].ToString(),
+                    decimal.Parse(dr["Valor"].ToString()),
+                    dr["Observacao1"].ToString(),
+                    dr["Banco"].ToString(),
+                    dr["Agencia"].ToString(),
+                    dr["TipoConta"].ToString(),
+                    dr["Conta"].ToString(),
+                    xByte,
+                    dr["Status"].ToString(),
+                    dr["CPF_CNPJ"].ToString(),
+                    dr["Cliente"].ToString(),
+                    DateTime.Parse(dr["DataVencimento"].ToString()),
+                    DateTime.Parse(dr["DataPagamento"].ToString()),
+                    int.Parse(dr["idObraEtapa"].ToString()),
+                    dr["NumeroOP"].ToString(),
+                    dr["Parcela"].ToString());
+            }
+
+            foreach (DataRow dr in dtTotaisObra.Rows)
+            {
+                dsOP.dtTotalObra.AdddtTotalObraRow
+                (
+                    int.Parse(dr["idObraEtapa"].ToString()),
+                    decimal.Parse(dr["ValorContrato"].ToString()),
+                    decimal.Parse(dr["TotalPago"].ToString()),
+                    decimal.Parse(dr["TotalAberto"].ToString())
+                );
+            }
+
+            return dsOP;
         }
 
         private void PopularEntidade()

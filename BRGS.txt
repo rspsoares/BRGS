@@ -1,54 +1,16 @@
 DeadLine - 06/07/2026
 
 Desktop
+	Procedimento de instalação
+	1. Desinstalar as versões anteriores do sistema e do componente do Crystal
 	
-		Buscar backup do server
-		
-		Carregar backup local
-		
-		Só trabalhar com banco localmente
-			Criar um DBServer.dat local
-			
-		Atualizar no server junto quando mandar o deploy
-		
-		---------------
-		
-		Scripts para deploy
-		
-	CREATE NONCLUSTERED INDEX IX_REPORT_ObrasEtapas_GastosRealizados
-ON [dbo].[ObrasEtapas_GastosRealizados] ([idObraEtapa])
-INCLUDE ([idUEN],[idCentroCusto],[idDespesa],[idOrdemPagamento],[Valor])
-
-			SP_OBRAS_RELATORIO_REALIZADAS
-			
-			SP_OBRAS_GRID
-			
-			SP_OBRAS_RELATORIO_EQUIPAMENTOS
-			
-		----------------
-		
-		Obra com empilhadeira
-			FIOCRUZ - depósito
-			
-		Obra com gerador
-			Albertina
+	2. Instalar a versão atual do Crystal: Crystal Reports for .NET Framework 4.0\CRRuntime_32bit_13_0_39.msi
 	
-	OK - Adaptar o Relatório de Obras, para mostrar as empilhadeiras e os geradores alocados
-		EMPILHADEIRAS atualmente alocadas
-		GERADORES atualmente alocados
-		
-			Cliente com relatório: ACADEMIA DE POLÍCIA MILITAR DO BARRO BRANCO
-		
-			Tela: ObraRelatório.cs
-			Relatorio: GastoObras.rpt
-		
-		OK - Finalizar testes
-
+	3. Instalar a nova versão do sistema
 	
-	»» Gerar novo pacote de instalação completo e testar na VM
-
-	Pedir para testar nova versão em produção 
-
+	4. Reiniciar a máquina
+	
+	
 
 »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
 
@@ -64,7 +26,8 @@ App
 		https://www.outsystems.com/forge/component-overview/7587/mobile-offline-ocr-o11
 		
 		https://www.outsystems.com/forge/component-overview/8168/tesseract-ocr-o11
-		
+	
+	ChatGPT ajuda com o CSS
 		
 	»» Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)
 
