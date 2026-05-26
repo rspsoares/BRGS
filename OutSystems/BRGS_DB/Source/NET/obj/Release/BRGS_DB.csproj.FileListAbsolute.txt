@@ -1,0 +1,5 @@
+C:\_Rodrigo\BRGS\OutSystems\BRGS_DB\Source\NET\bin\OutSystems.NssBRGS_DB.dll
+C:\_Rodrigo\BRGS\OutSystems\BRGS_DB\Source\NET\bin\OutSystems.NssBRGS_DB.xml
+C:\_Rodrigo\BRGS\OutSystems\BRGS_DB\Source\NET\obj\Release\BRGS_DB.csproj.AssemblyReference.cache
+C:\_Rodrigo\BRGS\OutSystems\BRGS_DB\Source\NET\obj\Release\BRGS_DB.csproj.CoreCompileInputs.cache
+C:\_Rodrigo\BRGS\OutSystems\BRGS_DB\Source\NET\obj\Release\OutSystems.NssBRGS_DB.dll

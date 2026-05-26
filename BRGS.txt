@@ -1,20 +1,145 @@
 DeadLine - 06/07/2026
 
-Desktop
-	Procedimento de instalação
-	1. Desinstalar as versões anteriores do sistema e do componente do Crystal
-	
-	2. Instalar a versão atual do Crystal: Crystal Reports for .NET Framework 4.0\CRRuntime_32bit_13_0_39.msi
-	
-	3. Instalar a nova versão do sistema
-	
-	4. Reiniciar a máquina
-	
-	
-
-»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
-
 App
+			
+	FrontEnd		
+		» Controle de Empilhadeira
+			ok - Lista de cadastrados
+			No detalhe
+				Accordion separando as seções
+					Detalhes
+						Puxar combos 
+							Clientes
+							Obras filtradas por cliente
+							Empresas do grupo
+					
+						Número Série
+						Marca
+						Modelo
+						Combustível
+						Torre
+						Cap Carga
+						Cliente (combo)
+						Pregão (combo vinculado ao cliente)
+						Lotada
+						Empresa (combo de empresas do grupo)
+						Nota fiscal
+						Data Compra
+						Acessórios
+					
+					Manutenção
+						List view:
+							Data início
+							Data fim
+							Cliente
+							Pregão
+					
+					Usos
+						List view
+							Data 
+							Valor
+							Descrição
+					
+				Gravar
+				
+			Link do Dashboard para esse ecrã
+	
+		Passar link para Betto testar
+	
+		Controle de Geradores
+			Lista de cadastrados
+			No detalhe
+				Accordion separando as seções
+					Detalhes
+					Manutenção
+					Usos
+			Link do Dashboard para esse ecrã
+			
+		Passar link para Betto testar
+				
+		Controle de OPs
+			Confirmar com Betto se vamos fazer criação / alteração de OPs pelo App. São muitos campos
+			
+			Visualização de OPs para mobile			
+				Criar tabela para binários das OPs 
+					IdOrdemPagamento
+					Varbinary(Max)
+				
+			Gerar binário de todas as não canceladas e do último 3 anos
+				
+			Se pela App quiser ver uma mais antiga
+				» Dar uma mensagem que a OP será gerada em alguns instantes				
+				» Dar um insert numa tabela de controle de geração binário de OPs
+				» Ter um Windows Service que lê essa tabela e gera os binários na tabela
+			
+					✅ Buscar nba <tabela de requisicoes a cada 2–5 segundos
+					✅ Buscar em lote (TOP 100)
+					✅ Processar em memória
+					✅ Delete por lote
+					✅ Índice no Id
+				
+				
+			No desktop, sempre que criar ou alterar uma OP, inserir uma requisição nessa tabela de controle
+				
+			Pedir um outro armazenamento na nuvem para Betto
+				
+				
+			
+			
+		
+		
+		
+			{
+				// Caminho do arquivo .rpt
+				string reportPath = @"C:\Relatorios\MeuRelatorio.rpt";
+
+				// Caminho do PDF de saída
+				string pdfPath = @"C:\Relatorios\MeuRelatorio.pdf";
+
+				// Carrega o relatório
+				ReportDocument report = new ReportDocument();
+				report.Load(reportPath);
+
+				// Se precisar de login no banco:
+				// report.SetDatabaseLogon("usuario", "senha");
+
+				// Exporta para PDF
+				report.ExportToDisk(
+					ExportFormatType.PortableDocFormat,
+					pdfPath
+				);
+
+				// Fecha recursos
+				report.Close();
+				report.Dispose();
+
+				GC.Collect();
+				GC.WaitForPendingFinalizers();
+
+				Console.WriteLine("PDF exportado com sucesso!");
+				
+				
+				Stream pdfStream = report.ExportToStream(
+				ExportFormatType.PortableDocFormat
+					);
+			}
+		
+		
+		
+		Aguardar validação final para começar a gerar os pacotes de instalação
+		
+		
+		Gerar pacote de Android
+				
+		Gerar pacote de iPhone
+	
+
+	https://www.outsystems.com/forge/component-overview/8336/waiting-loading-react-o11			
+
+	Pedir para GPT ajudar com o CSS
+			Crie 4 conceitos de UI/UX para uma aplicação mobile industrial desenvolvida em OutSystems para controle de empilhadeiras e geradores. Estilo moderno, clean e corporativo. Mostrar telas de dashboard, monitoramento em tempo real, status operacional, manutenção preventiva, checklist de segurança, mapa de localização dos equipamentos, gráficos de telemetria, alertas críticos e gestão de frota. Visual premium inspirado em SAP Fiori, IBM Maximo, Material Design e apps industriais modernos. Paleta com azul escuro, amarelo segurança industrial, cinza grafite e detalhes em verde status OK. Mockups em smartphone, alta fidelidade, interfaces realistas, UX intuitiva, ícones industriais elegantes, cards informativos e design responsivo.
+		
+
 
 	Conexão externa de BD		https://success.outsystems.com/documentation/11/integration_with_external_systems/integrate_with_an_external_database/integrate_with_an_external_database_using_integration_studio/
 
@@ -65,7 +190,6 @@ GO
 -- Roles padrão
 ALTER ROLE db_datareader ADD MEMBER [OS_User];
 ALTER ROLE db_datawriter ADD MEMBER [OS_User];
-ALTER ROLE db_ddladmin ADD MEMBER [OS_User]; -- opcional (permite criar objetos)
 
 -- Executar procedures
 GRANT EXECUTE TO [OS_User];
