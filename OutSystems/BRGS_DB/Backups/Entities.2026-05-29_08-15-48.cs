@@ -72,7 +72,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*WUDowFbdqEGwLJFWv1nGXg");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFrete", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFrete", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idFrete")]
 		private int _ssidFrete;
 		public int ssidFrete {
@@ -81,7 +81,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFrete!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(3, true);
+					ChangedAttributes[0] = true;
 					_ssidFrete = value;
 				}
 			}
@@ -418,7 +418,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*tkOauf34n02QBerZFhWYLw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idCentroCusto")]
 		private int _ssidCentroCusto;
 		public int ssidCentroCusto {
@@ -427,7 +427,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidCentroCusto!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(3, true);
+					ChangedAttributes[0] = true;
 					_ssidCentroCusto = value;
 				}
 			}
@@ -1110,7 +1110,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*VYUcwUvtp06TIb1jYbmgLw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFase", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFase", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idFase")]
 		private int _ssidFase;
 		public int ssidFase {
@@ -1119,7 +1119,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFase!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(3, true);
+					ChangedAttributes[0] = true;
 					_ssidFase = value;
 				}
 			}
@@ -1468,7 +1468,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*0LgSCdB0zUK1x5UeTqaMcw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOcorrencia", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOcorrencia", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idOcorrencia")]
 		private int _ssidOcorrencia;
 		public int ssidOcorrencia {
@@ -1477,7 +1477,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidOcorrencia!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(7, true);
+					ChangedAttributes[0] = true;
 					_ssidOcorrencia = value;
 				}
 			}
@@ -2327,7 +2327,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*znBBGqpOK02JN4dOqN3kYg");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idDespesa", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idDespesa", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idDespesa")]
 		private int _ssidDespesa;
 		public int ssidDespesa {
@@ -2336,7 +2336,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidDespesa!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(4, true);
+					ChangedAttributes[0] = true;
 					_ssidDespesa = value;
 				}
 			}
@@ -2762,7 +2762,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*z_+HzIazhUSi1Tp2T5qVFQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idAbastecimento")]
 		private int _ssidAbastecimento;
 		public int ssidAbastecimento {
@@ -2771,7 +2771,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidAbastecimento!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(19, true);
+					ChangedAttributes[0] = true;
 					_ssidAbastecimento = value;
 				}
 			}
@@ -3800,7 +3800,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*5M8Y5zIFiUagWTui1s1A2A");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idVeiculo", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idVeiculo", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idVeiculo")]
 		private int _ssidVeiculo;
 		public int ssidVeiculo {
@@ -3809,7 +3809,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidVeiculo!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(15, true);
+					ChangedAttributes[0] = true;
 					_ssidVeiculo = value;
 				}
 			}
@@ -4698,7 +4698,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*6Kz2SkNMWE+zkBGc1UWvew");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFornecedor", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFornecedor", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idFornecedor")]
 		private int _ssidFornecedor;
 		public int ssidFornecedor {
@@ -4707,7 +4707,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFornecedor!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(23, true);
+					ChangedAttributes[0] = true;
 					_ssidFornecedor = value;
 				}
 			}
@@ -5864,7 +5864,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*UymJjLITqU+Gm05rwIW0hw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuario", 0, false, false, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuario", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idUsuario")]
 		private int _ssidUsuario;
 		public int ssidUsuario {
@@ -6219,7 +6219,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*iw2Dobo2_UKuWqxlbRba_A");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idNota", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idNota", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idNota")]
 		private int _ssidNota;
 		public int ssidNota {
@@ -6228,7 +6228,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidNota!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(6, true);
+					ChangedAttributes[0] = true;
 					_ssidNota = value;
 				}
 			}
@@ -6700,7 +6700,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*vtcdfx78ukiZ3GDPZ19pnQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idMotorista", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idMotorista", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idMotorista")]
 		private int _ssidMotorista;
 		public int ssidMotorista {
@@ -6709,7 +6709,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidMotorista!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(7, true);
+					ChangedAttributes[0] = true;
 					_ssidMotorista = value;
 				}
 			}
@@ -8446,7 +8446,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*qnioXvMTuESZpnZm38n5+Q");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCliente", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCliente", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idCliente")]
 		private int _ssidCliente;
 		public int ssidCliente {
@@ -8455,7 +8455,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidCliente!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(23, true);
+					ChangedAttributes[0] = true;
 					_ssidCliente = value;
 				}
 			}
@@ -9621,7 +9621,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*DOUxM_gs3Em5aGzgMuH8Fw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idObraEtapa")]
 		private int _ssidObraEtapa;
 		public int ssidObraEtapa {
@@ -9630,7 +9630,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidObraEtapa!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(6, true);
+					ChangedAttributes[0] = true;
 					_ssidObraEtapa = value;
 				}
 			}
@@ -11322,7 +11322,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*2SuI_J_VFUC6iXCwr_H8dQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idMulta", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idMulta", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idMulta")]
 		private int _ssidMulta;
 		public int ssidMulta {
@@ -11331,7 +11331,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidMulta!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(9, true);
+					ChangedAttributes[0] = true;
 					_ssidMulta = value;
 				}
 			}
@@ -12583,7 +12583,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*miYd8qwiwUCbrNiHKJXDuQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFrete", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFrete", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idFrete")]
 		private int _ssidFrete;
 		public int ssidFrete {
@@ -12592,7 +12592,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFrete!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(8, true);
+					ChangedAttributes[0] = true;
 					_ssidFrete = value;
 				}
 			}
@@ -13938,7 +13938,7 @@ namespace OutSystems.NssBRGS_DB {
 			ssModelo = r.ReadText(index++, "Geradores.Modelo", "");
 			ssLotado = r.ReadText(index++, "Geradores.Lotado", "");
 			ssNotaFiscal = r.ReadText(index++, "Geradores.NotaFiscal", "");
-			ssDataCompra = r.ReadDate(index++, "Geradores.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataCompra = r.ReadDateTime(index++, "Geradores.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssAcessorios = r.ReadText(index++, "Geradores.Acessorios", "");
 			ChangedAttributes = new BitArray(13, false);
 			OptimizedAttributes = new BitArray(13, false);
@@ -14182,7 +14182,7 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Modelo")) VarValue.AppendAttribute(recordElem, "Modelo", ssModelo, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Modelo");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Lotado")) VarValue.AppendAttribute(recordElem, "Lotado", ssLotado, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Lotado");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NotaFiscal")) VarValue.AppendAttribute(recordElem, "NotaFiscal", ssNotaFiscal, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NotaFiscal");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Acessorios")) VarValue.AppendAttribute(recordElem, "Acessorios", ssAcessorios, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Acessorios");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -15154,7 +15154,7 @@ namespace OutSystems.NssBRGS_DB {
 			ssCapacidadeCarga = r.ReadInteger(index++, "Empilhadeiras.CapacidadeCarga", 0);
 			ssLotada = r.ReadText(index++, "Empilhadeiras.Lotada", "");
 			ssNotaFiscal = r.ReadText(index++, "Empilhadeiras.NotaFiscal", "");
-			ssDataCompra = r.ReadDate(index++, "Empilhadeiras.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataCompra = r.ReadDateTime(index++, "Empilhadeiras.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssAcessorios = r.ReadText(index++, "Empilhadeiras.Acessorios", "");
 			ChangedAttributes = new BitArray(15, false);
 			OptimizedAttributes = new BitArray(15, false);
@@ -15422,7 +15422,7 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".CapacidadeCarga")) VarValue.AppendAttribute(recordElem, "CapacidadeCarga", ssCapacidadeCarga, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "CapacidadeCarga");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Lotada")) VarValue.AppendAttribute(recordElem, "Lotada", ssLotada, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Lotada");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NotaFiscal")) VarValue.AppendAttribute(recordElem, "NotaFiscal", ssNotaFiscal, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NotaFiscal");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Acessorios")) VarValue.AppendAttribute(recordElem, "Acessorios", ssAcessorios, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Acessorios");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -16342,7 +16342,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*R6R23oHbvEKTzNoFQxLgVA");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idNota", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idNota", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idNota")]
 		private int _ssidNota;
 		public int ssidNota {
@@ -16351,7 +16351,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidNota!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(41, true);
+					ChangedAttributes[0] = true;
 					_ssidNota = value;
 				}
 			}
@@ -19032,7 +19032,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*5+Vy_w358EC9EkD2roMByQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFeriado", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFeriado", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idFeriado")]
 		private int _ssidFeriado;
 		public int ssidFeriado {
@@ -19041,7 +19041,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFeriado!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(5, true);
+					ChangedAttributes[0] = true;
 					_ssidFeriado = value;
 				}
 			}
@@ -19487,7 +19487,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*ylCpf94djkqoUcMqQJNwZQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idObraEtapa")]
 		private int _ssidObraEtapa;
 		public int ssidObraEtapa {
@@ -19496,7 +19496,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidObraEtapa!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(12, true);
+					ChangedAttributes[0] = true;
 					_ssidObraEtapa = value;
 				}
 			}
@@ -20507,7 +20507,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*QFRyoTWY4kuGCQng6RF7Aw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idGravidade", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idGravidade", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idGravidade")]
 		private int _ssidGravidade;
 		public int ssidGravidade {
@@ -20516,7 +20516,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidGravidade!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(4, true);
+					ChangedAttributes[0] = true;
 					_ssidGravidade = value;
 				}
 			}
@@ -20912,7 +20912,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*JCj8lz8eW02l3BjzpZlC0A");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idManutencao")]
 		private int _ssidManutencao;
 		public int ssidManutencao {
@@ -20921,7 +20921,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidManutencao!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(9, true);
+					ChangedAttributes[0] = true;
 					_ssidManutencao = value;
 				}
 			}
@@ -21504,7 +21504,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*Wt9gVkIj002HjMCQzHfjvw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuario", 0, false, false, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuario", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idUsuario")]
 		private int _ssidUsuario;
 		public int ssidUsuario {
@@ -22390,7 +22390,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdValor = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*IyJxH2+ps0SK4Tz+Uwcqmw");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFreteObra", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFreteObra", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idFreteObra")]
 		private int _ssidFreteObra;
 		public int ssidFreteObra {
@@ -22399,7 +22399,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFreteObra!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(9, true);
+					ChangedAttributes[0] = true;
 					_ssidFreteObra = value;
 				}
 			}
@@ -23024,7 +23024,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*zL6SCYttzUWzUDaiL6A8fA");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOrdemPagamentoItem", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOrdemPagamentoItem", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idOrdemPagamentoItem")]
 		private int _ssidOrdemPagamentoItem;
 		public int ssidOrdemPagamentoItem {
@@ -23033,7 +23033,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidOrdemPagamentoItem!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(17, true);
+					ChangedAttributes[0] = true;
 					_ssidOrdemPagamentoItem = value;
 				}
 			}
@@ -24472,7 +24472,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*eKIG97+f2ker3e6oIYX7LQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idCentroCusto")]
 		private int _ssidCentroCusto;
 		public int ssidCentroCusto {
@@ -24481,7 +24481,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidCentroCusto!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(5, true);
+					ChangedAttributes[0] = true;
 					_ssidCentroCusto = value;
 				}
 			}
@@ -24906,7 +24906,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*y0vpHjN7V0C6D7To1XwiaQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCliente", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCliente", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idCliente")]
 		private int _ssidCliente;
 		public int ssidCliente {
@@ -24915,7 +24915,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidCliente!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(5, true);
+					ChangedAttributes[0] = true;
 					_ssidCliente = value;
 				}
 			}
@@ -25340,7 +25340,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*THbOddLjSkmYghYg_Y5vnA");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFornecedor", 0, false, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFornecedor", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idFornecedor")]
 		private int _ssidFornecedor;
 		public int ssidFornecedor {
@@ -25349,7 +25349,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidFornecedor!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(5, true);
+					ChangedAttributes[0] = true;
 					_ssidFornecedor = value;
 				}
 			}
@@ -26692,7 +26692,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*AAcbRwSsH0C8d8YuxiY4uQ");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUso", 0, true, true, false, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUso", 0, true, false, false, true)]
 		[System.Xml.Serialization.XmlElement("idUso")]
 		private int _ssidUso;
 		public int ssidUso {
@@ -26701,7 +26701,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidUso!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(7, true);
+					ChangedAttributes[0] = true;
 					_ssidUso = value;
 				}
 			}

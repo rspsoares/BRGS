@@ -1,18 +1,19 @@
 DeadLine - 06/07/2026
 
 App
+	Dashboard
+		No lugar de Empilhadeiras e Geradores, pensar no que colocar no lugar
+		
+		Gráfico de Pizza de Obras dentro do prazo e atrasadas
+		
+		Gráfoco de barras de OPs abertas por mês
 			
 	FrontEnd		
 		» Controle de Empilhadeira
 			ok - Lista de cadastrados
 			No detalhe
 				Accordion separando as seções
-					Detalhes
-						Puxar combos 
-							Clientes
-							Obras filtradas por cliente
-							Empresas do grupo
-					
+					ok - Detalhes						
 						Número Série
 						Marca
 						Modelo
@@ -25,7 +26,22 @@ App
 						Empresa (combo de empresas do grupo)
 						Nota fiscal
 						Data Compra
+							Só Data, sem hora
+							Ajustar formato para dd/MM/yyyy
 						Acessórios
+					
+					ok - Carregar edição
+						ok - Combos
+						ok - data de compra
+					
+					ok - Definir tamanho máximo de campos
+						Torre
+						Capacidade Carga
+						
+					ok - Gravar
+					
+					ok - Excluir
+						Confirmação
 					
 					Manutenção
 						List view:
@@ -40,15 +56,29 @@ App
 							Valor
 							Descrição
 					
-				Gravar
 				
 			Link do Dashboard para esse ecrã
 	
+		Dashboard
+			No lugar de Empilhadeiras e Geradores, pensar no que colocar no lugar
+			
+			Rever a conversa recente com Betto
+					
+				Gráfico de Pizza de Obras dentro do prazo e atrasadas?
+		
+				Gráfico de barras de OPs abertas por mês?
+		
+		
 		Passar link para Betto testar
 	
+		------
+		
 		Controle de Geradores
 			Lista de cadastrados
 			No detalhe
+				
+				Usar como modelo as empihadeiras
+				
 				Accordion separando as seções
 					Detalhes
 					Manutenção

@@ -13938,7 +13938,7 @@ namespace OutSystems.NssBRGS_DB {
 			ssModelo = r.ReadText(index++, "Geradores.Modelo", "");
 			ssLotado = r.ReadText(index++, "Geradores.Lotado", "");
 			ssNotaFiscal = r.ReadText(index++, "Geradores.NotaFiscal", "");
-			ssDataCompra = r.ReadDate(index++, "Geradores.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataCompra = r.ReadDateTime(index++, "Geradores.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssAcessorios = r.ReadText(index++, "Geradores.Acessorios", "");
 			ChangedAttributes = new BitArray(13, false);
 			OptimizedAttributes = new BitArray(13, false);
@@ -14182,7 +14182,7 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Modelo")) VarValue.AppendAttribute(recordElem, "Modelo", ssModelo, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Modelo");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Lotado")) VarValue.AppendAttribute(recordElem, "Lotado", ssLotado, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Lotado");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NotaFiscal")) VarValue.AppendAttribute(recordElem, "NotaFiscal", ssNotaFiscal, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NotaFiscal");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Acessorios")) VarValue.AppendAttribute(recordElem, "Acessorios", ssAcessorios, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Acessorios");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -15154,7 +15154,7 @@ namespace OutSystems.NssBRGS_DB {
 			ssCapacidadeCarga = r.ReadInteger(index++, "Empilhadeiras.CapacidadeCarga", 0);
 			ssLotada = r.ReadText(index++, "Empilhadeiras.Lotada", "");
 			ssNotaFiscal = r.ReadText(index++, "Empilhadeiras.NotaFiscal", "");
-			ssDataCompra = r.ReadDate(index++, "Empilhadeiras.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataCompra = r.ReadDateTime(index++, "Empilhadeiras.DataCompra", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssAcessorios = r.ReadText(index++, "Empilhadeiras.Acessorios", "");
 			ChangedAttributes = new BitArray(15, false);
 			OptimizedAttributes = new BitArray(15, false);
@@ -15422,7 +15422,7 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".CapacidadeCarga")) VarValue.AppendAttribute(recordElem, "CapacidadeCarga", ssCapacidadeCarga, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "CapacidadeCarga");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Lotada")) VarValue.AppendAttribute(recordElem, "Lotada", ssLotada, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Lotada");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NotaFiscal")) VarValue.AppendAttribute(recordElem, "NotaFiscal", ssNotaFiscal, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NotaFiscal");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCompra")) VarValue.AppendAttribute(recordElem, "DataCompra", ssDataCompra, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCompra");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Acessorios")) VarValue.AppendAttribute(recordElem, "Acessorios", ssAcessorios, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Acessorios");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
