@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\empilhadeiramanutencao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -17,7 +17,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 2385,
+          "DockedWidth": 1131,
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -34,8 +34,8 @@
               "Title": "EmpilhadeiraManutencao.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs*",
-              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs*",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs",
               "ViewState": "AgIAADsBAAAAAAAAAAAjwF4BAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-29T06:41:12.27Z",
@@ -47,8 +47,8 @@
               "Title": "EmpilhadeiraManutencao.cs [Design]",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs",
               "RelativeDocumentMoniker": "BRGS.UI\\EmpilhadeiraManutencao.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs [Design]*",
-              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs [Design]*",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
+              "RelativeToolTip": "BRGS.UI\\EmpilhadeiraManutencao.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-25T12:24:45.137Z",
               "EditorCaption": " [Design]"

@@ -1379,56 +1379,6 @@
             </summary>
             <param name="r"> Record</param>
         </member>
-        <member name="T:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_AnoEntityRecord">
-            <summary>
-            Entity <code>ENVW_Dashboard_OPs_AnoEntityRecord</code> that represents the Service Studio entity
-             <code>VW_Dashboard_OPs_Ano</code> <p> Description: </p>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_AnoEntityRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_AnoEntityRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_AnoEntityRecord.ReadIM(OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_AnoEntityRecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_CategoriaEntityRecord">
-            <summary>
-            Entity <code>ENVW_Dashboard_OPs_CategoriaEntityRecord</code> that represents the Service Studio
-             entity <code>VW_Dashboard_OPs_Categoria</code> <p> Description: </p>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_CategoriaEntityRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_CategoriaEntityRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_CategoriaEntityRecord.ReadIM(OutSystems.NssBRGS_DB.ENVW_Dashboard_OPs_CategoriaEntityRecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
         <member name="T:OutSystems.NssBRGS_DB.RCFretes_PagamentosRecord">
             <summary>
             Structure <code>RCFretes_PagamentosRecord</code>
@@ -2744,54 +2694,6 @@
             <param name="r"> Data reader</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPsVencimentoRecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_Dashboard_OPsVencimentoRecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord">
-            <summary>
-            Structure <code>RCVW_Dashboard_OPs_AnoRecord</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord">
-            <summary>
-            Structure <code>RCVW_Dashboard_OPs_CategoriaRecord</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord)">
             <summary>
             Read from record
             </summary>
@@ -4824,80 +4726,6 @@
             <param name="context"> StreamingContext</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPsVencimentoRecordList.NewList">
-            <summary>
-            Create as new list
-            </summary>
-            <returns>The new record list</returns>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList">
-            <summary>
-            RecordList type <code>RLVW_Dashboard_OPs_AnoRecordList</code> that represents a record list of
-             <code>VW_Dashboard_OPs_Ano</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList.#ctor">
-            <summary>
-            Default Constructor
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList.#ctor(System.Data.IDbTransaction)">
-            <summary>
-            Constructor with transaction parameter
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_AnoRecord}.ReadDBMethodDelegate)">
-            <summary>
-            Constructor with transaction parameter and alternate read method
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-            <param name="alternateReadDBMethod"> Alternate Read Method</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Constructor declaration for serialization
-            </summary>
-            <param name="info"> SerializationInfo</param>
-            <param name="context"> StreamingContext</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_AnoRecordList.NewList">
-            <summary>
-            Create as new list
-            </summary>
-            <returns>The new record list</returns>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList">
-            <summary>
-            RecordList type <code>RLVW_Dashboard_OPs_CategoriaRecordList</code> that represents a record list
-             of <code>VW_Dashboard_OPs_Categoria</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.#ctor">
-            <summary>
-            Default Constructor
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.#ctor(System.Data.IDbTransaction)">
-            <summary>
-            Constructor with transaction parameter
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord}.ReadDBMethodDelegate)">
-            <summary>
-            Constructor with transaction parameter and alternate read method
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-            <param name="alternateReadDBMethod"> Alternate Read Method</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Constructor declaration for serialization
-            </summary>
-            <param name="info"> SerializationInfo</param>
-            <param name="context"> StreamingContext</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.NewList">
             <summary>
             Create as new list
             </summary>

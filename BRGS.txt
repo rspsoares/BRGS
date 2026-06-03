@@ -49,27 +49,42 @@ App
 							Data fim
 							Cliente
 							Pregão
+						
+						Nenhum registro gravado
 					
 					Usos
 						List view
 							Data 
 							Valor
 							Descrição
-					
+
+						SELECT * FROM Empilhadeiras_Usos
+						SELECT * FROM Empilhadeiras Where Id = 25
 				
-			Link do Dashboard para esse ecrã
-	
-		Dashboard
-			No lugar de Empilhadeiras e Geradores, pensar no que colocar no lugar
 			
-			Rever a conversa recente com Betto
+			ok - Terminar Empilhadeiras
+			
+			ok - Linkar botão da Empilhadeira do bottom bar na página da Empilhadeira
+			
+			ok - Fazer Mock da sugestão do dashboard do Betto
+				Gráfico de barras do ano, por mês
+					Total de OPs abertas
 					
-				Gráfico de Pizza de Obras dentro do prazo e atrasadas?
-		
-				Gráfico de barras de OPs abertas por mês?
-		
-		
-		Passar link para Betto testar
+					Quando clica na barra do mês, 
+					
+					Atualiza o gráfico de pizza
+					
+					Uma pizza do mês vigente
+						Qtd OPs Obra vs Qtd OP Administrativa
+				
+					
+					
+					
+						
+			
+			
+			
+			Mandar Link pro Betto testar
 	
 		------
 		

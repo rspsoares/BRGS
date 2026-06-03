@@ -7973,7 +7973,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdGerador", 0, false, false, true, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdGerador", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("IdGerador")]
 		private int _ssIdGerador;
 		public int ssIdGerador {
@@ -8072,7 +8072,7 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssID = r.ReadInteger(index++, "Geradores_Manutencoes.ID", 0);
-			ssIdGerador = r.ReadEntityReference(index++, "Geradores_Manutencoes.IdGerador", 0);
+			ssIdGerador = r.ReadInteger(index++, "Geradores_Manutencoes.IdGerador", 0);
 			ssData = r.ReadDateTime(index++, "Geradores_Manutencoes.Data", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssValor = r.ReadDecimal(index++, "Geradores_Manutencoes.Valor", 0.0M);
 			ssDescricao = r.ReadText(index++, "Geradores_Manutencoes.Descricao", "");
@@ -8220,7 +8220,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ID")) VarValue.AppendAttribute(recordElem, "ID", ssID, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "ID");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdGerador")) VarValue.AppendAttribute(recordElem, "IdGerador", ssIdGerador, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdGerador");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdGerador")) VarValue.AppendAttribute(recordElem, "IdGerador", ssIdGerador, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdGerador");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Data")) VarValue.AppendAttribute(recordElem, "Data", ssData, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "Data");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Descricao")) VarValue.AppendAttribute(recordElem, "Descricao", ssDescricao, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Descricao");
@@ -10059,13 +10059,13 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			, { "idgerador", "IdGerador"
 			}
-			, { "idcliente", "IdCliente"
-			}
-			, { "idetapaobra", "IdEtapaObra"
-			}
 			, { "datainicio", "DataInicio"
 			}
 			, { "datafim", "DataFim"
+			}
+			, { "idcliente", "IdCliente"
+			}
+			, { "idetapaobra", "IdEtapaObra"
 			}
 		};
 		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
@@ -10093,10 +10093,10 @@ namespace OutSystems.NssBRGS_DB {
 	public partial struct ENGeradores_UsosEntityRecord: ISerializable, ITypedRecord<ENGeradores_UsosEntityRecord>, ISimpleRecord {
 		internal static readonly GlobalObjectKey IdId = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*mT8c4xsBnkeWLUvPQiCk2A");
 		internal static readonly GlobalObjectKey IdIdGerador = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*4Dx7ybBm7EKqk0Iubx60iA");
-		internal static readonly GlobalObjectKey IdIdCliente = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*o0YV+CnpS0yF0O8IZSvoyg");
-		internal static readonly GlobalObjectKey IdIdEtapaObra = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*J098+RcCRku9Qp29tBnaBA");
 		internal static readonly GlobalObjectKey IdDataInicio = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*J_vL81IUuUarZcUOBfUmxw");
 		internal static readonly GlobalObjectKey IdDataFim = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*ntamnm+RtUmP5CDahSbL5w");
+		internal static readonly GlobalObjectKey IdIdCliente = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*o0YV+CnpS0yF0O8IZSvoyg");
+		internal static readonly GlobalObjectKey IdIdEtapaObra = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*J098+RcCRku9Qp29tBnaBA");
 
 		public static void EnsureInitialized() {}
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Id", 0, true, true, false, true)]
@@ -10114,7 +10114,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdGerador", 0, false, false, true, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdGerador", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("IdGerador")]
 		private int _ssIdGerador;
 		public int ssIdGerador {
@@ -10129,36 +10129,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdCliente", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdCliente")]
-		private int _ssIdCliente;
-		public int ssIdCliente {
-			get {
-				return _ssIdCliente;
-			}
-			set {
-				if ((_ssIdCliente!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssIdCliente = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEtapaObra", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdEtapaObra")]
-		private int _ssIdEtapaObra;
-		public int ssIdEtapaObra {
-			get {
-				return _ssIdEtapaObra;
-			}
-			set {
-				if ((_ssIdEtapaObra!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssIdEtapaObra = value;
-				}
-			}
-		}
-
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DataInicio", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("DataInicio")]
 		private DateTime _ssDataInicio;
@@ -10167,8 +10137,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataInicio;
 			}
 			set {
-				if ((_ssDataInicio!=value) || OptimizedAttributes[4]) {
-					ChangedAttributes[4] = true;
+				if ((_ssDataInicio!=value) || OptimizedAttributes[2]) {
+					ChangedAttributes[2] = true;
 					_ssDataInicio = value;
 				}
 			}
@@ -10182,9 +10152,39 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataFim;
 			}
 			set {
-				if ((_ssDataFim!=value) || OptimizedAttributes[5]) {
-					ChangedAttributes[5] = true;
+				if ((_ssDataFim!=value) || OptimizedAttributes[3]) {
+					ChangedAttributes[3] = true;
 					_ssDataFim = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdCliente", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("IdCliente")]
+		private int _ssIdCliente;
+		public int ssIdCliente {
+			get {
+				return _ssIdCliente;
+			}
+			set {
+				if ((_ssIdCliente!=value) || OptimizedAttributes[4]) {
+					ChangedAttributes[4] = true;
+					_ssIdCliente = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEtapaObra", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("IdEtapaObra")]
+		private int _ssIdEtapaObra;
+		public int ssIdEtapaObra {
+			get {
+				return _ssIdEtapaObra;
+			}
+			set {
+				if ((_ssIdEtapaObra!=value) || OptimizedAttributes[5]) {
+					ChangedAttributes[5] = true;
+					_ssIdEtapaObra = value;
 				}
 			}
 		}
@@ -10199,10 +10199,10 @@ namespace OutSystems.NssBRGS_DB {
 			OptimizedAttributes = new BitArray(6, false);
 			_ssId = 0;
 			_ssIdGerador = 0;
-			_ssIdCliente = 0;
-			_ssIdEtapaObra = 0;
 			_ssDataInicio = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssDataFim = new DateTime(1900, 1, 1, 0, 0, 0);
+			_ssIdCliente = 0;
+			_ssIdEtapaObra = 0;
 		}
 
 		public BitArray[] GetDefaultOptimizedValues() {
@@ -10229,11 +10229,11 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssId = r.ReadInteger(index++, "Geradores_Usos.Id", 0);
-			ssIdGerador = r.ReadEntityReference(index++, "Geradores_Usos.IdGerador", 0);
-			ssIdCliente = r.ReadEntityReference(index++, "Geradores_Usos.IdCliente", 0);
-			ssIdEtapaObra = r.ReadEntityReference(index++, "Geradores_Usos.IdEtapaObra", 0);
+			ssIdGerador = r.ReadInteger(index++, "Geradores_Usos.IdGerador", 0);
 			ssDataInicio = r.ReadDateTime(index++, "Geradores_Usos.DataInicio", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssDataFim = r.ReadDateTime(index++, "Geradores_Usos.DataFim", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssIdCliente = r.ReadInteger(index++, "Geradores_Usos.IdCliente", 0);
+			ssIdEtapaObra = r.ReadInteger(index++, "Geradores_Usos.IdEtapaObra", 0);
 			ChangedAttributes = new BitArray(6, false);
 			OptimizedAttributes = new BitArray(6, false);
 		}
@@ -10258,10 +10258,10 @@ namespace OutSystems.NssBRGS_DB {
 		public static bool operator == (ENGeradores_UsosEntityRecord a, ENGeradores_UsosEntityRecord b) {
 			if (a.ssId != b.ssId) return false;
 			if (a.ssIdGerador != b.ssIdGerador) return false;
-			if (a.ssIdCliente != b.ssIdCliente) return false;
-			if (a.ssIdEtapaObra != b.ssIdEtapaObra) return false;
 			if (a.ssDataInicio != b.ssDataInicio) return false;
 			if (a.ssDataFim != b.ssDataFim) return false;
+			if (a.ssIdCliente != b.ssIdCliente) return false;
+			if (a.ssIdEtapaObra != b.ssIdEtapaObra) return false;
 			return true;
 		}
 
@@ -10279,10 +10279,10 @@ namespace OutSystems.NssBRGS_DB {
 				return base.GetHashCode()
 				^ ssId.GetHashCode()
 				^ ssIdGerador.GetHashCode()
-				^ ssIdCliente.GetHashCode()
-				^ ssIdEtapaObra.GetHashCode()
 				^ ssDataInicio.GetHashCode()
 				^ ssDataFim.GetHashCode()
+				^ ssIdCliente.GetHashCode()
+				^ ssIdEtapaObra.GetHashCode()
 				;
 			} catch {
 				return base.GetHashCode();
@@ -10303,10 +10303,10 @@ namespace OutSystems.NssBRGS_DB {
 			OptimizedAttributes = new BitArray(6, false);
 			_ssId = 0;
 			_ssIdGerador = 0;
-			_ssIdCliente = 0;
-			_ssIdEtapaObra = 0;
 			_ssDataInicio = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssDataFim = new DateTime(1900, 1, 1, 0, 0, 0);
+			_ssIdCliente = 0;
+			_ssIdEtapaObra = 0;
 			Type objInfo = this.GetType();
 			FieldInfo fieldInfo = null;
 			fieldInfo = objInfo.GetField("_ssId", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
@@ -10323,20 +10323,6 @@ namespace OutSystems.NssBRGS_DB {
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssIdGerador = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
-			fieldInfo = objInfo.GetField("_ssIdCliente", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdCliente' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdCliente = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssIdEtapaObra", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdEtapaObra' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdEtapaObra = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
 			fieldInfo = objInfo.GetField("_ssDataInicio", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
 				throw new Exception("The field named '_ssDataInicio' was not found.");
@@ -10351,6 +10337,20 @@ namespace OutSystems.NssBRGS_DB {
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssDataFim = (DateTime) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
+			fieldInfo = objInfo.GetField("_ssIdCliente", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdCliente' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdCliente = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+			fieldInfo = objInfo.GetField("_ssIdEtapaObra", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdEtapaObra' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdEtapaObra = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
 		}
 
 		public void RecursiveReset() {
@@ -10364,10 +10364,10 @@ namespace OutSystems.NssBRGS_DB {
 			ENGeradores_UsosEntityRecord t;
 			t._ssId = this._ssId;
 			t._ssIdGerador = this._ssIdGerador;
-			t._ssIdCliente = this._ssIdCliente;
-			t._ssIdEtapaObra = this._ssIdEtapaObra;
 			t._ssDataInicio = this._ssDataInicio;
 			t._ssDataFim = this._ssDataFim;
+			t._ssIdCliente = this._ssIdCliente;
+			t._ssIdEtapaObra = this._ssIdEtapaObra;
 			t.ChangedAttributes = new BitArray(6);
 			t.OptimizedAttributes = new BitArray(6);
 			for (int i = 0; i < 6; i++) {
@@ -10389,11 +10389,11 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Id")) VarValue.AppendAttribute(recordElem, "Id", ssId, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Id");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdGerador")) VarValue.AppendAttribute(recordElem, "IdGerador", ssIdGerador, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdGerador");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdCliente")) VarValue.AppendAttribute(recordElem, "IdCliente", ssIdCliente, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdCliente");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEtapaObra")) VarValue.AppendAttribute(recordElem, "IdEtapaObra", ssIdEtapaObra, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdEtapaObra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdGerador")) VarValue.AppendAttribute(recordElem, "IdGerador", ssIdGerador, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdGerador");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataInicio")) VarValue.AppendAttribute(recordElem, "DataInicio", ssDataInicio, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataInicio");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataFim")) VarValue.AppendAttribute(recordElem, "DataFim", ssDataFim, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataFim");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdCliente")) VarValue.AppendAttribute(recordElem, "IdCliente", ssIdCliente, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdCliente");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEtapaObra")) VarValue.AppendAttribute(recordElem, "IdEtapaObra", ssIdEtapaObra, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdEtapaObra");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
 			}
@@ -10407,14 +10407,14 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".Id")) variable.Value = ssId; else variable.Optimized = true;
 			} else if (head == "idgerador") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdGerador")) variable.Value = ssIdGerador; else variable.Optimized = true;
-			} else if (head == "idcliente") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdCliente")) variable.Value = ssIdCliente; else variable.Optimized = true;
-			} else if (head == "idetapaobra") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdEtapaObra")) variable.Value = ssIdEtapaObra; else variable.Optimized = true;
 			} else if (head == "datainicio") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataInicio")) variable.Value = ssDataInicio; else variable.Optimized = true;
 			} else if (head == "datafim") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataFim")) variable.Value = ssDataFim; else variable.Optimized = true;
+			} else if (head == "idcliente") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdCliente")) variable.Value = ssIdCliente; else variable.Optimized = true;
+			} else if (head == "idetapaobra") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdEtapaObra")) variable.Value = ssIdEtapaObra; else variable.Optimized = true;
 			}
 			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
 		}
@@ -10424,13 +10424,13 @@ namespace OutSystems.NssBRGS_DB {
 				return ChangedAttributes[0];
 			} else if (key.Equals(IdIdGerador)) {
 				return ChangedAttributes[1];
-			} else if (key.Equals(IdIdCliente)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdIdEtapaObra)) {
-				return ChangedAttributes[3];
 			} else if (key.Equals(IdDataInicio)) {
-				return ChangedAttributes[4];
+				return ChangedAttributes[2];
 			} else if (key.Equals(IdDataFim)) {
+				return ChangedAttributes[3];
+			} else if (key.Equals(IdIdCliente)) {
+				return ChangedAttributes[4];
+			} else if (key.Equals(IdIdEtapaObra)) {
 				return ChangedAttributes[5];
 			} else {
 				throw new Exception("Invalid key");
@@ -10442,13 +10442,13 @@ namespace OutSystems.NssBRGS_DB {
 				return OptimizedAttributes[0];
 			} else if (key.Equals(IdIdGerador)) {
 				return OptimizedAttributes[1];
-			} else if (key.Equals(IdIdCliente)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdIdEtapaObra)) {
-				return OptimizedAttributes[3];
 			} else if (key.Equals(IdDataInicio)) {
-				return OptimizedAttributes[4];
+				return OptimizedAttributes[2];
 			} else if (key.Equals(IdDataFim)) {
+				return OptimizedAttributes[3];
+			} else if (key.Equals(IdIdCliente)) {
+				return OptimizedAttributes[4];
+			} else if (key.Equals(IdIdEtapaObra)) {
 				return OptimizedAttributes[5];
 			} else {
 				throw new Exception("Invalid key");
@@ -10460,14 +10460,14 @@ namespace OutSystems.NssBRGS_DB {
 				return ssId;
 			} else if (key == IdIdGerador) {
 				return ssIdGerador;
-			} else if (key == IdIdCliente) {
-				return ssIdCliente;
-			} else if (key == IdIdEtapaObra) {
-				return ssIdEtapaObra;
 			} else if (key == IdDataInicio) {
 				return ssDataInicio;
 			} else if (key == IdDataFim) {
 				return ssDataFim;
+			} else if (key == IdIdCliente) {
+				return ssIdCliente;
+			} else if (key == IdIdEtapaObra) {
+				return ssIdEtapaObra;
 			} else {
 				throw new Exception("Invalid key");
 			}
@@ -10482,27 +10482,27 @@ namespace OutSystems.NssBRGS_DB {
 			ssIdGerador = (int) other.AttributeGet(IdIdGerador);
 			ChangedAttributes[1] = other.ChangedAttributeGet(IdIdGerador);
 			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdIdGerador);
-			ssIdCliente = (int) other.AttributeGet(IdIdCliente);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdIdCliente);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdIdCliente);
-			ssIdEtapaObra = (int) other.AttributeGet(IdIdEtapaObra);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdIdEtapaObra);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdIdEtapaObra);
 			ssDataInicio = (DateTime) other.AttributeGet(IdDataInicio);
-			ChangedAttributes[4] = other.ChangedAttributeGet(IdDataInicio);
-			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdDataInicio);
+			ChangedAttributes[2] = other.ChangedAttributeGet(IdDataInicio);
+			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDataInicio);
 			ssDataFim = (DateTime) other.AttributeGet(IdDataFim);
-			ChangedAttributes[5] = other.ChangedAttributeGet(IdDataFim);
-			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdDataFim);
+			ChangedAttributes[3] = other.ChangedAttributeGet(IdDataFim);
+			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdDataFim);
+			ssIdCliente = (int) other.AttributeGet(IdIdCliente);
+			ChangedAttributes[4] = other.ChangedAttributeGet(IdIdCliente);
+			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdIdCliente);
+			ssIdEtapaObra = (int) other.AttributeGet(IdIdEtapaObra);
+			ChangedAttributes[5] = other.ChangedAttributeGet(IdIdEtapaObra);
+			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdIdEtapaObra);
 		}
 		public bool IsDefault() {
 			ENGeradores_UsosEntityRecord defaultStruct = new ENGeradores_UsosEntityRecord(null);
 			if (this.ssId != defaultStruct.ssId) return false;
 			if (this.ssIdGerador != defaultStruct.ssIdGerador) return false;
-			if (this.ssIdCliente != defaultStruct.ssIdCliente) return false;
-			if (this.ssIdEtapaObra != defaultStruct.ssIdEtapaObra) return false;
 			if (this.ssDataInicio != defaultStruct.ssDataInicio) return false;
 			if (this.ssDataFim != defaultStruct.ssDataFim) return false;
+			if (this.ssIdCliente != defaultStruct.ssIdCliente) return false;
+			if (this.ssIdEtapaObra != defaultStruct.ssIdEtapaObra) return false;
 			return true;
 		}
 	} // ENGeradores_UsosEntityRecord
@@ -18267,7 +18267,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEmpilhadeira", 0, false, false, true, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEmpilhadeira", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("IdEmpilhadeira")]
 		private int _ssIdEmpilhadeira;
 		public int ssIdEmpilhadeira {
@@ -18366,7 +18366,7 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssID = r.ReadInteger(index++, "Empilhadeiras_Manutencoes.ID", 0);
-			ssIdEmpilhadeira = r.ReadEntityReference(index++, "Empilhadeiras_Manutencoes.IdEmpilhadeira", 0);
+			ssIdEmpilhadeira = r.ReadInteger(index++, "Empilhadeiras_Manutencoes.IdEmpilhadeira", 0);
 			ssData = r.ReadDateTime(index++, "Empilhadeiras_Manutencoes.Data", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssValor = r.ReadDecimal(index++, "Empilhadeiras_Manutencoes.Valor", 0.0M);
 			ssDescricao = r.ReadText(index++, "Empilhadeiras_Manutencoes.Descricao", "");
@@ -18514,7 +18514,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ID")) VarValue.AppendAttribute(recordElem, "ID", ssID, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "ID");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEmpilhadeira")) VarValue.AppendAttribute(recordElem, "IdEmpilhadeira", ssIdEmpilhadeira, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdEmpilhadeira");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEmpilhadeira")) VarValue.AppendAttribute(recordElem, "IdEmpilhadeira", ssIdEmpilhadeira, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdEmpilhadeira");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Data")) VarValue.AppendAttribute(recordElem, "Data", ssData, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "Data");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Descricao")) VarValue.AppendAttribute(recordElem, "Descricao", ssDescricao, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Descricao");
@@ -27473,13 +27473,13 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			, { "idempilhadeira", "IdEmpilhadeira"
 			}
-			, { "idcliente", "IdCliente"
-			}
-			, { "idetapaobra", "IdEtapaObra"
-			}
 			, { "datainicio", "DataInicio"
 			}
 			, { "datafim", "DataFim"
+			}
+			, { "idcliente", "IdCliente"
+			}
+			, { "idetapaobra", "IdEtapaObra"
 			}
 		};
 		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
@@ -27507,10 +27507,10 @@ namespace OutSystems.NssBRGS_DB {
 	public partial struct ENEmpilhadeiras_UsosEntityRecord: ISerializable, ITypedRecord<ENEmpilhadeiras_UsosEntityRecord>, ISimpleRecord {
 		internal static readonly GlobalObjectKey IdId = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*NvSpZ88X0UuuGfMBrPe5rA");
 		internal static readonly GlobalObjectKey IdIdEmpilhadeira = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*m1zZOAbFDkWoB3DPkp0n7Q");
-		internal static readonly GlobalObjectKey IdIdCliente = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*L5jDWnRqvkmeieOJrDj+gg");
-		internal static readonly GlobalObjectKey IdIdEtapaObra = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*ySP0+C7nbU+AHr36+2CDDQ");
 		internal static readonly GlobalObjectKey IdDataInicio = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*EDy31ppsKE27OXyuwuvBHA");
 		internal static readonly GlobalObjectKey IdDataFim = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*yj1D6URR1UmIex88kbI2Cw");
+		internal static readonly GlobalObjectKey IdIdCliente = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*L5jDWnRqvkmeieOJrDj+gg");
+		internal static readonly GlobalObjectKey IdIdEtapaObra = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*ySP0+C7nbU+AHr36+2CDDQ");
 
 		public static void EnsureInitialized() {}
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Id", 0, true, true, false, true)]
@@ -27528,7 +27528,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEmpilhadeira", 0, false, false, true, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEmpilhadeira", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("IdEmpilhadeira")]
 		private int _ssIdEmpilhadeira;
 		public int ssIdEmpilhadeira {
@@ -27543,36 +27543,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdCliente", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdCliente")]
-		private int _ssIdCliente;
-		public int ssIdCliente {
-			get {
-				return _ssIdCliente;
-			}
-			set {
-				if ((_ssIdCliente!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssIdCliente = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEtapaObra", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdEtapaObra")]
-		private int _ssIdEtapaObra;
-		public int ssIdEtapaObra {
-			get {
-				return _ssIdEtapaObra;
-			}
-			set {
-				if ((_ssIdEtapaObra!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssIdEtapaObra = value;
-				}
-			}
-		}
-
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DataInicio", 0, false, false, false, true)]
 		[System.Xml.Serialization.XmlElement("DataInicio")]
 		private DateTime _ssDataInicio;
@@ -27581,8 +27551,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataInicio;
 			}
 			set {
-				if ((_ssDataInicio!=value) || OptimizedAttributes[4]) {
-					ChangedAttributes[4] = true;
+				if ((_ssDataInicio!=value) || OptimizedAttributes[2]) {
+					ChangedAttributes[2] = true;
 					_ssDataInicio = value;
 				}
 			}
@@ -27596,9 +27566,39 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataFim;
 			}
 			set {
-				if ((_ssDataFim!=value) || OptimizedAttributes[5]) {
-					ChangedAttributes[5] = true;
+				if ((_ssDataFim!=value) || OptimizedAttributes[3]) {
+					ChangedAttributes[3] = true;
 					_ssDataFim = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdCliente", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("IdCliente")]
+		private int _ssIdCliente;
+		public int ssIdCliente {
+			get {
+				return _ssIdCliente;
+			}
+			set {
+				if ((_ssIdCliente!=value) || OptimizedAttributes[4]) {
+					ChangedAttributes[4] = true;
+					_ssIdCliente = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdEtapaObra", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("IdEtapaObra")]
+		private int _ssIdEtapaObra;
+		public int ssIdEtapaObra {
+			get {
+				return _ssIdEtapaObra;
+			}
+			set {
+				if ((_ssIdEtapaObra!=value) || OptimizedAttributes[5]) {
+					ChangedAttributes[5] = true;
+					_ssIdEtapaObra = value;
 				}
 			}
 		}
@@ -27613,10 +27613,10 @@ namespace OutSystems.NssBRGS_DB {
 			OptimizedAttributes = new BitArray(6, false);
 			_ssId = 0;
 			_ssIdEmpilhadeira = 0;
-			_ssIdCliente = 0;
-			_ssIdEtapaObra = 0;
 			_ssDataInicio = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssDataFim = new DateTime(1900, 1, 1, 0, 0, 0);
+			_ssIdCliente = 0;
+			_ssIdEtapaObra = 0;
 		}
 
 		public BitArray[] GetDefaultOptimizedValues() {
@@ -27643,11 +27643,11 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssId = r.ReadInteger(index++, "Empilhadeiras_Usos.Id", 0);
-			ssIdEmpilhadeira = r.ReadEntityReference(index++, "Empilhadeiras_Usos.IdEmpilhadeira", 0);
-			ssIdCliente = r.ReadEntityReference(index++, "Empilhadeiras_Usos.IdCliente", 0);
-			ssIdEtapaObra = r.ReadEntityReference(index++, "Empilhadeiras_Usos.IdEtapaObra", 0);
+			ssIdEmpilhadeira = r.ReadInteger(index++, "Empilhadeiras_Usos.IdEmpilhadeira", 0);
 			ssDataInicio = r.ReadDateTime(index++, "Empilhadeiras_Usos.DataInicio", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssDataFim = r.ReadDateTime(index++, "Empilhadeiras_Usos.DataFim", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssIdCliente = r.ReadInteger(index++, "Empilhadeiras_Usos.IdCliente", 0);
+			ssIdEtapaObra = r.ReadInteger(index++, "Empilhadeiras_Usos.IdEtapaObra", 0);
 			ChangedAttributes = new BitArray(6, false);
 			OptimizedAttributes = new BitArray(6, false);
 		}
@@ -27672,10 +27672,10 @@ namespace OutSystems.NssBRGS_DB {
 		public static bool operator == (ENEmpilhadeiras_UsosEntityRecord a, ENEmpilhadeiras_UsosEntityRecord b) {
 			if (a.ssId != b.ssId) return false;
 			if (a.ssIdEmpilhadeira != b.ssIdEmpilhadeira) return false;
-			if (a.ssIdCliente != b.ssIdCliente) return false;
-			if (a.ssIdEtapaObra != b.ssIdEtapaObra) return false;
 			if (a.ssDataInicio != b.ssDataInicio) return false;
 			if (a.ssDataFim != b.ssDataFim) return false;
+			if (a.ssIdCliente != b.ssIdCliente) return false;
+			if (a.ssIdEtapaObra != b.ssIdEtapaObra) return false;
 			return true;
 		}
 
@@ -27693,10 +27693,10 @@ namespace OutSystems.NssBRGS_DB {
 				return base.GetHashCode()
 				^ ssId.GetHashCode()
 				^ ssIdEmpilhadeira.GetHashCode()
-				^ ssIdCliente.GetHashCode()
-				^ ssIdEtapaObra.GetHashCode()
 				^ ssDataInicio.GetHashCode()
 				^ ssDataFim.GetHashCode()
+				^ ssIdCliente.GetHashCode()
+				^ ssIdEtapaObra.GetHashCode()
 				;
 			} catch {
 				return base.GetHashCode();
@@ -27717,10 +27717,10 @@ namespace OutSystems.NssBRGS_DB {
 			OptimizedAttributes = new BitArray(6, false);
 			_ssId = 0;
 			_ssIdEmpilhadeira = 0;
-			_ssIdCliente = 0;
-			_ssIdEtapaObra = 0;
 			_ssDataInicio = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssDataFim = new DateTime(1900, 1, 1, 0, 0, 0);
+			_ssIdCliente = 0;
+			_ssIdEtapaObra = 0;
 			Type objInfo = this.GetType();
 			FieldInfo fieldInfo = null;
 			fieldInfo = objInfo.GetField("_ssId", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
@@ -27737,20 +27737,6 @@ namespace OutSystems.NssBRGS_DB {
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssIdEmpilhadeira = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
-			fieldInfo = objInfo.GetField("_ssIdCliente", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdCliente' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdCliente = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssIdEtapaObra", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdEtapaObra' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdEtapaObra = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
 			fieldInfo = objInfo.GetField("_ssDataInicio", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
 				throw new Exception("The field named '_ssDataInicio' was not found.");
@@ -27765,6 +27751,20 @@ namespace OutSystems.NssBRGS_DB {
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssDataFim = (DateTime) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
+			fieldInfo = objInfo.GetField("_ssIdCliente", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdCliente' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdCliente = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+			fieldInfo = objInfo.GetField("_ssIdEtapaObra", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdEtapaObra' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdEtapaObra = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
 		}
 
 		public void RecursiveReset() {
@@ -27778,10 +27778,10 @@ namespace OutSystems.NssBRGS_DB {
 			ENEmpilhadeiras_UsosEntityRecord t;
 			t._ssId = this._ssId;
 			t._ssIdEmpilhadeira = this._ssIdEmpilhadeira;
-			t._ssIdCliente = this._ssIdCliente;
-			t._ssIdEtapaObra = this._ssIdEtapaObra;
 			t._ssDataInicio = this._ssDataInicio;
 			t._ssDataFim = this._ssDataFim;
+			t._ssIdCliente = this._ssIdCliente;
+			t._ssIdEtapaObra = this._ssIdEtapaObra;
 			t.ChangedAttributes = new BitArray(6);
 			t.OptimizedAttributes = new BitArray(6);
 			for (int i = 0; i < 6; i++) {
@@ -27803,11 +27803,11 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Id")) VarValue.AppendAttribute(recordElem, "Id", ssId, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Id");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEmpilhadeira")) VarValue.AppendAttribute(recordElem, "IdEmpilhadeira", ssIdEmpilhadeira, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdEmpilhadeira");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdCliente")) VarValue.AppendAttribute(recordElem, "IdCliente", ssIdCliente, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdCliente");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEtapaObra")) VarValue.AppendAttribute(recordElem, "IdEtapaObra", ssIdEtapaObra, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdEtapaObra");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEmpilhadeira")) VarValue.AppendAttribute(recordElem, "IdEmpilhadeira", ssIdEmpilhadeira, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdEmpilhadeira");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataInicio")) VarValue.AppendAttribute(recordElem, "DataInicio", ssDataInicio, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataInicio");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataFim")) VarValue.AppendAttribute(recordElem, "DataFim", ssDataFim, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataFim");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdCliente")) VarValue.AppendAttribute(recordElem, "IdCliente", ssIdCliente, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdCliente");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdEtapaObra")) VarValue.AppendAttribute(recordElem, "IdEtapaObra", ssIdEtapaObra, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdEtapaObra");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
 			}
@@ -27821,14 +27821,14 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".Id")) variable.Value = ssId; else variable.Optimized = true;
 			} else if (head == "idempilhadeira") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdEmpilhadeira")) variable.Value = ssIdEmpilhadeira; else variable.Optimized = true;
-			} else if (head == "idcliente") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdCliente")) variable.Value = ssIdCliente; else variable.Optimized = true;
-			} else if (head == "idetapaobra") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdEtapaObra")) variable.Value = ssIdEtapaObra; else variable.Optimized = true;
 			} else if (head == "datainicio") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataInicio")) variable.Value = ssDataInicio; else variable.Optimized = true;
 			} else if (head == "datafim") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataFim")) variable.Value = ssDataFim; else variable.Optimized = true;
+			} else if (head == "idcliente") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdCliente")) variable.Value = ssIdCliente; else variable.Optimized = true;
+			} else if (head == "idetapaobra") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdEtapaObra")) variable.Value = ssIdEtapaObra; else variable.Optimized = true;
 			}
 			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
 		}
@@ -27838,13 +27838,13 @@ namespace OutSystems.NssBRGS_DB {
 				return ChangedAttributes[0];
 			} else if (key.Equals(IdIdEmpilhadeira)) {
 				return ChangedAttributes[1];
-			} else if (key.Equals(IdIdCliente)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdIdEtapaObra)) {
-				return ChangedAttributes[3];
 			} else if (key.Equals(IdDataInicio)) {
-				return ChangedAttributes[4];
+				return ChangedAttributes[2];
 			} else if (key.Equals(IdDataFim)) {
+				return ChangedAttributes[3];
+			} else if (key.Equals(IdIdCliente)) {
+				return ChangedAttributes[4];
+			} else if (key.Equals(IdIdEtapaObra)) {
 				return ChangedAttributes[5];
 			} else {
 				throw new Exception("Invalid key");
@@ -27856,13 +27856,13 @@ namespace OutSystems.NssBRGS_DB {
 				return OptimizedAttributes[0];
 			} else if (key.Equals(IdIdEmpilhadeira)) {
 				return OptimizedAttributes[1];
-			} else if (key.Equals(IdIdCliente)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdIdEtapaObra)) {
-				return OptimizedAttributes[3];
 			} else if (key.Equals(IdDataInicio)) {
-				return OptimizedAttributes[4];
+				return OptimizedAttributes[2];
 			} else if (key.Equals(IdDataFim)) {
+				return OptimizedAttributes[3];
+			} else if (key.Equals(IdIdCliente)) {
+				return OptimizedAttributes[4];
+			} else if (key.Equals(IdIdEtapaObra)) {
 				return OptimizedAttributes[5];
 			} else {
 				throw new Exception("Invalid key");
@@ -27874,14 +27874,14 @@ namespace OutSystems.NssBRGS_DB {
 				return ssId;
 			} else if (key == IdIdEmpilhadeira) {
 				return ssIdEmpilhadeira;
-			} else if (key == IdIdCliente) {
-				return ssIdCliente;
-			} else if (key == IdIdEtapaObra) {
-				return ssIdEtapaObra;
 			} else if (key == IdDataInicio) {
 				return ssDataInicio;
 			} else if (key == IdDataFim) {
 				return ssDataFim;
+			} else if (key == IdIdCliente) {
+				return ssIdCliente;
+			} else if (key == IdIdEtapaObra) {
+				return ssIdEtapaObra;
 			} else {
 				throw new Exception("Invalid key");
 			}
@@ -27896,27 +27896,27 @@ namespace OutSystems.NssBRGS_DB {
 			ssIdEmpilhadeira = (int) other.AttributeGet(IdIdEmpilhadeira);
 			ChangedAttributes[1] = other.ChangedAttributeGet(IdIdEmpilhadeira);
 			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdIdEmpilhadeira);
-			ssIdCliente = (int) other.AttributeGet(IdIdCliente);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdIdCliente);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdIdCliente);
-			ssIdEtapaObra = (int) other.AttributeGet(IdIdEtapaObra);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdIdEtapaObra);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdIdEtapaObra);
 			ssDataInicio = (DateTime) other.AttributeGet(IdDataInicio);
-			ChangedAttributes[4] = other.ChangedAttributeGet(IdDataInicio);
-			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdDataInicio);
+			ChangedAttributes[2] = other.ChangedAttributeGet(IdDataInicio);
+			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDataInicio);
 			ssDataFim = (DateTime) other.AttributeGet(IdDataFim);
-			ChangedAttributes[5] = other.ChangedAttributeGet(IdDataFim);
-			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdDataFim);
+			ChangedAttributes[3] = other.ChangedAttributeGet(IdDataFim);
+			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdDataFim);
+			ssIdCliente = (int) other.AttributeGet(IdIdCliente);
+			ChangedAttributes[4] = other.ChangedAttributeGet(IdIdCliente);
+			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdIdCliente);
+			ssIdEtapaObra = (int) other.AttributeGet(IdIdEtapaObra);
+			ChangedAttributes[5] = other.ChangedAttributeGet(IdIdEtapaObra);
+			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdIdEtapaObra);
 		}
 		public bool IsDefault() {
 			ENEmpilhadeiras_UsosEntityRecord defaultStruct = new ENEmpilhadeiras_UsosEntityRecord(null);
 			if (this.ssId != defaultStruct.ssId) return false;
 			if (this.ssIdEmpilhadeira != defaultStruct.ssIdEmpilhadeira) return false;
-			if (this.ssIdCliente != defaultStruct.ssIdCliente) return false;
-			if (this.ssIdEtapaObra != defaultStruct.ssIdEtapaObra) return false;
 			if (this.ssDataInicio != defaultStruct.ssDataInicio) return false;
 			if (this.ssDataFim != defaultStruct.ssDataFim) return false;
+			if (this.ssIdCliente != defaultStruct.ssIdCliente) return false;
+			if (this.ssIdEtapaObra != defaultStruct.ssIdEtapaObra) return false;
 			return true;
 		}
 	} // ENEmpilhadeiras_UsosEntityRecord
@@ -30876,785 +30876,5 @@ namespace OutSystems.NssBRGS_DB {
 			return true;
 		}
 	} // ENVW_Dashboard_OPsVencimentoEntityRecord
-
-	public class ENVW_Dashboard_OPs_AnoEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "d2d97399-8d4d-49bb-9536-e2374559ada4", "VW_Dashboard_OPs_Ano", "[brgs1].[dbo].[VW_Dashboard_OPs_Ano]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_Dashboard_OPs_Ano]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_Dashboard_OPs_Ano]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_Dashboard_OPs_AnoEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "mes", "Mes"
-			}
-			, { "mesnome", "MesNome"
-			}
-			, { "corbarra", "CorBarra"
-			}
-			, { "quantidade", "Quantidade"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_Dashboard_OPs_AnoEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_Dashboard_OPs_AnoEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_Dashboard_OPs_AnoEntityRecord</code> that represents the Service Studio entity
-	///  <code>VW_Dashboard_OPs_Ano</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_Dashboard_OPs_Ano", "mXPZ0k2Nu0mVNuI3RVmtpA", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_Dashboard_OPs_Ano]", null)]
-	[Serializable()]
-	public partial struct ENVW_Dashboard_OPs_AnoEntityRecord: ISerializable, ITypedRecord<ENVW_Dashboard_OPs_AnoEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdMes = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*AdsayuiYhESMdCu0HJvigg");
-		internal static readonly GlobalObjectKey IdMesNome = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*MuXbAV+6FESqBxf7v_0_dA");
-		internal static readonly GlobalObjectKey IdCorBarra = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*yx5D7iNT30yi_l8bTdoXYg");
-		internal static readonly GlobalObjectKey IdQuantidade = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*5WsD_QtguE26k9VQ6a63ag");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Mes", 0, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("Mes")]
-		private int _ssMes;
-		public int ssMes {
-			get {
-				return _ssMes;
-			}
-			set {
-				if ((_ssMes!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssMes = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("MesNome", 9, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("MesNome")]
-		private string _ssMesNome;
-		public string ssMesNome {
-			get {
-				return _ssMesNome;
-			}
-			set {
-				if ((_ssMesNome!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssMesNome = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("CorBarra", 7, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("CorBarra")]
-		private string _ssCorBarra;
-		public string ssCorBarra {
-			get {
-				return _ssCorBarra;
-			}
-			set {
-				if ((_ssCorBarra!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssCorBarra = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Quantidade", 0, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("Quantidade")]
-		private int _ssQuantidade;
-		public int ssQuantidade {
-			get {
-				return _ssQuantidade;
-			}
-			set {
-				if ((_ssQuantidade!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssQuantidade = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_Dashboard_OPs_AnoEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssMes = 0;
-			_ssMesNome = "";
-			_ssCorBarra = "";
-			_ssQuantidade = 0;
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssMes = r.ReadInteger(index++, "VW_Dashboard_OPs_Ano.Mes", 0);
-			ssMesNome = r.ReadText(index++, "VW_Dashboard_OPs_Ano.MesNome", "");
-			ssCorBarra = r.ReadText(index++, "VW_Dashboard_OPs_Ano.CorBarra", "");
-			ssQuantidade = r.ReadInteger(index++, "VW_Dashboard_OPs_Ano.Quantidade", 0);
-			ChangedAttributes = new BitArray(4, false);
-			OptimizedAttributes = new BitArray(4, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_Dashboard_OPs_AnoEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_Dashboard_OPs_AnoEntityRecord a, ENVW_Dashboard_OPs_AnoEntityRecord b) {
-			if (a.ssMes != b.ssMes) return false;
-			if (a.ssMesNome != b.ssMesNome) return false;
-			if (a.ssCorBarra != b.ssCorBarra) return false;
-			if (a.ssQuantidade != b.ssQuantidade) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_Dashboard_OPs_AnoEntityRecord a, ENVW_Dashboard_OPs_AnoEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_Dashboard_OPs_AnoEntityRecord)) return false;
-			return (this == (ENVW_Dashboard_OPs_AnoEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssMes.GetHashCode()
-				^ ssMesNome.GetHashCode()
-				^ ssCorBarra.GetHashCode()
-				^ ssQuantidade.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_Dashboard_OPs_AnoEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssMes = 0;
-			_ssMesNome = "";
-			_ssCorBarra = "";
-			_ssQuantidade = 0;
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssMes", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssMes' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssMes = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssMesNome", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssMesNome' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssMesNome = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssCorBarra", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssCorBarra' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssCorBarra = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssQuantidade", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssQuantidade' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssQuantidade = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_Dashboard_OPs_AnoEntityRecord Duplicate() {
-			ENVW_Dashboard_OPs_AnoEntityRecord t;
-			t._ssMes = this._ssMes;
-			t._ssMesNome = this._ssMesNome;
-			t._ssCorBarra = this._ssCorBarra;
-			t._ssQuantidade = this._ssQuantidade;
-			t.ChangedAttributes = new BitArray(4);
-			t.OptimizedAttributes = new BitArray(4);
-			for (int i = 0; i < 4; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Mes")) VarValue.AppendAttribute(recordElem, "Mes", ssMes, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Mes");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".MesNome")) VarValue.AppendAttribute(recordElem, "MesNome", ssMesNome, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "MesNome");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".CorBarra")) VarValue.AppendAttribute(recordElem, "CorBarra", ssCorBarra, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "CorBarra");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Quantidade")) VarValue.AppendAttribute(recordElem, "Quantidade", ssQuantidade, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Quantidade");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "mes") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Mes")) variable.Value = ssMes; else variable.Optimized = true;
-			} else if (head == "mesnome") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".MesNome")) variable.Value = ssMesNome; else variable.Optimized = true;
-			} else if (head == "corbarra") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".CorBarra")) variable.Value = ssCorBarra; else variable.Optimized = true;
-			} else if (head == "quantidade") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Quantidade")) variable.Value = ssQuantidade; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdMes)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdMesNome)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdCorBarra)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdQuantidade)) {
-				return ChangedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdMes)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdMesNome)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdCorBarra)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdQuantidade)) {
-				return OptimizedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdMes) {
-				return ssMes;
-			} else if (key == IdMesNome) {
-				return ssMesNome;
-			} else if (key == IdCorBarra) {
-				return ssCorBarra;
-			} else if (key == IdQuantidade) {
-				return ssQuantidade;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(4);
-			OptimizedAttributes = new BitArray(4);
-			if (other == null) return;
-			ssMes = (int) other.AttributeGet(IdMes);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdMes);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdMes);
-			ssMesNome = (string) other.AttributeGet(IdMesNome);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdMesNome);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdMesNome);
-			ssCorBarra = (string) other.AttributeGet(IdCorBarra);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdCorBarra);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdCorBarra);
-			ssQuantidade = (int) other.AttributeGet(IdQuantidade);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdQuantidade);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdQuantidade);
-		}
-		public bool IsDefault() {
-			ENVW_Dashboard_OPs_AnoEntityRecord defaultStruct = new ENVW_Dashboard_OPs_AnoEntityRecord(null);
-			if (this.ssMes != defaultStruct.ssMes) return false;
-			if (this.ssMesNome != defaultStruct.ssMesNome) return false;
-			if (this.ssCorBarra != defaultStruct.ssCorBarra) return false;
-			if (this.ssQuantidade != defaultStruct.ssQuantidade) return false;
-			return true;
-		}
-	} // ENVW_Dashboard_OPs_AnoEntityRecord
-
-	public class ENVW_Dashboard_OPs_CategoriaEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "17759ab9-443a-4717-91ae-dcc573d1b7e4", "VW_Dashboard_OPs_Categoria", "[brgs1].[dbo].[VW_Dashboard_OPs_Categoria]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_Dashboard_OPs_Categoria]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_Dashboard_OPs_Categoria]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_Dashboard_OPs_CategoriaEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "mes", "Mes"
-			}
-			, { "categoria", "Categoria"
-			}
-			, { "cor", "Cor"
-			}
-			, { "total", "Total"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_Dashboard_OPs_CategoriaEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_Dashboard_OPs_CategoriaEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_Dashboard_OPs_CategoriaEntityRecord</code> that represents the Service Studio
-	///  entity <code>VW_Dashboard_OPs_Categoria</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_Dashboard_OPs_Categoria", "uZp1FzpEF0eRrtzFc9G35A", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_Dashboard_OPs_Categoria]", null)]
-	[Serializable()]
-	public partial struct ENVW_Dashboard_OPs_CategoriaEntityRecord: ISerializable, ITypedRecord<ENVW_Dashboard_OPs_CategoriaEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdMes = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*DviVYPUJmEeOpgA0yO1Iew");
-		internal static readonly GlobalObjectKey IdCategoria = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*9QiS6VpCNk61ZvBulSMZYg");
-		internal static readonly GlobalObjectKey IdCor = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*vDx_d6Zrt0iA_AgZU9sqmA");
-		internal static readonly GlobalObjectKey IdTotal = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*3DVaKlURbUi_XC_ore3+NA");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Mes", 0, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("Mes")]
-		private int _ssMes;
-		public int ssMes {
-			get {
-				return _ssMes;
-			}
-			set {
-				if ((_ssMes!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssMes = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Categoria", 14, false, false, false, true)]
-		[System.Xml.Serialization.XmlElement("Categoria")]
-		private string _ssCategoria;
-		public string ssCategoria {
-			get {
-				return _ssCategoria;
-			}
-			set {
-				if ((_ssCategoria!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssCategoria = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Cor", 7, false, false, false, true)]
-		[System.Xml.Serialization.XmlElement("Cor")]
-		private string _ssCor;
-		public string ssCor {
-			get {
-				return _ssCor;
-			}
-			set {
-				if ((_ssCor!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssCor = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Total", 0, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("Total")]
-		private int _ssTotal;
-		public int ssTotal {
-			get {
-				return _ssTotal;
-			}
-			set {
-				if ((_ssTotal!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssTotal = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_Dashboard_OPs_CategoriaEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssMes = 0;
-			_ssCategoria = "";
-			_ssCor = "";
-			_ssTotal = 0;
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssMes = r.ReadInteger(index++, "VW_Dashboard_OPs_Categoria.Mes", 0);
-			ssCategoria = r.ReadText(index++, "VW_Dashboard_OPs_Categoria.Categoria", "");
-			ssCor = r.ReadText(index++, "VW_Dashboard_OPs_Categoria.Cor", "");
-			ssTotal = r.ReadInteger(index++, "VW_Dashboard_OPs_Categoria.Total", 0);
-			ChangedAttributes = new BitArray(4, false);
-			OptimizedAttributes = new BitArray(4, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_Dashboard_OPs_CategoriaEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_Dashboard_OPs_CategoriaEntityRecord a, ENVW_Dashboard_OPs_CategoriaEntityRecord b) {
-			if (a.ssMes != b.ssMes) return false;
-			if (a.ssCategoria != b.ssCategoria) return false;
-			if (a.ssCor != b.ssCor) return false;
-			if (a.ssTotal != b.ssTotal) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_Dashboard_OPs_CategoriaEntityRecord a, ENVW_Dashboard_OPs_CategoriaEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_Dashboard_OPs_CategoriaEntityRecord)) return false;
-			return (this == (ENVW_Dashboard_OPs_CategoriaEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssMes.GetHashCode()
-				^ ssCategoria.GetHashCode()
-				^ ssCor.GetHashCode()
-				^ ssTotal.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_Dashboard_OPs_CategoriaEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssMes = 0;
-			_ssCategoria = "";
-			_ssCor = "";
-			_ssTotal = 0;
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssMes", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssMes' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssMes = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssCategoria", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssCategoria' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssCategoria = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssCor", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssCor' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssCor = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssTotal", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssTotal' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssTotal = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_Dashboard_OPs_CategoriaEntityRecord Duplicate() {
-			ENVW_Dashboard_OPs_CategoriaEntityRecord t;
-			t._ssMes = this._ssMes;
-			t._ssCategoria = this._ssCategoria;
-			t._ssCor = this._ssCor;
-			t._ssTotal = this._ssTotal;
-			t.ChangedAttributes = new BitArray(4);
-			t.OptimizedAttributes = new BitArray(4);
-			for (int i = 0; i < 4; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Mes")) VarValue.AppendAttribute(recordElem, "Mes", ssMes, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Mes");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Categoria")) VarValue.AppendAttribute(recordElem, "Categoria", ssCategoria, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Categoria");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Cor")) VarValue.AppendAttribute(recordElem, "Cor", ssCor, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Cor");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Total")) VarValue.AppendAttribute(recordElem, "Total", ssTotal, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Total");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "mes") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Mes")) variable.Value = ssMes; else variable.Optimized = true;
-			} else if (head == "categoria") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Categoria")) variable.Value = ssCategoria; else variable.Optimized = true;
-			} else if (head == "cor") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Cor")) variable.Value = ssCor; else variable.Optimized = true;
-			} else if (head == "total") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Total")) variable.Value = ssTotal; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdMes)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdCategoria)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdCor)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdTotal)) {
-				return ChangedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdMes)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdCategoria)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdCor)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdTotal)) {
-				return OptimizedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdMes) {
-				return ssMes;
-			} else if (key == IdCategoria) {
-				return ssCategoria;
-			} else if (key == IdCor) {
-				return ssCor;
-			} else if (key == IdTotal) {
-				return ssTotal;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(4);
-			OptimizedAttributes = new BitArray(4);
-			if (other == null) return;
-			ssMes = (int) other.AttributeGet(IdMes);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdMes);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdMes);
-			ssCategoria = (string) other.AttributeGet(IdCategoria);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdCategoria);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdCategoria);
-			ssCor = (string) other.AttributeGet(IdCor);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdCor);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdCor);
-			ssTotal = (int) other.AttributeGet(IdTotal);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdTotal);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdTotal);
-		}
-		public bool IsDefault() {
-			ENVW_Dashboard_OPs_CategoriaEntityRecord defaultStruct = new ENVW_Dashboard_OPs_CategoriaEntityRecord(null);
-			if (this.ssMes != defaultStruct.ssMes) return false;
-			if (this.ssCategoria != defaultStruct.ssCategoria) return false;
-			if (this.ssCor != defaultStruct.ssCor) return false;
-			if (this.ssTotal != defaultStruct.ssTotal) return false;
-			return true;
-		}
-	} // ENVW_Dashboard_OPs_CategoriaEntityRecord
 
 } // OutSystems.NssBRGS_DB
