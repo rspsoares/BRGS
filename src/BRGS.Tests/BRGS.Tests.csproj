@@ -96,12 +96,17 @@
       <Project>{a80d874b-391c-431e-998e-fc7e15bd6562}</Project>
       <Name>BRGS.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BRGS.UI\BRGS.UI.csproj">
+      <Project>{E2082193-B66B-4E52-A458-A776183B7EA3}</Project>
+      <Name>BRGS.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BRGS.Util\BRGS.Util.csproj">
       <Project>{57942519-d461-4bce-aa20-ddb5dd599612}</Project>
       <Name>BRGS.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="_OrderedTest1.orderedtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -881,25 +881,23 @@ namespace BRGS.BIZ
             return dtOP;
         }
 
-        public List<int> PesquisarOrdemPagamentoSemBinarioCrystal()
+        public List<OrdemPagamentoRequisicaoDTO> PesquisarOrdemPagamentoSemPDF()
         {
             try
             {
                 DataAccess dao = new DataAccess();
-                dynamic lst = new List<OrdemPagamentoGridMobileDTO>();
-                var result = new List<OrdemPagamentoGridMobileDTO>();
+                DataTable dtIdOP = new DataTable();
+                
+                var result = new List<OrdemPagamentoRequisicaoDTO>();
 
-                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL", new Dictionary<string, string>()))
-                {
-                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoGridMobileDTO>()
-                          select f;
-                }
+                DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_SEM_PDF", new Dictionary<string, string>());
+                dtIdOP = ds.Tables[0];
 
-                result.AddRange(lst);
-
-                return result
-                    .Select(x => x.IdOrdemPagamento)
+                result = dtIdOP.AsEnumerable()
+                    .Select(row => row.Field<int>("IdOrdemPagamento"))
                     .ToList();
+
+                return result;
             }
             catch (Exception ex)
             {
@@ -908,7 +906,7 @@ namespace BRGS.BIZ
 
                 LogErro log = new LogErro()
                 {
-                    procedureSQL = "SP_ORDEMPAGAMENTO_SEM_BINARIO_CRYSTAL",
+                    procedureSQL = "SP_ORDEMPAGAMENTO_SEM_PDF",
                     parametrosSQL = parametrosSQL,
                     mensagemErro = ex.ToString()
                 };
@@ -919,17 +917,53 @@ namespace BRGS.BIZ
             }
         }
 
-        public void AtualizarBinarioCrystalOrdemPagamento(string idOP, string pdfContent)
+        public List<OrdemPagamentoRequisicaoDTO> PesquisarOrdemPagamentoPDFRequisicao()
+        {
+            try
+            {
+                DataAccess dao = new DataAccess();
+                DataTable dtIdOP = new DataTable();
+
+                var result = new List<OrdemPagamentoRequisicaoDTO>();
+
+                DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_REQUISICAO_PDF", new Dictionary<string, string>());
+                dtIdOP = ds.Tables[0];
+
+                result = dtIdOP.AsEnumerable()
+                    .Select(row => row.Field<int>("IdOrdemPagamento"))
+                    .ToList();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_SEM_PDF",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+        }
+
+        public void InserirOrdemPagamentoPDF(int idOP, string pdfContent)
         {
             DataAccess dao = new DataAccess();            
             Dictionary<string, string> lstParametros = new Dictionary<string, string>();
 
             try
             {
-                lstParametros.Add("@idOrdemPagamento", idOP);
-                lstParametros.Add("@pdfContent", pdfContent);
+                lstParametros.Add("@IdOrdemPagamento", idOP.ToString());
+                lstParametros.Add("@PDFContent", pdfContent);
 
-                dao.Executar("SP_ORDEMPAGAMENTO_ATUALIZARBINARIOCRYSTAL", lstParametros);
+                dao.Executar("SP_ORDEMPAGAMENTO_INSERIR_PDF", lstParametros);
             }
             catch (Exception ex)
             {

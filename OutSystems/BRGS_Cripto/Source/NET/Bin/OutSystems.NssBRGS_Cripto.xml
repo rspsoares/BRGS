@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OutSystems.NssBRGS_Cripto</name>
+    </assembly>
+    <members>
+        <member name="M:OutSystems.NssBRGS_Cripto.CssBRGS_Cripto.MssCriptografar(System.String@,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ssCriptoText"></param>
+            <param name="ssPlainText"></param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_Cripto.IssBRGS_Cripto.MssCriptografar(System.String@,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ssCriptoText"></param>
+            <param name="ssPlainText"></param>
+        </member>
+    </members>
+</doc>

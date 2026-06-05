@@ -5,8 +5,6 @@ using BRGS.Util;
 using NLog;
 using System;
 using System.Configuration;
-using System.Diagnostics;
-using System.IO;
 using System.ServiceProcess;
 using System.Threading;
 
@@ -15,29 +13,56 @@ namespace BRGS.Service
     public partial class BRGSService : ServiceBase
     {
         private static readonly Logger log = LogManager.GetLogger("ServiceLogger");
+        private CrystalReportsHelper _crystalReportsHelper;
+        private Helper _helper = new Helper();
+        private readonly string _reportPath;
 
         public BRGSService()
         {
             InitializeComponent();
             Parametrizacao.servidor_Conexao = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+
+            _reportPath = _helper.ConfigurationGet<string>("ReportPath");            
         }
 
         protected override void OnStart(string[] args)
         {
-            var helper = new Helper();
-            timer = new Timer(new TimerCallback(ProcessCallback), null, (int)TimeSpan.FromSeconds(1).TotalMilliseconds, (int)TimeSpan.FromSeconds(helper.ConfigurationGet<int>("JobInterval")).TotalMilliseconds);
+            _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+            timerRequisicao = new Timer(new TimerCallback(ProcessRequisicaoCallback), null, (int)TimeSpan.FromSeconds(1).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobRequisicaoInterval")).TotalMilliseconds);
+            timerTabelaOP = new Timer(new TimerCallback(ProcessTabelaOPCallback), null, (int)TimeSpan.FromSeconds(2).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobTabelaOPInterval")).TotalMilliseconds);
         }
 
-        private void ProcessCallback(object state)
+        private void ProcessTabelaOPCallback(object state)
         {
-            if (jobLock)
+            if (jobTabelaOPLock)
                 return;
 
-            jobLock = true;
+            jobTabelaOPLock = true;
 
             try
             {
-                GerarPdfOp();
+                GerarPDFTabelaOP();
+            }
+            catch (Exception ex)
+            {
+                log.Error($"[ProcessTabelaOPCallback] Erro: {ex.Message} - {ex.InnerException}");
+            }
+            finally
+            {
+                jobTabelaOPLock = false;
+            }
+        }
+
+        private void ProcessRequisicaoCallback(object state)
+        {
+            if (jobRequisicaoLock)
+                return;
+
+            jobRequisicaoLock = true;
+
+            try
+            {
+                GerarPDFRequisicao();
             }
             catch (Exception ex)
             {
@@ -45,56 +70,87 @@ namespace BRGS.Service
             }
             finally
             {
-                jobLock = false;
+                jobRequisicaoLock = false;
             }
         }
 
-        private void GerarPdfOp()
+        private void GerarPDFRequisicao()
         {
             try
             {
+                _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
                 var ordemPagamento = new BIZOrdemPagamento();
 
                 ordemPagamento
-                    .PesquisarOrdemPagamentoSemBinarioCrystal()
+                    .PesquisarOrdemPagamentoPDFRequisicao()
                     .ForEach(idOP =>
                     {
                         try
                         {
-                            log.Info($"[GerarPdfOp] Processando OP Id: {idOP}");
-                            var startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BRGS.exe"))
-                            {
-                                Arguments = $"MobileOrdemPagamentoEmissao {idOP}",
-                                UseShellExecute = false
-                            };
+                            log.Info($"[GerarPDFRequisicao] Processando OP Id: {idOP}");
+                            
+                            var pdfContent = _crystalReportsHelper.ExportarOP2PDF(idOP);
+                            
+                            ordemPagamento.InserirOrdemPagamentoPDF(idOP, pdfContent);
 
-                            using (var proc = Process.Start(startInfo))
-                            {
-                                proc.WaitForExit();
-                                proc.Close();
-                            }
-                            log.Info($"[GerarPdfOp] OP Id: {idOP} processado com sucesso.");
+                            log.Info($"[GerarPDFRequisicao] OP Id: {idOP} processado com sucesso.");
                         }
                         catch (Exception exOP)
                         {
-                            log.Error($"[GerarPdfOp] OP Id: {idOP} Erro: {exOP.Message} - {exOP.InnerException}");
+                            log.Error($"[GerarPDFRequisicao] OP Id: {idOP} Erro: {exOP.Message} - {exOP.InnerException}");
+                        }
+                    });
+            }
+            catch (Exception ex)
+            {
+                log.Error($"[GerarPDFRequisicao] Erro: {ex.Message} - {ex.InnerException}");
+            }
+        }
+
+        private void GerarPDFTabelaOP()
+        {
+            try
+            {
+                _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+                var ordemPagamento = new BIZOrdemPagamento();
+
+                ordemPagamento
+                    .PesquisarOrdemPagamentoSemPDF()
+                    .ForEach(idOP =>
+                    {
+                        try
+                        { 
+                            log.Info($"[GerarPDFTabelaOP] Processando OP Id: {idOP}");
+                            
+                            var pdfContent = _crystalReportsHelper.ExportarOP2PDF(idOP);
+                            
+                            ordemPagamento.InserirOrdemPagamentoPDF(idOP, pdfContent);
+                            
+                            log.Info($"[GerarPDFTabelaOP] OP Id: {idOP} processado com sucesso.");
+                        }
+                        catch (Exception exOP)
+                        {
+                            log.Error($"[GerarPDFTabelaOP] OP Id: {idOP} Erro: {exOP.Message} - {exOP.InnerException}");
                         }                       
                     });
             }
             catch (Exception ex)
             {
-                log.Error($"[GerarPdfOp] Erro: {ex.Message} - {ex.InnerException}");
+                log.Error($"[GerarPDFTabelaOP] Erro: {ex.Message} - {ex.InnerException}");
             }
         }
 
         protected override void OnStop()
         {
-            timer.Dispose();
+            timerRequisicao.Dispose();
+            timerTabelaOP.Dispose();
         }
 
         public void Debug()
         {
-            GerarPdfOp();
+            _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+            GerarPDFTabelaOP();
+            //GerarPDFRequisicao();
         }
     }
 }

@@ -4,8 +4,11 @@ namespace BRGS.Service
 {
     partial class BRGSService
     {
-        Timer timer;
-        bool jobLock = false;
+        Timer timerRequisicao;
+        bool jobRequisicaoLock = false;
+
+        Timer timerTabelaOP;
+        bool jobTabelaOPLock = false;
 
         /// <summary> 
         /// Required designer variable.

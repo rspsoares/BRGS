@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BRGS.BIZ;
 using BRGS.Entity;
+using BRGS.UI.Relatorios;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BRGS.Tests

@@ -53,6 +53,7 @@
     <Compile Include="ClienteContato.cs" />
     <Compile Include="DTO\OrdemPagamentoGridFiltroMobileDTO.cs" />
     <Compile Include="DTO\OrdemPagamentoGridMobileDTO.cs" />
+    <Compile Include="DTO\OrdemPagamentoRequisicaoDTO.cs" />
     <Compile Include="Empilhadeira.cs" />
     <Compile Include="EmpilhadeiraManutencao.cs" />
     <Compile Include="EmpilhadeiraUso.cs" />

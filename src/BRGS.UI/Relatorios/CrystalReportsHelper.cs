@@ -4,7 +4,6 @@ using BRGS.Util;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -13,12 +12,15 @@ namespace BRGS.UI.Relatorios
 {
     public class CrystalReportsHelper
     {
-        public CrystalReportsHelper()
+        private ReportDocument _cryRpt = new ReportDocument();
+        private readonly string _reportPath;
+        public CrystalReportsHelper(string reportPath)
         {
-            Parametrizacao.servidor_Conexao = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+            _reportPath = reportPath;
+            _cryRpt = new ReportDocument();
         }
 
-        public void MobileOrdemPagamentoEmissao(string idOP)
+        public string ExportarOP2PDF(int idOP, int idObraEtapa)
         {
             var empresa = new BIZEmpresa();
             var ordemPagamento = new BIZOrdemPagamento();
@@ -27,7 +29,12 @@ namespace BRGS.UI.Relatorios
             Image logotipo = null;
             var pdfContent = string.Empty;
 
-            var opSelecionada = ordemPagamento.PesquisarOrdemPagamento(new OrdemPagamento() { idOrdemPagamento = int.Parse(idOP) })[0];            
+            // = ordemPagamento.PesquisarOrdemPagamento(new OrdemPagamento() { idOrdemPagamento = idOP })[0];            
+            var opSelecionada = new OrdemPagamento()
+            {
+                idOrdemPagamento = idOP,
+                idObraEtapa = idObraEtapa
+            };
 
             dtOP = ordemPagamento.GerarOrdemPagamento(opSelecionada, out dtObras, out dtTotaisObra);
 
@@ -51,31 +58,77 @@ namespace BRGS.UI.Relatorios
 
             dtOP = helper.AdicionarLogotipoDataTable(dtOP, logotipo);
 
-            var op = new OrdemPagamentoEmissao();
-            op.Database.Tables["DataTable1"].SetDataSource(dtOP);
-            op.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
-            op.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
+            var dsOP = PrepararDataSet(dtOP, dtTotaisObra, logotipo);
 
-            var cryRpt = new ReportDocument();
-            cryRpt.Load(op.FilePath);
-            cryRpt.Database.Tables["DataTable1"].SetDataSource(dtOP);
-            cryRpt.Database.Tables["dtTotalObra"].SetDataSource(dtTotaisObra);
-            cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
+            _cryRpt.Load(_reportPath);
+            _cryRpt.SetDataSource(dsOP);
+            _cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);            
 
-            cryRpt.Refresh();
+            _cryRpt.Refresh();
 
-            var resultPDF = cryRpt.ExportToStream(ExportFormatType.PortableDocFormat);
+            var resultPDF = _cryRpt.ExportToStream(ExportFormatType.PortableDocFormat);
  
             using (var ms = new MemoryStream())
             {
                 resultPDF.CopyTo(ms);
                 var bContent = ms.ToArray();
                 pdfContent = Convert.ToBase64String(bContent);
-
                 ms.Close();
             }
 
-            ordemPagamento.AtualizarBinarioCrystalOrdemPagamento(idOP, pdfContent);           
-        } 
+            return pdfContent;
+        }
+
+        private dsOrdemPagamento PrepararDataSet(DataTable dtOP, DataTable dtTotaisObra, Image logotipo)
+        {
+            var dsOP = new dsOrdemPagamento();
+
+            foreach (DataRow dr in dtOP.Rows)
+            {
+                ImageConverter _imageConverter = new ImageConverter();
+                byte[] xByte = (byte[])_imageConverter.ConvertTo(logotipo, typeof(byte[]));
+
+                dsOP.DataTable1.AddDataTable1Row
+                (
+                    dr["RazaoSocial"].ToString(),
+                    dr["NomeEvento"].ToString(),
+                    dr["NumeroLicitacao"].ToString(),
+                    dr["NomeSolicitante"].ToString(),
+                    dr["NomeFavorecido"].ToString(),
+                    dr["Autorizado"].ToString(),
+                    dr["DataSolicitacao"].ToString(),
+                    dr["DescricaoUEN"].ToString(),
+                    dr["DescricaoCentroCusto"].ToString(),
+                    dr["DescricaoDespesa"].ToString(),
+                    decimal.Parse(dr["Valor"].ToString()),
+                    dr["Observacao1"].ToString(),
+                    dr["Banco"].ToString(),
+                    dr["Agencia"].ToString(),
+                    dr["TipoConta"].ToString(),
+                    dr["Conta"].ToString(),
+                    xByte,
+                    dr["Status"].ToString(),
+                    dr["CPF_CNPJ"].ToString(),
+                    dr["Cliente"].ToString(),
+                    DateTime.Parse(dr["DataVencimento"].ToString()),
+                    DateTime.Parse(dr["DataPagamento"].ToString()),
+                    int.Parse(dr["idObraEtapa"].ToString()),
+                    dr["NumeroOP"].ToString(),
+                    dr["Parcela"].ToString());
+            }
+
+            foreach (DataRow dr in dtTotaisObra.Rows)
+            {
+                dsOP.dtTotalObra.AdddtTotalObraRow
+                (
+                    int.Parse(dr["idObraEtapa"].ToString()),
+                    decimal.Parse(dr["ValorContrato"].ToString()),
+                    decimal.Parse(dr["TotalPago"].ToString()),
+                    decimal.Parse(dr["TotalAberto"].ToString())
+                );
+            }
+
+            return dsOP;
+        }
     }
 }

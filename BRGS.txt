@@ -1,117 +1,90 @@
 DeadLine - 06/07/2026
 
 App
-	Dashboard
-		No lugar de Empilhadeiras e Geradores, pensar no que colocar no lugar
+	FrontEnd
 		
-		Gráfico de Pizza de Obras dentro do prazo e atrasadas
 		
-		Gráfoco de barras de OPs abertas por mês
-			
-	FrontEnd		
-		» Controle de Empilhadeira
-			ok - Lista de cadastrados
-			No detalhe
-				Accordion separando as seções
-					ok - Detalhes						
-						Número Série
-						Marca
-						Modelo
-						Combustível
-						Torre
-						Cap Carga
-						Cliente (combo)
-						Pregão (combo vinculado ao cliente)
-						Lotada
-						Empresa (combo de empresas do grupo)
-						Nota fiscal
-						Data Compra
-							Só Data, sem hora
-							Ajustar formato para dd/MM/yyyy
-						Acessórios
-					
-					ok - Carregar edição
-						ok - Combos
-						ok - data de compra
-					
-					ok - Definir tamanho máximo de campos
-						Torre
-						Capacidade Carga
-						
-					ok - Gravar
-					
-					ok - Excluir
-						Confirmação
-					
-					Manutenção
-						List view:
-							Data início
-							Data fim
-							Cliente
-							Pregão
-						
-						Nenhum registro gravado
-					
-					Usos
-						List view
-							Data 
-							Valor
-							Descrição
-
-						SELECT * FROM Empilhadeiras_Usos
-						SELECT * FROM Empilhadeiras Where Id = 25
+		Gerar binário de todas as não canceladas e dos últimos 2 anos
+				Worker que fica monitorando uma tabela de requisições e a normal de OPs
 				
-			
-			ok - Terminar Empilhadeiras
-			
-			ok - Linkar botão da Empilhadeira do bottom bar na página da Empilhadeira
-			
-			ok - Fazer Mock da sugestão do dashboard do Betto
-				Gráfico de barras do ano, por mês
-					Total de OPs abertas
-					
-					Quando clica na barra do mês, 
-					
-					Atualiza o gráfico de pizza
-					
-					Uma pizza do mês vigente
-						Qtd OPs Obra vs Qtd OP Administrativa
-				
-					
-					
-					
+				Duas instâncias
+					1 monitorando a tabela normal de OPs
+						Novas OPs criadas
+						OPs que tem mais de dois anos, apaga o binário
 						
-			
-			
-			
-			Mandar Link pro Betto testar
-	
-		------
+					1 monitorando a tabela de requisições vindas da App
+						OrdemPagamentoRequisicaoPDF
+					
+					Windows Service normal						
+						2 Timers
+							Tabela OP - Rodando a cada 5 segundos
+							Tabela requisicao - rodando a cada 1 segundo
+					
+					
+					OrdemPagamentoPDF - binários das OPs
+				
+				ExportarOP2PDF - OTIMIZAÇÕES
+					Na tabela OrdemPagamentoRequisicaoPDF
+						Criar campo IdEtapaObra
+							Tabela
+							Proc SP_ORDEMPAGAMENTO_REQUISICAO_PDF
+							
+					PesquisarOrdemPagamentoSemPDF
+						Retornar entidade OrdemPagamentoRequisicaoDTO
+					
+					PesquisarOrdemPagamentoPDFRequisicao
+						Retornar entidade OrdemPagamentoRequisicaoDTO
+						
+					Otimizar 
+						GerarOrdemPagamento
+							SP_ORDEMPAGAMENTO_EMISSAO
+							SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS
+							SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
+						
+						empresa.PesquisarEmpresa
+							SP_EMPRESAS_CONSULTAR							
+								Só preciso da Razão Social. Criar proc especifica?
+					
+					
 		
-		Controle de Geradores
-			Lista de cadastrados
-			No detalhe
-				
-				Usar como modelo as empihadeiras
-				
-				Accordion separando as seções
-					Detalhes
-					Manutenção
-					Usos
-			Link do Dashboard para esse ecrã
-			
-		Passar link para Betto testar
-				
 		Controle de OPs
-			Confirmar com Betto se vamos fazer criação / alteração de OPs pelo App. São muitos campos
+			Reproduzir o OrdemPagamentoManutenção
 			
+			Poder associar a Obra e Pregão
+				
+			Botão para visualizar OP
+				Se a OP não estiver pronta, 
+					Botão desabilitado e aparece um botão de atualizar ao lado
+				Se estiver pronta
+					Botão habilitado,e não aparece botão de atualizar
+				
 			Visualização de OPs para mobile			
 				Criar tabela para binários das OPs 
 					IdOrdemPagamento
 					Varbinary(Max)
+			
+			
 				
-			Gerar binário de todas as não canceladas e do último 3 anos
 				
+				
+			
+			
+			
+			Chat,
+			Em Outsystems num projeto mobile, é possível visualizar um PDF e encaminhá-lo por e-mail e WhatsApp?
+	
+	
+			https://www.outsystems.com/forge/component-overview/2614/share-content-plugin-o11
+	
+			https://www.outsystems.com/forge/component-overview/1436/social-sharing-plugin-o11
+	
+			https://www.outsystems.com/forge/component-overview/5347/social-sharing-o11
+	
+	
+	
+	
+	
+			
 			Se pela App quiser ver uma mais antiga
 				» Dar uma mensagem que a OP será gerada em alguns instantes				
 				» Dar um insert numa tabela de controle de geração binário de OPs
@@ -168,6 +141,10 @@ App
 				ExportFormatType.PortableDocFormat
 					);
 			}
+		
+		
+		
+		
 		
 		
 		

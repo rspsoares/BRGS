@@ -628,6 +628,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrdemPagamentoEmissao.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Relatorios\OrdemPagamentoEmitidas.cs">
       <AutoGen>True</AutoGen>
@@ -956,6 +957,7 @@
     <EmbeddedResource Include="Relatorios\OrdemPagamentoEmissao.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>OrdemPagamentoEmissao.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\OrdemPagamentoEmitidas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
