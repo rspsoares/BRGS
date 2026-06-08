@@ -88,10 +88,6 @@
       <Project>{7e644cee-9071-48ec-b0a4-1301a374b366}</Project>
       <Name>BRGS.BIZ</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BRGS.Domain\BRGS.Domain.csproj">
-      <Project>{fd43df86-ab65-49dc-aa0a-a7ad5a3328a8}</Project>
-      <Name>BRGS.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BRGS.Entity\BRGS.Entity.csproj">
       <Project>{a80d874b-391c-431e-998e-fc7e15bd6562}</Project>
       <Name>BRGS.Entity</Name>

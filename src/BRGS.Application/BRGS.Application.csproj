@@ -92,12 +92,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BRGS.Domain\BRGS.Domain.csproj">
-      <Project>{fd43df86-ab65-49dc-aa0a-a7ad5a3328a8}</Project>
-      <Name>BRGS.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

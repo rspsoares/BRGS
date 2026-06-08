@@ -11,17 +11,17 @@ using System.IO;
 namespace BRGS.UI.Relatorios
 {
     public class CrystalReportsHelper
-    {
-        private ReportDocument _cryRpt = new ReportDocument();
+    {        
         private readonly string _reportPath;
+     
         public CrystalReportsHelper(string reportPath)
         {
-            _reportPath = reportPath;
-            _cryRpt = new ReportDocument();
+            _reportPath = reportPath;        
         }
 
         public string ExportarOP2PDF(int idOP, int idObraEtapa)
         {
+            var cryRpt = new ReportDocument();
             var empresa = new BIZEmpresa();
             var ordemPagamento = new BIZOrdemPagamento();
             var helper = new Helper();
@@ -29,7 +29,6 @@ namespace BRGS.UI.Relatorios
             Image logotipo = null;
             var pdfContent = string.Empty;
 
-            // = ordemPagamento.PesquisarOrdemPagamento(new OrdemPagamento() { idOrdemPagamento = idOP })[0];            
             var opSelecionada = new OrdemPagamento()
             {
                 idOrdemPagamento = idOP,
@@ -38,9 +37,12 @@ namespace BRGS.UI.Relatorios
 
             dtOP = ordemPagamento.GerarOrdemPagamento(opSelecionada, out dtObras, out dtTotaisObra);
 
-            var empresaSelecionada = empresa.PesquisarEmpresa(new Empresa() { idEmpresa = opSelecionada.idEmpresa })[0];
+            if (dtOP.Rows.Count == 0)
+                return string.Empty;
 
-            switch (empresaSelecionada.razaoSocial)
+            var empresaSelecionada = dtOP.Rows[0]["RazaoSocial"].ToString();            
+
+            switch (empresaSelecionada)
             {
                 case "FRONT ESTRUTURAS LTDA - EPP":
                     logotipo = Properties.Resources.Logo_FRONT;
@@ -60,13 +62,13 @@ namespace BRGS.UI.Relatorios
 
             var dsOP = PrepararDataSet(dtOP, dtTotaisObra, logotipo);
 
-            _cryRpt.Load(_reportPath);
-            _cryRpt.SetDataSource(dsOP);
-            _cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);            
+            cryRpt.Load(_reportPath);
+            cryRpt.SetDataSource(dsOP);
+            cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);            
 
-            _cryRpt.Refresh();
+            cryRpt.Refresh();
 
-            var resultPDF = _cryRpt.ExportToStream(ExportFormatType.PortableDocFormat);
+            var resultPDF = cryRpt.ExportToStream(ExportFormatType.PortableDocFormat);
  
             using (var ms = new MemoryStream())
             {
@@ -75,6 +77,9 @@ namespace BRGS.UI.Relatorios
                 pdfContent = Convert.ToBase64String(bContent);
                 ms.Close();
             }
+
+            cryRpt.Close();
+            cryRpt.Dispose();
 
             return pdfContent;
         }

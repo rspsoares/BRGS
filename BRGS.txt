@@ -1,75 +1,55 @@
 DeadLine - 06/07/2026
 
+Serviço
+	»» Acompanhar
+	SELECT count(1)  FROM [brgs1].[dbo].[OrdemPagamentoPDF] (NOLOCK)
+		
 App
+	
 	FrontEnd
 		
+		Trazer os outros campos prá tela
+
+		Carregar os combos
+			Dados OP			
+				Poder associar a Obra e Pregão
+				
+			Itens
+
+		Djego djego de mostrar a descrição do cancelamento quando clica no checkbox
 		
-		Gerar binário de todas as não canceladas e dos últimos 2 anos
-				Worker que fica monitorando uma tabela de requisições e a normal de OPs
-				
-				Duas instâncias
-					1 monitorando a tabela normal de OPs
-						Novas OPs criadas
-						OPs que tem mais de dois anos, apaga o binário
-						
-					1 monitorando a tabela de requisições vindas da App
-						OrdemPagamentoRequisicaoPDF
-					
-					Windows Service normal						
-						2 Timers
-							Tabela OP - Rodando a cada 5 segundos
-							Tabela requisicao - rodando a cada 1 segundo
-					
-					
-					OrdemPagamentoPDF - binários das OPs
-				
-				ExportarOP2PDF - OTIMIZAÇÕES
-					Na tabela OrdemPagamentoRequisicaoPDF
-						Criar campo IdEtapaObra
-							Tabela
-							Proc SP_ORDEMPAGAMENTO_REQUISICAO_PDF
+		Atenção aos campos desabilitados na Inclusão e Alteração
 							
-					PesquisarOrdemPagamentoSemPDF
-						Retornar entidade OrdemPagamentoRequisicaoDTO
-					
-					PesquisarOrdemPagamentoPDFRequisicao
-						Retornar entidade OrdemPagamentoRequisicaoDTO
-						
-					Otimizar 
-						GerarOrdemPagamento
-							SP_ORDEMPAGAMENTO_EMISSAO
-							SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_OBRAS
-							SP_ORDEMPAGAMENTO_EMISSAO_SUBRELATORIO_TOTAIS
-						
-						empresa.PesquisarEmpresa
-							SP_EMPRESAS_CONSULTAR							
-								Só preciso da Razão Social. Criar proc especifica?
-					
-					
+		Quando gravar a OP
+			Se for nova OP,	Inserir no requisição
 		
-		Controle de OPs
-			Reproduzir o OrdemPagamentoManutenção
-			
-			Poder associar a Obra e Pregão
-				
-			Botão para visualizar OP
+		Quando for alteração
+			Apagar pelo Id da tabela de PDFs
+			Inserir nova requisicao
+		
+		
+		Botão para visualizar OP
+			Só mostrar na alteração			
 				Se a OP não estiver pronta, 
 					Botão desabilitado e aparece um botão de atualizar ao lado
 				Se estiver pronta
 					Botão habilitado,e não aparece botão de atualizar
-				
-			Visualização de OPs para mobile			
-				Criar tabela para binários das OPs 
-					IdOrdemPagamento
-					Varbinary(Max)
+						
+			Botão direciona para ecrã OrdemPagamentoPDF
+		
+		Tela de visualização / compartilhamento
+			OK - Gerar pacote de Android
+			OK - Testar 
 			
+			Design
 			
-				
-				
-				
+			Remover o Get e passar a usar o parametro
 			
-			
-			
+			O nome do ficheiro da OP
+				OP_«NumeroOP (sunstiotuindo "/" por "-"».pdf
+
+
+		
 			Chat,
 			Em Outsystems num projeto mobile, é possível visualizar um PDF e encaminhá-lo por e-mail e WhatsApp?
 	
@@ -80,113 +60,13 @@ App
 	
 			https://www.outsystems.com/forge/component-overview/5347/social-sharing-o11
 	
-	
-	
-	
-	
-			
-			Se pela App quiser ver uma mais antiga
-				» Dar uma mensagem que a OP será gerada em alguns instantes				
-				» Dar um insert numa tabela de controle de geração binário de OPs
-				» Ter um Windows Service que lê essa tabela e gera os binários na tabela
-			
-					✅ Buscar nba <tabela de requisicoes a cada 2–5 segundos
-					✅ Buscar em lote (TOP 100)
-					✅ Processar em memória
-					✅ Delete por lote
-					✅ Índice no Id
-				
-				
-			No desktop, sempre que criar ou alterar uma OP, inserir uma requisição nessa tabela de controle
-				
-			Pedir um outro armazenamento na nuvem para Betto
-				
-				
-			
-			
-		
-		
-		
-			{
-				// Caminho do arquivo .rpt
-				string reportPath = @"C:\Relatorios\MeuRelatorio.rpt";
-
-				// Caminho do PDF de saída
-				string pdfPath = @"C:\Relatorios\MeuRelatorio.pdf";
-
-				// Carrega o relatório
-				ReportDocument report = new ReportDocument();
-				report.Load(reportPath);
-
-				// Se precisar de login no banco:
-				// report.SetDatabaseLogon("usuario", "senha");
-
-				// Exporta para PDF
-				report.ExportToDisk(
-					ExportFormatType.PortableDocFormat,
-					pdfPath
-				);
-
-				// Fecha recursos
-				report.Close();
-				report.Dispose();
-
-				GC.Collect();
-				GC.WaitForPendingFinalizers();
-
-				Console.WriteLine("PDF exportado com sucesso!");
-				
-				
-				Stream pdfStream = report.ExportToStream(
-				ExportFormatType.PortableDocFormat
-					);
-			}
-		
-		
-		
-		
-		
-		
 		
 		Aguardar validação final para começar a gerar os pacotes de instalação
-		
-		
-		Gerar pacote de Android
-				
-		Gerar pacote de iPhone
+			Gerar pacote de Android				
+			Gerar pacote de iPhone
 	
-
-	https://www.outsystems.com/forge/component-overview/8336/waiting-loading-react-o11			
-
-	Pedir para GPT ajudar com o CSS
-			Crie 4 conceitos de UI/UX para uma aplicação mobile industrial desenvolvida em OutSystems para controle de empilhadeiras e geradores. Estilo moderno, clean e corporativo. Mostrar telas de dashboard, monitoramento em tempo real, status operacional, manutenção preventiva, checklist de segurança, mapa de localização dos equipamentos, gráficos de telemetria, alertas críticos e gestão de frota. Visual premium inspirado em SAP Fiori, IBM Maximo, Material Design e apps industriais modernos. Paleta com azul escuro, amarelo segurança industrial, cinza grafite e detalhes em verde status OK. Mockups em smartphone, alta fidelidade, interfaces realistas, UX intuitiva, ícones industriais elegantes, cards informativos e design responsivo.
-		
-
-
-	Conexão externa de BD		https://success.outsystems.com/documentation/11/integration_with_external_systems/integrate_with_an_external_database/integrate_with_an_external_database_using_integration_studio/
-
 	
 	Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;
-	
-	
-	Não tem código de barras. Só plaqueta afixada
-		https://www.outsystems.com/forge/component-overview/7587/mobile-offline-ocr-o11
-		
-		https://www.outsystems.com/forge/component-overview/8168/tesseract-ocr-o11
-	
-	ChatGPT ajuda com o CSS
-		
-	»» Controle de Empilhadeiras (Cadastro, Alocações em Obras e Histórico de Manutenções)
-
-	»» Controle de Geradores (Cadastro, Alocações em Obras e Histórico de Manutenções)
-
-	»» Criação de OP's com visualização do documento	
-	
-	»» App disponível para Android e iPhone	
-		Pegar dica no ChatGPT
-			Criar pacote Android
-			Criar pacote iPhone
-			
 	
 	
 

@@ -29080,7 +29080,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idEmpresa", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idEmpresa", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idEmpresa")]
 		private int _ssidEmpresa;
 		public int ssidEmpresa {
@@ -29095,7 +29095,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idObraEtapa")]
 		private int _ssidObraEtapa;
 		public int ssidObraEtapa {
@@ -29110,7 +29110,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFavorecido", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idFavorecido", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idFavorecido")]
 		private int _ssidFavorecido;
 		public int ssidFavorecido {
@@ -29125,7 +29125,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idContaBancaria", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idContaBancaria", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idContaBancaria")]
 		private int _ssidContaBancaria;
 		public int ssidContaBancaria {
@@ -29140,7 +29140,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idSolicitante", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idSolicitante", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idSolicitante")]
 		private int _ssidSolicitante;
 		public int ssidSolicitante {
@@ -29155,7 +29155,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAutorizado", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAutorizado", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idAutorizado")]
 		private int _ssidAutorizado;
 		public int ssidAutorizado {
@@ -29355,20 +29355,20 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssidOrdemPagamento = r.ReadInteger(index++, "OrdemPagamento.idOrdemPagamento", 0);
-			ssidEmpresa = r.ReadEntityReference(index++, "OrdemPagamento.idEmpresa", 0);
-			ssidObraEtapa = r.ReadEntityReference(index++, "OrdemPagamento.idObraEtapa", 0);
-			ssidFavorecido = r.ReadEntityReference(index++, "OrdemPagamento.idFavorecido", 0);
-			ssidContaBancaria = r.ReadEntityReference(index++, "OrdemPagamento.idContaBancaria", 0);
-			ssidSolicitante = r.ReadEntityReference(index++, "OrdemPagamento.idSolicitante", 0);
-			ssidAutorizado = r.ReadEntityReference(index++, "OrdemPagamento.idAutorizado", 0);
+			ssidEmpresa = r.ReadInteger(index++, "OrdemPagamento.idEmpresa", 0);
+			ssidObraEtapa = r.ReadInteger(index++, "OrdemPagamento.idObraEtapa", 0);
+			ssidFavorecido = r.ReadInteger(index++, "OrdemPagamento.idFavorecido", 0);
+			ssidContaBancaria = r.ReadInteger(index++, "OrdemPagamento.idContaBancaria", 0);
+			ssidSolicitante = r.ReadInteger(index++, "OrdemPagamento.idSolicitante", 0);
+			ssidAutorizado = r.ReadInteger(index++, "OrdemPagamento.idAutorizado", 0);
 			ssNumeroOP = r.ReadText(index++, "OrdemPagamento.NumeroOP", "");
 			ssAutorizado = r.ReadText(index++, "OrdemPagamento.Autorizado", "");
-			ssDataSolicitacao = r.ReadDate(index++, "OrdemPagamento.DataSolicitacao", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataSolicitacao = r.ReadDateTime(index++, "OrdemPagamento.DataSolicitacao", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssStatus = r.ReadText(index++, "OrdemPagamento.Status", "");
 			ssObservacao = r.ReadText(index++, "OrdemPagamento.Observacao", "");
 			ssCancelada = r.ReadInteger(index++, "OrdemPagamento.Cancelada", 0);
 			ssObservacaoCancelada = r.ReadText(index++, "OrdemPagamento.ObservacaoCancelada", "");
-			ssDataCriacao = r.ReadDate(index++, "OrdemPagamento.DataCriacao", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataCriacao = r.ReadDateTime(index++, "OrdemPagamento.DataCriacao", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssUnitTest = r.ReadInteger(index++, "OrdemPagamento.UnitTest", 0);
 			ChangedAttributes = new BitArray(16, false);
 			OptimizedAttributes = new BitArray(16, false);
@@ -29635,20 +29635,20 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idOrdemPagamento")) VarValue.AppendAttribute(recordElem, "idOrdemPagamento", ssidOrdemPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idOrdemPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idEmpresa")) VarValue.AppendAttribute(recordElem, "idEmpresa", ssidEmpresa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idEmpresa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idObraEtapa")) VarValue.AppendAttribute(recordElem, "idObraEtapa", ssidObraEtapa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idObraEtapa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idFavorecido")) VarValue.AppendAttribute(recordElem, "idFavorecido", ssidFavorecido, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idFavorecido");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idContaBancaria")) VarValue.AppendAttribute(recordElem, "idContaBancaria", ssidContaBancaria, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idContaBancaria");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idSolicitante")) VarValue.AppendAttribute(recordElem, "idSolicitante", ssidSolicitante, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idSolicitante");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAutorizado")) VarValue.AppendAttribute(recordElem, "idAutorizado", ssidAutorizado, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idAutorizado");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idEmpresa")) VarValue.AppendAttribute(recordElem, "idEmpresa", ssidEmpresa, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idEmpresa");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idObraEtapa")) VarValue.AppendAttribute(recordElem, "idObraEtapa", ssidObraEtapa, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idObraEtapa");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idFavorecido")) VarValue.AppendAttribute(recordElem, "idFavorecido", ssidFavorecido, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idFavorecido");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idContaBancaria")) VarValue.AppendAttribute(recordElem, "idContaBancaria", ssidContaBancaria, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idContaBancaria");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idSolicitante")) VarValue.AppendAttribute(recordElem, "idSolicitante", ssidSolicitante, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idSolicitante");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAutorizado")) VarValue.AppendAttribute(recordElem, "idAutorizado", ssidAutorizado, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idAutorizado");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NumeroOP")) VarValue.AppendAttribute(recordElem, "NumeroOP", ssNumeroOP, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NumeroOP");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Autorizado")) VarValue.AppendAttribute(recordElem, "Autorizado", ssAutorizado, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Autorizado");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataSolicitacao")) VarValue.AppendAttribute(recordElem, "DataSolicitacao", ssDataSolicitacao, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataSolicitacao");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataSolicitacao")) VarValue.AppendAttribute(recordElem, "DataSolicitacao", ssDataSolicitacao, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataSolicitacao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Status")) VarValue.AppendAttribute(recordElem, "Status", ssStatus, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Status");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Observacao")) VarValue.AppendAttribute(recordElem, "Observacao", ssObservacao, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Observacao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Cancelada")) VarValue.AppendAttribute(recordElem, "Cancelada", ssCancelada, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Cancelada");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ObservacaoCancelada")) VarValue.AppendAttribute(recordElem, "ObservacaoCancelada", ssObservacaoCancelada, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "ObservacaoCancelada");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCriacao")) VarValue.AppendAttribute(recordElem, "DataCriacao", ssDataCriacao, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCriacao");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCriacao")) VarValue.AppendAttribute(recordElem, "DataCriacao", ssDataCriacao, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCriacao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".UnitTest")) VarValue.AppendAttribute(recordElem, "UnitTest", ssUnitTest, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "UnitTest");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -31656,653 +31656,5 @@ namespace OutSystems.NssBRGS_DB {
 			return true;
 		}
 	} // ENVW_Dashboard_OPs_CategoriaEntityRecord
-
-	public class ENOrdemPagamentoRequisicaoPDFEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "ec9b3527-bf81-4176-a803-913f397d8a2e", "OrdemPagamentoRequisicaoPDF", "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENOrdemPagamentoRequisicaoPDFEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "idordempagamento", "IdOrdemPagamento"
-			}
-			, { "idobraetapa", "IdObraEtapa"
-			}
-			, { "datacriacao", "DataCriacao"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENOrdemPagamentoRequisicaoPDFEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENOrdemPagamentoRequisicaoPDFEntity
-
-	/// <summary>
-	/// Entity <code>ENOrdemPagamentoRequisicaoPDFEntityRecord</code> that represents the Service Studio
-	///  entity <code>OrdemPagamentoRequisicaoPDF</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("OrdemPagamentoRequisicaoPDF", "JzWb7IG_dkGoA5E_OX2KLg", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]", null)]
-	[Serializable()]
-	public partial struct ENOrdemPagamentoRequisicaoPDFEntityRecord: ISerializable, ITypedRecord<ENOrdemPagamentoRequisicaoPDFEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdIdOrdemPagamento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*czI6mnyPr0C_jDYZEuWatQ");
-		internal static readonly GlobalObjectKey IdIdObraEtapa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*4dky5h6bdE6sgX31U7eS8w");
-		internal static readonly GlobalObjectKey IdDataCriacao = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*BzTIPdRdv0qZcuoiPJwepQ");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdOrdemPagamento")]
-		private int _ssIdOrdemPagamento;
-		public int ssIdOrdemPagamento {
-			get {
-				return _ssIdOrdemPagamento;
-			}
-			set {
-				if ((_ssIdOrdemPagamento!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssIdOrdemPagamento = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdObraEtapa", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("IdObraEtapa")]
-		private int _ssIdObraEtapa;
-		public int ssIdObraEtapa {
-			get {
-				return _ssIdObraEtapa;
-			}
-			set {
-				if ((_ssIdObraEtapa!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssIdObraEtapa = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DataCriacao", 0, false, false, false, true)]
-		[System.Xml.Serialization.XmlElement("DataCriacao")]
-		private DateTime _ssDataCriacao;
-		public DateTime ssDataCriacao {
-			get {
-				return _ssDataCriacao;
-			}
-			set {
-				if ((_ssDataCriacao!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssDataCriacao = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENOrdemPagamentoRequisicaoPDFEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
-			_ssIdOrdemPagamento = 0;
-			_ssIdObraEtapa = 0;
-			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssIdOrdemPagamento = r.ReadEntityReference(index++, "OrdemPagamentoRequisicaoPDF.IdOrdemPagamento", 0);
-			ssIdObraEtapa = r.ReadEntityReference(index++, "OrdemPagamentoRequisicaoPDF.IdObraEtapa", 0);
-			ssDataCriacao = r.ReadDateTime(index++, "OrdemPagamentoRequisicaoPDF.DataCriacao", new DateTime(1900, 1, 1, 0, 0, 0));
-			ChangedAttributes = new BitArray(3, false);
-			OptimizedAttributes = new BitArray(3, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENOrdemPagamentoRequisicaoPDFEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENOrdemPagamentoRequisicaoPDFEntityRecord a, ENOrdemPagamentoRequisicaoPDFEntityRecord b) {
-			if (a.ssIdOrdemPagamento != b.ssIdOrdemPagamento) return false;
-			if (a.ssIdObraEtapa != b.ssIdObraEtapa) return false;
-			if (a.ssDataCriacao != b.ssDataCriacao) return false;
-			return true;
-		}
-
-		public static bool operator != (ENOrdemPagamentoRequisicaoPDFEntityRecord a, ENOrdemPagamentoRequisicaoPDFEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENOrdemPagamentoRequisicaoPDFEntityRecord)) return false;
-			return (this == (ENOrdemPagamentoRequisicaoPDFEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssIdOrdemPagamento.GetHashCode()
-				^ ssIdObraEtapa.GetHashCode()
-				^ ssDataCriacao.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENOrdemPagamentoRequisicaoPDFEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
-			_ssIdOrdemPagamento = 0;
-			_ssIdObraEtapa = 0;
-			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssIdOrdemPagamento", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdOrdemPagamento' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdOrdemPagamento = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssIdObraEtapa", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdObraEtapa' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdObraEtapa = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssDataCriacao", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssDataCriacao' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssDataCriacao = (DateTime) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENOrdemPagamentoRequisicaoPDFEntityRecord Duplicate() {
-			ENOrdemPagamentoRequisicaoPDFEntityRecord t;
-			t._ssIdOrdemPagamento = this._ssIdOrdemPagamento;
-			t._ssIdObraEtapa = this._ssIdObraEtapa;
-			t._ssDataCriacao = this._ssDataCriacao;
-			t.ChangedAttributes = new BitArray(3);
-			t.OptimizedAttributes = new BitArray(3);
-			for (int i = 0; i < 3; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdOrdemPagamento")) VarValue.AppendAttribute(recordElem, "IdOrdemPagamento", ssIdOrdemPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdOrdemPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdObraEtapa")) VarValue.AppendAttribute(recordElem, "IdObraEtapa", ssIdObraEtapa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdObraEtapa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCriacao")) VarValue.AppendAttribute(recordElem, "DataCriacao", ssDataCriacao, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCriacao");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "idordempagamento") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdOrdemPagamento")) variable.Value = ssIdOrdemPagamento; else variable.Optimized = true;
-			} else if (head == "idobraetapa") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdObraEtapa")) variable.Value = ssIdObraEtapa; else variable.Optimized = true;
-			} else if (head == "datacriacao") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataCriacao")) variable.Value = ssDataCriacao; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdIdOrdemPagamento)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdIdObraEtapa)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdDataCriacao)) {
-				return ChangedAttributes[2];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdIdOrdemPagamento)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdIdObraEtapa)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdDataCriacao)) {
-				return OptimizedAttributes[2];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdIdOrdemPagamento) {
-				return ssIdOrdemPagamento;
-			} else if (key == IdIdObraEtapa) {
-				return ssIdObraEtapa;
-			} else if (key == IdDataCriacao) {
-				return ssDataCriacao;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(3);
-			OptimizedAttributes = new BitArray(3);
-			if (other == null) return;
-			ssIdOrdemPagamento = (int) other.AttributeGet(IdIdOrdemPagamento);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdIdOrdemPagamento);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdIdOrdemPagamento);
-			ssIdObraEtapa = (int) other.AttributeGet(IdIdObraEtapa);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdIdObraEtapa);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdIdObraEtapa);
-			ssDataCriacao = (DateTime) other.AttributeGet(IdDataCriacao);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdDataCriacao);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDataCriacao);
-		}
-		public bool IsDefault() {
-			ENOrdemPagamentoRequisicaoPDFEntityRecord defaultStruct = new ENOrdemPagamentoRequisicaoPDFEntityRecord(null);
-			if (this.ssIdOrdemPagamento != defaultStruct.ssIdOrdemPagamento) return false;
-			if (this.ssIdObraEtapa != defaultStruct.ssIdObraEtapa) return false;
-			if (this.ssDataCriacao != defaultStruct.ssDataCriacao) return false;
-			return true;
-		}
-	} // ENOrdemPagamentoRequisicaoPDFEntityRecord
-
-	public class ENOrdemPagamentoPDFEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "a1d2791b-e8d4-4d56-8c04-928a7c9ecf41", "OrdemPagamentoPDF", "[brgs1].[dbo].[OrdemPagamentoPDF]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[OrdemPagamentoPDF]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[OrdemPagamentoPDF]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENOrdemPagamentoPDFEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "idordempagamento", "IdOrdemPagamento"
-			}
-			, { "pdfcontent", "PDFContent"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENOrdemPagamentoPDFEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENOrdemPagamentoPDFEntity
-
-	/// <summary>
-	/// Entity <code>ENOrdemPagamentoPDFEntityRecord</code> that represents the Service Studio entity
-	///  <code>OrdemPagamentoPDF</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("OrdemPagamentoPDF", "G3nSodToVk2MBJKKfJ7PQQ", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[OrdemPagamentoPDF]", null)]
-	[Serializable()]
-	public partial struct ENOrdemPagamentoPDFEntityRecord: ISerializable, ITypedRecord<ENOrdemPagamentoPDFEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdIdOrdemPagamento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*e9+l+KHwzk2HHbEkyf1P+g");
-		internal static readonly GlobalObjectKey IdPDFContent = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*vOp7nSt98EeAR9h7xnrxVg");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("IdOrdemPagamento")]
-		private int _ssIdOrdemPagamento;
-		public int ssIdOrdemPagamento {
-			get {
-				return _ssIdOrdemPagamento;
-			}
-			set {
-				if ((_ssIdOrdemPagamento!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssIdOrdemPagamento = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("PDFContent", 2147483647, false, false, false, true)]
-		[System.Xml.Serialization.XmlElement("PDFContent")]
-		private string _ssPDFContent;
-		public string ssPDFContent {
-			get {
-				return _ssPDFContent;
-			}
-			set {
-				if ((_ssPDFContent!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssPDFContent = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENOrdemPagamentoPDFEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(2, true);
-			OptimizedAttributes = new BitArray(2, false);
-			_ssIdOrdemPagamento = 0;
-			_ssPDFContent = "";
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssIdOrdemPagamento = r.ReadEntityReference(index++, "OrdemPagamentoPDF.IdOrdemPagamento", 0);
-			ssPDFContent = r.ReadText(index++, "OrdemPagamentoPDF.PDFContent", "");
-			ChangedAttributes = new BitArray(2, false);
-			OptimizedAttributes = new BitArray(2, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENOrdemPagamentoPDFEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENOrdemPagamentoPDFEntityRecord a, ENOrdemPagamentoPDFEntityRecord b) {
-			if (a.ssIdOrdemPagamento != b.ssIdOrdemPagamento) return false;
-			if (a.ssPDFContent != b.ssPDFContent) return false;
-			return true;
-		}
-
-		public static bool operator != (ENOrdemPagamentoPDFEntityRecord a, ENOrdemPagamentoPDFEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENOrdemPagamentoPDFEntityRecord)) return false;
-			return (this == (ENOrdemPagamentoPDFEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssIdOrdemPagamento.GetHashCode()
-				^ ssPDFContent.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENOrdemPagamentoPDFEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(2, true);
-			OptimizedAttributes = new BitArray(2, false);
-			_ssIdOrdemPagamento = 0;
-			_ssPDFContent = "";
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssIdOrdemPagamento", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdOrdemPagamento' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdOrdemPagamento = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssPDFContent", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssPDFContent' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssPDFContent = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENOrdemPagamentoPDFEntityRecord Duplicate() {
-			ENOrdemPagamentoPDFEntityRecord t;
-			t._ssIdOrdemPagamento = this._ssIdOrdemPagamento;
-			t._ssPDFContent = this._ssPDFContent;
-			t.ChangedAttributes = new BitArray(2);
-			t.OptimizedAttributes = new BitArray(2);
-			for (int i = 0; i < 2; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdOrdemPagamento")) VarValue.AppendAttribute(recordElem, "IdOrdemPagamento", ssIdOrdemPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdOrdemPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".PDFContent")) VarValue.AppendAttribute(recordElem, "PDFContent", ssPDFContent, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "PDFContent");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "idordempagamento") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdOrdemPagamento")) variable.Value = ssIdOrdemPagamento; else variable.Optimized = true;
-			} else if (head == "pdfcontent") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".PDFContent")) variable.Value = ssPDFContent; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdIdOrdemPagamento)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdPDFContent)) {
-				return ChangedAttributes[1];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdIdOrdemPagamento)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdPDFContent)) {
-				return OptimizedAttributes[1];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdIdOrdemPagamento) {
-				return ssIdOrdemPagamento;
-			} else if (key == IdPDFContent) {
-				return ssPDFContent;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(2);
-			OptimizedAttributes = new BitArray(2);
-			if (other == null) return;
-			ssIdOrdemPagamento = (int) other.AttributeGet(IdIdOrdemPagamento);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdIdOrdemPagamento);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdIdOrdemPagamento);
-			ssPDFContent = (string) other.AttributeGet(IdPDFContent);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdPDFContent);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdPDFContent);
-		}
-		public bool IsDefault() {
-			ENOrdemPagamentoPDFEntityRecord defaultStruct = new ENOrdemPagamentoPDFEntityRecord(null);
-			if (this.ssIdOrdemPagamento != defaultStruct.ssIdOrdemPagamento) return false;
-			if (this.ssPDFContent != defaultStruct.ssPDFContent) return false;
-			return true;
-		}
-	} // ENOrdemPagamentoPDFEntityRecord
 
 } // OutSystems.NssBRGS_DB

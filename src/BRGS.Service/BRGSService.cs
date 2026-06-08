@@ -12,8 +12,7 @@ namespace BRGS.Service
 {
     public partial class BRGSService : ServiceBase
     {
-        private static readonly Logger log = LogManager.GetLogger("ServiceLogger");
-        private CrystalReportsHelper _crystalReportsHelper;
+        private static readonly Logger log = LogManager.GetLogger("ServiceLogger");        
         private Helper _helper = new Helper();
         private readonly string _reportPath;
 
@@ -26,8 +25,7 @@ namespace BRGS.Service
         }
 
         protected override void OnStart(string[] args)
-        {
-            _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+        {            
             timerRequisicao = new Timer(new TimerCallback(ProcessRequisicaoCallback), null, (int)TimeSpan.FromSeconds(1).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobRequisicaoInterval")).TotalMilliseconds);
             timerTabelaOP = new Timer(new TimerCallback(ProcessTabelaOPCallback), null, (int)TimeSpan.FromSeconds(2).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobTabelaOPInterval")).TotalMilliseconds);
         }
@@ -78,26 +76,27 @@ namespace BRGS.Service
         {
             try
             {
-                _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+                var crystalReportsHelper = new CrystalReportsHelper(_reportPath);
                 var ordemPagamento = new BIZOrdemPagamento();
 
                 ordemPagamento
                     .PesquisarOrdemPagamentoPDFRequisicao()
-                    .ForEach(idOP =>
+                    .ForEach(op =>
                     {
                         try
                         {
-                            log.Info($"[GerarPDFRequisicao] Processando OP Id: {idOP}");
-                            
-                            var pdfContent = _crystalReportsHelper.ExportarOP2PDF(idOP);
-                            
-                            ordemPagamento.InserirOrdemPagamentoPDF(idOP, pdfContent);
+                            log.Info($"[GerarPDFRequisicao] Processando OP Id: {op.IdOrdemPagamento}");
 
-                            log.Info($"[GerarPDFRequisicao] OP Id: {idOP} processado com sucesso.");
+                            var pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);
+
+                            if(!string.IsNullOrEmpty(pdfContent))
+                                ordemPagamento.ProcessarOrdemPagamentoPDFRequisicao(op.IdOrdemPagamento, pdfContent);                           
+
+                            log.Info($"[GerarPDFRequisicao] OP Id: {op.IdOrdemPagamento} processado com sucesso.");
                         }
                         catch (Exception exOP)
                         {
-                            log.Error($"[GerarPDFRequisicao] OP Id: {idOP} Erro: {exOP.Message} - {exOP.InnerException}");
+                            log.Error($"[GerarPDFRequisicao] OP Id: {op.IdOrdemPagamento} Erro: {exOP.Message} - {exOP.InnerException}");
                         }
                     });
             }
@@ -111,27 +110,30 @@ namespace BRGS.Service
         {
             try
             {
-                _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
+                var crystalReportsHelper = new CrystalReportsHelper(_reportPath);
                 var ordemPagamento = new BIZOrdemPagamento();
 
                 ordemPagamento
                     .PesquisarOrdemPagamentoSemPDF()
-                    .ForEach(idOP =>
+                    .ForEach(op =>
                     {
                         try
-                        { 
-                            log.Info($"[GerarPDFTabelaOP] Processando OP Id: {idOP}");
-                            
-                            var pdfContent = _crystalReportsHelper.ExportarOP2PDF(idOP);
-                            
-                            ordemPagamento.InserirOrdemPagamentoPDF(idOP, pdfContent);
-                            
-                            log.Info($"[GerarPDFTabelaOP] OP Id: {idOP} processado com sucesso.");
+                        {
+                            log.Info($"[GerarPDFTabelaOP] Processando OP Id: {op.IdOrdemPagamento}");
+
+                            var pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);
+
+                            if (!string.IsNullOrEmpty(pdfContent))
+                                ordemPagamento.InserirOrdemPagamentoPDF(op.IdOrdemPagamento, pdfContent);
+                            else                            
+                                ordemPagamento.AtualizarOPNaoGerarPDF(op.IdOrdemPagamento);
+    
+                            log.Info($"[GerarPDFTabelaOP] OP Id: {op.IdOrdemPagamento} processado com sucesso.");
                         }
                         catch (Exception exOP)
                         {
-                            log.Error($"[GerarPDFTabelaOP] OP Id: {idOP} Erro: {exOP.Message} - {exOP.InnerException}");
-                        }                       
+                            log.Error($"[GerarPDFTabelaOP] OP Id: {op.IdOrdemPagamento} Erro: {exOP.Message} - {exOP.InnerException}");
+                        }
                     });
             }
             catch (Exception ex)
@@ -148,9 +150,8 @@ namespace BRGS.Service
 
         public void Debug()
         {
-            _crystalReportsHelper = new CrystalReportsHelper(_reportPath);
-            GerarPDFTabelaOP();
-            //GerarPDFRequisicao();
+            GerarPDFRequisicao();
+            //GerarPDFTabelaOP();            
         }
     }
 }
