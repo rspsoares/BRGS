@@ -150,8 +150,8 @@ namespace BRGS.Service
 
         public void Debug()
         {
-            GerarPDFRequisicao();
-            //GerarPDFTabelaOP();            
+            //GerarPDFRequisicao();
+            GerarPDFTabelaOP();            
         }
     }
 }

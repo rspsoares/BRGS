@@ -1,46 +1,70 @@
 DeadLine - 06/07/2026
 
+BD
+	Chat
+		Script para backup para manter 7 arquivos, um para cada dia da semana
+
+
 Serviço
-	»» Acompanhar
-	SELECT count(1)  FROM [brgs1].[dbo].[OrdemPagamentoPDF] (NOLOCK)
+	Pensar numa forma de atualizar o OrdemPagamento.IdCliente
+		SELECT * 
+		FROM OrdemPagamento (NOLOCK) OP
+		inner join ObrasEtapas (NOLOCK) OE on op.idObraEtapa = OE.idObraEtapa
+		where  OP.idObraEtapa > 0 AND OP.IdCliente Is null
+	
+		Nas PROCS?
 		
+		Timer no serviço
+		
+	
+	Verificar possível Memory Leak
+	
+
+	
 App
 	
 	FrontEnd
 		
-		Trazer os outros campos prá tela
-
-		Carregar os combos
-			Dados OP			
-				Poder associar a Obra e Pregão
-				
-			Itens
-
-		Djego djego de mostrar a descrição do cancelamento quando clica no checkbox
+		848/2026
 		
-		Atenção aos campos desabilitados na Inclusão e Alteração
+		Trazer os outros campos prá tela			
+			Atenção aos campos desabilitados na Inclusão e Alteração
+			
+			Itens				
+				Adiciona na listview
+					Validar campos
+						Combo UEN
+						Combo CentroCusto
+						Combo despesa						
+						Valor maior que 0
+						
+					Título List View
+					
+					Design do list view
+					
+					Carregar itens de OP existente
 							
 		Quando gravar a OP
+			SP_ORDEMPAGAMENTO_NOVONUMEROOP
+			
 			Se for nova OP,	Inserir no requisição
-		
+			
 		Quando for alteração
 			Apagar pelo Id da tabela de PDFs
 			Inserir nova requisicao
 		
-		
-		Botão para visualizar OP
-			Só mostrar na alteração			
-				Se a OP não estiver pronta, 
-					Botão desabilitado e aparece um botão de atualizar ao lado
-				Se estiver pronta
-					Botão habilitado,e não aparece botão de atualizar
-						
-			Botão direciona para ecrã OrdemPagamentoPDF
-		
-		Tela de visualização / compartilhamento
-			OK - Gerar pacote de Android
-			OK - Testar 
+		Botão gravar
+			Confirmação
+			Gravar e se manter na tela
 			
+		Botão visualizar
+			Não tem confirmação
+			Verifica se já tem o PDFContent. 
+				Se não tver, dá uma feedback de aviso que a OP estará pronta em alguns instantes.
+				Se já tiver, redireciona pra ecrã OrdemPagamentoPDF
+			
+		
+		OrdemPagamentoPDF
 			Design
 			
 			Remover o Get e passar a usar o parametro
@@ -48,29 +72,33 @@ App
 			O nome do ficheiro da OP
 				OP_«NumeroOP (sunstiotuindo "/" por "-"».pdf
 
+		Nas 4 telas
+			Esperar por todfos os DataActions estarem prontos para permitir o usuário acessar a tela
 
 		
-			Chat,
-			Em Outsystems num projeto mobile, é possível visualizar um PDF e encaminhá-lo por e-mail e WhatsApp?
-	
-	
-			https://www.outsystems.com/forge/component-overview/2614/share-content-plugin-o11
-	
-			https://www.outsystems.com/forge/component-overview/1436/social-sharing-plugin-o11
-	
-			https://www.outsystems.com/forge/component-overview/5347/social-sharing-o11
-	
+		Passar instalador da App para Betto
+		
+		Pedir para fazer testes pelo Celular
 		
 		Aguardar validação final para começar a gerar os pacotes de instalação
 			Gerar pacote de Android				
 			Gerar pacote de iPhone
 	
 	
+-----------------------------
+
 	Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;
 	
-	
+Chat,
+	Em Outsystems num projeto mobile, é possível visualizar um PDF e encaminhá-lo por e-mail e WhatsApp?
 
------------------------------
+
+	https://www.outsystems.com/forge/component-overview/2614/share-content-plugin-o11
+
+	https://www.outsystems.com/forge/component-overview/1436/social-sharing-plugin-o11
+
+	https://www.outsystems.com/forge/component-overview/5347/social-sharing-o11
+
 
 Chat, por favor crie um script para a criação de um usuário no SQL Server 2022 com as seguintes permissões: 
 - Listar as tabelas e views

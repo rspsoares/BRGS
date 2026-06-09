@@ -23039,7 +23039,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOrdemPagamento", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idOrdemPagamento", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idOrdemPagamento")]
 		private int _ssidOrdemPagamento;
 		public int ssidOrdemPagamento {
@@ -23054,7 +23054,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUEN", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUEN", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idUEN")]
 		private int _ssidUEN;
 		public int ssidUEN {
@@ -23069,7 +23069,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idCentroCusto")]
 		private int _ssidCentroCusto;
 		public int ssidCentroCusto {
@@ -23084,7 +23084,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idDespesa", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idDespesa", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idDespesa")]
 		private int _ssidDespesa;
 		public int ssidDespesa {
@@ -23330,10 +23330,10 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssidOrdemPagamentoItem = r.ReadInteger(index++, "OrdemPagamentoItens.idOrdemPagamentoItem", 0);
-			ssidOrdemPagamento = r.ReadEntityReference(index++, "OrdemPagamentoItens.idOrdemPagamento", 0);
-			ssidUEN = r.ReadEntityReference(index++, "OrdemPagamentoItens.idUEN", 0);
-			ssidCentroCusto = r.ReadEntityReference(index++, "OrdemPagamentoItens.idCentroCusto", 0);
-			ssidDespesa = r.ReadEntityReference(index++, "OrdemPagamentoItens.idDespesa", 0);
+			ssidOrdemPagamento = r.ReadInteger(index++, "OrdemPagamentoItens.idOrdemPagamento", 0);
+			ssidUEN = r.ReadInteger(index++, "OrdemPagamentoItens.idUEN", 0);
+			ssidCentroCusto = r.ReadInteger(index++, "OrdemPagamentoItens.idCentroCusto", 0);
+			ssidDespesa = r.ReadInteger(index++, "OrdemPagamentoItens.idDespesa", 0);
 			ssidUsuarioPagamento = r.ReadInteger(index++, "OrdemPagamentoItens.idUsuarioPagamento", 0);
 			ssidAbastecimento = r.ReadInteger(index++, "OrdemPagamentoItens.idAbastecimento", 0);
 			ssidManutencao = r.ReadInteger(index++, "OrdemPagamentoItens.idManutencao", 0);
@@ -23622,10 +23622,10 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idOrdemPagamentoItem")) VarValue.AppendAttribute(recordElem, "idOrdemPagamentoItem", ssidOrdemPagamentoItem, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idOrdemPagamentoItem");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idOrdemPagamento")) VarValue.AppendAttribute(recordElem, "idOrdemPagamento", ssidOrdemPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idOrdemPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUEN")) VarValue.AppendAttribute(recordElem, "idUEN", ssidUEN, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUEN");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idDespesa")) VarValue.AppendAttribute(recordElem, "idDespesa", ssidDespesa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idDespesa");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idOrdemPagamento")) VarValue.AppendAttribute(recordElem, "idOrdemPagamento", ssidOrdemPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idOrdemPagamento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUEN")) VarValue.AppendAttribute(recordElem, "idUEN", ssidUEN, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idUEN");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idDespesa")) VarValue.AppendAttribute(recordElem, "idDespesa", ssidDespesa, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idDespesa");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuarioPagamento")) VarValue.AppendAttribute(recordElem, "idUsuarioPagamento", ssidUsuarioPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuarioPagamento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAbastecimento")) VarValue.AppendAttribute(recordElem, "idAbastecimento", ssidAbastecimento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idAbastecimento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idManutencao")) VarValue.AppendAttribute(recordElem, "idManutencao", ssidManutencao, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idManutencao");
@@ -28995,8 +28995,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			, { "idempresa", "idEmpresa"
 			}
-			, { "idcliente", "idCliente"
-			}
 			, { "idobraetapa", "idObraEtapa"
 			}
 			, { "idfavorecido", "idFavorecido"
@@ -29022,8 +29020,6 @@ namespace OutSystems.NssBRGS_DB {
 			, { "observacaocancelada", "ObservacaoCancelada"
 			}
 			, { "datacriacao", "DataCriacao"
-			}
-			, { "geraroppdf", "GerarOPPDF"
 			}
 			, { "unittest", "UnitTest"
 			}
@@ -29053,7 +29049,6 @@ namespace OutSystems.NssBRGS_DB {
 	public partial struct ENOrdemPagamentoEntityRecord: ISerializable, ITypedRecord<ENOrdemPagamentoEntityRecord>, ISimpleRecord {
 		internal static readonly GlobalObjectKey IdidOrdemPagamento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*NPcZE8PxskaZAuH3x8AE4A");
 		internal static readonly GlobalObjectKey IdidEmpresa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*VAP5fPy_t0WfJGdiTsvC+w");
-		internal static readonly GlobalObjectKey IdidCliente = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*FqtAtQIdhUCfvAlV5BSkXA");
 		internal static readonly GlobalObjectKey IdidObraEtapa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*hm2JZgEjXEyZDmOXwR1QNQ");
 		internal static readonly GlobalObjectKey IdidFavorecido = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*gJYN1xRYlkWMdUtGgqHpXw");
 		internal static readonly GlobalObjectKey IdidContaBancaria = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*Hu5VVbIchk+WV6f3Tdvnxw");
@@ -29067,7 +29062,6 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdCancelada = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*iK+zmvlIXEuanHyOlQGXtg");
 		internal static readonly GlobalObjectKey IdObservacaoCancelada = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*titieK4lIUWgZphPKTyFOQ");
 		internal static readonly GlobalObjectKey IdDataCriacao = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*CdOQSMhO_kOZfovX0Y59tA");
-		internal static readonly GlobalObjectKey IdGerarOPPDF = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*cCQ6IZhZtUyu3YTCtKI7_Q");
 		internal static readonly GlobalObjectKey IdUnitTest = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*K83uP1arskOnVe_Y8JC3dA");
 
 		public static void EnsureInitialized() {}
@@ -29080,7 +29074,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssidOrdemPagamento!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(18, true);
+					ChangedAttributes = new BitArray(16, true);
 					_ssidOrdemPagamento = value;
 				}
 			}
@@ -29101,21 +29095,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCliente", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idCliente")]
-		private int _ssidCliente;
-		public int ssidCliente {
-			get {
-				return _ssidCliente;
-			}
-			set {
-				if ((_ssidCliente!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssidCliente = value;
-				}
-			}
-		}
-
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idObraEtapa", 0, false, false, true, false)]
 		[System.Xml.Serialization.XmlElement("idObraEtapa")]
 		private int _ssidObraEtapa;
@@ -29124,8 +29103,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssidObraEtapa;
 			}
 			set {
-				if ((_ssidObraEtapa!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
+				if ((_ssidObraEtapa!=value) || OptimizedAttributes[2]) {
+					ChangedAttributes[2] = true;
 					_ssidObraEtapa = value;
 				}
 			}
@@ -29139,8 +29118,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssidFavorecido;
 			}
 			set {
-				if ((_ssidFavorecido!=value) || OptimizedAttributes[4]) {
-					ChangedAttributes[4] = true;
+				if ((_ssidFavorecido!=value) || OptimizedAttributes[3]) {
+					ChangedAttributes[3] = true;
 					_ssidFavorecido = value;
 				}
 			}
@@ -29154,8 +29133,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssidContaBancaria;
 			}
 			set {
-				if ((_ssidContaBancaria!=value) || OptimizedAttributes[5]) {
-					ChangedAttributes[5] = true;
+				if ((_ssidContaBancaria!=value) || OptimizedAttributes[4]) {
+					ChangedAttributes[4] = true;
 					_ssidContaBancaria = value;
 				}
 			}
@@ -29169,8 +29148,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssidSolicitante;
 			}
 			set {
-				if ((_ssidSolicitante!=value) || OptimizedAttributes[6]) {
-					ChangedAttributes[6] = true;
+				if ((_ssidSolicitante!=value) || OptimizedAttributes[5]) {
+					ChangedAttributes[5] = true;
 					_ssidSolicitante = value;
 				}
 			}
@@ -29184,8 +29163,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssidAutorizado;
 			}
 			set {
-				if ((_ssidAutorizado!=value) || OptimizedAttributes[7]) {
-					ChangedAttributes[7] = true;
+				if ((_ssidAutorizado!=value) || OptimizedAttributes[6]) {
+					ChangedAttributes[6] = true;
 					_ssidAutorizado = value;
 				}
 			}
@@ -29199,8 +29178,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssNumeroOP;
 			}
 			set {
-				if ((_ssNumeroOP!=value) || OptimizedAttributes[8]) {
-					ChangedAttributes[8] = true;
+				if ((_ssNumeroOP!=value) || OptimizedAttributes[7]) {
+					ChangedAttributes[7] = true;
 					_ssNumeroOP = value;
 				}
 			}
@@ -29214,8 +29193,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssAutorizado;
 			}
 			set {
-				if ((_ssAutorizado!=value) || OptimizedAttributes[9]) {
-					ChangedAttributes[9] = true;
+				if ((_ssAutorizado!=value) || OptimizedAttributes[8]) {
+					ChangedAttributes[8] = true;
 					_ssAutorizado = value;
 				}
 			}
@@ -29229,8 +29208,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataSolicitacao;
 			}
 			set {
-				if ((_ssDataSolicitacao!=value) || OptimizedAttributes[10]) {
-					ChangedAttributes[10] = true;
+				if ((_ssDataSolicitacao!=value) || OptimizedAttributes[9]) {
+					ChangedAttributes[9] = true;
 					_ssDataSolicitacao = value;
 				}
 			}
@@ -29244,8 +29223,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssStatus;
 			}
 			set {
-				if ((_ssStatus!=value) || OptimizedAttributes[11]) {
-					ChangedAttributes[11] = true;
+				if ((_ssStatus!=value) || OptimizedAttributes[10]) {
+					ChangedAttributes[10] = true;
 					_ssStatus = value;
 				}
 			}
@@ -29259,8 +29238,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssObservacao;
 			}
 			set {
-				if ((_ssObservacao!=value) || OptimizedAttributes[12]) {
-					ChangedAttributes[12] = true;
+				if ((_ssObservacao!=value) || OptimizedAttributes[11]) {
+					ChangedAttributes[11] = true;
 					_ssObservacao = value;
 				}
 			}
@@ -29268,14 +29247,14 @@ namespace OutSystems.NssBRGS_DB {
 
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Cancelada", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("Cancelada")]
-		private bool _ssCancelada;
-		public bool ssCancelada {
+		private int _ssCancelada;
+		public int ssCancelada {
 			get {
 				return _ssCancelada;
 			}
 			set {
-				if ((_ssCancelada!=value) || OptimizedAttributes[13]) {
-					ChangedAttributes[13] = true;
+				if ((_ssCancelada!=value) || OptimizedAttributes[12]) {
+					ChangedAttributes[12] = true;
 					_ssCancelada = value;
 				}
 			}
@@ -29289,8 +29268,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssObservacaoCancelada;
 			}
 			set {
-				if ((_ssObservacaoCancelada!=value) || OptimizedAttributes[14]) {
-					ChangedAttributes[14] = true;
+				if ((_ssObservacaoCancelada!=value) || OptimizedAttributes[13]) {
+					ChangedAttributes[13] = true;
 					_ssObservacaoCancelada = value;
 				}
 			}
@@ -29304,24 +29283,9 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataCriacao;
 			}
 			set {
-				if ((_ssDataCriacao!=value) || OptimizedAttributes[15]) {
-					ChangedAttributes[15] = true;
+				if ((_ssDataCriacao!=value) || OptimizedAttributes[14]) {
+					ChangedAttributes[14] = true;
 					_ssDataCriacao = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("GerarOPPDF", 0, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("GerarOPPDF")]
-		private int _ssGerarOPPDF;
-		public int ssGerarOPPDF {
-			get {
-				return _ssGerarOPPDF;
-			}
-			set {
-				if ((_ssGerarOPPDF!=value) || OptimizedAttributes[16]) {
-					ChangedAttributes[16] = true;
-					_ssGerarOPPDF = value;
 				}
 			}
 		}
@@ -29334,8 +29298,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssUnitTest;
 			}
 			set {
-				if ((_ssUnitTest!=value) || OptimizedAttributes[17]) {
-					ChangedAttributes[17] = true;
+				if ((_ssUnitTest!=value) || OptimizedAttributes[15]) {
+					ChangedAttributes[15] = true;
 					_ssUnitTest = value;
 				}
 			}
@@ -29347,11 +29311,10 @@ namespace OutSystems.NssBRGS_DB {
 		public BitArray OptimizedAttributes;
 
 		public ENOrdemPagamentoEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(18, true);
-			OptimizedAttributes = new BitArray(18, false);
+			ChangedAttributes = new BitArray(16, true);
+			OptimizedAttributes = new BitArray(16, false);
 			_ssidOrdemPagamento = 0;
 			_ssidEmpresa = 0;
-			_ssidCliente = 0;
 			_ssidObraEtapa = 0;
 			_ssidFavorecido = 0;
 			_ssidContaBancaria = 0;
@@ -29362,10 +29325,9 @@ namespace OutSystems.NssBRGS_DB {
 			_ssDataSolicitacao = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssStatus = "";
 			_ssObservacao = "";
-			_ssCancelada = false;
+			_ssCancelada = 0;
 			_ssObservacaoCancelada = "";
 			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
-			_ssGerarOPPDF = 0;
 			_ssUnitTest = 0;
 		}
 
@@ -29394,7 +29356,6 @@ namespace OutSystems.NssBRGS_DB {
 		public void Read(IDataReader r, ref int index) {
 			ssidOrdemPagamento = r.ReadInteger(index++, "OrdemPagamento.idOrdemPagamento", 0);
 			ssidEmpresa = r.ReadEntityReference(index++, "OrdemPagamento.idEmpresa", 0);
-			ssidCliente = r.ReadEntityReference(index++, "OrdemPagamento.idCliente", 0);
 			ssidObraEtapa = r.ReadEntityReference(index++, "OrdemPagamento.idObraEtapa", 0);
 			ssidFavorecido = r.ReadEntityReference(index++, "OrdemPagamento.idFavorecido", 0);
 			ssidContaBancaria = r.ReadEntityReference(index++, "OrdemPagamento.idContaBancaria", 0);
@@ -29405,13 +29366,12 @@ namespace OutSystems.NssBRGS_DB {
 			ssDataSolicitacao = r.ReadDate(index++, "OrdemPagamento.DataSolicitacao", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssStatus = r.ReadText(index++, "OrdemPagamento.Status", "");
 			ssObservacao = r.ReadText(index++, "OrdemPagamento.Observacao", "");
-			ssCancelada = r.ReadBoolean(index++, "OrdemPagamento.Cancelada", false);
+			ssCancelada = r.ReadInteger(index++, "OrdemPagamento.Cancelada", 0);
 			ssObservacaoCancelada = r.ReadText(index++, "OrdemPagamento.ObservacaoCancelada", "");
 			ssDataCriacao = r.ReadDate(index++, "OrdemPagamento.DataCriacao", new DateTime(1900, 1, 1, 0, 0, 0));
-			ssGerarOPPDF = r.ReadInteger(index++, "OrdemPagamento.GerarOPPDF", 0);
 			ssUnitTest = r.ReadInteger(index++, "OrdemPagamento.UnitTest", 0);
-			ChangedAttributes = new BitArray(18, false);
-			OptimizedAttributes = new BitArray(18, false);
+			ChangedAttributes = new BitArray(16, false);
+			OptimizedAttributes = new BitArray(16, false);
 		}
 		/// <summary>
 		/// Read from database
@@ -29434,7 +29394,6 @@ namespace OutSystems.NssBRGS_DB {
 		public static bool operator == (ENOrdemPagamentoEntityRecord a, ENOrdemPagamentoEntityRecord b) {
 			if (a.ssidOrdemPagamento != b.ssidOrdemPagamento) return false;
 			if (a.ssidEmpresa != b.ssidEmpresa) return false;
-			if (a.ssidCliente != b.ssidCliente) return false;
 			if (a.ssidObraEtapa != b.ssidObraEtapa) return false;
 			if (a.ssidFavorecido != b.ssidFavorecido) return false;
 			if (a.ssidContaBancaria != b.ssidContaBancaria) return false;
@@ -29448,7 +29407,6 @@ namespace OutSystems.NssBRGS_DB {
 			if (a.ssCancelada != b.ssCancelada) return false;
 			if (a.ssObservacaoCancelada != b.ssObservacaoCancelada) return false;
 			if (a.ssDataCriacao != b.ssDataCriacao) return false;
-			if (a.ssGerarOPPDF != b.ssGerarOPPDF) return false;
 			if (a.ssUnitTest != b.ssUnitTest) return false;
 			return true;
 		}
@@ -29467,7 +29425,6 @@ namespace OutSystems.NssBRGS_DB {
 				return base.GetHashCode()
 				^ ssidOrdemPagamento.GetHashCode()
 				^ ssidEmpresa.GetHashCode()
-				^ ssidCliente.GetHashCode()
 				^ ssidObraEtapa.GetHashCode()
 				^ ssidFavorecido.GetHashCode()
 				^ ssidContaBancaria.GetHashCode()
@@ -29481,7 +29438,6 @@ namespace OutSystems.NssBRGS_DB {
 				^ ssCancelada.GetHashCode()
 				^ ssObservacaoCancelada.GetHashCode()
 				^ ssDataCriacao.GetHashCode()
-				^ ssGerarOPPDF.GetHashCode()
 				^ ssUnitTest.GetHashCode()
 				;
 			} catch {
@@ -29499,11 +29455,10 @@ namespace OutSystems.NssBRGS_DB {
 		}
 
 		public ENOrdemPagamentoEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(18, true);
-			OptimizedAttributes = new BitArray(18, false);
+			ChangedAttributes = new BitArray(16, true);
+			OptimizedAttributes = new BitArray(16, false);
 			_ssidOrdemPagamento = 0;
 			_ssidEmpresa = 0;
-			_ssidCliente = 0;
 			_ssidObraEtapa = 0;
 			_ssidFavorecido = 0;
 			_ssidContaBancaria = 0;
@@ -29514,10 +29469,9 @@ namespace OutSystems.NssBRGS_DB {
 			_ssDataSolicitacao = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssStatus = "";
 			_ssObservacao = "";
-			_ssCancelada = false;
+			_ssCancelada = 0;
 			_ssObservacaoCancelada = "";
 			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
-			_ssGerarOPPDF = 0;
 			_ssUnitTest = 0;
 			Type objInfo = this.GetType();
 			FieldInfo fieldInfo = null;
@@ -29534,13 +29488,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssidEmpresa = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssidCliente", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidCliente' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidCliente = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
 			fieldInfo = objInfo.GetField("_ssidObraEtapa", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
@@ -29617,7 +29564,7 @@ namespace OutSystems.NssBRGS_DB {
 				throw new Exception("The field named '_ssCancelada' was not found.");
 			}
 			if (fieldInfo.FieldType.IsSerializable) {
-				_ssCancelada = (bool) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+				_ssCancelada = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
 			fieldInfo = objInfo.GetField("_ssObservacaoCancelada", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
@@ -29632,13 +29579,6 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (fieldInfo.FieldType.IsSerializable) {
 				_ssDataCriacao = (DateTime) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssGerarOPPDF", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssGerarOPPDF' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssGerarOPPDF = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
 			}
 			fieldInfo = objInfo.GetField("_ssUnitTest", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
@@ -29660,7 +29600,6 @@ namespace OutSystems.NssBRGS_DB {
 			ENOrdemPagamentoEntityRecord t;
 			t._ssidOrdemPagamento = this._ssidOrdemPagamento;
 			t._ssidEmpresa = this._ssidEmpresa;
-			t._ssidCliente = this._ssidCliente;
 			t._ssidObraEtapa = this._ssidObraEtapa;
 			t._ssidFavorecido = this._ssidFavorecido;
 			t._ssidContaBancaria = this._ssidContaBancaria;
@@ -29674,11 +29613,10 @@ namespace OutSystems.NssBRGS_DB {
 			t._ssCancelada = this._ssCancelada;
 			t._ssObservacaoCancelada = this._ssObservacaoCancelada;
 			t._ssDataCriacao = this._ssDataCriacao;
-			t._ssGerarOPPDF = this._ssGerarOPPDF;
 			t._ssUnitTest = this._ssUnitTest;
-			t.ChangedAttributes = new BitArray(18);
-			t.OptimizedAttributes = new BitArray(18);
-			for (int i = 0; i < 18; i++) {
+			t.ChangedAttributes = new BitArray(16);
+			t.OptimizedAttributes = new BitArray(16);
+			for (int i = 0; i < 16; i++) {
 				t.ChangedAttributes[i] = ChangedAttributes[i];
 				t.OptimizedAttributes[i] = OptimizedAttributes[i];
 			}
@@ -29698,7 +29636,6 @@ namespace OutSystems.NssBRGS_DB {
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idOrdemPagamento")) VarValue.AppendAttribute(recordElem, "idOrdemPagamento", ssidOrdemPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idOrdemPagamento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idEmpresa")) VarValue.AppendAttribute(recordElem, "idEmpresa", ssidEmpresa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idEmpresa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCliente")) VarValue.AppendAttribute(recordElem, "idCliente", ssidCliente, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCliente");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idObraEtapa")) VarValue.AppendAttribute(recordElem, "idObraEtapa", ssidObraEtapa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idObraEtapa");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idFavorecido")) VarValue.AppendAttribute(recordElem, "idFavorecido", ssidFavorecido, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idFavorecido");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idContaBancaria")) VarValue.AppendAttribute(recordElem, "idContaBancaria", ssidContaBancaria, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idContaBancaria");
@@ -29709,10 +29646,9 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataSolicitacao")) VarValue.AppendAttribute(recordElem, "DataSolicitacao", ssDataSolicitacao, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataSolicitacao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Status")) VarValue.AppendAttribute(recordElem, "Status", ssStatus, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Status");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Observacao")) VarValue.AppendAttribute(recordElem, "Observacao", ssObservacao, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Observacao");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Cancelada")) VarValue.AppendAttribute(recordElem, "Cancelada", ssCancelada, detailLevel, TypeKind.Boolean); else VarValue.AppendOptimizedAttribute(recordElem, "Cancelada");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Cancelada")) VarValue.AppendAttribute(recordElem, "Cancelada", ssCancelada, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "Cancelada");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ObservacaoCancelada")) VarValue.AppendAttribute(recordElem, "ObservacaoCancelada", ssObservacaoCancelada, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "ObservacaoCancelada");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCriacao")) VarValue.AppendAttribute(recordElem, "DataCriacao", ssDataCriacao, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataCriacao");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".GerarOPPDF")) VarValue.AppendAttribute(recordElem, "GerarOPPDF", ssGerarOPPDF, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "GerarOPPDF");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".UnitTest")) VarValue.AppendAttribute(recordElem, "UnitTest", ssUnitTest, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "UnitTest");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -29727,8 +29663,6 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".idOrdemPagamento")) variable.Value = ssidOrdemPagamento; else variable.Optimized = true;
 			} else if (head == "idempresa") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".idEmpresa")) variable.Value = ssidEmpresa; else variable.Optimized = true;
-			} else if (head == "idcliente") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idCliente")) variable.Value = ssidCliente; else variable.Optimized = true;
 			} else if (head == "idobraetapa") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".idObraEtapa")) variable.Value = ssidObraEtapa; else variable.Optimized = true;
 			} else if (head == "idfavorecido") {
@@ -29755,8 +29689,6 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".ObservacaoCancelada")) variable.Value = ssObservacaoCancelada; else variable.Optimized = true;
 			} else if (head == "datacriacao") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataCriacao")) variable.Value = ssDataCriacao; else variable.Optimized = true;
-			} else if (head == "geraroppdf") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".GerarOPPDF")) variable.Value = ssGerarOPPDF; else variable.Optimized = true;
 			} else if (head == "unittest") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".UnitTest")) variable.Value = ssUnitTest; else variable.Optimized = true;
 			}
@@ -29768,38 +29700,34 @@ namespace OutSystems.NssBRGS_DB {
 				return ChangedAttributes[0];
 			} else if (key.Equals(IdidEmpresa)) {
 				return ChangedAttributes[1];
-			} else if (key.Equals(IdidCliente)) {
-				return ChangedAttributes[2];
 			} else if (key.Equals(IdidObraEtapa)) {
-				return ChangedAttributes[3];
+				return ChangedAttributes[2];
 			} else if (key.Equals(IdidFavorecido)) {
-				return ChangedAttributes[4];
+				return ChangedAttributes[3];
 			} else if (key.Equals(IdidContaBancaria)) {
-				return ChangedAttributes[5];
+				return ChangedAttributes[4];
 			} else if (key.Equals(IdidSolicitante)) {
-				return ChangedAttributes[6];
+				return ChangedAttributes[5];
 			} else if (key.Equals(IdidAutorizado)) {
-				return ChangedAttributes[7];
+				return ChangedAttributes[6];
 			} else if (key.Equals(IdNumeroOP)) {
-				return ChangedAttributes[8];
+				return ChangedAttributes[7];
 			} else if (key.Equals(IdAutorizado)) {
-				return ChangedAttributes[9];
+				return ChangedAttributes[8];
 			} else if (key.Equals(IdDataSolicitacao)) {
-				return ChangedAttributes[10];
+				return ChangedAttributes[9];
 			} else if (key.Equals(IdStatus)) {
-				return ChangedAttributes[11];
+				return ChangedAttributes[10];
 			} else if (key.Equals(IdObservacao)) {
-				return ChangedAttributes[12];
+				return ChangedAttributes[11];
 			} else if (key.Equals(IdCancelada)) {
-				return ChangedAttributes[13];
+				return ChangedAttributes[12];
 			} else if (key.Equals(IdObservacaoCancelada)) {
-				return ChangedAttributes[14];
+				return ChangedAttributes[13];
 			} else if (key.Equals(IdDataCriacao)) {
-				return ChangedAttributes[15];
-			} else if (key.Equals(IdGerarOPPDF)) {
-				return ChangedAttributes[16];
+				return ChangedAttributes[14];
 			} else if (key.Equals(IdUnitTest)) {
-				return ChangedAttributes[17];
+				return ChangedAttributes[15];
 			} else {
 				throw new Exception("Invalid key");
 			}
@@ -29810,38 +29738,34 @@ namespace OutSystems.NssBRGS_DB {
 				return OptimizedAttributes[0];
 			} else if (key.Equals(IdidEmpresa)) {
 				return OptimizedAttributes[1];
-			} else if (key.Equals(IdidCliente)) {
-				return OptimizedAttributes[2];
 			} else if (key.Equals(IdidObraEtapa)) {
-				return OptimizedAttributes[3];
+				return OptimizedAttributes[2];
 			} else if (key.Equals(IdidFavorecido)) {
-				return OptimizedAttributes[4];
+				return OptimizedAttributes[3];
 			} else if (key.Equals(IdidContaBancaria)) {
-				return OptimizedAttributes[5];
+				return OptimizedAttributes[4];
 			} else if (key.Equals(IdidSolicitante)) {
-				return OptimizedAttributes[6];
+				return OptimizedAttributes[5];
 			} else if (key.Equals(IdidAutorizado)) {
-				return OptimizedAttributes[7];
+				return OptimizedAttributes[6];
 			} else if (key.Equals(IdNumeroOP)) {
-				return OptimizedAttributes[8];
+				return OptimizedAttributes[7];
 			} else if (key.Equals(IdAutorizado)) {
-				return OptimizedAttributes[9];
+				return OptimizedAttributes[8];
 			} else if (key.Equals(IdDataSolicitacao)) {
-				return OptimizedAttributes[10];
+				return OptimizedAttributes[9];
 			} else if (key.Equals(IdStatus)) {
-				return OptimizedAttributes[11];
+				return OptimizedAttributes[10];
 			} else if (key.Equals(IdObservacao)) {
-				return OptimizedAttributes[12];
+				return OptimizedAttributes[11];
 			} else if (key.Equals(IdCancelada)) {
-				return OptimizedAttributes[13];
+				return OptimizedAttributes[12];
 			} else if (key.Equals(IdObservacaoCancelada)) {
-				return OptimizedAttributes[14];
+				return OptimizedAttributes[13];
 			} else if (key.Equals(IdDataCriacao)) {
-				return OptimizedAttributes[15];
-			} else if (key.Equals(IdGerarOPPDF)) {
-				return OptimizedAttributes[16];
+				return OptimizedAttributes[14];
 			} else if (key.Equals(IdUnitTest)) {
-				return OptimizedAttributes[17];
+				return OptimizedAttributes[15];
 			} else {
 				throw new Exception("Invalid key");
 			}
@@ -29852,8 +29776,6 @@ namespace OutSystems.NssBRGS_DB {
 				return ssidOrdemPagamento;
 			} else if (key == IdidEmpresa) {
 				return ssidEmpresa;
-			} else if (key == IdidCliente) {
-				return ssidCliente;
 			} else if (key == IdidObraEtapa) {
 				return ssidObraEtapa;
 			} else if (key == IdidFavorecido) {
@@ -29880,8 +29802,6 @@ namespace OutSystems.NssBRGS_DB {
 				return ssObservacaoCancelada;
 			} else if (key == IdDataCriacao) {
 				return ssDataCriacao;
-			} else if (key == IdGerarOPPDF) {
-				return ssGerarOPPDF;
 			} else if (key == IdUnitTest) {
 				return ssUnitTest;
 			} else {
@@ -29889,8 +29809,8 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(18);
-			OptimizedAttributes = new BitArray(18);
+			ChangedAttributes = new BitArray(16);
+			OptimizedAttributes = new BitArray(16);
 			if (other == null) return;
 			ssidOrdemPagamento = (int) other.AttributeGet(IdidOrdemPagamento);
 			ChangedAttributes[0] = other.ChangedAttributeGet(IdidOrdemPagamento);
@@ -29898,60 +29818,53 @@ namespace OutSystems.NssBRGS_DB {
 			ssidEmpresa = (int) other.AttributeGet(IdidEmpresa);
 			ChangedAttributes[1] = other.ChangedAttributeGet(IdidEmpresa);
 			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdidEmpresa);
-			ssidCliente = (int) other.AttributeGet(IdidCliente);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdidCliente);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdidCliente);
 			ssidObraEtapa = (int) other.AttributeGet(IdidObraEtapa);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdidObraEtapa);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdidObraEtapa);
+			ChangedAttributes[2] = other.ChangedAttributeGet(IdidObraEtapa);
+			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdidObraEtapa);
 			ssidFavorecido = (int) other.AttributeGet(IdidFavorecido);
-			ChangedAttributes[4] = other.ChangedAttributeGet(IdidFavorecido);
-			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdidFavorecido);
+			ChangedAttributes[3] = other.ChangedAttributeGet(IdidFavorecido);
+			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdidFavorecido);
 			ssidContaBancaria = (int) other.AttributeGet(IdidContaBancaria);
-			ChangedAttributes[5] = other.ChangedAttributeGet(IdidContaBancaria);
-			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdidContaBancaria);
+			ChangedAttributes[4] = other.ChangedAttributeGet(IdidContaBancaria);
+			OptimizedAttributes[4] = other.OptimizedAttributeGet(IdidContaBancaria);
 			ssidSolicitante = (int) other.AttributeGet(IdidSolicitante);
-			ChangedAttributes[6] = other.ChangedAttributeGet(IdidSolicitante);
-			OptimizedAttributes[6] = other.OptimizedAttributeGet(IdidSolicitante);
+			ChangedAttributes[5] = other.ChangedAttributeGet(IdidSolicitante);
+			OptimizedAttributes[5] = other.OptimizedAttributeGet(IdidSolicitante);
 			ssidAutorizado = (int) other.AttributeGet(IdidAutorizado);
-			ChangedAttributes[7] = other.ChangedAttributeGet(IdidAutorizado);
-			OptimizedAttributes[7] = other.OptimizedAttributeGet(IdidAutorizado);
+			ChangedAttributes[6] = other.ChangedAttributeGet(IdidAutorizado);
+			OptimizedAttributes[6] = other.OptimizedAttributeGet(IdidAutorizado);
 			ssNumeroOP = (string) other.AttributeGet(IdNumeroOP);
-			ChangedAttributes[8] = other.ChangedAttributeGet(IdNumeroOP);
-			OptimizedAttributes[8] = other.OptimizedAttributeGet(IdNumeroOP);
+			ChangedAttributes[7] = other.ChangedAttributeGet(IdNumeroOP);
+			OptimizedAttributes[7] = other.OptimizedAttributeGet(IdNumeroOP);
 			ssAutorizado = (string) other.AttributeGet(IdAutorizado);
-			ChangedAttributes[9] = other.ChangedAttributeGet(IdAutorizado);
-			OptimizedAttributes[9] = other.OptimizedAttributeGet(IdAutorizado);
+			ChangedAttributes[8] = other.ChangedAttributeGet(IdAutorizado);
+			OptimizedAttributes[8] = other.OptimizedAttributeGet(IdAutorizado);
 			ssDataSolicitacao = (DateTime) other.AttributeGet(IdDataSolicitacao);
-			ChangedAttributes[10] = other.ChangedAttributeGet(IdDataSolicitacao);
-			OptimizedAttributes[10] = other.OptimizedAttributeGet(IdDataSolicitacao);
+			ChangedAttributes[9] = other.ChangedAttributeGet(IdDataSolicitacao);
+			OptimizedAttributes[9] = other.OptimizedAttributeGet(IdDataSolicitacao);
 			ssStatus = (string) other.AttributeGet(IdStatus);
-			ChangedAttributes[11] = other.ChangedAttributeGet(IdStatus);
-			OptimizedAttributes[11] = other.OptimizedAttributeGet(IdStatus);
+			ChangedAttributes[10] = other.ChangedAttributeGet(IdStatus);
+			OptimizedAttributes[10] = other.OptimizedAttributeGet(IdStatus);
 			ssObservacao = (string) other.AttributeGet(IdObservacao);
-			ChangedAttributes[12] = other.ChangedAttributeGet(IdObservacao);
-			OptimizedAttributes[12] = other.OptimizedAttributeGet(IdObservacao);
-			ssCancelada = (bool) other.AttributeGet(IdCancelada);
-			ChangedAttributes[13] = other.ChangedAttributeGet(IdCancelada);
-			OptimizedAttributes[13] = other.OptimizedAttributeGet(IdCancelada);
+			ChangedAttributes[11] = other.ChangedAttributeGet(IdObservacao);
+			OptimizedAttributes[11] = other.OptimizedAttributeGet(IdObservacao);
+			ssCancelada = (int) other.AttributeGet(IdCancelada);
+			ChangedAttributes[12] = other.ChangedAttributeGet(IdCancelada);
+			OptimizedAttributes[12] = other.OptimizedAttributeGet(IdCancelada);
 			ssObservacaoCancelada = (string) other.AttributeGet(IdObservacaoCancelada);
-			ChangedAttributes[14] = other.ChangedAttributeGet(IdObservacaoCancelada);
-			OptimizedAttributes[14] = other.OptimizedAttributeGet(IdObservacaoCancelada);
+			ChangedAttributes[13] = other.ChangedAttributeGet(IdObservacaoCancelada);
+			OptimizedAttributes[13] = other.OptimizedAttributeGet(IdObservacaoCancelada);
 			ssDataCriacao = (DateTime) other.AttributeGet(IdDataCriacao);
-			ChangedAttributes[15] = other.ChangedAttributeGet(IdDataCriacao);
-			OptimizedAttributes[15] = other.OptimizedAttributeGet(IdDataCriacao);
-			ssGerarOPPDF = (int) other.AttributeGet(IdGerarOPPDF);
-			ChangedAttributes[16] = other.ChangedAttributeGet(IdGerarOPPDF);
-			OptimizedAttributes[16] = other.OptimizedAttributeGet(IdGerarOPPDF);
+			ChangedAttributes[14] = other.ChangedAttributeGet(IdDataCriacao);
+			OptimizedAttributes[14] = other.OptimizedAttributeGet(IdDataCriacao);
 			ssUnitTest = (int) other.AttributeGet(IdUnitTest);
-			ChangedAttributes[17] = other.ChangedAttributeGet(IdUnitTest);
-			OptimizedAttributes[17] = other.OptimizedAttributeGet(IdUnitTest);
+			ChangedAttributes[15] = other.ChangedAttributeGet(IdUnitTest);
+			OptimizedAttributes[15] = other.OptimizedAttributeGet(IdUnitTest);
 		}
 		public bool IsDefault() {
 			ENOrdemPagamentoEntityRecord defaultStruct = new ENOrdemPagamentoEntityRecord(null);
 			if (this.ssidOrdemPagamento != defaultStruct.ssidOrdemPagamento) return false;
 			if (this.ssidEmpresa != defaultStruct.ssidEmpresa) return false;
-			if (this.ssidCliente != defaultStruct.ssidCliente) return false;
 			if (this.ssidObraEtapa != defaultStruct.ssidObraEtapa) return false;
 			if (this.ssidFavorecido != defaultStruct.ssidFavorecido) return false;
 			if (this.ssidContaBancaria != defaultStruct.ssidContaBancaria) return false;
@@ -29965,7 +29878,6 @@ namespace OutSystems.NssBRGS_DB {
 			if (this.ssCancelada != defaultStruct.ssCancelada) return false;
 			if (this.ssObservacaoCancelada != defaultStruct.ssObservacaoCancelada) return false;
 			if (this.ssDataCriacao != defaultStruct.ssDataCriacao) return false;
-			if (this.ssGerarOPPDF != defaultStruct.ssGerarOPPDF) return false;
 			if (this.ssUnitTest != defaultStruct.ssUnitTest) return false;
 			return true;
 		}
@@ -32392,1131 +32304,5 @@ namespace OutSystems.NssBRGS_DB {
 			return true;
 		}
 	} // ENOrdemPagamentoPDFEntityRecord
-
-	public class ENVW_COMBO_DESPESA_MOBILEEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "5e346150-804a-4380-b14f-ce269f9ac5f7", "VW_COMBO_DESPESA_MOBILE", "[brgs1].[dbo].[VW_COMBO_DESPESA_MOBILE]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_COMBO_DESPESA_MOBILE]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_COMBO_DESPESA_MOBILE]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_COMBO_DESPESA_MOBILEEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "iddespesa", "idDespesa"
-			}
-			, { "idcentrocusto", "idCentroCusto"
-			}
-			, { "descricaodespesa", "DescricaoDespesa"
-			}
-			, { "idusuario", "IdUsuario"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_COMBO_DESPESA_MOBILEEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_COMBO_DESPESA_MOBILEEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_COMBO_DESPESA_MOBILEEntityRecord</code> that represents the Service Studio entity
-	///  <code>VW_COMBO_DESPESA_MOBILE</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_COMBO_DESPESA_MOBILE", "UGE0XkqAgEOxT84mn5rF9w", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_COMBO_DESPESA_MOBILE]", null)]
-	[Serializable()]
-	public partial struct ENVW_COMBO_DESPESA_MOBILEEntityRecord: ISerializable, ITypedRecord<ENVW_COMBO_DESPESA_MOBILEEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdidDespesa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*tVT4wHHrF0uKR9967GHEfg");
-		internal static readonly GlobalObjectKey IdidCentroCusto = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*9R1D5AWH_k25ZNzhA79Q0w");
-		internal static readonly GlobalObjectKey IdDescricaoDespesa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*DEIWFUsU2064v483tO2fyw");
-		internal static readonly GlobalObjectKey IdIdUsuario = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*K4d8neuhmECfeTRVoidZzg");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idDespesa", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idDespesa")]
-		private int _ssidDespesa;
-		public int ssidDespesa {
-			get {
-				return _ssidDespesa;
-			}
-			set {
-				if ((_ssidDespesa!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssidDespesa = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idCentroCusto")]
-		private int _ssidCentroCusto;
-		public int ssidCentroCusto {
-			get {
-				return _ssidCentroCusto;
-			}
-			set {
-				if ((_ssidCentroCusto!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssidCentroCusto = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DescricaoDespesa", 50, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("DescricaoDespesa")]
-		private string _ssDescricaoDespesa;
-		public string ssDescricaoDespesa {
-			get {
-				return _ssDescricaoDespesa;
-			}
-			set {
-				if ((_ssDescricaoDespesa!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssDescricaoDespesa = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdUsuario", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("IdUsuario")]
-		private int _ssIdUsuario;
-		public int ssIdUsuario {
-			get {
-				return _ssIdUsuario;
-			}
-			set {
-				if ((_ssIdUsuario!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssIdUsuario = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_COMBO_DESPESA_MOBILEEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssidDespesa = 0;
-			_ssidCentroCusto = 0;
-			_ssDescricaoDespesa = "";
-			_ssIdUsuario = 0;
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssidDespesa = r.ReadEntityReference(index++, "VW_COMBO_DESPESA_MOBILE.idDespesa", 0);
-			ssidCentroCusto = r.ReadEntityReference(index++, "VW_COMBO_DESPESA_MOBILE.idCentroCusto", 0);
-			ssDescricaoDespesa = r.ReadText(index++, "VW_COMBO_DESPESA_MOBILE.DescricaoDespesa", "");
-			ssIdUsuario = r.ReadEntityReference(index++, "VW_COMBO_DESPESA_MOBILE.IdUsuario", 0);
-			ChangedAttributes = new BitArray(4, false);
-			OptimizedAttributes = new BitArray(4, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_COMBO_DESPESA_MOBILEEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_COMBO_DESPESA_MOBILEEntityRecord a, ENVW_COMBO_DESPESA_MOBILEEntityRecord b) {
-			if (a.ssidDespesa != b.ssidDespesa) return false;
-			if (a.ssidCentroCusto != b.ssidCentroCusto) return false;
-			if (a.ssDescricaoDespesa != b.ssDescricaoDespesa) return false;
-			if (a.ssIdUsuario != b.ssIdUsuario) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_COMBO_DESPESA_MOBILEEntityRecord a, ENVW_COMBO_DESPESA_MOBILEEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_COMBO_DESPESA_MOBILEEntityRecord)) return false;
-			return (this == (ENVW_COMBO_DESPESA_MOBILEEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssidDespesa.GetHashCode()
-				^ ssidCentroCusto.GetHashCode()
-				^ ssDescricaoDespesa.GetHashCode()
-				^ ssIdUsuario.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_COMBO_DESPESA_MOBILEEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssidDespesa = 0;
-			_ssidCentroCusto = 0;
-			_ssDescricaoDespesa = "";
-			_ssIdUsuario = 0;
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssidDespesa", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidDespesa' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidDespesa = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssidCentroCusto", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidCentroCusto' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidCentroCusto = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssDescricaoDespesa", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssDescricaoDespesa' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssDescricaoDespesa = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssIdUsuario", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdUsuario' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdUsuario = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_COMBO_DESPESA_MOBILEEntityRecord Duplicate() {
-			ENVW_COMBO_DESPESA_MOBILEEntityRecord t;
-			t._ssidDespesa = this._ssidDespesa;
-			t._ssidCentroCusto = this._ssidCentroCusto;
-			t._ssDescricaoDespesa = this._ssDescricaoDespesa;
-			t._ssIdUsuario = this._ssIdUsuario;
-			t.ChangedAttributes = new BitArray(4);
-			t.OptimizedAttributes = new BitArray(4);
-			for (int i = 0; i < 4; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idDespesa")) VarValue.AppendAttribute(recordElem, "idDespesa", ssidDespesa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idDespesa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DescricaoDespesa")) VarValue.AppendAttribute(recordElem, "DescricaoDespesa", ssDescricaoDespesa, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "DescricaoDespesa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdUsuario")) VarValue.AppendAttribute(recordElem, "IdUsuario", ssIdUsuario, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdUsuario");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "iddespesa") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idDespesa")) variable.Value = ssidDespesa; else variable.Optimized = true;
-			} else if (head == "idcentrocusto") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idCentroCusto")) variable.Value = ssidCentroCusto; else variable.Optimized = true;
-			} else if (head == "descricaodespesa") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".DescricaoDespesa")) variable.Value = ssDescricaoDespesa; else variable.Optimized = true;
-			} else if (head == "idusuario") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdUsuario")) variable.Value = ssIdUsuario; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidDespesa)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdidCentroCusto)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdDescricaoDespesa)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdIdUsuario)) {
-				return ChangedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidDespesa)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdidCentroCusto)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdDescricaoDespesa)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdIdUsuario)) {
-				return OptimizedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdidDespesa) {
-				return ssidDespesa;
-			} else if (key == IdidCentroCusto) {
-				return ssidCentroCusto;
-			} else if (key == IdDescricaoDespesa) {
-				return ssDescricaoDespesa;
-			} else if (key == IdIdUsuario) {
-				return ssIdUsuario;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(4);
-			OptimizedAttributes = new BitArray(4);
-			if (other == null) return;
-			ssidDespesa = (int) other.AttributeGet(IdidDespesa);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdidDespesa);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdidDespesa);
-			ssidCentroCusto = (int) other.AttributeGet(IdidCentroCusto);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdidCentroCusto);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdidCentroCusto);
-			ssDescricaoDespesa = (string) other.AttributeGet(IdDescricaoDespesa);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdDescricaoDespesa);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDescricaoDespesa);
-			ssIdUsuario = (int) other.AttributeGet(IdIdUsuario);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdIdUsuario);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdIdUsuario);
-		}
-		public bool IsDefault() {
-			ENVW_COMBO_DESPESA_MOBILEEntityRecord defaultStruct = new ENVW_COMBO_DESPESA_MOBILEEntityRecord(null);
-			if (this.ssidDespesa != defaultStruct.ssidDespesa) return false;
-			if (this.ssidCentroCusto != defaultStruct.ssidCentroCusto) return false;
-			if (this.ssDescricaoDespesa != defaultStruct.ssDescricaoDespesa) return false;
-			if (this.ssIdUsuario != defaultStruct.ssIdUsuario) return false;
-			return true;
-		}
-	} // ENVW_COMBO_DESPESA_MOBILEEntityRecord
-
-	public class ENVW_COMBO_UEN_MOBILEEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "74efc0c2-ecfa-4b6b-b2fd-edea81d31021", "VW_COMBO_UEN_MOBILE", "[brgs1].[dbo].[VW_COMBO_UEN_MOBILE]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_COMBO_UEN_MOBILE]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_COMBO_UEN_MOBILE]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_COMBO_UEN_MOBILEEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "iduen", "idUen"
-			}
-			, { "descricao", "Descricao"
-			}
-			, { "idusuario", "idUsuario"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_COMBO_UEN_MOBILEEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_COMBO_UEN_MOBILEEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_COMBO_UEN_MOBILEEntityRecord</code> that represents the Service Studio entity
-	///  <code>VW_COMBO_UEN_MOBILE</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_COMBO_UEN_MOBILE", "wsDvdPrsa0uy_e3qgdMQIQ", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_COMBO_UEN_MOBILE]", null)]
-	[Serializable()]
-	public partial struct ENVW_COMBO_UEN_MOBILEEntityRecord: ISerializable, ITypedRecord<ENVW_COMBO_UEN_MOBILEEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdidUen = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*K7WjDs01lUSdbqXaKCLjpQ");
-		internal static readonly GlobalObjectKey IdDescricao = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*KcDMBt9IqEqGDxCJeyJBxQ");
-		internal static readonly GlobalObjectKey IdidUsuario = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*l2FbNAObG0eQGf3URz_MqQ");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUen", 0, false, false, true, true)]
-		[System.Xml.Serialization.XmlElement("idUen")]
-		private int _ssidUen;
-		public int ssidUen {
-			get {
-				return _ssidUen;
-			}
-			set {
-				if ((_ssidUen!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssidUen = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("Descricao", 100, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("Descricao")]
-		private string _ssDescricao;
-		public string ssDescricao {
-			get {
-				return _ssDescricao;
-			}
-			set {
-				if ((_ssDescricao!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssDescricao = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuario", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idUsuario")]
-		private int _ssidUsuario;
-		public int ssidUsuario {
-			get {
-				return _ssidUsuario;
-			}
-			set {
-				if ((_ssidUsuario!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssidUsuario = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_COMBO_UEN_MOBILEEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
-			_ssidUen = 0;
-			_ssDescricao = "";
-			_ssidUsuario = 0;
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssidUen = r.ReadEntityReference(index++, "VW_COMBO_UEN_MOBILE.idUen", 0);
-			ssDescricao = r.ReadText(index++, "VW_COMBO_UEN_MOBILE.Descricao", "");
-			ssidUsuario = r.ReadEntityReference(index++, "VW_COMBO_UEN_MOBILE.idUsuario", 0);
-			ChangedAttributes = new BitArray(3, false);
-			OptimizedAttributes = new BitArray(3, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_COMBO_UEN_MOBILEEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_COMBO_UEN_MOBILEEntityRecord a, ENVW_COMBO_UEN_MOBILEEntityRecord b) {
-			if (a.ssidUen != b.ssidUen) return false;
-			if (a.ssDescricao != b.ssDescricao) return false;
-			if (a.ssidUsuario != b.ssidUsuario) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_COMBO_UEN_MOBILEEntityRecord a, ENVW_COMBO_UEN_MOBILEEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_COMBO_UEN_MOBILEEntityRecord)) return false;
-			return (this == (ENVW_COMBO_UEN_MOBILEEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssidUen.GetHashCode()
-				^ ssDescricao.GetHashCode()
-				^ ssidUsuario.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_COMBO_UEN_MOBILEEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
-			_ssidUen = 0;
-			_ssDescricao = "";
-			_ssidUsuario = 0;
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssidUen", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidUen' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidUen = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssDescricao", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssDescricao' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssDescricao = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssidUsuario", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidUsuario' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidUsuario = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_COMBO_UEN_MOBILEEntityRecord Duplicate() {
-			ENVW_COMBO_UEN_MOBILEEntityRecord t;
-			t._ssidUen = this._ssidUen;
-			t._ssDescricao = this._ssDescricao;
-			t._ssidUsuario = this._ssidUsuario;
-			t.ChangedAttributes = new BitArray(3);
-			t.OptimizedAttributes = new BitArray(3);
-			for (int i = 0; i < 3; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUen")) VarValue.AppendAttribute(recordElem, "idUen", ssidUen, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUen");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Descricao")) VarValue.AppendAttribute(recordElem, "Descricao", ssDescricao, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "Descricao");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuario")) VarValue.AppendAttribute(recordElem, "idUsuario", ssidUsuario, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuario");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "iduen") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idUen")) variable.Value = ssidUen; else variable.Optimized = true;
-			} else if (head == "descricao") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".Descricao")) variable.Value = ssDescricao; else variable.Optimized = true;
-			} else if (head == "idusuario") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idUsuario")) variable.Value = ssidUsuario; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidUen)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdDescricao)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdidUsuario)) {
-				return ChangedAttributes[2];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidUen)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdDescricao)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdidUsuario)) {
-				return OptimizedAttributes[2];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdidUen) {
-				return ssidUen;
-			} else if (key == IdDescricao) {
-				return ssDescricao;
-			} else if (key == IdidUsuario) {
-				return ssidUsuario;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(3);
-			OptimizedAttributes = new BitArray(3);
-			if (other == null) return;
-			ssidUen = (int) other.AttributeGet(IdidUen);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdidUen);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdidUen);
-			ssDescricao = (string) other.AttributeGet(IdDescricao);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdDescricao);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdDescricao);
-			ssidUsuario = (int) other.AttributeGet(IdidUsuario);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdidUsuario);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdidUsuario);
-		}
-		public bool IsDefault() {
-			ENVW_COMBO_UEN_MOBILEEntityRecord defaultStruct = new ENVW_COMBO_UEN_MOBILEEntityRecord(null);
-			if (this.ssidUen != defaultStruct.ssidUen) return false;
-			if (this.ssDescricao != defaultStruct.ssDescricao) return false;
-			if (this.ssidUsuario != defaultStruct.ssidUsuario) return false;
-			return true;
-		}
-	} // ENVW_COMBO_UEN_MOBILEEntityRecord
-
-	public class ENVW_COMBO_CENTROCUSTO_MOBILEEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "139d06c5-21d5-4346-b443-576809dc1e6c", "VW_COMBO_CENTROCUSTO_MOBILE", "[brgs1].[dbo].[VW_COMBO_CENTROCUSTO_MOBILE]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_COMBO_CENTROCUSTO_MOBILE]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_COMBO_CENTROCUSTO_MOBILE]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_COMBO_CENTROCUSTO_MOBILEEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "idcentrocusto", "idCentroCusto"
-			}
-			, { "iduen", "idUEN"
-			}
-			, { "idusuario", "IdUsuario"
-			}
-			, { "descricaocentrocusto", "DescricaoCentroCusto"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_COMBO_CENTROCUSTO_MOBILEEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_COMBO_CENTROCUSTO_MOBILEEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord</code> that represents the Service Studio
-	///  entity <code>VW_COMBO_CENTROCUSTO_MOBILE</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_COMBO_CENTROCUSTO_MOBILE", "xQadE9UhRkO0Q1doCdwebA", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_COMBO_CENTROCUSTO_MOBILE]", null)]
-	[Serializable()]
-	public partial struct ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord: ISerializable, ITypedRecord<ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdidCentroCusto = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*mZrHgoLmPUWqdvY3JKopdA");
-		internal static readonly GlobalObjectKey IdidUEN = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*TmRtRbM4l0WMMeMeFtXEbA");
-		internal static readonly GlobalObjectKey IdIdUsuario = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*jY7aIVGdWU2eu8S3_+kUmg");
-		internal static readonly GlobalObjectKey IdDescricaoCentroCusto = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*D3uwYjcg2ES+mpEfmPNacg");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idCentroCusto", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idCentroCusto")]
-		private int _ssidCentroCusto;
-		public int ssidCentroCusto {
-			get {
-				return _ssidCentroCusto;
-			}
-			set {
-				if ((_ssidCentroCusto!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssidCentroCusto = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUEN", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("idUEN")]
-		private int _ssidUEN;
-		public int ssidUEN {
-			get {
-				return _ssidUEN;
-			}
-			set {
-				if ((_ssidUEN!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
-					_ssidUEN = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdUsuario", 0, false, false, true, false)]
-		[System.Xml.Serialization.XmlElement("IdUsuario")]
-		private int _ssIdUsuario;
-		public int ssIdUsuario {
-			get {
-				return _ssIdUsuario;
-			}
-			set {
-				if ((_ssIdUsuario!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
-					_ssIdUsuario = value;
-				}
-			}
-		}
-
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DescricaoCentroCusto", 100, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("DescricaoCentroCusto")]
-		private string _ssDescricaoCentroCusto;
-		public string ssDescricaoCentroCusto {
-			get {
-				return _ssDescricaoCentroCusto;
-			}
-			set {
-				if ((_ssDescricaoCentroCusto!=value) || OptimizedAttributes[3]) {
-					ChangedAttributes[3] = true;
-					_ssDescricaoCentroCusto = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssidCentroCusto = 0;
-			_ssidUEN = 0;
-			_ssIdUsuario = 0;
-			_ssDescricaoCentroCusto = "";
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssidCentroCusto = r.ReadEntityReference(index++, "VW_COMBO_CENTROCUSTO_MOBILE.idCentroCusto", 0);
-			ssidUEN = r.ReadEntityReference(index++, "VW_COMBO_CENTROCUSTO_MOBILE.idUEN", 0);
-			ssIdUsuario = r.ReadEntityReference(index++, "VW_COMBO_CENTROCUSTO_MOBILE.IdUsuario", 0);
-			ssDescricaoCentroCusto = r.ReadText(index++, "VW_COMBO_CENTROCUSTO_MOBILE.DescricaoCentroCusto", "");
-			ChangedAttributes = new BitArray(4, false);
-			OptimizedAttributes = new BitArray(4, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord a, ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord b) {
-			if (a.ssidCentroCusto != b.ssidCentroCusto) return false;
-			if (a.ssidUEN != b.ssidUEN) return false;
-			if (a.ssIdUsuario != b.ssIdUsuario) return false;
-			if (a.ssDescricaoCentroCusto != b.ssDescricaoCentroCusto) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord a, ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord)) return false;
-			return (this == (ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssidCentroCusto.GetHashCode()
-				^ ssidUEN.GetHashCode()
-				^ ssIdUsuario.GetHashCode()
-				^ ssDescricaoCentroCusto.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(4, true);
-			OptimizedAttributes = new BitArray(4, false);
-			_ssidCentroCusto = 0;
-			_ssidUEN = 0;
-			_ssIdUsuario = 0;
-			_ssDescricaoCentroCusto = "";
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssidCentroCusto", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidCentroCusto' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidCentroCusto = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssidUEN", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssidUEN' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssidUEN = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssIdUsuario", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssIdUsuario' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssIdUsuario = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-			fieldInfo = objInfo.GetField("_ssDescricaoCentroCusto", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssDescricaoCentroCusto' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssDescricaoCentroCusto = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord Duplicate() {
-			ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord t;
-			t._ssidCentroCusto = this._ssidCentroCusto;
-			t._ssidUEN = this._ssidUEN;
-			t._ssIdUsuario = this._ssIdUsuario;
-			t._ssDescricaoCentroCusto = this._ssDescricaoCentroCusto;
-			t.ChangedAttributes = new BitArray(4);
-			t.OptimizedAttributes = new BitArray(4);
-			for (int i = 0; i < 4; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUEN")) VarValue.AppendAttribute(recordElem, "idUEN", ssidUEN, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUEN");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdUsuario")) VarValue.AppendAttribute(recordElem, "IdUsuario", ssIdUsuario, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdUsuario");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DescricaoCentroCusto")) VarValue.AppendAttribute(recordElem, "DescricaoCentroCusto", ssDescricaoCentroCusto, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "DescricaoCentroCusto");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "idcentrocusto") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idCentroCusto")) variable.Value = ssidCentroCusto; else variable.Optimized = true;
-			} else if (head == "iduen") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".idUEN")) variable.Value = ssidUEN; else variable.Optimized = true;
-			} else if (head == "idusuario") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdUsuario")) variable.Value = ssIdUsuario; else variable.Optimized = true;
-			} else if (head == "descricaocentrocusto") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".DescricaoCentroCusto")) variable.Value = ssDescricaoCentroCusto; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidCentroCusto)) {
-				return ChangedAttributes[0];
-			} else if (key.Equals(IdidUEN)) {
-				return ChangedAttributes[1];
-			} else if (key.Equals(IdIdUsuario)) {
-				return ChangedAttributes[2];
-			} else if (key.Equals(IdDescricaoCentroCusto)) {
-				return ChangedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdidCentroCusto)) {
-				return OptimizedAttributes[0];
-			} else if (key.Equals(IdidUEN)) {
-				return OptimizedAttributes[1];
-			} else if (key.Equals(IdIdUsuario)) {
-				return OptimizedAttributes[2];
-			} else if (key.Equals(IdDescricaoCentroCusto)) {
-				return OptimizedAttributes[3];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdidCentroCusto) {
-				return ssidCentroCusto;
-			} else if (key == IdidUEN) {
-				return ssidUEN;
-			} else if (key == IdIdUsuario) {
-				return ssIdUsuario;
-			} else if (key == IdDescricaoCentroCusto) {
-				return ssDescricaoCentroCusto;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(4);
-			OptimizedAttributes = new BitArray(4);
-			if (other == null) return;
-			ssidCentroCusto = (int) other.AttributeGet(IdidCentroCusto);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdidCentroCusto);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdidCentroCusto);
-			ssidUEN = (int) other.AttributeGet(IdidUEN);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdidUEN);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdidUEN);
-			ssIdUsuario = (int) other.AttributeGet(IdIdUsuario);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdIdUsuario);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdIdUsuario);
-			ssDescricaoCentroCusto = (string) other.AttributeGet(IdDescricaoCentroCusto);
-			ChangedAttributes[3] = other.ChangedAttributeGet(IdDescricaoCentroCusto);
-			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdDescricaoCentroCusto);
-		}
-		public bool IsDefault() {
-			ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord defaultStruct = new ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord(null);
-			if (this.ssidCentroCusto != defaultStruct.ssidCentroCusto) return false;
-			if (this.ssidUEN != defaultStruct.ssidUEN) return false;
-			if (this.ssIdUsuario != defaultStruct.ssIdUsuario) return false;
-			if (this.ssDescricaoCentroCusto != defaultStruct.ssDescricaoCentroCusto) return false;
-			return true;
-		}
-	} // ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord
 
 } // OutSystems.NssBRGS_DB
