@@ -20,9 +20,7 @@ namespace BRGS.UI.Relatorios
         }
 
         public string ExportarOP2PDF(int idOP, int idObraEtapa)
-        {
-            var cryRpt = new ReportDocument();
-            var empresa = new BIZEmpresa();
+        {   
             var ordemPagamento = new BIZOrdemPagamento();
             var helper = new Helper();
             DataTable dtOP, dtObras, dtTotaisObra = new DataTable();
@@ -62,24 +60,32 @@ namespace BRGS.UI.Relatorios
 
             var dsOP = PrepararDataSet(dtOP, dtTotaisObra, logotipo);
 
-            cryRpt.Load(_reportPath);
-            cryRpt.SetDataSource(dsOP);
-            cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);            
-
-            cryRpt.Refresh();
-
-            var resultPDF = cryRpt.ExportToStream(ExportFormatType.PortableDocFormat);
- 
-            using (var ms = new MemoryStream())
+            using (var cryRpt = new ReportDocument())
             {
-                resultPDF.CopyTo(ms);
-                var bContent = ms.ToArray();
-                pdfContent = Convert.ToBase64String(bContent);
-                ms.Close();
+                cryRpt.Load(_reportPath);
+                cryRpt.SetDataSource(dsOP);
+                cryRpt.Subreports[0].Database.Tables["dtOPsPagaObra"].SetDataSource(dtObras);
+
+                cryRpt.Refresh();
+
+                using (var resultPDF = cryRpt.ExportToStream(ExportFormatType.PortableDocFormat))
+                using (var ms = new MemoryStream())
+                {
+                    resultPDF.CopyTo(ms);
+                    pdfContent = Convert.ToBase64String(ms.ToArray());
+                }
+
+                cryRpt.Close();
+                cryRpt.Dispose();
             }
 
-            cryRpt.Close();
-            cryRpt.Dispose();
+            dtOP?.Dispose();
+            dtObras?.Dispose();
+            dtTotaisObra?.Dispose();
+
+            dsOP?.Dispose();
+
+            logotipo?.Dispose();
 
             return pdfContent;
         }
@@ -87,12 +93,11 @@ namespace BRGS.UI.Relatorios
         private dsOrdemPagamento PrepararDataSet(DataTable dtOP, DataTable dtTotaisObra, Image logotipo)
         {
             var dsOP = new dsOrdemPagamento();
+            ImageConverter _imageConverter = new ImageConverter();
+            byte[] xByte = (byte[])_imageConverter.ConvertTo(logotipo, typeof(byte[]));
 
             foreach (DataRow dr in dtOP.Rows)
             {
-                ImageConverter _imageConverter = new ImageConverter();
-                byte[] xByte = (byte[])_imageConverter.ConvertTo(logotipo, typeof(byte[]));
-
                 dsOP.DataTable1.AddDataTable1Row
                 (
                     dr["RazaoSocial"].ToString(),
@@ -101,7 +106,7 @@ namespace BRGS.UI.Relatorios
                     dr["NomeSolicitante"].ToString(),
                     dr["NomeFavorecido"].ToString(),
                     dr["Autorizado"].ToString(),
-                    dr["DataSolicitacao"].ToString(),
+                    DateTime.Parse(dr["DataSolicitacao"].ToString()),
                     dr["DescricaoUEN"].ToString(),
                     dr["DescricaoCentroCusto"].ToString(),
                     dr["DescricaoDespesa"].ToString(),
@@ -117,9 +122,9 @@ namespace BRGS.UI.Relatorios
                     dr["Cliente"].ToString(),
                     DateTime.Parse(dr["DataVencimento"].ToString()),
                     DateTime.Parse(dr["DataPagamento"].ToString()),
-                    int.Parse(dr["idObraEtapa"].ToString()),
+                    string.IsNullOrEmpty(dr["idObraEtapa"].ToString()) ? 0 : int.Parse(dr["idObraEtapa"].ToString()),
                     dr["NumeroOP"].ToString(),
-                    dr["Parcela"].ToString());
+                    dr["Parcela"].ToString()); 
             }
 
             foreach (DataRow dr in dtTotaisObra.Rows)

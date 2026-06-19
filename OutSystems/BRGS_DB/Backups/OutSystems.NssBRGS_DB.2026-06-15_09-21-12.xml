@@ -1554,31 +1554,6 @@
             </summary>
             <param name="r"> Record</param>
         </member>
-        <member name="T:OutSystems.NssBRGS_DB.ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord">
-            <summary>
-            Entity <code>ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord</code> that represents the Service Studio
-             entity <code>VW_ORDEMPAGAMENTO_NOVONUMEROOP</code> <p> Description: </p>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord.ReadIM(OutSystems.NssBRGS_DB.ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
         <member name="T:OutSystems.NssBRGS_DB.RCFretes_PagamentosRecord">
             <summary>
             Structure <code>RCFretes_PagamentosRecord</code>
@@ -3062,30 +3037,6 @@
             <param name="r"> Data reader</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RCVW_COMBO_CENTROCUSTO_MOBILERecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_COMBO_CENTROCUSTO_MOBILERecord)">
-            <summary>
-            Read from record
-            </summary>
-            <param name="r"> Record</param>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord">
-            <summary>
-            Structure <code>RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord.Read(System.Data.IDataReader,System.Int32@)">
-            <summary>
-            Read a record from database
-            </summary>
-            <param name="r"> Data base reader</param>
-            <param name="index"> index</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord.ReadDB(System.Data.IDataReader)">
-            <summary>
-            Read from database
-            </summary>
-            <param name="r"> Data reader</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord)">
             <summary>
             Read from record
             </summary>
@@ -5377,43 +5328,6 @@
             <param name="context"> StreamingContext</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RLVW_COMBO_CENTROCUSTO_MOBILERecordList.NewList">
-            <summary>
-            Create as new list
-            </summary>
-            <returns>The new record list</returns>
-        </member>
-        <member name="T:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList">
-            <summary>
-            RecordList type <code>RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList</code> that represents a record
-             list of <code>VW_ORDEMPAGAMENTO_NOVONUMEROOP</code>
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList.#ctor">
-            <summary>
-            Default Constructor
-            </summary>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList.#ctor(System.Data.IDbTransaction)">
-            <summary>
-            Constructor with transaction parameter
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssBRGS_DB.RCVW_ORDEMPAGAMENTO_NOVONUMEROOPRecord}.ReadDBMethodDelegate)">
-            <summary>
-            Constructor with transaction parameter and alternate read method
-            </summary>
-            <param name="trans"> IDbTransaction Parameter</param>
-            <param name="alternateReadDBMethod"> Alternate Read Method</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Constructor declaration for serialization
-            </summary>
-            <param name="info"> SerializationInfo</param>
-            <param name="context"> StreamingContext</param>
-        </member>
-        <member name="M:OutSystems.NssBRGS_DB.RLVW_ORDEMPAGAMENTO_NOVONUMEROOPRecordList.NewList">
             <summary>
             Create as new list
             </summary>

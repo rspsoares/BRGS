@@ -627,8 +627,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OrdemPagamentoEmissao.rpt</DependentUpon>
-      <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Relatorios\OrdemPagamentoEmitidas.cs">
       <AutoGen>True</AutoGen>

@@ -851,7 +851,7 @@ namespace BRGS.UI
                     dr["NomeSolicitante"].ToString(),
                     dr["NomeFavorecido"].ToString(),
                     dr["Autorizado"].ToString(),
-                    dr["DataSolicitacao"].ToString(),
+                    DateTime.Parse(dr["DataSolicitacao"].ToString()),
                     dr["DescricaoUEN"].ToString(),
                     dr["DescricaoCentroCusto"].ToString(),
                     dr["DescricaoDespesa"].ToString(),

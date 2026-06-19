@@ -23099,7 +23099,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuarioPagamento", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuarioPagamento", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idUsuarioPagamento")]
 		private int _ssidUsuarioPagamento;
 		public int ssidUsuarioPagamento {
@@ -23114,7 +23114,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idAbastecimento")]
 		private int _ssidAbastecimento;
 		public int ssidAbastecimento {
@@ -23129,7 +23129,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idManutencao")]
 		private int _ssidManutencao;
 		public int ssidManutencao {
@@ -23334,9 +23334,9 @@ namespace OutSystems.NssBRGS_DB {
 			ssidUEN = r.ReadEntityReference(index++, "OrdemPagamentoItens.idUEN", 0);
 			ssidCentroCusto = r.ReadEntityReference(index++, "OrdemPagamentoItens.idCentroCusto", 0);
 			ssidDespesa = r.ReadEntityReference(index++, "OrdemPagamentoItens.idDespesa", 0);
-			ssidUsuarioPagamento = r.ReadEntityReference(index++, "OrdemPagamentoItens.idUsuarioPagamento", 0);
-			ssidAbastecimento = r.ReadEntityReference(index++, "OrdemPagamentoItens.idAbastecimento", 0);
-			ssidManutencao = r.ReadEntityReference(index++, "OrdemPagamentoItens.idManutencao", 0);
+			ssidUsuarioPagamento = r.ReadInteger(index++, "OrdemPagamentoItens.idUsuarioPagamento", 0);
+			ssidAbastecimento = r.ReadInteger(index++, "OrdemPagamentoItens.idAbastecimento", 0);
+			ssidManutencao = r.ReadInteger(index++, "OrdemPagamentoItens.idManutencao", 0);
 			ssValor = r.ReadDecimal(index++, "OrdemPagamentoItens.Valor", 0.0M);
 			ssValorPago = r.ReadDecimal(index++, "OrdemPagamentoItens.ValorPago", 0.0M);
 			ssDataVencimento = r.ReadDateTime(index++, "OrdemPagamentoItens.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
@@ -23626,9 +23626,9 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUEN")) VarValue.AppendAttribute(recordElem, "idUEN", ssidUEN, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUEN");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idDespesa")) VarValue.AppendAttribute(recordElem, "idDespesa", ssidDespesa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idDespesa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuarioPagamento")) VarValue.AppendAttribute(recordElem, "idUsuarioPagamento", ssidUsuarioPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuarioPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAbastecimento")) VarValue.AppendAttribute(recordElem, "idAbastecimento", ssidAbastecimento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idAbastecimento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idManutencao")) VarValue.AppendAttribute(recordElem, "idManutencao", ssidManutencao, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idManutencao");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuarioPagamento")) VarValue.AppendAttribute(recordElem, "idUsuarioPagamento", ssidUsuarioPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuarioPagamento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAbastecimento")) VarValue.AppendAttribute(recordElem, "idAbastecimento", ssidAbastecimento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idAbastecimento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idManutencao")) VarValue.AppendAttribute(recordElem, "idManutencao", ssidManutencao, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idManutencao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ValorPago")) VarValue.AppendAttribute(recordElem, "ValorPago", ssValorPago, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "ValorPago");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");
@@ -33518,263 +33518,5 @@ namespace OutSystems.NssBRGS_DB {
 			return true;
 		}
 	} // ENVW_COMBO_CENTROCUSTO_MOBILEEntityRecord
-
-	public class ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityConfiguration {
-		private static object config;
-		private static string PhysicalTableName {
-			get {
-				try {
-					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
-					if (EntityConfiguration != null) {
-						if (config == null) {
-							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "5b7be186-af14-4e89-ba5b-932b98cf1a4e", "VW_ORDEMPAGAMENTO_NOVONUMEROOP", "[brgs1].[dbo].[VW_ORDEMPAGAMENTO_NOVONUMEROOP]"}); 
-						}
-						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
-					} else {
-						return "[brgs1].[dbo].[VW_ORDEMPAGAMENTO_NOVONUMEROOP]"; 
-					}
-				} catch {
-					return "[brgs1].[dbo].[VW_ORDEMPAGAMENTO_NOVONUMEROOP]"; 
-				}
-			}
-		}
-		public static string GetPhysicalTableName() {
-			return PhysicalTableName; 
-		}
-	}
-
-	public sealed partial class ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntity {
-		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "proximonumeroop", "ProximoNumeroOP"
-			}
-		};
-		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
-			return entityAttributes;
-		}
-		public static string AttributeDatabaseName(string attributeName) {
-			string databaseName;
-			entityAttributes.TryGetValue(attributeName, out databaseName);
-			return databaseName;
-		}
-		public static string LocalViewName(int? tenant, string locale) {
-			return ViewName(null, locale);
-		}
-		public static string ViewName(int? tenant, string locale) {
-			return ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityConfiguration.GetPhysicalTableName();
-		}
-	} // ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntity
-
-	/// <summary>
-	/// Entity <code>ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord</code> that represents the Service Studio
-	///  entity <code>VW_ORDEMPAGAMENTO_NOVONUMEROOP</code> <p> Description: </p>
-	/// </summary>
-	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_ORDEMPAGAMENTO_NOVONUMEROOP", "huF7WxSviU66W5MrmM8aTg", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_ORDEMPAGAMENTO_NOVONUMEROOP]", null)]
-	[Serializable()]
-	public partial struct ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord: ISerializable, ITypedRecord<ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord>, ISimpleRecord {
-		internal static readonly GlobalObjectKey IdProximoNumeroOP = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*LJtE0NhMrU+v21LJLTrkag");
-
-		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("ProximoNumeroOP", 15, false, false, false, false)]
-		[System.Xml.Serialization.XmlElement("ProximoNumeroOP")]
-		private string _ssProximoNumeroOP;
-		public string ssProximoNumeroOP {
-			get {
-				return _ssProximoNumeroOP;
-			}
-			set {
-				if ((_ssProximoNumeroOP!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
-					_ssProximoNumeroOP = value;
-				}
-			}
-		}
-
-
-		public BitArray ChangedAttributes;
-
-		public BitArray OptimizedAttributes;
-
-		public ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(1, true);
-			OptimizedAttributes = new BitArray(1, false);
-			_ssProximoNumeroOP = "";
-		}
-
-		public BitArray[] GetDefaultOptimizedValues() {
-			BitArray[] all = new BitArray[0];
-			return all;
-		}
-
-		public BitArray[] AllOptimizedAttributes {
-			set {
-				if (value == null) {
-				} else {
-				}
-			}
-			get {
-				BitArray[] all = new BitArray[0];
-				return all;
-			}
-		}
-
-		/// <summary>
-		/// Read a record from database
-		/// </summary>
-		/// <param name="r"> Data base reader</param>
-		/// <param name="index"> index</param>
-		public void Read(IDataReader r, ref int index) {
-			ssProximoNumeroOP = r.ReadText(index++, "VW_ORDEMPAGAMENTO_NOVONUMEROOP.ProximoNumeroOP", "");
-			ChangedAttributes = new BitArray(1, false);
-			OptimizedAttributes = new BitArray(1, false);
-		}
-		/// <summary>
-		/// Read from database
-		/// </summary>
-		/// <param name="r"> Data reader</param>
-		public void ReadDB(IDataReader r) {
-			int index = 0;
-			Read(r, ref index);
-		}
-
-		/// <summary>
-		/// Read from record
-		/// </summary>
-		/// <param name="r"> Record</param>
-		public void ReadIM(ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord r) {
-			this = r;
-		}
-
-
-		public static bool operator == (ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord a, ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord b) {
-			if (a.ssProximoNumeroOP != b.ssProximoNumeroOP) return false;
-			return true;
-		}
-
-		public static bool operator != (ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord a, ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord b) {
-			return !(a==b);
-		}
-
-		public override bool Equals(object o) {
-			if (o.GetType() != typeof(ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord)) return false;
-			return (this == (ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord) o);
-		}
-
-		public override int GetHashCode() {
-			try {
-				return base.GetHashCode()
-				^ ssProximoNumeroOP.GetHashCode()
-				;
-			} catch {
-				return base.GetHashCode();
-			}
-		}
-
-		public void GetObjectData(SerializationInfo info, StreamingContext context) {
-			Type objInfo = this.GetType();
-			FieldInfo[] fields;
-			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			for (int i = 0; i < fields.Length; i++)
-			if (fields[i] .FieldType.IsSerializable)
-			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
-		}
-
-		public ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(1, true);
-			OptimizedAttributes = new BitArray(1, false);
-			_ssProximoNumeroOP = "";
-			Type objInfo = this.GetType();
-			FieldInfo fieldInfo = null;
-			fieldInfo = objInfo.GetField("_ssProximoNumeroOP", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-			if (fieldInfo == null) {
-				throw new Exception("The field named '_ssProximoNumeroOP' was not found.");
-			}
-			if (fieldInfo.FieldType.IsSerializable) {
-				_ssProximoNumeroOP = (string) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
-			}
-		}
-
-		public void RecursiveReset() {
-		}
-
-		public void InternalRecursiveSave() {
-		}
-
-
-		public ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord Duplicate() {
-			ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord t;
-			t._ssProximoNumeroOP = this._ssProximoNumeroOP;
-			t.ChangedAttributes = new BitArray(1);
-			t.OptimizedAttributes = new BitArray(1);
-			for (int i = 0; i < 1; i++) {
-				t.ChangedAttributes[i] = ChangedAttributes[i];
-				t.OptimizedAttributes[i] = OptimizedAttributes[i];
-			}
-			return t;
-		}
-
-		IRecord IRecord.Duplicate() {
-			return Duplicate();
-		}
-
-		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
-			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
-			if (fieldName != null) {
-				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
-				fieldName = fieldName.ToLowerInvariant();
-			}
-			if (detailLevel > 0) {
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ProximoNumeroOP")) VarValue.AppendAttribute(recordElem, "ProximoNumeroOP", ssProximoNumeroOP, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "ProximoNumeroOP");
-			} else {
-				VarValue.AppendDeferredEvaluationElement(recordElem);
-			}
-		}
-
-		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
-			String head = VarValue.GetHead(fields);
-			String tail = VarValue.GetTail(fields);
-			variable.Found = false;
-			if (head == "proximonumeroop") {
-				if (!VarValue.FieldIsOptimized(parent, baseName + ".ProximoNumeroOP")) variable.Value = ssProximoNumeroOP; else variable.Optimized = true;
-			}
-			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
-		}
-
-		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdProximoNumeroOP)) {
-				return ChangedAttributes[0];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdProximoNumeroOP)) {
-				return OptimizedAttributes[0];
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-
-		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdProximoNumeroOP) {
-				return ssProximoNumeroOP;
-			} else {
-				throw new Exception("Invalid key");
-			}
-		}
-		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(1);
-			OptimizedAttributes = new BitArray(1);
-			if (other == null) return;
-			ssProximoNumeroOP = (string) other.AttributeGet(IdProximoNumeroOP);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdProximoNumeroOP);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdProximoNumeroOP);
-		}
-		public bool IsDefault() {
-			ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord defaultStruct = new ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord(null);
-			if (this.ssProximoNumeroOP != defaultStruct.ssProximoNumeroOP) return false;
-			return true;
-		}
-	} // ENVW_ORDEMPAGAMENTO_NOVONUMEROOPEntityRecord
 
 } // OutSystems.NssBRGS_DB

@@ -917,67 +917,15 @@ namespace BRGS.BIZ
             }
         }
 
-        public List<OrdemPagamentoRequisicaoDTO> PesquisarOrdemPagamentoPDFRequisicao()
-        {
-            try
-            {
-                DataAccess dao = new DataAccess();                
-                dynamic lst = new List<OrdemPagamentoRequisicaoDTO>();
-                var result = new List<OrdemPagamentoRequisicaoDTO>();
-
-                using (DataSet ds = dao.Pesquisar("SP_ORDEMPAGAMENTO_REQUISICAO_PDF", new Dictionary<string, string>()))
-                {
-                    lst = from f in ds.Tables[0].AsEnumerable<OrdemPagamentoRequisicaoDTO>()
-                          select f;
-                }
-
-                result.AddRange(lst);
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                string parametrosSQL = string.Empty;
-                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
-
-                LogErro log = new LogErro()
-                {
-                    procedureSQL = "SP_ORDEMPAGAMENTO_REQUISICAO_PDF",
-                    parametrosSQL = parametrosSQL,
-                    mensagemErro = ex.ToString()
-                };
-
-                bizLogErro.IncluirLogErro(log);
-
-                throw ex;
-            }
-        }
-
-        public void ProcessarOrdemPagamentoPDFRequisicao(int idOP, string pdfContent)
+        public void AtualizarDataPagamentoSQLNullDate(int idOP)
         {
             DataAccess dao = new DataAccess();
-            List<_Transacao> lstComandos = new List<_Transacao>();
-            Dictionary<string, string> lstParametrosInserir = new Dictionary<string, string>();
-            Dictionary<string, string> lstParametrosExcluir = new Dictionary<string, string>();
+            Dictionary<string, string> lstParametros = new Dictionary<string, string>();
 
             try
             {
-                lstParametrosInserir.Add("@IdOrdemPagamento", idOP.ToString());
-                lstParametrosInserir.Add("@PDFContent", pdfContent);
-                lstComandos.Add(new _Transacao()
-                {
-                    nomeProcedure = "SP_ORDEMPAGAMENTO_INSERIR_PDF",
-                    lstParametros = lstParametrosInserir
-                });
-
-                lstParametrosExcluir.Add("@IdOrdemPagamento", idOP.ToString());
-                lstComandos.Add(new _Transacao()
-                {
-                    nomeProcedure = "SP_ORDEMPAGAMENTO_REQUISICAO_PDF_EXCLUIR",
-                    lstParametros = lstParametrosExcluir
-                });
-
-                dao.ExecutarTransacao(lstComandos);
+                lstParametros.Add("@IdOrdemPagamento", idOP.ToString());
+                dao.Executar("SP_ORDEMPAGAMENTOITENS_ATUALIZAR_DATA_PAGAMENTO_SQL_NULLDATE", lstParametros);
             }
             catch (Exception ex)
             {
@@ -986,7 +934,7 @@ namespace BRGS.BIZ
 
                 LogErro log = new LogErro()
                 {
-                    procedureSQL = "SP_ORDEMPAGAMENTO_REQUISICAO_PDF_EXCLUIR",
+                    procedureSQL = "SP_ORDEMPAGAMENTOITENS_ATUALIZAR_DATA_PAGAMENTO_SQL_NULLDATE",
                     parametrosSQL = parametrosSQL,
                     mensagemErro = ex.ToString()
                 };
@@ -995,6 +943,8 @@ namespace BRGS.BIZ
 
                 throw ex;
             }
+
+
         }
 
         public void InserirOrdemPagamentoPDF(int idOP, string pdfContent)

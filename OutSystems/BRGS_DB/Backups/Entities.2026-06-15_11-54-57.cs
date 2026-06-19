@@ -23099,7 +23099,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuarioPagamento", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idUsuarioPagamento", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idUsuarioPagamento")]
 		private int _ssidUsuarioPagamento;
 		public int ssidUsuarioPagamento {
@@ -23114,7 +23114,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idAbastecimento", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idAbastecimento")]
 		private int _ssidAbastecimento;
 		public int ssidAbastecimento {
@@ -23129,7 +23129,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, false, false, true, false)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("idManutencao", 0, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("idManutencao")]
 		private int _ssidManutencao;
 		public int ssidManutencao {
@@ -23334,9 +23334,9 @@ namespace OutSystems.NssBRGS_DB {
 			ssidUEN = r.ReadEntityReference(index++, "OrdemPagamentoItens.idUEN", 0);
 			ssidCentroCusto = r.ReadEntityReference(index++, "OrdemPagamentoItens.idCentroCusto", 0);
 			ssidDespesa = r.ReadEntityReference(index++, "OrdemPagamentoItens.idDespesa", 0);
-			ssidUsuarioPagamento = r.ReadEntityReference(index++, "OrdemPagamentoItens.idUsuarioPagamento", 0);
-			ssidAbastecimento = r.ReadEntityReference(index++, "OrdemPagamentoItens.idAbastecimento", 0);
-			ssidManutencao = r.ReadEntityReference(index++, "OrdemPagamentoItens.idManutencao", 0);
+			ssidUsuarioPagamento = r.ReadInteger(index++, "OrdemPagamentoItens.idUsuarioPagamento", 0);
+			ssidAbastecimento = r.ReadInteger(index++, "OrdemPagamentoItens.idAbastecimento", 0);
+			ssidManutencao = r.ReadInteger(index++, "OrdemPagamentoItens.idManutencao", 0);
 			ssValor = r.ReadDecimal(index++, "OrdemPagamentoItens.Valor", 0.0M);
 			ssValorPago = r.ReadDecimal(index++, "OrdemPagamentoItens.ValorPago", 0.0M);
 			ssDataVencimento = r.ReadDateTime(index++, "OrdemPagamentoItens.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
@@ -23626,9 +23626,9 @@ namespace OutSystems.NssBRGS_DB {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUEN")) VarValue.AppendAttribute(recordElem, "idUEN", ssidUEN, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUEN");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idCentroCusto")) VarValue.AppendAttribute(recordElem, "idCentroCusto", ssidCentroCusto, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idCentroCusto");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idDespesa")) VarValue.AppendAttribute(recordElem, "idDespesa", ssidDespesa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idDespesa");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuarioPagamento")) VarValue.AppendAttribute(recordElem, "idUsuarioPagamento", ssidUsuarioPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuarioPagamento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAbastecimento")) VarValue.AppendAttribute(recordElem, "idAbastecimento", ssidAbastecimento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idAbastecimento");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idManutencao")) VarValue.AppendAttribute(recordElem, "idManutencao", ssidManutencao, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "idManutencao");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idUsuarioPagamento")) VarValue.AppendAttribute(recordElem, "idUsuarioPagamento", ssidUsuarioPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idUsuarioPagamento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idAbastecimento")) VarValue.AppendAttribute(recordElem, "idAbastecimento", ssidAbastecimento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idAbastecimento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".idManutencao")) VarValue.AppendAttribute(recordElem, "idManutencao", ssidManutencao, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "idManutencao");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".ValorPago")) VarValue.AppendAttribute(recordElem, "ValorPago", ssValorPago, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "ValorPago");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");

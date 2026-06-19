@@ -676,7 +676,7 @@ namespace BRGS.UI.Relatorios {
                         string NomeSolicitante, 
                         string NomeFavorecido, 
                         string Autorizado, 
-                        string DataSolicitacao, 
+                        System.DateTime DataSolicitacao, 
                         string DescricaoUEN, 
                         string DescricaoCentroCusto, 
                         string DescricaoDespesa, 
@@ -786,7 +786,7 @@ namespace BRGS.UI.Relatorios {
                 base.Columns.Add(this.columnNomeFavorecido);
                 this.columnAutorizado = new global::System.Data.DataColumn("Autorizado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutorizado);
-                this.columnDataSolicitacao = new global::System.Data.DataColumn("DataSolicitacao", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDataSolicitacao = new global::System.Data.DataColumn("DataSolicitacao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataSolicitacao);
                 this.columnDescricaoUEN = new global::System.Data.DataColumn("DescricaoUEN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricaoUEN);
@@ -1668,10 +1668,10 @@ namespace BRGS.UI.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string DataSolicitacao {
+            public System.DateTime DataSolicitacao {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.DataSolicitacaoColumn]));
+                        return ((global::System.DateTime)(this[this.tableDataTable1.DataSolicitacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'DataSolicitacao\' in table \'DataTable1\' is DBNull.", e);

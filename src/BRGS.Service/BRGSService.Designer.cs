@@ -4,9 +4,6 @@ namespace BRGS.Service
 {
     partial class BRGSService
     {
-        Timer timerRequisicao;
-        bool jobRequisicaoLock = false;
-
         Timer timerTabelaOP;
         bool jobTabelaOPLock = false;
 
