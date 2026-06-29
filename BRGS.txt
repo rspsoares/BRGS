@@ -1,14 +1,16 @@
 DeadLine - 06/07/2026
-	
 
-App	
-	»» Gerar pacote de iPhone
+»» Gerar pacote de iPhone
 	
-	Deixar indicado - pushwoosh para push notification com deeplink
-
-	BPI_Welcome - Common - First time 
-	LBM_DeviceSettings - GetDeviceInfoByCordova
 -----------------------------
+
+Deixar indicado - pushwoosh para push notification com deeplink
+
+BPI_Welcome - Common - First time 
+LBM_DeviceSettings - GetDeviceInfoByCordova
+	
+------------------------
+
 
 	Server=45.148.165.119,21433;Database=BRGS1;Network Library=DBMSSOCN;Initial Catalog=BRGS1;User Id=OS_User;Password=SenhaForte@BRGSApp;
 	
