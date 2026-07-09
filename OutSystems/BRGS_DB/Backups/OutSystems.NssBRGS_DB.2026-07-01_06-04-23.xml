@@ -1429,6 +1429,31 @@
             </summary>
             <param name="r"> Record</param>
         </member>
+        <member name="T:OutSystems.NssBRGS_DB.ENOrdemPagamentoRequisicaoPDFEntityRecord">
+            <summary>
+            Entity <code>ENOrdemPagamentoRequisicaoPDFEntityRecord</code> that represents the Service Studio
+             entity <code>OrdemPagamentoRequisicaoPDF</code> <p> Description: </p>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.ENOrdemPagamentoRequisicaoPDFEntityRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.ENOrdemPagamentoRequisicaoPDFEntityRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.ENOrdemPagamentoRequisicaoPDFEntityRecord.ReadIM(OutSystems.NssBRGS_DB.ENOrdemPagamentoRequisicaoPDFEntityRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
         <member name="T:OutSystems.NssBRGS_DB.ENOrdemPagamentoPDFEntityRecord">
             <summary>
             Entity <code>ENOrdemPagamentoPDFEntityRecord</code> that represents the Service Studio entity
@@ -2917,6 +2942,30 @@
             <param name="r"> Data reader</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord.ReadIM(OutSystems.NssBRGS_DB.RCVW_Dashboard_OPs_CategoriaRecord)">
+            <summary>
+            Read from record
+            </summary>
+            <param name="r"> Record</param>
+        </member>
+        <member name="T:OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord">
+            <summary>
+            Structure <code>RCOrdemPagamentoRequisicaoPDFRecord</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord.Read(System.Data.IDataReader,System.Int32@)">
+            <summary>
+            Read a record from database
+            </summary>
+            <param name="r"> Data base reader</param>
+            <param name="index"> index</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord.ReadDB(System.Data.IDataReader)">
+            <summary>
+            Read from database
+            </summary>
+            <param name="r"> Data reader</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord.ReadIM(OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord)">
             <summary>
             Read from record
             </summary>
@@ -5143,6 +5192,43 @@
             <param name="context"> StreamingContext</param>
         </member>
         <member name="M:OutSystems.NssBRGS_DB.RLVW_Dashboard_OPs_CategoriaRecordList.NewList">
+            <summary>
+            Create as new list
+            </summary>
+            <returns>The new record list</returns>
+        </member>
+        <member name="T:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList">
+            <summary>
+            RecordList type <code>RLOrdemPagamentoRequisicaoPDFRecordList</code> that represents a record list
+             of <code>OrdemPagamentoRequisicaoPDF</code>
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList.#ctor(System.Data.IDbTransaction)">
+            <summary>
+            Constructor with transaction parameter
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList.#ctor(System.Data.IDbTransaction,OutSystems.HubEdition.RuntimePlatform.Db.OSList{OutSystems.NssBRGS_DB.RCOrdemPagamentoRequisicaoPDFRecord}.ReadDBMethodDelegate)">
+            <summary>
+            Constructor with transaction parameter and alternate read method
+            </summary>
+            <param name="trans"> IDbTransaction Parameter</param>
+            <param name="alternateReadDBMethod"> Alternate Read Method</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor declaration for serialization
+            </summary>
+            <param name="info"> SerializationInfo</param>
+            <param name="context"> StreamingContext</param>
+        </member>
+        <member name="M:OutSystems.NssBRGS_DB.RLOrdemPagamentoRequisicaoPDFRecordList.NewList">
             <summary>
             Create as new list
             </summary>

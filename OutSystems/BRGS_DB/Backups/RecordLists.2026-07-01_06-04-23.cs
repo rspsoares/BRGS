@@ -4616,7 +4616,7 @@ namespace OutSystems.NssBRGS_DB {
 
 		public override BitArray[] GetDefaultOptimizedValues() {
 			BitArray[] def = new BitArray[1];
-			def[0] = new BitArray(3, false);
+			def[0] = new BitArray(4, false);
 			return def;
 		}
 		/// <summary>
@@ -4797,6 +4797,90 @@ namespace OutSystems.NssBRGS_DB {
 
 
 	} // RLVW_Dashboard_OPs_CategoriaRecordList
+
+	/// <summary>
+	/// RecordList type <code>RLOrdemPagamentoRequisicaoPDFRecordList</code> that represents a record list
+	///  of <code>OrdemPagamentoRequisicaoPDF</code>
+	/// </summary>
+	[Serializable()]
+	public partial class RLOrdemPagamentoRequisicaoPDFRecordList: GenericRecordList<RCOrdemPagamentoRequisicaoPDFRecord>, IEnumerable, IEnumerator, ISerializable {
+		public static void EnsureInitialized() {}
+
+		protected override RCOrdemPagamentoRequisicaoPDFRecord GetElementDefaultValue() {
+			return new RCOrdemPagamentoRequisicaoPDFRecord("");
+		}
+
+		public T[] ToArray<T>(Func<RCOrdemPagamentoRequisicaoPDFRecord, T> converter) {
+			return ToArray(this, converter);
+		}
+
+		public static T[] ToArray<T>(RLOrdemPagamentoRequisicaoPDFRecordList recordlist, Func<RCOrdemPagamentoRequisicaoPDFRecord, T> converter) {
+			return InnerToArray(recordlist, converter);
+		}
+		public static implicit operator RLOrdemPagamentoRequisicaoPDFRecordList(RCOrdemPagamentoRequisicaoPDFRecord[] array) {
+			RLOrdemPagamentoRequisicaoPDFRecordList result = new RLOrdemPagamentoRequisicaoPDFRecordList();
+			result.InnerFromArray(array);
+			return result;
+		}
+
+		public static RLOrdemPagamentoRequisicaoPDFRecordList ToList<T>(T[] array, Func <T, RCOrdemPagamentoRequisicaoPDFRecord> converter) {
+			RLOrdemPagamentoRequisicaoPDFRecordList result = new RLOrdemPagamentoRequisicaoPDFRecordList();
+			result.InnerFromArray(array, converter);
+			return result;
+		}
+
+		public static RLOrdemPagamentoRequisicaoPDFRecordList FromRestList<T>(RestList<T> restList, Func <T, RCOrdemPagamentoRequisicaoPDFRecord> converter) {
+			RLOrdemPagamentoRequisicaoPDFRecordList result = new RLOrdemPagamentoRequisicaoPDFRecordList();
+			result.InnerFromRestList(restList, converter);
+			return result;
+		}
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
+		public RLOrdemPagamentoRequisicaoPDFRecordList(): base() {
+		}
+
+		/// <summary>
+		/// Constructor with transaction parameter
+		/// </summary>
+		/// <param name="trans"> IDbTransaction Parameter</param>
+		[Obsolete("Use the Default Constructor and set the Transaction afterwards.")]
+		public RLOrdemPagamentoRequisicaoPDFRecordList(IDbTransaction trans): base(trans) {
+		}
+
+		/// <summary>
+		/// Constructor with transaction parameter and alternate read method
+		/// </summary>
+		/// <param name="trans"> IDbTransaction Parameter</param>
+		/// <param name="alternateReadDBMethod"> Alternate Read Method</param>
+		[Obsolete("Use the Default Constructor and set the Transaction afterwards.")]
+		public RLOrdemPagamentoRequisicaoPDFRecordList(IDbTransaction trans, ReadDBMethodDelegate alternateReadDBMethod): this(trans) {
+			this.alternateReadDBMethod = alternateReadDBMethod;
+		}
+
+		/// <summary>
+		/// Constructor declaration for serialization
+		/// </summary>
+		/// <param name="info"> SerializationInfo</param>
+		/// <param name="context"> StreamingContext</param>
+		public RLOrdemPagamentoRequisicaoPDFRecordList(SerializationInfo info, StreamingContext context): base(info, context) {
+		}
+
+		public override BitArray[] GetDefaultOptimizedValues() {
+			BitArray[] def = new BitArray[1];
+			def[0] = new BitArray(3, false);
+			return def;
+		}
+		/// <summary>
+		/// Create as new list
+		/// </summary>
+		/// <returns>The new record list</returns>
+		protected override OSList<RCOrdemPagamentoRequisicaoPDFRecord> NewList() {
+			return new RLOrdemPagamentoRequisicaoPDFRecordList();
+		}
+
+
+	} // RLOrdemPagamentoRequisicaoPDFRecordList
 
 	/// <summary>
 	/// RecordList type <code>RLOrdemPagamentoPDFRecordList</code> that represents a record list of

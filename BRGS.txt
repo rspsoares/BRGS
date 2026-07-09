@@ -1,7 +1,16 @@
 DeadLine - 06/07/2026
-
-»» Gerar pacote de iPhone
 	
+»» Gerar pacote de iPhone
+openssl genrsa -out ios_distribution.key 2048
+openssl req -new -key ios_distribution.key -out ios_distribution.csr
+
+Password: BRGS10
+
+openssl pkcs12 -export -out distribution.p12 -inkey ios_distribution.key -in ios_development.cer
+
+Password: BRGS10
+
+
 -----------------------------
 
 Deixar indicado - pushwoosh para push notification com deeplink

@@ -30601,7 +30601,9 @@ namespace OutSystems.NssBRGS_DB {
 
 	public sealed partial class ENVW_Dashboard_OPsVencimentoEntity {
 		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
-			{ "numeroop", "NumeroOP"
+			{ "idordempagamento", "IdOrdemPagamento"
+			}
+			, { "numeroop", "NumeroOP"
 			}
 			, { "datavencimento", "DataVencimento"
 			}
@@ -30631,11 +30633,27 @@ namespace OutSystems.NssBRGS_DB {
 	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("VW_Dashboard_OPsVencimento", "LbVqpCLUzkGF8PZmkzLLdA", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[VW_Dashboard_OPsVencimento]", null)]
 	[Serializable()]
 	public partial struct ENVW_Dashboard_OPsVencimentoEntityRecord: ISerializable, ITypedRecord<ENVW_Dashboard_OPsVencimentoEntityRecord>, ISimpleRecord {
+		internal static readonly GlobalObjectKey IdIdOrdemPagamento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*wSWdGPiXm0KGh_PLV7QNTw");
 		internal static readonly GlobalObjectKey IdNumeroOP = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*bRvLaraMl0GG7AhuAQq8ng");
 		internal static readonly GlobalObjectKey IdDataVencimento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*UegS4vK7aUmmj+Qq7P+Luw");
-		internal static readonly GlobalObjectKey IdValor = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*QsQj9x3QDUCENdC99Lphkw");
+		internal static readonly GlobalObjectKey IdValor = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*nbzF+2NITUuQ9q4ZDoNqMg");
 
 		public static void EnsureInitialized() {}
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("IdOrdemPagamento")]
+		private int _ssIdOrdemPagamento;
+		public int ssIdOrdemPagamento {
+			get {
+				return _ssIdOrdemPagamento;
+			}
+			set {
+				if ((_ssIdOrdemPagamento!=value) || OptimizedAttributes[0]) {
+					ChangedAttributes[0] = true;
+					_ssIdOrdemPagamento = value;
+				}
+			}
+		}
+
 		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("NumeroOP", 10, false, false, false, false)]
 		[System.Xml.Serialization.XmlElement("NumeroOP")]
 		private string _ssNumeroOP;
@@ -30644,8 +30662,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssNumeroOP;
 			}
 			set {
-				if ((_ssNumeroOP!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes[0] = true;
+				if ((_ssNumeroOP!=value) || OptimizedAttributes[1]) {
+					ChangedAttributes[1] = true;
 					_ssNumeroOP = value;
 				}
 			}
@@ -30659,8 +30677,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssDataVencimento;
 			}
 			set {
-				if ((_ssDataVencimento!=value) || OptimizedAttributes[1]) {
-					ChangedAttributes[1] = true;
+				if ((_ssDataVencimento!=value) || OptimizedAttributes[2]) {
+					ChangedAttributes[2] = true;
 					_ssDataVencimento = value;
 				}
 			}
@@ -30674,8 +30692,8 @@ namespace OutSystems.NssBRGS_DB {
 				return _ssValor;
 			}
 			set {
-				if ((_ssValor!=value) || OptimizedAttributes[2]) {
-					ChangedAttributes[2] = true;
+				if ((_ssValor!=value) || OptimizedAttributes[3]) {
+					ChangedAttributes[3] = true;
 					_ssValor = value;
 				}
 			}
@@ -30687,8 +30705,9 @@ namespace OutSystems.NssBRGS_DB {
 		public BitArray OptimizedAttributes;
 
 		public ENVW_Dashboard_OPsVencimentoEntityRecord(params string[] dummy) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
+			ChangedAttributes = new BitArray(4, true);
+			OptimizedAttributes = new BitArray(4, false);
+			_ssIdOrdemPagamento = 0;
 			_ssNumeroOP = "";
 			_ssDataVencimento = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssValor = 0.0M;
@@ -30717,11 +30736,12 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="r"> Data base reader</param>
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
+			ssIdOrdemPagamento = r.ReadInteger(index++, "VW_Dashboard_OPsVencimento.IdOrdemPagamento", 0);
 			ssNumeroOP = r.ReadText(index++, "VW_Dashboard_OPsVencimento.NumeroOP", "");
-			ssDataVencimento = r.ReadDate(index++, "VW_Dashboard_OPsVencimento.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataVencimento = r.ReadDateTime(index++, "VW_Dashboard_OPsVencimento.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssValor = r.ReadDecimal(index++, "VW_Dashboard_OPsVencimento.Valor", 0.0M);
-			ChangedAttributes = new BitArray(3, false);
-			OptimizedAttributes = new BitArray(3, false);
+			ChangedAttributes = new BitArray(4, false);
+			OptimizedAttributes = new BitArray(4, false);
 		}
 		/// <summary>
 		/// Read from database
@@ -30742,6 +30762,7 @@ namespace OutSystems.NssBRGS_DB {
 
 
 		public static bool operator == (ENVW_Dashboard_OPsVencimentoEntityRecord a, ENVW_Dashboard_OPsVencimentoEntityRecord b) {
+			if (a.ssIdOrdemPagamento != b.ssIdOrdemPagamento) return false;
 			if (a.ssNumeroOP != b.ssNumeroOP) return false;
 			if (a.ssDataVencimento != b.ssDataVencimento) return false;
 			if (a.ssValor != b.ssValor) return false;
@@ -30760,6 +30781,7 @@ namespace OutSystems.NssBRGS_DB {
 		public override int GetHashCode() {
 			try {
 				return base.GetHashCode()
+				^ ssIdOrdemPagamento.GetHashCode()
 				^ ssNumeroOP.GetHashCode()
 				^ ssDataVencimento.GetHashCode()
 				^ ssValor.GetHashCode()
@@ -30779,13 +30801,21 @@ namespace OutSystems.NssBRGS_DB {
 		}
 
 		public ENVW_Dashboard_OPsVencimentoEntityRecord(SerializationInfo info, StreamingContext context) {
-			ChangedAttributes = new BitArray(3, true);
-			OptimizedAttributes = new BitArray(3, false);
+			ChangedAttributes = new BitArray(4, true);
+			OptimizedAttributes = new BitArray(4, false);
+			_ssIdOrdemPagamento = 0;
 			_ssNumeroOP = "";
 			_ssDataVencimento = new DateTime(1900, 1, 1, 0, 0, 0);
 			_ssValor = 0.0M;
 			Type objInfo = this.GetType();
 			FieldInfo fieldInfo = null;
+			fieldInfo = objInfo.GetField("_ssIdOrdemPagamento", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdOrdemPagamento' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdOrdemPagamento = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
 			fieldInfo = objInfo.GetField("_ssNumeroOP", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 			if (fieldInfo == null) {
 				throw new Exception("The field named '_ssNumeroOP' was not found.");
@@ -30818,12 +30848,13 @@ namespace OutSystems.NssBRGS_DB {
 
 		public ENVW_Dashboard_OPsVencimentoEntityRecord Duplicate() {
 			ENVW_Dashboard_OPsVencimentoEntityRecord t;
+			t._ssIdOrdemPagamento = this._ssIdOrdemPagamento;
 			t._ssNumeroOP = this._ssNumeroOP;
 			t._ssDataVencimento = this._ssDataVencimento;
 			t._ssValor = this._ssValor;
-			t.ChangedAttributes = new BitArray(3);
-			t.OptimizedAttributes = new BitArray(3);
-			for (int i = 0; i < 3; i++) {
+			t.ChangedAttributes = new BitArray(4);
+			t.OptimizedAttributes = new BitArray(4);
+			for (int i = 0; i < 4; i++) {
 				t.ChangedAttributes[i] = ChangedAttributes[i];
 				t.OptimizedAttributes[i] = OptimizedAttributes[i];
 			}
@@ -30841,8 +30872,9 @@ namespace OutSystems.NssBRGS_DB {
 				fieldName = fieldName.ToLowerInvariant();
 			}
 			if (detailLevel > 0) {
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdOrdemPagamento")) VarValue.AppendAttribute(recordElem, "IdOrdemPagamento", ssIdOrdemPagamento, detailLevel, TypeKind.Integer); else VarValue.AppendOptimizedAttribute(recordElem, "IdOrdemPagamento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NumeroOP")) VarValue.AppendAttribute(recordElem, "NumeroOP", ssNumeroOP, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NumeroOP");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);
@@ -30853,7 +30885,9 @@ namespace OutSystems.NssBRGS_DB {
 			String head = VarValue.GetHead(fields);
 			String tail = VarValue.GetTail(fields);
 			variable.Found = false;
-			if (head == "numeroop") {
+			if (head == "idordempagamento") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdOrdemPagamento")) variable.Value = ssIdOrdemPagamento; else variable.Optimized = true;
+			} else if (head == "numeroop") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".NumeroOP")) variable.Value = ssNumeroOP; else variable.Optimized = true;
 			} else if (head == "datavencimento") {
 				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataVencimento")) variable.Value = ssDataVencimento; else variable.Optimized = true;
@@ -30864,31 +30898,37 @@ namespace OutSystems.NssBRGS_DB {
 		}
 
 		public bool ChangedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdNumeroOP)) {
+			if (key.Equals(IdIdOrdemPagamento)) {
 				return ChangedAttributes[0];
-			} else if (key.Equals(IdDataVencimento)) {
+			} else if (key.Equals(IdNumeroOP)) {
 				return ChangedAttributes[1];
-			} else if (key.Equals(IdValor)) {
+			} else if (key.Equals(IdDataVencimento)) {
 				return ChangedAttributes[2];
+			} else if (key.Equals(IdValor)) {
+				return ChangedAttributes[3];
 			} else {
 				throw new Exception("Invalid key");
 			}
 		}
 
 		public bool OptimizedAttributeGet(GlobalObjectKey key) {
-			if (key.Equals(IdNumeroOP)) {
+			if (key.Equals(IdIdOrdemPagamento)) {
 				return OptimizedAttributes[0];
-			} else if (key.Equals(IdDataVencimento)) {
+			} else if (key.Equals(IdNumeroOP)) {
 				return OptimizedAttributes[1];
-			} else if (key.Equals(IdValor)) {
+			} else if (key.Equals(IdDataVencimento)) {
 				return OptimizedAttributes[2];
+			} else if (key.Equals(IdValor)) {
+				return OptimizedAttributes[3];
 			} else {
 				throw new Exception("Invalid key");
 			}
 		}
 
 		public object AttributeGet(GlobalObjectKey key) {
-			if (key == IdNumeroOP) {
+			if (key == IdIdOrdemPagamento) {
+				return ssIdOrdemPagamento;
+			} else if (key == IdNumeroOP) {
 				return ssNumeroOP;
 			} else if (key == IdDataVencimento) {
 				return ssDataVencimento;
@@ -30899,21 +30939,25 @@ namespace OutSystems.NssBRGS_DB {
 			}
 		}
 		public void FillFromOther(IRecord other) {
-			ChangedAttributes = new BitArray(3);
-			OptimizedAttributes = new BitArray(3);
+			ChangedAttributes = new BitArray(4);
+			OptimizedAttributes = new BitArray(4);
 			if (other == null) return;
+			ssIdOrdemPagamento = (int) other.AttributeGet(IdIdOrdemPagamento);
+			ChangedAttributes[0] = other.ChangedAttributeGet(IdIdOrdemPagamento);
+			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdIdOrdemPagamento);
 			ssNumeroOP = (string) other.AttributeGet(IdNumeroOP);
-			ChangedAttributes[0] = other.ChangedAttributeGet(IdNumeroOP);
-			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdNumeroOP);
+			ChangedAttributes[1] = other.ChangedAttributeGet(IdNumeroOP);
+			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdNumeroOP);
 			ssDataVencimento = (DateTime) other.AttributeGet(IdDataVencimento);
-			ChangedAttributes[1] = other.ChangedAttributeGet(IdDataVencimento);
-			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdDataVencimento);
+			ChangedAttributes[2] = other.ChangedAttributeGet(IdDataVencimento);
+			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDataVencimento);
 			ssValor = (decimal) other.AttributeGet(IdValor);
-			ChangedAttributes[2] = other.ChangedAttributeGet(IdValor);
-			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdValor);
+			ChangedAttributes[3] = other.ChangedAttributeGet(IdValor);
+			OptimizedAttributes[3] = other.OptimizedAttributeGet(IdValor);
 		}
 		public bool IsDefault() {
 			ENVW_Dashboard_OPsVencimentoEntityRecord defaultStruct = new ENVW_Dashboard_OPsVencimentoEntityRecord(null);
+			if (this.ssIdOrdemPagamento != defaultStruct.ssIdOrdemPagamento) return false;
 			if (this.ssNumeroOP != defaultStruct.ssNumeroOP) return false;
 			if (this.ssDataVencimento != defaultStruct.ssDataVencimento) return false;
 			if (this.ssValor != defaultStruct.ssValor) return false;
@@ -31701,6 +31745,352 @@ namespace OutSystems.NssBRGS_DB {
 		}
 	} // ENVW_Dashboard_OPs_CategoriaEntityRecord
 
+	public class ENOrdemPagamentoRequisicaoPDFEntityConfiguration {
+		private static object config;
+		private static string PhysicalTableName {
+			get {
+				try {
+					Type EntityConfiguration = Type.GetType("OutSystems.HubEdition.RuntimePlatform.Db.EntityConfiguration,OutSystems.HubEdition.RuntimePlatform");
+					if (EntityConfiguration != null) {
+						if (config == null) {
+							config = EntityConfiguration.GetMethod("GetEntityConfiguration", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { "23b900cf-ea21-4156-a1c8-00fbdbf6d77b", "ec9b3527-bf81-4176-a803-913f397d8a2e", "OrdemPagamentoRequisicaoPDF", "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"}); 
+						}
+						return EntityConfiguration.GetProperty("PhysicalTableName").GetValue(config).ToString();
+					} else {
+						return "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"; 
+					}
+				} catch {
+					return "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]"; 
+				}
+			}
+		}
+		public static string GetPhysicalTableName() {
+			return PhysicalTableName; 
+		}
+	}
+
+	public sealed partial class ENOrdemPagamentoRequisicaoPDFEntity {
+		private static readonly System.Collections.Generic.Dictionary<string, string> entityAttributes = new System.Collections.Generic.Dictionary<string, string>() {
+			{ "idordempagamento", "IdOrdemPagamento"
+			}
+			, { "idobraetapa", "IdObraEtapa"
+			}
+			, { "datacriacao", "DataCriacao"
+			}
+		};
+		public static System.Collections.Generic.Dictionary<string, string> AttributesToDatabaseNamesMap() {
+			return entityAttributes;
+		}
+		public static string AttributeDatabaseName(string attributeName) {
+			string databaseName;
+			entityAttributes.TryGetValue(attributeName, out databaseName);
+			return databaseName;
+		}
+		public static string LocalViewName(int? tenant, string locale) {
+			return ViewName(null, locale);
+		}
+		public static string ViewName(int? tenant, string locale) {
+			return ENOrdemPagamentoRequisicaoPDFEntityConfiguration.GetPhysicalTableName();
+		}
+	} // ENOrdemPagamentoRequisicaoPDFEntity
+
+	/// <summary>
+	/// Entity <code>ENOrdemPagamentoRequisicaoPDFEntityRecord</code> that represents the Service Studio
+	///  entity <code>OrdemPagamentoRequisicaoPDF</code> <p> Description: </p>
+	/// </summary>
+	[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityRecordDetails("OrdemPagamentoRequisicaoPDF", "JzWb7IG_dkGoA5E_OX2KLg", "zwC5IyHqVkGhyAD72_bXew", 0, "[brgs1].[dbo].[OrdemPagamentoRequisicaoPDF]", null)]
+	[Serializable()]
+	public partial struct ENOrdemPagamentoRequisicaoPDFEntityRecord: ISerializable, ITypedRecord<ENOrdemPagamentoRequisicaoPDFEntityRecord>, ISimpleRecord {
+		internal static readonly GlobalObjectKey IdIdOrdemPagamento = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*czI6mnyPr0C_jDYZEuWatQ");
+		internal static readonly GlobalObjectKey IdIdObraEtapa = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*4dky5h6bdE6sgX31U7eS8w");
+		internal static readonly GlobalObjectKey IdDataCriacao = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*BzTIPdRdv0qZcuoiPJwepQ");
+
+		public static void EnsureInitialized() {}
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, false, true, true)]
+		[System.Xml.Serialization.XmlElement("IdOrdemPagamento")]
+		private int _ssIdOrdemPagamento;
+		public int ssIdOrdemPagamento {
+			get {
+				return _ssIdOrdemPagamento;
+			}
+			set {
+				if ((_ssIdOrdemPagamento!=value) || OptimizedAttributes[0]) {
+					ChangedAttributes[0] = true;
+					_ssIdOrdemPagamento = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdObraEtapa", 0, false, false, true, false)]
+		[System.Xml.Serialization.XmlElement("IdObraEtapa")]
+		private int _ssIdObraEtapa;
+		public int ssIdObraEtapa {
+			get {
+				return _ssIdObraEtapa;
+			}
+			set {
+				if ((_ssIdObraEtapa!=value) || OptimizedAttributes[1]) {
+					ChangedAttributes[1] = true;
+					_ssIdObraEtapa = value;
+				}
+			}
+		}
+
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("DataCriacao", 0, false, false, false, true)]
+		[System.Xml.Serialization.XmlElement("DataCriacao")]
+		private DateTime _ssDataCriacao;
+		public DateTime ssDataCriacao {
+			get {
+				return _ssDataCriacao;
+			}
+			set {
+				if ((_ssDataCriacao!=value) || OptimizedAttributes[2]) {
+					ChangedAttributes[2] = true;
+					_ssDataCriacao = value;
+				}
+			}
+		}
+
+
+		public BitArray ChangedAttributes;
+
+		public BitArray OptimizedAttributes;
+
+		public ENOrdemPagamentoRequisicaoPDFEntityRecord(params string[] dummy) {
+			ChangedAttributes = new BitArray(3, true);
+			OptimizedAttributes = new BitArray(3, false);
+			_ssIdOrdemPagamento = 0;
+			_ssIdObraEtapa = 0;
+			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
+		}
+
+		public BitArray[] GetDefaultOptimizedValues() {
+			BitArray[] all = new BitArray[0];
+			return all;
+		}
+
+		public BitArray[] AllOptimizedAttributes {
+			set {
+				if (value == null) {
+				} else {
+				}
+			}
+			get {
+				BitArray[] all = new BitArray[0];
+				return all;
+			}
+		}
+
+		/// <summary>
+		/// Read a record from database
+		/// </summary>
+		/// <param name="r"> Data base reader</param>
+		/// <param name="index"> index</param>
+		public void Read(IDataReader r, ref int index) {
+			ssIdOrdemPagamento = r.ReadEntityReference(index++, "OrdemPagamentoRequisicaoPDF.IdOrdemPagamento", 0);
+			ssIdObraEtapa = r.ReadEntityReference(index++, "OrdemPagamentoRequisicaoPDF.IdObraEtapa", 0);
+			ssDataCriacao = r.ReadDateTime(index++, "OrdemPagamentoRequisicaoPDF.DataCriacao", new DateTime(1900, 1, 1, 0, 0, 0));
+			ChangedAttributes = new BitArray(3, false);
+			OptimizedAttributes = new BitArray(3, false);
+		}
+		/// <summary>
+		/// Read from database
+		/// </summary>
+		/// <param name="r"> Data reader</param>
+		public void ReadDB(IDataReader r) {
+			int index = 0;
+			Read(r, ref index);
+		}
+
+		/// <summary>
+		/// Read from record
+		/// </summary>
+		/// <param name="r"> Record</param>
+		public void ReadIM(ENOrdemPagamentoRequisicaoPDFEntityRecord r) {
+			this = r;
+		}
+
+
+		public static bool operator == (ENOrdemPagamentoRequisicaoPDFEntityRecord a, ENOrdemPagamentoRequisicaoPDFEntityRecord b) {
+			if (a.ssIdOrdemPagamento != b.ssIdOrdemPagamento) return false;
+			if (a.ssIdObraEtapa != b.ssIdObraEtapa) return false;
+			if (a.ssDataCriacao != b.ssDataCriacao) return false;
+			return true;
+		}
+
+		public static bool operator != (ENOrdemPagamentoRequisicaoPDFEntityRecord a, ENOrdemPagamentoRequisicaoPDFEntityRecord b) {
+			return !(a==b);
+		}
+
+		public override bool Equals(object o) {
+			if (o.GetType() != typeof(ENOrdemPagamentoRequisicaoPDFEntityRecord)) return false;
+			return (this == (ENOrdemPagamentoRequisicaoPDFEntityRecord) o);
+		}
+
+		public override int GetHashCode() {
+			try {
+				return base.GetHashCode()
+				^ ssIdOrdemPagamento.GetHashCode()
+				^ ssIdObraEtapa.GetHashCode()
+				^ ssDataCriacao.GetHashCode()
+				;
+			} catch {
+				return base.GetHashCode();
+			}
+		}
+
+		public void GetObjectData(SerializationInfo info, StreamingContext context) {
+			Type objInfo = this.GetType();
+			FieldInfo[] fields;
+			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			for (int i = 0; i < fields.Length; i++)
+			if (fields[i] .FieldType.IsSerializable)
+			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
+		}
+
+		public ENOrdemPagamentoRequisicaoPDFEntityRecord(SerializationInfo info, StreamingContext context) {
+			ChangedAttributes = new BitArray(3, true);
+			OptimizedAttributes = new BitArray(3, false);
+			_ssIdOrdemPagamento = 0;
+			_ssIdObraEtapa = 0;
+			_ssDataCriacao = new DateTime(1900, 1, 1, 0, 0, 0);
+			Type objInfo = this.GetType();
+			FieldInfo fieldInfo = null;
+			fieldInfo = objInfo.GetField("_ssIdOrdemPagamento", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdOrdemPagamento' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdOrdemPagamento = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+			fieldInfo = objInfo.GetField("_ssIdObraEtapa", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssIdObraEtapa' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssIdObraEtapa = (int) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+			fieldInfo = objInfo.GetField("_ssDataCriacao", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named '_ssDataCriacao' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				_ssDataCriacao = (DateTime) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+		}
+
+		public void RecursiveReset() {
+		}
+
+		public void InternalRecursiveSave() {
+		}
+
+
+		public ENOrdemPagamentoRequisicaoPDFEntityRecord Duplicate() {
+			ENOrdemPagamentoRequisicaoPDFEntityRecord t;
+			t._ssIdOrdemPagamento = this._ssIdOrdemPagamento;
+			t._ssIdObraEtapa = this._ssIdObraEtapa;
+			t._ssDataCriacao = this._ssDataCriacao;
+			t.ChangedAttributes = new BitArray(3);
+			t.OptimizedAttributes = new BitArray(3);
+			for (int i = 0; i < 3; i++) {
+				t.ChangedAttributes[i] = ChangedAttributes[i];
+				t.OptimizedAttributes[i] = OptimizedAttributes[i];
+			}
+			return t;
+		}
+
+		IRecord IRecord.Duplicate() {
+			return Duplicate();
+		}
+
+		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
+			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Entity");
+			if (fieldName != null) {
+				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
+				fieldName = fieldName.ToLowerInvariant();
+			}
+			if (detailLevel > 0) {
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdOrdemPagamento")) VarValue.AppendAttribute(recordElem, "IdOrdemPagamento", ssIdOrdemPagamento, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdOrdemPagamento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".IdObraEtapa")) VarValue.AppendAttribute(recordElem, "IdObraEtapa", ssIdObraEtapa, detailLevel, TypeKind.EntityReference); else VarValue.AppendOptimizedAttribute(recordElem, "IdObraEtapa");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataCriacao")) VarValue.AppendAttribute(recordElem, "DataCriacao", ssDataCriacao, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataCriacao");
+			} else {
+				VarValue.AppendDeferredEvaluationElement(recordElem);
+			}
+		}
+
+		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
+			String head = VarValue.GetHead(fields);
+			String tail = VarValue.GetTail(fields);
+			variable.Found = false;
+			if (head == "idordempagamento") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdOrdemPagamento")) variable.Value = ssIdOrdemPagamento; else variable.Optimized = true;
+			} else if (head == "idobraetapa") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".IdObraEtapa")) variable.Value = ssIdObraEtapa; else variable.Optimized = true;
+			} else if (head == "datacriacao") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".DataCriacao")) variable.Value = ssDataCriacao; else variable.Optimized = true;
+			}
+			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
+		}
+
+		public bool ChangedAttributeGet(GlobalObjectKey key) {
+			if (key.Equals(IdIdOrdemPagamento)) {
+				return ChangedAttributes[0];
+			} else if (key.Equals(IdIdObraEtapa)) {
+				return ChangedAttributes[1];
+			} else if (key.Equals(IdDataCriacao)) {
+				return ChangedAttributes[2];
+			} else {
+				throw new Exception("Invalid key");
+			}
+		}
+
+		public bool OptimizedAttributeGet(GlobalObjectKey key) {
+			if (key.Equals(IdIdOrdemPagamento)) {
+				return OptimizedAttributes[0];
+			} else if (key.Equals(IdIdObraEtapa)) {
+				return OptimizedAttributes[1];
+			} else if (key.Equals(IdDataCriacao)) {
+				return OptimizedAttributes[2];
+			} else {
+				throw new Exception("Invalid key");
+			}
+		}
+
+		public object AttributeGet(GlobalObjectKey key) {
+			if (key == IdIdOrdemPagamento) {
+				return ssIdOrdemPagamento;
+			} else if (key == IdIdObraEtapa) {
+				return ssIdObraEtapa;
+			} else if (key == IdDataCriacao) {
+				return ssDataCriacao;
+			} else {
+				throw new Exception("Invalid key");
+			}
+		}
+		public void FillFromOther(IRecord other) {
+			ChangedAttributes = new BitArray(3);
+			OptimizedAttributes = new BitArray(3);
+			if (other == null) return;
+			ssIdOrdemPagamento = (int) other.AttributeGet(IdIdOrdemPagamento);
+			ChangedAttributes[0] = other.ChangedAttributeGet(IdIdOrdemPagamento);
+			OptimizedAttributes[0] = other.OptimizedAttributeGet(IdIdOrdemPagamento);
+			ssIdObraEtapa = (int) other.AttributeGet(IdIdObraEtapa);
+			ChangedAttributes[1] = other.ChangedAttributeGet(IdIdObraEtapa);
+			OptimizedAttributes[1] = other.OptimizedAttributeGet(IdIdObraEtapa);
+			ssDataCriacao = (DateTime) other.AttributeGet(IdDataCriacao);
+			ChangedAttributes[2] = other.ChangedAttributeGet(IdDataCriacao);
+			OptimizedAttributes[2] = other.OptimizedAttributeGet(IdDataCriacao);
+		}
+		public bool IsDefault() {
+			ENOrdemPagamentoRequisicaoPDFEntityRecord defaultStruct = new ENOrdemPagamentoRequisicaoPDFEntityRecord(null);
+			if (this.ssIdOrdemPagamento != defaultStruct.ssIdOrdemPagamento) return false;
+			if (this.ssIdObraEtapa != defaultStruct.ssIdObraEtapa) return false;
+			if (this.ssDataCriacao != defaultStruct.ssDataCriacao) return false;
+			return true;
+		}
+	} // ENOrdemPagamentoRequisicaoPDFEntityRecord
+
 	public class ENOrdemPagamentoPDFEntityConfiguration {
 		private static object config;
 		private static string PhysicalTableName {
@@ -31759,7 +32149,7 @@ namespace OutSystems.NssBRGS_DB {
 		internal static readonly GlobalObjectKey IdPDFContent = GlobalObjectKey.Parse("zwC5IyHqVkGhyAD72_bXew*vOp7nSt98EeAR9h7xnrxVg");
 
 		public static void EnsureInitialized() {}
-		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, true, true, true)]
+		[OutSystems.HubEdition.RuntimePlatform.MetaInformation.EntityAttributeDetails("IdOrdemPagamento", 0, false, false, true, true)]
 		[System.Xml.Serialization.XmlElement("IdOrdemPagamento")]
 		private int _ssIdOrdemPagamento;
 		public int ssIdOrdemPagamento {
@@ -31768,7 +32158,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			set {
 				if ((_ssIdOrdemPagamento!=value) || OptimizedAttributes[0]) {
-					ChangedAttributes = new BitArray(2, true);
+					ChangedAttributes[0] = true;
 					_ssIdOrdemPagamento = value;
 				}
 			}

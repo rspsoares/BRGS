@@ -30718,7 +30718,7 @@ namespace OutSystems.NssBRGS_DB {
 		/// <param name="index"> index</param>
 		public void Read(IDataReader r, ref int index) {
 			ssNumeroOP = r.ReadText(index++, "VW_Dashboard_OPsVencimento.NumeroOP", "");
-			ssDataVencimento = r.ReadDate(index++, "VW_Dashboard_OPsVencimento.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
+			ssDataVencimento = r.ReadDateTime(index++, "VW_Dashboard_OPsVencimento.DataVencimento", new DateTime(1900, 1, 1, 0, 0, 0));
 			ssValor = r.ReadDecimal(index++, "VW_Dashboard_OPsVencimento.Valor", 0.0M);
 			ChangedAttributes = new BitArray(3, false);
 			OptimizedAttributes = new BitArray(3, false);
@@ -30842,7 +30842,7 @@ namespace OutSystems.NssBRGS_DB {
 			}
 			if (detailLevel > 0) {
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".NumeroOP")) VarValue.AppendAttribute(recordElem, "NumeroOP", ssNumeroOP, detailLevel, TypeKind.Text); else VarValue.AppendOptimizedAttribute(recordElem, "NumeroOP");
-				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.Date); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");
+				if (!VarValue.FieldIsOptimized(parent, fieldName + ".DataVencimento")) VarValue.AppendAttribute(recordElem, "DataVencimento", ssDataVencimento, detailLevel, TypeKind.DateTime); else VarValue.AppendOptimizedAttribute(recordElem, "DataVencimento");
 				if (!VarValue.FieldIsOptimized(parent, fieldName + ".Valor")) VarValue.AppendAttribute(recordElem, "Valor", ssValor, detailLevel, TypeKind.Decimal); else VarValue.AppendOptimizedAttribute(recordElem, "Valor");
 			} else {
 				VarValue.AppendDeferredEvaluationElement(recordElem);

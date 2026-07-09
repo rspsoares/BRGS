@@ -10851,7 +10851,7 @@ namespace OutSystems.NssBRGS_DB {
 
 		public BitArray[] GetDefaultOptimizedValues() {
 			BitArray[] all = new BitArray[1];
-			all[0] = new BitArray(3, false);
+			all[0] = new BitArray(4, false);
 			return all;
 		}
 
@@ -11411,6 +11411,206 @@ namespace OutSystems.NssBRGS_DB {
 			return true;
 		}
 	} // RCVW_Dashboard_OPs_CategoriaRecord
+
+	/// <summary>
+	/// Structure <code>RCOrdemPagamentoRequisicaoPDFRecord</code>
+	/// </summary>
+	[Serializable()]
+	public partial struct RCOrdemPagamentoRequisicaoPDFRecord: ISerializable, ITypedRecord<RCOrdemPagamentoRequisicaoPDFRecord> {
+		internal static readonly GlobalObjectKey IdOrdemPagamentoRequisicaoPDF = GlobalObjectKey.Parse("2UmDmepsh0WSfJ_D1JexCA*47hWzMKkZjsLfBzV1xMVOA");
+
+		public static void EnsureInitialized() {}
+		[System.Xml.Serialization.XmlElement("OrdemPagamentoRequisicaoPDF")]
+		public ENOrdemPagamentoRequisicaoPDFEntityRecord ssENOrdemPagamentoRequisicaoPDF;
+
+
+		public static implicit operator ENOrdemPagamentoRequisicaoPDFEntityRecord(RCOrdemPagamentoRequisicaoPDFRecord r) {
+			return r.ssENOrdemPagamentoRequisicaoPDF;
+		}
+
+		public static implicit operator RCOrdemPagamentoRequisicaoPDFRecord(ENOrdemPagamentoRequisicaoPDFEntityRecord r) {
+			RCOrdemPagamentoRequisicaoPDFRecord res = new RCOrdemPagamentoRequisicaoPDFRecord(null);
+			res.ssENOrdemPagamentoRequisicaoPDF = r;
+			return res;
+		}
+
+		public BitArray ChangedAttributes {
+			set {
+				ssENOrdemPagamentoRequisicaoPDF.ChangedAttributes = value;
+			}
+			get {
+				return ssENOrdemPagamentoRequisicaoPDF.ChangedAttributes;
+			}
+		}
+		public BitArray OptimizedAttributes;
+
+		public RCOrdemPagamentoRequisicaoPDFRecord(params string[] dummy) {
+			OptimizedAttributes = null;
+			ssENOrdemPagamentoRequisicaoPDF = new ENOrdemPagamentoRequisicaoPDFEntityRecord(null);
+		}
+
+		public BitArray[] GetDefaultOptimizedValues() {
+			BitArray[] all = new BitArray[1];
+			all[0] = new BitArray(3, false);
+			return all;
+		}
+
+		public BitArray[] AllOptimizedAttributes {
+			set {
+				if (value == null) {
+					ssENOrdemPagamentoRequisicaoPDF.OptimizedAttributes = GetDefaultOptimizedValues()[0];
+				} else {
+					ssENOrdemPagamentoRequisicaoPDF.OptimizedAttributes = value[0];
+				}
+			}
+			get {
+				BitArray[] all = new BitArray[1];
+				all[0] = ssENOrdemPagamentoRequisicaoPDF.OptimizedAttributes;
+				return all;
+			}
+		}
+
+		/// <summary>
+		/// Read a record from database
+		/// </summary>
+		/// <param name="r"> Data base reader</param>
+		/// <param name="index"> index</param>
+		public void Read(IDataReader r, ref int index) {
+			ssENOrdemPagamentoRequisicaoPDF.Read(r, ref index);
+		}
+		/// <summary>
+		/// Read from database
+		/// </summary>
+		/// <param name="r"> Data reader</param>
+		public void ReadDB(IDataReader r) {
+			int index = 0;
+			Read(r, ref index);
+		}
+
+		/// <summary>
+		/// Read from record
+		/// </summary>
+		/// <param name="r"> Record</param>
+		public void ReadIM(RCOrdemPagamentoRequisicaoPDFRecord r) {
+			this = r;
+		}
+
+
+		public static bool operator == (RCOrdemPagamentoRequisicaoPDFRecord a, RCOrdemPagamentoRequisicaoPDFRecord b) {
+			if (a.ssENOrdemPagamentoRequisicaoPDF != b.ssENOrdemPagamentoRequisicaoPDF) return false;
+			return true;
+		}
+
+		public static bool operator != (RCOrdemPagamentoRequisicaoPDFRecord a, RCOrdemPagamentoRequisicaoPDFRecord b) {
+			return !(a==b);
+		}
+
+		public override bool Equals(object o) {
+			if (o.GetType() != typeof(RCOrdemPagamentoRequisicaoPDFRecord)) return false;
+			return (this == (RCOrdemPagamentoRequisicaoPDFRecord) o);
+		}
+
+		public override int GetHashCode() {
+			try {
+				return base.GetHashCode()
+				^ ssENOrdemPagamentoRequisicaoPDF.GetHashCode()
+				;
+			} catch {
+				return base.GetHashCode();
+			}
+		}
+
+		public void GetObjectData(SerializationInfo info, StreamingContext context) {
+			Type objInfo = this.GetType();
+			FieldInfo[] fields;
+			fields = objInfo.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			for (int i = 0; i < fields.Length; i++)
+			if (fields[i] .FieldType.IsSerializable)
+			info.AddValue(fields[i] .Name, fields[i] .GetValue(this));
+		}
+
+		public RCOrdemPagamentoRequisicaoPDFRecord(SerializationInfo info, StreamingContext context) {
+			OptimizedAttributes = null;
+			ssENOrdemPagamentoRequisicaoPDF = new ENOrdemPagamentoRequisicaoPDFEntityRecord(null);
+			Type objInfo = this.GetType();
+			FieldInfo fieldInfo = null;
+			fieldInfo = objInfo.GetField("ssENOrdemPagamentoRequisicaoPDF", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+			if (fieldInfo == null) {
+				throw new Exception("The field named 'ssENOrdemPagamentoRequisicaoPDF' was not found.");
+			}
+			if (fieldInfo.FieldType.IsSerializable) {
+				ssENOrdemPagamentoRequisicaoPDF = (ENOrdemPagamentoRequisicaoPDFEntityRecord) info.GetValue(fieldInfo.Name, fieldInfo.FieldType);
+			}
+		}
+
+		public void RecursiveReset() {
+			ssENOrdemPagamentoRequisicaoPDF.RecursiveReset();
+		}
+
+		public void InternalRecursiveSave() {
+			ssENOrdemPagamentoRequisicaoPDF.InternalRecursiveSave();
+		}
+
+
+		public RCOrdemPagamentoRequisicaoPDFRecord Duplicate() {
+			RCOrdemPagamentoRequisicaoPDFRecord t;
+			t.ssENOrdemPagamentoRequisicaoPDF = (ENOrdemPagamentoRequisicaoPDFEntityRecord) this.ssENOrdemPagamentoRequisicaoPDF.Duplicate();
+			t.OptimizedAttributes = null;
+			return t;
+		}
+
+		IRecord IRecord.Duplicate() {
+			return Duplicate();
+		}
+
+		public void ToXml(Object parent, System.Xml.XmlElement baseElem, String fieldName, int detailLevel) {
+			System.Xml.XmlElement recordElem = VarValue.AppendChild(baseElem, "Record");
+			if (fieldName != null) {
+				VarValue.AppendAttribute(recordElem, "debug.field", fieldName);
+			}
+			if (detailLevel > 0) {
+				ssENOrdemPagamentoRequisicaoPDF.ToXml(this, recordElem, "OrdemPagamentoRequisicaoPDF", detailLevel - 1);
+			} else {
+				VarValue.AppendDeferredEvaluationElement(recordElem);
+			}
+		}
+
+		public void EvaluateFields(VarValue variable, Object parent, String baseName, String fields) {
+			String head = VarValue.GetHead(fields);
+			String tail = VarValue.GetTail(fields);
+			variable.Found = false;
+			if (head == "ordempagamentorequisicaopdf") {
+				if (!VarValue.FieldIsOptimized(parent, baseName + ".OrdemPagamentoRequisicaoPDF")) variable.Value = ssENOrdemPagamentoRequisicaoPDF; else variable.Optimized = true;
+				variable.SetFieldName("ordempagamentorequisicaopdf");
+			}
+			if (variable.Found && tail != null) variable.EvaluateFields(this, head, tail);
+		}
+
+		public bool ChangedAttributeGet(GlobalObjectKey key) {
+			return ssENOrdemPagamentoRequisicaoPDF.ChangedAttributeGet(key);
+		}
+
+		public bool OptimizedAttributeGet(GlobalObjectKey key) {
+			return ssENOrdemPagamentoRequisicaoPDF.OptimizedAttributeGet(key);
+		}
+
+		public object AttributeGet(GlobalObjectKey key) {
+			if (key == IdOrdemPagamentoRequisicaoPDF) {
+				return ssENOrdemPagamentoRequisicaoPDF;
+			} else {
+				throw new Exception("Invalid key");
+			}
+		}
+		public void FillFromOther(IRecord other) {
+			if (other == null) return;
+			ssENOrdemPagamentoRequisicaoPDF.FillFromOther((IRecord) other.AttributeGet(IdOrdemPagamentoRequisicaoPDF));
+		}
+		public bool IsDefault() {
+			RCOrdemPagamentoRequisicaoPDFRecord defaultStruct = new RCOrdemPagamentoRequisicaoPDFRecord(null);
+			if (this.ssENOrdemPagamentoRequisicaoPDF != defaultStruct.ssENOrdemPagamentoRequisicaoPDF) return false;
+			return true;
+		}
+	} // RCOrdemPagamentoRequisicaoPDFRecord
 
 	/// <summary>
 	/// Structure <code>RCOrdemPagamentoPDFRecord</code>
