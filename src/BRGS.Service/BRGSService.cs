@@ -7,6 +7,7 @@ using System;
 using System.Configuration;
 using System.ServiceProcess;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace BRGS.Service
 {
@@ -63,11 +64,15 @@ namespace BRGS.Service
                     {
                         try
                         {
+                            var pdfContent = string.Empty;
+
                             log.Info($"[GerarPDFTabelaOP] Processando OP Id: {op.IdOrdemPagamento}");
 
                             ordemPagamento.AtualizarDataPagamentoSQLNullDate(op.IdOrdemPagamento);
 
-                            var pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);
+                            RetryOnException(2, TimeSpan.FromSeconds(10), () => {
+                                pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);
+                            });
 
                             if (!string.IsNullOrEmpty(pdfContent))
                                 ordemPagamento.InserirOrdemPagamentoPDF(op.IdOrdemPagamento, pdfContent);
@@ -91,6 +96,29 @@ namespace BRGS.Service
         protected override void OnStop()
         {
             timerTabelaOP.Dispose();
+        }
+
+        private void RetryOnException(int times, TimeSpan delay, Action operation)
+        {
+            var attempts = 0;
+            do
+            {
+                try
+                {
+                    attempts++;
+                    operation();
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"[GerarPDFTabelaOP] Retry - Erro: {ex.Message} - {ex.InnerException}");
+
+                    if (attempts == times)
+                        throw;
+
+                    Task.Delay(delay).Wait();
+                }
+            } while (true);
         }
 
         public void Debug()

@@ -943,8 +943,6 @@ namespace BRGS.BIZ
 
                 throw ex;
             }
-
-
         }
 
         public void InserirOrdemPagamentoPDF(int idOP, string pdfContent)
