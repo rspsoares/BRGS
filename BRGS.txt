@@ -12,6 +12,12 @@ Password: BRGS10
 
 C:\_Rodrigo\BRGS\OutSystems\Certificado_iOS
 
+--------------
+Gerar provision
+
+UDID: 00008150-00016D98142B401C
+Bianca
+
 
 -----------------------------
 

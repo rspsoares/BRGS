@@ -7,7 +7,6 @@ using System;
 using System.Configuration;
 using System.ServiceProcess;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace BRGS.Service
 {
@@ -27,31 +26,54 @@ namespace BRGS.Service
 
         protected override void OnStart(string[] args)
         {   
-            timerTabelaOP = new Timer(new TimerCallback(ProcessTabelaOPCallback), null, (int)TimeSpan.FromSeconds(2).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobTabelaOPInterval")).TotalMilliseconds);
+            timerGerarPDFOP = new Timer(new TimerCallback(ProcessGerarPDFOPCallback), null, (int)TimeSpan.FromSeconds(2).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobGerarPDFOPInterval")).TotalMilliseconds);
+            timerRetryGerarPDFOP = new Timer(new TimerCallback(ProcessRetryGerarPDFOPCallback), null, (int)TimeSpan.FromSeconds(3).TotalMilliseconds, (int)TimeSpan.FromSeconds(_helper.ConfigurationGet<int>("JobRetryGerarPDFOPInterval")).TotalMilliseconds);
         }
 
-        private void ProcessTabelaOPCallback(object state)
+        private void ProcessRetryGerarPDFOPCallback(object state)
         {
-            if (jobTabelaOPLock)
+            if (jobRetryGerarPDFOPLock)
                 return;
 
-            jobTabelaOPLock = true;
+            jobRetryGerarPDFOPLock = true;
 
             try
             {
-                GerarPDFTabelaOP();
+                var ordemPagamento = new BIZOrdemPagamento();
+                ordemPagamento.RetryGerarPDF();
             }
             catch (Exception ex)
             {
-                log.Error($"[ProcessTabelaOPCallback] Erro: {ex.Message} - {ex.InnerException}");
+                log.Error($"[ProcessRetryGerarPDFOPCallback] Erro: {ex.Message} - {ex.InnerException}");
             }
             finally
             {
-                jobTabelaOPLock = false;
+                jobRetryGerarPDFOPLock = false;
             }
         }
 
-        private void GerarPDFTabelaOP()
+        private void ProcessGerarPDFOPCallback(object state)
+        {
+            if (jobGerarPDFOPLock)
+                return;
+
+            jobGerarPDFOPLock = true;
+
+            try
+            {                
+                GerarPDFOP();
+            }
+            catch (Exception ex)
+            {
+                log.Error($"[ProcessGerarPDFOPCallback] Erro: {ex.Message} - {ex.InnerException}");
+            }
+            finally
+            {
+                jobGerarPDFOPLock = false;
+            }
+        }
+
+        private void GerarPDFOP()
         {
             try
             {
@@ -70,14 +92,15 @@ namespace BRGS.Service
 
                             ordemPagamento.AtualizarDataPagamentoSQLNullDate(op.IdOrdemPagamento);
 
-                            RetryOnException(2, TimeSpan.FromSeconds(10), () => {
-                                pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);
-                            });
+                            pdfContent = crystalReportsHelper.ExportarOP2PDF(op.IdOrdemPagamento, op.IdObraEtapa);                            
 
                             if (!string.IsNullOrEmpty(pdfContent))
                                 ordemPagamento.InserirOrdemPagamentoPDF(op.IdOrdemPagamento, pdfContent);
-                            else                            
+                            else
+                            {
+                                log.Warn($"Não foi possível gerar o PDF da OP ID: {op.IdOrdemPagamento}");
                                 ordemPagamento.AtualizarOPNaoGerarPDF(op.IdOrdemPagamento);
+                            }                                
     
                             log.Info($"[GerarPDFTabelaOP] OP Id: {op.IdOrdemPagamento} processado com sucesso.");
                         }
@@ -95,35 +118,40 @@ namespace BRGS.Service
 
         protected override void OnStop()
         {
-            timerTabelaOP.Dispose();
+            timerGerarPDFOP.Dispose();
+            timerRetryGerarPDFOP.Dispose();
         }
 
-        private void RetryOnException(int times, TimeSpan delay, Action operation)
-        {
-            var attempts = 0;
-            do
-            {
-                try
-                {
-                    attempts++;
-                    operation();
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    log.Error($"[GerarPDFTabelaOP] Retry - Erro: {ex.Message} - {ex.InnerException}");
+        //private void RetryOnException(int times, TimeSpan delay, Action operation)
+        //{
+        //    var attempts = 0;
+        //    do
+        //    {
+        //        try
+        //        {
+        //            attempts++;
+        //            operation();
+        //            break;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            log.Error($"[GerarPDFTabelaOP] Retry - Erro: {ex.Message} - {ex.InnerException}");
 
-                    if (attempts == times)
-                        throw;
+        //            if (attempts == times)
+        //                throw;
 
-                    Task.Delay(delay).Wait();
-                }
-            } while (true);
-        }
+        //            Task.Delay(delay).Wait();
+        //        }
+        //    } while (true);
+        //}
 
         public void Debug()
-        {         
-            GerarPDFTabelaOP();            
+        {
+            ProcessGerarPDFOPCallback(null);
+            //ProcessRetryGerarPDFOPCallback(null);
+
+            //Retry:
+            //UPDATE  OrdemPagamento SET GerarOPPdf = 1 WHERE << DataCriação >= 2026 and GerarOPPdf = 0
         }
     }
 }

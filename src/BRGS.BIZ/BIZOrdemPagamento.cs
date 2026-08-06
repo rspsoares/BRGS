@@ -880,6 +880,31 @@ namespace BRGS.BIZ
 
             return dtOP;
         }
+        public void RetryGerarPDF()
+        {
+            try
+            {
+                DataAccess dao = new DataAccess();
+                dao.Executar("SP_ORDEMPAGAMENTO_RETRY_GERARPDF", new Dictionary<string, string>());
+            }
+            catch (Exception ex)
+            {
+                string parametrosSQL = string.Empty;
+                parametrosSQL = helper.ConcatenarParametrosSQL(new Dictionary<string, string>());
+
+                LogErro log = new LogErro()
+                {
+                    procedureSQL = "SP_ORDEMPAGAMENTO_RETRY_GERARPDF",
+                    parametrosSQL = parametrosSQL,
+                    mensagemErro = ex.ToString()
+                };
+
+                bizLogErro.IncluirLogErro(log);
+
+                throw ex;
+            }
+
+        }
 
         public List<OrdemPagamentoRequisicaoDTO> PesquisarOrdemPagamentoSemPDF()
         {

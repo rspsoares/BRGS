@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{7E644CEE-9071-48EC-B0A4-1301A374B366}|BRGS.BIZ\\BRGS.BIZ.csproj|solutionrelative:brgs.biz\\bizordempagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|c:\\_rodrigo\\brgs\\src\\brgs.ui\\relatorios\\crystalreportshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\relatorios\\crystalreportshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|c:\\_rodrigo\\brgs\\src\\brgs.service\\brgsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|solutionrelative:brgs.service\\brgsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|c:\\_rodrigo\\brgs\\src\\brgs.service\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|solutionrelative:brgs.service\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|c:\\_rodrigo\\brgs\\src\\brgs.service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|solutionrelative:brgs.service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|C:\\_Rodrigo\\BRGS\\src\\brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2082193-B66B-4E52-A458-A776183B7EA3}|BRGS.UI\\BRGS.UI.csproj|solutionrelative:brgs.ui\\ordempagamentorelatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|c:\\_rodrigo\\brgs\\src\\brgs.service\\brgsservice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4FEAD4F-ABED-4796-AFFA-5EDE4B0A1332}|BRGS.Service\\BRGS.Service.csproj|solutionrelative:brgs.service\\brgsservice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,6 +28,20 @@
           "DockedWidth": 1131,
           "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\App.config",
+              "RelativeDocumentMoniker": "BRGS.Service\\App.config",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\App.config",
+              "RelativeToolTip": "BRGS.Service\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-08-06T06:48:40.036Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -47,27 +57,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NLog.config",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\NLog.config",
-              "RelativeDocumentMoniker": "BRGS.Service\\NLog.config",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\NLog.config",
-              "RelativeToolTip": "BRGS.Service\\NLog.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-08-03T07:13:25.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CrystalReportsHelper.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\CrystalReportsHelper.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\Relatorios\\CrystalReportsHelper.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\Relatorios\\CrystalReportsHelper.cs",
-              "RelativeToolTip": "BRGS.UI\\Relatorios\\CrystalReportsHelper.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAmwCMAAAAMAAAAAAAAAA==",
+              "Title": "BRGSService.Designer.cs",
+              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\BRGSService.Designer.cs",
+              "RelativeDocumentMoniker": "BRGS.Service\\BRGSService.Designer.cs",
+              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\BRGSService.Designer.cs",
+              "RelativeToolTip": "BRGS.Service\\BRGSService.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-03T06:37:52.927Z",
+              "WhenOpened": "2026-08-06T06:58:44.501Z",
               "EditorCaption": ""
             },
             {
@@ -78,32 +75,20 @@
               "RelativeDocumentMoniker": "BRGS.BIZ\\BIZOrdemPagamento.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.BIZ\\BIZOrdemPagamento.cs",
               "RelativeToolTip": "BRGS.BIZ\\BIZOrdemPagamento.cs",
-              "ViewState": "AgIAAKwDAAAAAAAAAAAAwLADAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAHADAAAAAAAAAAAiwHgDAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-06T05:52:46.598Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrdemPagamentoRelatorio.cs",
-              "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "RelativeDocumentMoniker": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "RelativeToolTip": "BRGS.UI\\OrdemPagamentoRelatorio.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAYwFMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T05:46:51.562Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "BRGSService.cs",
               "DocumentMoniker": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\BRGSService.cs",
               "RelativeDocumentMoniker": "BRGS.Service\\BRGSService.cs",
               "ToolTip": "C:\\_Rodrigo\\BRGS\\src\\BRGS.Service\\BRGSService.cs",
               "RelativeToolTip": "BRGS.Service\\BRGSService.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAmwEgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAFIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-22T16:53:30.185Z",
               "EditorCaption": ""
